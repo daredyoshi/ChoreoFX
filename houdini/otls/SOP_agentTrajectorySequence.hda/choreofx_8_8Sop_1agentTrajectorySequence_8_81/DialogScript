@@ -1,0 +1,196 @@
+# Dialog script for choreofx::agentTrajectorySequence::1 automatically generated
+
+{
+    name	choreofx::agentTrajectorySequence::1
+    script	choreofx::agentTrajectorySequence::1
+    label	"Agent Trajectory Sequence"
+
+    help {
+	""
+    }
+
+    inputlabel	1	"Clip Trajectories"
+    inputlabel	2	"Agent Primitives"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+    outputlabel	1	Trajectory
+    outputlabel	2	"Agent Primitives"
+
+    parm {
+        name    "agentname"
+        label   "Agent Name"
+        type    string
+        default { "" }
+        menureplace {
+            [ "from choreofx.hda.menu_list import MenuListCreator" ]
+            [ "" ]
+            [ "return MenuListCreator(" ]
+            [ "    node=kwargs[\"node\"], input=1" ]
+            [ "    ).agent_names()" ]
+            language python
+        }
+        parmtag { "script_callback_language" "python" }
+    }
+    multiparm {
+        name    "sequencelen"
+        label    "Sequence"
+        hidewhen "{ use_detail_attribs == 1 }"
+
+        parm {
+            name    "trajname_#"
+            label   "Traj Name #"
+            type    string
+            default { "" }
+            menureplace {
+                [ "from choreofx.hda.menu_list import MenuListCreator" ]
+                [ "node = kwargs[\"node\"]" ]
+                [ "agentname = node.parm(\"agentname\").eval()" ]
+                [ "" ]
+                [ "if agentname:" ]
+                [ "    return MenuListCreator(" ]
+                [ "        node=kwargs[\"node\"], " ]
+                [ "        ).traj_names(" ]
+                [ "        agentnames = [agentname]" ]
+                [ "        )" ]
+                [ "else:" ]
+                [ "    return []" ]
+                language python
+            }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "traj_begin_#"
+            label   "Begin"
+            type    float
+            default { "0" }
+            range   { 0 10 }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "traj_end_#"
+            label   "End"
+            type    float
+            default { "1" }
+            range   { 0 10 }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "hiddenidx_#"
+            label   "Idx"
+            type    integer
+            invisible
+            default { [ "int(substr($CH,rindex($CH,\"_\")+1, 1000000000))" hscript-expr ] }
+            range   { 0 10 }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "transition_type_#"
+            label   "Transition Type"
+            type    string
+            default { "linear" }
+            hidewhen "{ hiddenidx_# == 1 }"
+            menu {
+                "none"      "None"
+                "linear"    "Linear"
+            }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "transition_time_#"
+            label   "Transition time to Next Clip"
+            type    float
+            default { "0.1" }
+            hidewhen "{ transition_type_# == none } { hiddenidx_# == 1 }"
+            range   { 0 10 }
+            parmtag { "script_callback_language" "python" }
+        }
+    }
+
+    parm {
+        name    "use_detail_attribs"
+        label   "Use Detail Attribs instead of UI"
+        type    toggle
+        joinnext
+        default { "0" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "debugcolors"
+        label   "Debug Color per Seg"
+        type    toggle
+        default { "0" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "detail_attrib_geo"
+        label   "Geo with Detail Attribs"
+        type    oppath
+        default { "" }
+        hidewhen "{ use_detail_attribs == 0 }"
+        parmtag { "opfilter" "!!SOP!!" }
+        parmtag { "oprelative" "." }
+        parmtag { "script_callback_language" "python" }
+    }
+    groupsimple {
+        name    "xn__attribnames_2ka"
+        label   "Attrib Names"
+        hidewhen "{ use_detail_attribs == 0 }"
+
+        parm {
+            name    "labelparm"
+            label   "Label"
+            type    label
+            nolabel
+            default { "Each Attrib expected in format name_1" }
+        }
+        parm {
+            name    "detail_sequence_len_attrib_name"
+            label   "Sequence Len"
+            type    string
+            default { "seq_len" }
+            hidewhen "{ use_detail_attribs == 0 }"
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "detail_name_attrib_name"
+            label   "Clipname Prefix"
+            type    string
+            default { "seq_clip_" }
+            hidewhen "{ use_detail_attribs == 0 }"
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "detail_begin_attrib_name"
+            label   "Begin Prefix"
+            type    string
+            default { "seq_begin_" }
+            hidewhen "{ use_detail_attribs == 0 }"
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "detail_end_attrib_name"
+            label   "End Prefix"
+            type    string
+            default { "seq_end_" }
+            hidewhen "{ use_detail_attribs == 0 }"
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "detail_transition_type_attrib_name"
+            label   "Transition Type Prefix"
+            type    string
+            default { "seq_transition_type_" }
+            hidewhen "{ use_detail_attribs == 0 }"
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "detail_transition_len_attrib_name"
+            label   "Transition Len Prefix"
+            type    string
+            default { "seq_transition_len_" }
+            hidewhen "{ use_detail_attribs == 0 }"
+            parmtag { "script_callback_language" "python" }
+        }
+    }
+
+}

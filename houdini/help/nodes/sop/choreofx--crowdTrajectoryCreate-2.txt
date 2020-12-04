@@ -1,0 +1,29 @@
+= Crowd Trajectory Create =
+#icon: /Icons/ChoreoFX.svg
+#tags: crowds, agents, ChoreoFX
+
+"""Documentation is Coming soon!"""
+
+This is placeholder documentation for Crowd Trajectory Create
+
+@parameters
+
+== Crowd Trajectory Create ==
+Start Frame:
+	#id: startFrame
+	ToDo
+
+End Frame:
+	#id: endFrame
+	ToDo
+
+
+@inputs
+
+Placeholder:
+    Description of input
+
+@outputs
+
+Placeholder:
+    Description of output

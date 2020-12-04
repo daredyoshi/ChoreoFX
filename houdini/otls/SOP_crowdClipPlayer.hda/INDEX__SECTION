@@ -1,0 +1,14 @@
+Operator:     choreofx::crowdClipPlayer::1
+Label:        Crowd Clip Player
+Path:         oplib:/choreofx::Sop/crowdClipPlayer::1?choreofx::Sop/crowdClipPlayer::1
+Icon:         ChoreoFX
+Table:        Sop
+License:      
+Extra:        
+User:         
+Inputs:       1 to 1
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Thu Dec  3 10:34:00 2020
+

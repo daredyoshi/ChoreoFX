@@ -1,0 +1,15 @@
+Operator:     choreofx::crowdAttributeRandomize::2
+Label:        Crowd Attribute Randomize
+Path:         oplib:/choreofx::Sop/crowdAttributeRandomize::2?choreofx::Sop/crowdAttributeRandomize::2
+Icon:         ChoreoFX
+Table:        Sop
+License:      
+Extra:        
+User:         
+Inputs:       1 to 1
+Outputs:      2
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Thu Dec  3 11:19:50 2020
+

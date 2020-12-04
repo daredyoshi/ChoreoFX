@@ -1,0 +1,52 @@
+# Dialog script for choreofx::agentClipTrajectoryCreate::1 automatically generated
+
+{
+    name	choreofx::agentClipTrajectoryCreate::1
+    script	choreofx::agentClipTrajectoryCreate::1
+    label	"Agent Clip Trajectory Create"
+
+    help {
+	""
+    }
+
+    inputlabel	1	"Agent Templates"
+    inputlabel	2	"Sub-Network Input #2"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+    outputlabel	1	Trajectories
+    outputlabel	2	"Agent Primitives"
+
+    parm {
+        name    "agentnames"
+        label   "Agentnames"
+        type    string
+        default { "*" }
+        menutoggle {
+            [ "from choreofx.hda.menu_list import MenuListCreator" ]
+            [ "" ]
+            [ "return MenuListCreator(" ]
+            [ "    node=kwargs[\"node\"], " ]
+            [ "    ).agent_names()" ]
+            language python
+        }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "clipnames"
+        label   "Clipnames"
+        type    string
+        default { "*" }
+        menutoggle {
+            [ "from choreofx.hda.menu_list import MenuListCreator" ]
+            [ "node=kwargs[\"node\"]" ]
+            [ "agentnames = node.parm(\"agentnames\").eval()" ]
+            [ "" ]
+            [ "" ]
+            [ "return MenuListCreator(" ]
+            [ "    node=kwargs[\"node\"], " ]
+            [ "    ).clip_names(agentnames=agentnames)" ]
+            language python
+        }
+        parmtag { "script_callback_language" "python" }
+    }
+}

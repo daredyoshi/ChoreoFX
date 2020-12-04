@@ -1,0 +1,151 @@
+# Dialog script for choreofx::crowdTrajectorySolver::1 automatically generated
+
+{
+    name	choreofx::crowdTrajectorySolver::1
+    script	choreofx::crowdTrajectorySolver::1
+    label	"Crowd Trajectory Solver"
+
+    help {
+	""
+    }
+
+    inputlabel	1	"Clip Trajectories"
+    inputlabel	2	"Agent Primitive"
+    inputlabel	3	"Target Path"
+    inputlabel	4	"Agent Clip Transition Graph "
+    outputlabel	1	"Agent Trajectory"
+    outputlabel	2	"Agent Primitive"
+
+    groupsimple {
+        name    "weights"
+        label   "Weights"
+
+        parm {
+            name    "path_location_weight"
+            label   "Position"
+            type    float
+            default { "1" }
+            range   { 0 1 }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "transition_graph_weight"
+            label   "Transition Graph"
+            type    float
+            default { "1" }
+            range   { 0 1 }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "rand_weight"
+            label   "Random Weight"
+            type    float
+            default { "1" }
+            range   { 0 1 }
+            parmtag { "script_callback_language" "python" }
+        }
+    }
+
+    parm {
+        name    "deform_to_path"
+        label   "Deform to Path"
+        type    toggle
+        invisible
+        joinnext
+        default { "0" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "only_transition_graph"
+        label   "Use only Transition Graph Transitions"
+        type    toggle
+        invisible
+        joinnext
+        default { "0" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "use_transition_region"
+        label   "Use Transition Region (if Transition Graph)"
+        type    toggle
+        default { "1" }
+        disablewhen "{ use_transition_graph == 0 }"
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "minlen"
+        label   "Minimum Seg len (to match motion graph)"
+        type    float
+        default { "1" }
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "transitionType"
+        label   "Transition Type"
+        type    string
+        joinnext
+        default { "planted" }
+        menu {
+            "none"      "None"
+            "linear"    "Linear"
+            "planted"   "Planted"
+        }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "transitionlen"
+        label   "Len"
+        type    integer
+        joinnext
+        default { "4" }
+        range   { 1! 30 }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "flatten_pos"
+        label   "Flatten Pos"
+        type    toggle
+        default { "on" }
+        hidewhen "{ transitionType != planted }"
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "maxiterations"
+        label   "Max Iterations"
+        type    integer
+        default { "100" }
+        range   { 0 1000 }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "use_transition_graph"
+        label   "Label"
+        type    integer
+        invisible
+        nolabel
+        default { [ "strcmp(opinputpath(\".\", 3), \"\")" hscript-expr ] }
+        range   { 0 10 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "autoselect" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "auto_first_planted"
+        label   "auto_first_planted"
+        type    integer
+        invisible
+        default { "1" }
+        hidewhen "{ transitionType != planted }"
+        menu {
+            "0" "Last Planted Foot"
+            "1" "First Planted Foot"
+        }
+        range   { 0! 1! }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+}

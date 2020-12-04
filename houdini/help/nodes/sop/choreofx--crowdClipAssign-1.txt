@@ -1,0 +1,96 @@
+= Crowd Clip Assign =
+#icon: /Icons/ChoreoFX.svg
+#tags: crowds, agents, ChoreoFX
+
+"""Documentation is Coming soon!"""
+
+This is placeholder documentation for Crowd Clip Assign
+
+@parameters
+
+Source:
+	#id: source
+	ToDo
+
+Loop Method:
+	#id: loopMethod
+	ToDo
+
+Loop Range:
+	#id: loopRange
+	ToDo
+
+Start:
+	#id: start
+	ToDo
+
+End:
+	#id: end
+	ToDo
+
+Start:
+	#id: frStart
+	ToDo
+
+End:
+	#id: frEnd
+	ToDo
+
+== Clips Assign ==
+Agent Group:
+	#id: agentgroup
+	ToDo
+
+Group Type:
+	#id: grouptype
+	ToDo
+
+Seed Attribute:
+	#id: seedAttrib
+	ToDo
+
+Set Current Clip:
+	#id: setSingleClip
+	ToDo
+
+Randomize Clips:
+	#id: randomizeClips
+	ToDo
+
+Random Seed:
+	#id: randomClipSeed
+	ToDo
+
+== Clip List ==
+== Clip Groups ==
+Clip Pattern:
+	#id: clipPattern_#
+	ToDo
+
+Weight:
+	#id: clipWeight_#
+	ToDo
+
+== Manual Clip Edits ==
+Enable:
+	#id: manualEnable_#
+	ToDo
+
+Affected Group:
+	#id: manualGroup_#
+	ToDo
+
+Clip:
+	#id: manualClipName_#
+	ToDo
+
+
+@inputs
+
+Placeholder:
+    Description of input
+
+@outputs
+
+Placeholder:
+    Description of output

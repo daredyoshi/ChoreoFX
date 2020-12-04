@@ -1,0 +1,14 @@
+Operator:     choreofx::crowdVignetteAssign::2
+Label:        Crowd Vignette Assign
+Path:         oplib:/choreofx::Sop/crowdVignetteAssign::2?choreofx::Sop/crowdVignetteAssign::2
+Icon:         ChoreoFX
+Table:        Sop
+License:      
+Extra:        
+User:         
+Inputs:       1 to 2
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Thu Dec  3 10:18:46 2020
+

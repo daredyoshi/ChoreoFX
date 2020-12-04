@@ -1,0 +1,93 @@
+= Crowd Joint Point Transform =
+#icon: /Icons/ChoreoFX.svg
+#tags: crowds, agents, ChoreoFX
+
+"""Documentation is Coming soon!"""
+
+This is placeholder documentation for Crowd Joint Point Transform
+
+@parameters
+
+Group:
+	#id: group
+	ToDo
+
+Xform Space:
+	#id: xformspace
+	ToDo
+
+Save Offset Xform:
+	#id: save_offset_xform
+	ToDo
+
+== Handle ==
+Translate:
+	#id: t
+	ToDo
+
+Rotate:
+	#id: r
+	ToDo
+
+Scale:
+	#id: s
+	ToDo
+
+Shear:
+	#id: shear
+	ToDo
+
+Pivot Translate:
+	#id: p
+	ToDo
+
+Pivot Rotate:
+	#id: pr
+	ToDo
+
+Uniform Scale:
+	#id: scale
+	ToDo
+
+Transform Order:
+	#id: xOrd
+	ToDo
+
+Rotate Order:
+	#id: rOrd
+	ToDo
+
+Pre-Translate:
+	#id: prexform_t
+	ToDo
+
+Pre-Rotate:
+	#id: prexform_r
+	ToDo
+
+Pre-Scale:
+	#id: prexform_s
+	ToDo
+
+Pre-Shear:
+	#id: prexform_shear
+	ToDo
+
+Pre-Transform Order:
+	#id: prexform_xOrd
+	ToDo
+
+Pre-Rotate Order:
+	#id: prexform_rOrd
+	ToDo
+
+
+@inputs
+
+Placeholder:
+    Description of input
+
+@outputs
+
+Placeholder:
+    Description of output

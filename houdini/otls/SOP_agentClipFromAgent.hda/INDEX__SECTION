@@ -1,0 +1,15 @@
+Operator:     choreofx::agentClipFromAgent::1
+Label:        Agent Clip From Agent
+Path:         oplib:/choreofx::Sop/agentClipFromAgent::1?choreofx::Sop/agentClipFromAgent::1
+Icon:         ChoreoFX
+Table:        Sop
+License:      
+Extra:        guide=vis 
+User:         
+Inputs:       2 to 2
+Outputs:      2
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Thu Dec  3 11:16:42 2020
+

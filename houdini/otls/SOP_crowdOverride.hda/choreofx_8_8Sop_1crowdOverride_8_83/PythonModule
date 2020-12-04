@@ -1,0 +1,14 @@
+import stateutils
+
+def startViewportControl(node):
+    print ('ENTER STATE on %s' % node)
+    viewer = stateutils.findSceneViewer()
+    network = viewer.pwd()
+    
+    if network.childTypeCategory() != hou.sopNodeTypeCategory():
+        # The user pressed Enter without selecting an object
+        raise hou.Error("You must be in a sop network to use this tool.")
+    if network.displayNode() == None:
+        raise hou.Error("You must have the display flag set on a node.")
+    # Set the viewer's current state to my state
+    viewer.setCurrentState("sop_CrowdManualEdit")

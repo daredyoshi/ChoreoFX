@@ -1,0 +1,20 @@
+= Agent Vignette Import =
+#icon: /Icons/ChoreoFX.svg
+#tags: crowds, agents, ChoreoFX
+
+"""Documentation is Coming soon!"""
+
+This is placeholder documentation for Agent Vignette Import
+
+@parameters
+
+
+@inputs
+
+Placeholder:
+    Description of input
+
+@outputs
+
+Placeholder:
+    Description of output

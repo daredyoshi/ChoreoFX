@@ -1,0 +1,5 @@
+def tryGetRangeFromClip():
+    node = hou.pwd()
+    frEnd = node.node("hda_read_clip_attribs").parm("frEnd").eval()
+    node.parm("frEnd").set(frEnd)
+    node.parm("frStart").set(1)

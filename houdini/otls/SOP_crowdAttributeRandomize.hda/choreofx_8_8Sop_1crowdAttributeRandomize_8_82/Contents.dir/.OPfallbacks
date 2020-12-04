@@ -1,0 +1,4 @@
+Sop/attribrandomize /opt/hfs18.5/houdini/otls/OPlibSop.hda
+Sop/attribrandomize otls/OPlibSop.hda
+Sop/attribwrangle /opt/hfs18.5/houdini/otls/OPlibSop.hda
+Sop/attribwrangle otls/OPlibSop.hda

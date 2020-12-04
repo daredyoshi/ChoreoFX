@@ -1,0 +1,4694 @@
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY"
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename=".OPfallbacks"
+Content-Type: application/external-reference
+
+.OPfallbacks
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename=".OPdummydefs"
+Content-Type: application/external-reference
+
+.OPdummydefs
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="node_type"
+Content-Type: text/plain
+
+Sop
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot.init"
+Content-Type: text/plain
+
+type = crowdTrajectoryDeform::00.01
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 40.6029 -55.1014
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault off exposed on
+outputsNamed3
+{
+2 "output1"
+}
+inputsNamed3
+{
+0 	crowdTrajectoryCreate1 0 1 "input1"
+1 	crowdPathHandles1 0 1 "input2"
+}
+inputs
+{
+0 	crowdTrajectoryCreate1 0 1
+1 	crowdPathHandles1 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author choreofx@choreofx.com
+  access 0777
+}
+color UT_Color RGB 0.475 0.812 0.204 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot.inp"
+Content-Type: text/plain
+
+2
+0 0 6 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+1 3 6.5 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/vis_N_orient9.init"
+Content-Type: text/plain
+
+type = attribwrangle
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/vis_N_orient9.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 3.30207 -0.678469
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+}
+inputsNamed3
+{
+0 	Path_Deform_FxJ2 0 1 "input1"
+}
+inputs
+{
+0 	Path_Deform_FxJ2 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author choreofx@choreofx.com
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/vis_N_orient9.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+folder0	[ 0	locks=0	autoscope=0 ]	(	0	0	)
+group	[ 0	locks=0	autoscope=0 ]	(	""	)
+grouptype	[ 0	locks=0	autoscope=0 ]	(	"guess"	)
+class	[ 0	locks=0	autoscope=0 ]	(	"point"	)
+vex_numcount	[ 0	locks=0	autoscope=0 ]	(	10	)
+vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
+snippet	[ 0	locks=0	autoscope=0 ]	(	"removeprim(0, @primnum,0);
+v@N =  qrotate(@orient, {0,0,1});"	)
+exportlist	[ 0	locks=0	autoscope=0 ]	(	*	)
+vex_strict	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+autobind	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+bindings	[ 0	locks=0	autoscope=0 ]	(	0	)
+groupautobind	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+groupbindings	[ 0	locks=0	autoscope=0 ]	(	0	)
+vex_cwdpath	[ 0	locks=0	autoscope=0 ]	(	.	)
+vex_outputmask	[ 0	locks=0	autoscope=0 ]	(	*	)
+vex_updatenmls	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+vex_matchattrib	[ 0	locks=0	autoscope=0 ]	(	id	)
+vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
+vex_precision	[ 0	locks=0	autoscope=0 ]	(	auto	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/vis_N_orient9.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2.init"
+Content-Type: text/plain
+
+type = subnet
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 2.36296 1.35823
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+0 "output1"
+}
+inputsNamed3
+{
+1 	trajectories 1 1 "input1"
+2 	paths 1 1 "input2"
+}
+inputs
+{
+0 	trajectories 0 1
+1 	paths 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author choreofx@choreofx.com
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2.spareparmdef"
+Content-Type: text/plain
+
+    parm {
+        name    "stretch"
+        label   "Separator"
+        type    float
+        default { "1" }
+        range   { 0 5 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "offset"
+        label   "Offset"
+        type    float
+        default { "0" }
+        range   { -2 2 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "keepSize"
+        label   "Keep Size"
+        type    toggle
+        default { "off" }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "sepparm"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
+        name    "multipath"
+        label   "Multi Path Deform"
+        type    toggle
+        default { "0" }
+        range   { 0! 10 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "primidattrib"
+        label   "PrimID Attrib"
+        type    string
+        default { "primid" }
+        disablewhen "{ multipath == 0 }"
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "editor" "0" }
+    }
+    parm {
+        name    "makecopies"
+        label   "Copy Input per prim"
+        type    toggle
+        default { "0" }
+        disablewhen "{ multipath == 0 }"
+        range   { 0! 10 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "makecopiescheck"
+        label   "Are you sure?  (Be Careful. Can be SLOW)"
+        type    toggle
+        default { "0" }
+        hidewhen "{ makecopies == 0 }"
+        range   { 0! 10 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "sepparm6"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
+        name    "upVector"
+        label   "Up Vector"
+        type    vector
+        size    3
+        default { "0" "0" "0" }
+        range   { -1 1 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "upVectorByAttribute"
+        label   "Up Vector By Attribute"
+        type    toggle
+        default { "0" }
+        range   { 0! 10 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "sepparm4"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
+        name    "axis"
+        label   "Axis"
+        type    ordinal
+        default { "x" }
+        menu {
+            "x" "X"
+            "y" "Y"
+            "z" "Z"
+        }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "flipAxis"
+        label   "FlipAxis"
+        type    toggle
+        default { "off" }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "sepparm2"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
+        name    "scale"
+        label   "Scale"
+        type    float
+        default { "1" }
+        range   { 0 3 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "scaleRamp"
+        label   "Scale Ramp"
+        type    ramp_flt
+        default { "1" }
+        range   { 1! 10 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "rampfloatdefault" "1pos ( 0 ) 1value ( 1 ) 1interp ( linear )" }
+    }
+    parm {
+        name    "sepparm5"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
+        name    "rotationOffset"
+        label   "Rotation Offset"
+        type    float
+        default { "0" }
+        range   { -720 720 }
+    }
+    parm {
+        name    "rotation"
+        label   "Rotation"
+        type    float
+        default { "0" }
+        range   { -720 720 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "rotationRamp"
+        label   "Rotation Ramp"
+        type    ramp_flt
+        default { "2" }
+        range   { 1! 10 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "rampfloatdefault" "1pos ( 0 ) 1value ( 1 ) 1interp ( linear ) 2pos ( 1 ) 2value ( 1 ) 2interp ( linear )" }
+    }
+    parm {
+        name    "sepparm3"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
+        name    "doresample"
+        label   "Resample Curve"
+        type    toggle
+        default { "1" }
+        range   { 0! 10 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "samples"
+        label   "Samples"
+        type    integer
+        default { "100" }
+        disablewhen "{ doresample == 0 }"
+        range   { 0! 200 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "sepparm7"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
+        name    "labelparm"
+        label   "NOTE*"
+        type    label
+        default { "Make blank if you only need position (much faster)" }
+    }
+    parm {
+        name    "attribs"
+        label   "Attributes to Transform"
+        type    string
+        default { "*" }
+        menutoggle {
+            [ "opmenu -l transform_attributes attribs" ]
+        }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "sepparm10"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
+        name    "sepparm9"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
+        name    "label1"
+        baseparm
+        label   "Input #1 Label"
+        invisible
+        export  all
+    }
+    parm {
+        name    "label2"
+        baseparm
+        label   "Input #2 Label"
+        invisible
+        export  all
+    }
+    parm {
+        name    "label3"
+        baseparm
+        label   "Input #3 Label"
+        invisible
+        export  all
+    }
+    parm {
+        name    "label4"
+        baseparm
+        label   "Input #4 Label"
+        invisible
+        export  all
+    }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+label1	[ 0	locks=0	autoscope=0 ]	(	"Sub-Network Input #1"	)
+label2	[ 0	locks=0	autoscope=0 ]	(	"Sub-Network Input #2"	)
+label3	[ 0	locks=0	autoscope=0 ]	(	"Sub-Network Input #3"	)
+label4	[ 0	locks=0	autoscope=0 ]	(	"Sub-Network Input #4"	)
+stretch	[ 0	locks=0	autoscope=0 ]	(	1	)
+offset	[ 0	locks=0	autoscope=0 ]	(	0	)
+keepSize	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+sepparm	[ 0	locks=0 ]	(	)
+multipath	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+primidattrib	[ 0	locks=0	autoscope=0 ]	(	agent_id	)
+makecopies	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+makecopiescheck	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+sepparm6	[ 0	locks=0 ]	(	)
+upVector	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
+upVectorByAttribute	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+sepparm4	[ 0	locks=0 ]	(	)
+axis	[ 0	locks=0	autoscope=0 ]	(	"x"	)
+flipAxis	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+sepparm2	[ 0	locks=0 ]	(	)
+scale	[ 0	locks=0	autoscope=0 ]	(	1	)
+scaleRamp	[ 0	locks=0	autoscope=0 ]	(	1	)
+scaleRamp1pos	[ 0	locks=0	autoscope=0 ]	(	0	)
+scaleRamp1value	[ 0	locks=0	autoscope=0 ]	(	1	)
+scaleRamp1interp	[ 0	locks=0	autoscope=0 ]	(	"linear"	)
+sepparm5	[ 0	locks=0 ]	(	)
+rotationOffset	[ 0	locks=0	autoscope=0 ]	(	0	)
+rotation	[ 0	locks=0	autoscope=0 ]	(	0	)
+rotationRamp	[ 0	locks=0	autoscope=0 ]	(	2	)
+rotationRamp1pos	[ 0	locks=0	autoscope=0 ]	(	0	)
+rotationRamp1value	[ 0	locks=0	autoscope=0 ]	(	1	)
+rotationRamp1interp	[ 0	locks=0	autoscope=0 ]	(	"linear"	)
+sepparm3	[ 0	locks=0 ]	(	)
+doresample	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+samples	[ 0	locks=0	autoscope=0 ]	(	300	)
+sepparm7	[ 0	locks=0 ]	(	)
+labelparm	[ 0	locks=0	autoscope=0 ]	(	"Make blank if you only need position (much faster)"	)
+attribs	[ 0	locks=0	autoscope=0 ]	(	*	)
+sepparm10	[ 0	locks=0 ]	(	)
+sepparm9	[ 0	locks=0 ]	(	)
+rotationRamp2pos	[ 0	locks=0	autoscope=0 ]	(	1	)
+rotationRamp2value	[ 0	locks=0	autoscope=0 ]	(	1	)
+rotationRamp2interp	[ 0	locks=0	autoscope=0 ]	(	"linear"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/__netbox1.netboxinit"
+Content-Type: text/plain
+
+2
+2
+{
+	autofit := 1;
+	color := "UT_Color RGB 0.52 0.52 0.52 ";
+	comment := "";
+	height := 7.9270085927265752;
+	minimized := 0;
+	width := 14.462899999999999;
+	x_position := 1.1881999999999999;
+	y_position := -10.8361;
+}
+{
+  create -1
+  modify -1
+  author choreofx@choreofx.com
+  access 0777
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/__netbox2.netboxinit"
+Content-Type: text/plain
+
+2
+2
+{
+	autofit := 1;
+	color := "UT_Color RGB 0.52 0.52 0.52 ";
+	comment := "";
+	height := 9.0156299999999998;
+	minimized := 0;
+	width := 4.5255341135837996;
+	x_position := -3.3373341135837995;
+	y_position := -21.0746;
+}
+{
+  create -1
+  modify -1
+  author choreofx@choreofx.com
+  access 0777
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2.inp"
+Content-Type: text/plain
+
+4
+0 -3.8913619899245013 -4.3995399976515772 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+1 3 6.5 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+2 6 7 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+3 9 7.5 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/__stickynote1.postitinit"
+Content-Type: text/plain
+
+type = postitnote
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/__stickynote1.postitdef"
+Content-Type: text/plain
+
+text "The deformation will be calculated using a 2-Steps method, the first step will subdivide the curve in several points, so that every point will have a transform attribute which will be used to transform the points of the geometry, that transform depends of the tangent at that point and an upvector. The second step will be done on the geometry itself, it will just transform every point using the transform attribute of the curve along its path, every point of the geometry will have a percent value equivalent to the point along the line where they will be transformed.
+"
+position -2.20247 -1.01661
+size 6.1026 3.388
+flags = minimize off
+stat
+{
+  create 1601995502
+  modify 1601995503
+  author choreofx@choreofx.com
+  access 0777
+}
+color UT_Color RGB 1 0.969 0.522 
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/__stickynote2.postitinit"
+Content-Type: text/plain
+
+type = postitnote
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/__stickynote2.postitdef"
+Content-Type: text/plain
+
+text "The curve will be subdivided in several points, the more points the more accurate the deformation will be. "
+position 8.88237 -4.46614
+size 6.1338 1.02002
+flags = minimize off
+stat
+{
+  create 1601995502
+  modify 1601995503
+  author choreofx@choreofx.com
+  access 0777
+}
+color UT_Color RGB 1 0.969 0.522 
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/__stickynote3.postitinit"
+Content-Type: text/plain
+
+type = postitnote
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/__stickynote3.postitdef"
+Content-Type: text/plain
+
+text "the transform attribute along the curve is calculated here.
+the first node is for non-flipping upvector, the second version
+is used with upvector by attribute, the up vector is taken from the points of the curve."
+position 8.88237 -6.89034
+size 6.1338 1.60821
+flags = minimize off
+stat
+{
+  create 1601995502
+  modify 1601995503
+  author choreofx@choreofx.com
+  access 0777
+}
+color UT_Color RGB 1 0.969 0.522 
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/__stickynote4.postitinit"
+Content-Type: text/plain
+
+type = postitnote
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/__stickynote4.postitdef"
+Content-Type: text/plain
+
+text "The length of the curve will also be calculated in this step, it will be used if the user wants to preserve the size of the geometry along the curve."
+position 8.88237 -9.2632
+size 6.1338 1.24918
+flags = minimize off
+stat
+{
+  create 1601995502
+  modify 1601995503
+  author choreofx@choreofx.com
+  access 0777
+}
+color UT_Color RGB 1 0.969 0.522 
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/__stickynote5.postitinit"
+Content-Type: text/plain
+
+type = postitnote
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/__stickynote5.postitdef"
+Content-Type: text/plain
+
+text "the deformation of the geometry is done here, by transforming every point with the transform attribute along the curve calculated in step 1. 
+
+Multi chooses which path to use to deform geo using a user defined primid attribute."
+position 2.64656 -17.542
+size 5.25174 2.02058
+flags = minimize off
+stat
+{
+  create 1601995502
+  modify 1601995503
+  author choreofx@choreofx.com
+  access 0777
+}
+color UT_Color RGB 1 0.969 0.522 
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/__stickynote6.postitinit"
+Content-Type: text/plain
+
+type = postitnote
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/__stickynote6.postitdef"
+Content-Type: text/plain
+
+text "the geometry will be deformed along the z axis, but the user can specify a different axis, in that case a transform will be used to rotate the object and align it to the z axis."
+position 2.53203 -14.9225
+size 5.36627 1.44114
+flags = minimize off
+stat
+{
+  create 1601995502
+  modify 1601995503
+  author choreofx@choreofx.com
+  access 0777
+}
+color UT_Color RGB 1 0.969 0.522 
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/__stickynote7.postitinit"
+Content-Type: text/plain
+
+type = postitnote
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/__stickynote7.postitdef"
+Content-Type: text/plain
+
+text "The transform by attribute is used to transform all the other attributes, like the normals, upvector and packed primitives"
+position 2.49283 -19.5034
+size 5.25174 1.51749
+flags = minimize off
+stat
+{
+  create 1601995502
+  modify 1601995503
+  author choreofx@choreofx.com
+  access 0777
+}
+color UT_Color RGB 1 0.969 0.522 
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/curveTM_nonFlipping_orig.init"
+Content-Type: text/plain
+
+type = attribwrangle
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/curveTM_nonFlipping_orig.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 1.71311 -5.78941
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass on display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	switch1 0 1 "input1"
+}
+inputs
+{
+0 	switch1 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author choreofx@choreofx.com
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/curveTM_nonFlipping_orig.multiparm"
+Content-Type: text/plain
+
+6
+scaleRamp#pos ../scaleRamp#pos
+scaleRamp#value ../scaleRamp#value
+scaleRamp#interp ../scaleRamp#interp
+rotationRamp#pos ../rotationRamp#pos
+rotationRamp#value ../rotationRamp#value
+rotationRamp#interp ../rotationRamp#interp
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/curveTM_nonFlipping_orig.spareparmdef"
+Content-Type: text/plain
+
+    group {
+        name    "parameters"
+        label   "Parameters"
+
+        parm {
+            name    "upVector"
+            label   "Up Vector"
+            type    vector
+            size    3
+            default { "0" "0" "0" }
+            range   { -1 1 }
+        }
+        groupsimple {
+            name    "folder2"
+            label   "Scale"
+            grouptag { "group_type" "simple" }
+
+            parm {
+                name    "scale"
+                label   "Scale"
+                type    float
+                default { "0" }
+                range   { 0 3 }
+            }
+            parm {
+                name    "scaleRamp"
+                label   "Scale Ramp"
+                type    ramp_flt
+                default { "2" }
+                range   { 1! 10 }
+            }
+        }
+
+        groupsimple {
+            name    "folder3"
+            label   "Rotation"
+            grouptag { "group_type" "simple" }
+
+            parm {
+                name    "rotationOffset"
+                label   "Rotationoffset"
+                type    float
+                default { "0" }
+                range   { 0 1 }
+            }
+            parm {
+                name    "rotation"
+                label   "Rotation"
+                type    float
+                default { "0" }
+                range   { -720 720 }
+            }
+            parm {
+                name    "rotationRamp"
+                label   "Rotation Ramp"
+                type    ramp_flt
+                default { "2" }
+                range   { 1! 10 }
+            }
+        }
+
+    }
+
+    group {
+        name    "parameters_1"
+        label   "Code"
+
+        parm {
+            name    "group"
+            baseparm
+            label   "Group"
+            export  none
+            bindselector points "Modify Points"
+                "Select the points to affect and press Enter to complete."
+                0 1 0xffffffff 0 grouptype 0
+        }
+        parm {
+            name    "grouptype"
+            baseparm
+            label   "Group Type"
+            export  none
+        }
+        parm {
+            name    "class"
+            baseparm
+            label   "Run Over"
+            export  none
+        }
+        parm {
+            name    "vex_numcount"
+            baseparm
+            label   "Number Count"
+            export  none
+        }
+        parm {
+            name    "vex_threadjobsize"
+            baseparm
+            label   "Thread Job Size"
+            export  none
+        }
+        parm {
+            name    "snippet"
+            baseparm
+            label   "VEXpression"
+            export  all
+        }
+        parm {
+            name    "exportlist"
+            baseparm
+            label   "Attributes to Create"
+            export  none
+        }
+        parm {
+            name    "vex_strict"
+            baseparm
+            label   "Enforce Prototypes"
+            export  none
+        }
+    }
+
+    group {
+        name    "parameters_2"
+        label   "Bindings"
+
+        parm {
+            name    "autobind"
+            baseparm
+            label   "Autobind by Name"
+            export  none
+        }
+        multiparm {
+            name    "bindings"
+            label    "Number of Bindings"
+            baseparm
+            default 0
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "multistartoffset" "1" }
+
+            parm {
+                name    "bindname#"
+                baseparm
+                label   "Attribute Name"
+                export  none
+            }
+            parm {
+                name    "bindparm#"
+                baseparm
+                label   "VEX Parameter"
+                export  none
+            }
+        }
+
+        parm {
+            name    "groupautobind"
+            baseparm
+            label   "Autobind Groups by Name"
+            export  none
+        }
+        multiparm {
+            name    "groupbindings"
+            label    "Group Bindings"
+            baseparm
+            default 0
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "multistartoffset" "1" }
+
+            parm {
+                name    "bindgroupname#"
+                baseparm
+                label   "Group Name"
+                export  none
+            }
+            parm {
+                name    "bindgroupparm#"
+                baseparm
+                label   "VEX Parameter"
+                export  none
+            }
+        }
+
+        parm {
+            name    "vex_cwdpath"
+            baseparm
+            label   "Evaluation Node Path"
+            export  none
+        }
+        parm {
+            name    "vex_outputmask"
+            baseparm
+            label   "Export Parameters"
+            export  none
+        }
+        parm {
+            name    "vex_updatenmls"
+            baseparm
+            label   "Update Normals If Displaced"
+            export  none
+        }
+        parm {
+            name    "vex_matchattrib"
+            baseparm
+            label   "Attribute to Match"
+            export  none
+        }
+        parm {
+            name    "vex_inplace"
+            baseparm
+            label   "Compute Results In Place"
+            export  none
+        }
+        parm {
+            name    "vex_selectiongroup"
+            baseparm
+            label   "Output Selection Group"
+            export  none
+        }
+    }
+
+    parm {
+        name    "vex_precision"
+        baseparm
+        label   "VEX Precision"
+        export  none
+    }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/curveTM_nonFlipping_orig.chn"
+Content-Type: text/plain
+
+{
+    channel scaleRamp1pos {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../scaleRamp1pos\") }
+    }
+    channel scaleRamp1value {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../scaleRamp1value\") }
+    }
+    channel scaleRamp1interp {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../scaleRamp1interp\") }
+    }
+    channel rotationRamp1pos {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../rotationRamp1pos\") }
+    }
+    channel rotationRamp1value {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../rotationRamp1value\") }
+    }
+    channel rotationRamp1interp {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../rotationRamp1interp\") }
+    }
+    channel rotationRamp2pos {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../rotationRamp2pos\") }
+    }
+    channel rotationRamp2value {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../rotationRamp2value\") }
+    }
+    channel rotationRamp2interp {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../rotationRamp2interp\") }
+    }
+    channel upVectorx {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../upVectorx\") }
+    }
+    channel upVectory {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../upVectory\") }
+    }
+    channel upVectorz {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../upVectorz\") }
+    }
+    channel scale {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../scale\") }
+    }
+    channel scaleRamp {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../scaleRamp\") }
+    }
+    channel rotationOffset {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../rotationOffset\") }
+    }
+    channel rotation {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../rotation\") }
+    }
+    channel rotationRamp {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 value = 2 2 expr = ch(\"../rotationRamp\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/curveTM_nonFlipping_orig.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+folder0	[ 0	locks=0	autoscope=0 ]	(	0	0	)
+group	[ 0	locks=0	autoscope=0 ]	(	""	)
+grouptype	[ 0	locks=0	autoscope=0 ]	(	"guess"	)
+class	[ 0	locks=0	autoscope=0 ]	(	"primitive"	)
+vex_numcount	[ 0	locks=0	autoscope=0 ]	(	10	)
+vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
+snippet	[ 0	locks=0	autoscope=0 ]	(	"//For every point a transform attribute is calculated using the tangent on every point and an 
+//upvector, the lookat function will be used with the point position and the position of the 
+//next point (tangent) and the upvector, the upvector will be taken from the transform of the 
+//previous point (y axis) so that twist-flipping can be avoided as much as possible, for the 
+//first point the upvector will be defined by the user, there could be flipping if the upvector 
+//is too close to the tangent of the first point, but it will be a flip of the whole mesh, not a 
+//twist flip.
+ 
+//this calculation has to be run over the primitive and not over the points because it can't
+//be run in parallel because the tm of every points depend on the tm of the previous point.
+
+int numPoints=primvertexcount(0,0);
+vector upVector=chv(\"upVector\");//first upvector defined by user
+matrix3 theTM=1;
+for (int i=0;i<(numPoints-1);i++)
+{
+    theTM=lookat(point(0,\"P\",i+1),point(0,\"P\",i),upVector);
+    upVector=set(theTM.yx,theTM.yy,theTM.yz);//up vector used for the next point (y axis of the tm)
+    
+    //The transform attribute will be scaled using a va lue and a ramp defined by the user, it will 
+    //also be rotated using another value and another ramp, with that the geometry can change 
+    //size along the curve and it can also twist.
+    float rampVal=float(i)/numPoints;
+    rotate(theTM,radians(ch(\"rotationOffset\")+ch(\"rotation\")*chramp(\"rotationRamp\",rampVal)),set(theTM.zx,theTM.zy,theTM.zz));//rotation first!
+    scale(theTM,ch(\"scale\")*chramp(\"scaleRamp\",rampVal));
+
+    setpointattrib(0,\"TM\",i,theTM);//now set the tm attribute in the current point
+}
+
+//the last point will have the TM attribute the same as the previous one
+setpointattrib(0,\"TM\",numPoints-1,theTM);
+
+"	)
+exportlist	[ 0	locks=0	autoscope=0 ]	(	*	)
+vex_strict	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+autobind	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+bindings	[ 0	locks=0	autoscope=0 ]	(	0	)
+groupautobind	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+groupbindings	[ 0	locks=0	autoscope=0 ]	(	0	)
+vex_cwdpath	[ 0	locks=0	autoscope=0 ]	(	.	)
+vex_outputmask	[ 0	locks=0	autoscope=0 ]	(	*	)
+vex_updatenmls	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+vex_matchattrib	[ 0	locks=0	autoscope=0 ]	(	id	)
+vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
+vex_precision	[ 0	locks=0	autoscope=0 ]	(	auto	)
+parameters	[ 0	locks=0	autoscope=0 ]	(	1	1	1	)
+upVector	[ 0	locks=0	autoscope=0 ]	(	[ upVectorx	0 ] 	[ upVectory	0 ] 	[ upVectorz	0 ] 	)
+folder2	[ 0	locks=0	autoscope=0 ]	(	0	)
+scale	[ 0	locks=0	autoscope=0 ]	(	[ scale	0 ] 	)
+scaleRamp	[ 0	locks=0	autoscope=0 ]	(	[ scaleRamp	1 ] 	)
+scaleRamp1pos	[ 0	locks=0	autoscope=0 ]	(	[ scaleRamp1pos	0 ] 	)
+scaleRamp1value	[ 0	locks=0	autoscope=0 ]	(	[ scaleRamp1value	0 ] 	)
+scaleRamp1interp	[ 0	locks=0	autoscope=0 ]	(	[ scaleRamp1interp	0 ] 	)
+folder3	[ 0	locks=0	autoscope=0 ]	(	0	)
+rotationOffset	[ 0	locks=0	autoscope=0 ]	(	[ rotationOffset	0 ] 	)
+rotation	[ 0	locks=0	autoscope=0 ]	(	[ rotation	0 ] 	)
+rotationRamp	[ 0	locks=0	autoscope=0 ]	(	[ rotationRamp	2 ] 	)
+rotationRamp1pos	[ 0	locks=0	autoscope=0 ]	(	[ rotationRamp1pos	0 ] 	)
+rotationRamp1value	[ 0	locks=0	autoscope=0 ]	(	[ rotationRamp1value	0 ] 	)
+rotationRamp1interp	[ 0	locks=0	autoscope=0 ]	(	[ rotationRamp1interp	0 ] 	)
+rotationRamp2pos	[ 0	locks=0	autoscope=0 ]	(	[ rotationRamp2pos	1 ] 	)
+rotationRamp2value	[ 0	locks=0	autoscope=0 ]	(	[ rotationRamp2value	1 ] 	)
+rotationRamp2interp	[ 0	locks=0	autoscope=0 ]	(	[ rotationRamp2interp	0 ] 	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/curveTM_nonFlipping_orig.netbox"
+Content-Type: text/plain
+
+__netbox1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/curveTM_nonFlipping_orig.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/geometry_deform_orig.init"
+Content-Type: text/plain
+
+type = attribwrangle
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/geometry_deform_orig.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -3.03611 -15.8428
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+2 "output1"
+}
+inputsNamed3
+{
+0 	axis_align 0 1 "input1"
+1 	CURVE 0 1 "input2"
+}
+inputs
+{
+0 	axis_align 0 1
+1 	CURVE 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author choreofx@choreofx.com
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/geometry_deform_orig.spareparmdef"
+Content-Type: text/plain
+
+    group {
+        name    "folder2"
+        label   "Parameters"
+
+        parm {
+            name    "keepSize"
+            label   "Keep Size"
+            type    toggle
+            default { "0" }
+        }
+        parm {
+            name    "stretch"
+            label   "Stretch"
+            type    float
+            default { "0" }
+            range   { 0 5 }
+        }
+        parm {
+            name    "offset"
+            label   "Offset"
+            type    float
+            default { "0" }
+            range   { -2 2 }
+        }
+    }
+
+    group {
+        name    "folder2_1"
+        label   "Code"
+
+        parm {
+            name    "group"
+            baseparm
+            label   "Group"
+            export  none
+            bindselector points "Modify Points"
+                "Select the points to affect and press Enter to complete."
+                0 1 0xffffffff 0 grouptype 0
+        }
+        parm {
+            name    "grouptype"
+            baseparm
+            label   "Group Type"
+            export  none
+        }
+        parm {
+            name    "class"
+            baseparm
+            label   "Run Over"
+            export  none
+        }
+        parm {
+            name    "vex_numcount"
+            baseparm
+            label   "Number Count"
+            export  none
+        }
+        parm {
+            name    "vex_threadjobsize"
+            baseparm
+            label   "Thread Job Size"
+            export  none
+        }
+        parm {
+            name    "snippet"
+            baseparm
+            label   "VEXpression"
+            export  all
+        }
+        parm {
+            name    "exportlist"
+            baseparm
+            label   "Attributes to Create"
+            export  none
+        }
+        parm {
+            name    "vex_strict"
+            baseparm
+            label   "Enforce Prototypes"
+            export  none
+        }
+    }
+
+    group {
+        name    "folder2_2"
+        label   "Bindings"
+
+        parm {
+            name    "autobind"
+            baseparm
+            label   "Autobind by Name"
+            export  none
+        }
+        multiparm {
+            name    "bindings"
+            label    "Number of Bindings"
+            baseparm
+            default 0
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "multistartoffset" "1" }
+
+            parm {
+                name    "bindname#"
+                baseparm
+                label   "Attribute Name"
+                export  none
+            }
+            parm {
+                name    "bindparm#"
+                baseparm
+                label   "VEX Parameter"
+                export  none
+            }
+        }
+
+        parm {
+            name    "groupautobind"
+            baseparm
+            label   "Autobind Groups by Name"
+            export  none
+        }
+        multiparm {
+            name    "groupbindings"
+            label    "Group Bindings"
+            baseparm
+            default 0
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "multistartoffset" "1" }
+
+            parm {
+                name    "bindgroupname#"
+                baseparm
+                label   "Group Name"
+                export  none
+            }
+            parm {
+                name    "bindgroupparm#"
+                baseparm
+                label   "VEX Parameter"
+                export  none
+            }
+        }
+
+        parm {
+            name    "vex_cwdpath"
+            baseparm
+            label   "Evaluation Node Path"
+            export  none
+        }
+        parm {
+            name    "vex_outputmask"
+            baseparm
+            label   "Export Parameters"
+            export  none
+        }
+        parm {
+            name    "vex_updatenmls"
+            baseparm
+            label   "Update Normals If Displaced"
+            export  none
+        }
+        parm {
+            name    "vex_matchattrib"
+            baseparm
+            label   "Attribute to Match"
+            export  none
+        }
+        parm {
+            name    "vex_inplace"
+            baseparm
+            label   "Compute Results In Place"
+            export  none
+        }
+        parm {
+            name    "vex_selectiongroup"
+            baseparm
+            label   "Output Selection Group"
+            export  none
+        }
+    }
+
+    parm {
+        name    "vex_precision"
+        baseparm
+        label   "VEX Precision"
+        export  none
+    }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/geometry_deform_orig.chn"
+Content-Type: text/plain
+
+{
+    channel keepSize {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../keepSize\") }
+    }
+    channel stretch {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../stretch\") }
+    }
+    channel offset {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../offset\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/geometry_deform_orig.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+folder0	[ 0	locks=0	autoscope=0 ]	(	0	0	)
+group	[ 0	locks=0	autoscope=0 ]	(	""	)
+grouptype	[ 0	locks=0	autoscope=0 ]	(	"guess"	)
+class	[ 0	locks=0	autoscope=0 ]	(	"point"	)
+vex_numcount	[ 0	locks=0	autoscope=0 ]	(	10	)
+vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
+snippet	[ 0	locks=0	autoscope=0 ]	(	"//Every point will be transformed along the curve, for that every point will have a local 
+//position and a percent along the curve, and the transform will be done using the transform 
+//of the curve along its path that was calculated in the Step 1.
+
+//The local pos will be just the position of the point but without the z value, so that 
+//the z axis will be used to deform the geometry, if the geometry is not aligned with the 
+//z axis the user can specify a different axis, in that case the geometry will be just 
+//rotated to be aligned to the z axis having in mind the axis that the user specified. The 
+//z axis is used because the transform along the curve is calculated in the first step 
+//using the lookat function which align the z axis to the tangent of the curve.
+vector pointPos=@P;
+vector localPos=pointPos;
+localPos.z=0;
+
+//The percent value will be calculated using the bounding box of the geometry, the points 
+//at the start of the box will have a percent value of zero, and the points at the end 
+//will have a full percent value (1).
+vector min,max;
+getbbox(0,min,max);
+float percent=fit(pointPos.z,min.z,max.z,0,1);
+
+//If the user wants to keep the size of the geometry along the curve, the length of the 
+//geometry and the length of the curve will be used to modify the percent value so that 
+//the size of the geometry will be preserved.
+vector curveLength=prim(1,\"length\",0);
+if (chi(\"keepSize\"))
+    percent*=(max.z-min.z)/curveLength;
+
+//The percent value will be multiplied by the stretch value and the offset value will be 
+//added, so that the geometry could be stretched or slide along the curve.
+percent=percent*ch(\"stretch\")+ch(\"offset\");
+
+//The transform attribute along the curve will be retrieved using the percent value, it 
+//will be used to transform the point, the position attribute along the curve will also 
+//be used to transform the point.
+matrix3 curveTM=primuv(1,\"TM\",0,percent);
+vector curvePos=primuv(1,\"P\",0,percent);
+@P=localPos*curveTM+curvePos;
+
+//If the percent goes beyond the limit of the curve, an offset position will be calculated 
+//depending on the tangent of the extreme parts of the curve, it will be taken using the 
+//z axis of the transform attribute.
+if (percent>1)
+    @P+=normalize(set(curveTM.zx,curveTM.zy,curveTM.zz))*(percent-1)*curveLength;
+else if (percent<0)
+    @P+=normalize(set(curveTM.zx,curveTM.zy,curveTM.zz))*percent*curveLength;
+    
+//the xform parameter is used to transform all the attributes later with a transform
+//by a attribute SOP
+3@xform=curveTM;
+"	)
+exportlist	[ 0	locks=0	autoscope=0 ]	(	*	)
+vex_strict	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+autobind	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+bindings	[ 0	locks=0	autoscope=0 ]	(	0	)
+groupautobind	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+groupbindings	[ 0	locks=0	autoscope=0 ]	(	0	)
+vex_cwdpath	[ 0	locks=0	autoscope=0 ]	(	.	)
+vex_outputmask	[ 0	locks=0	autoscope=0 ]	(	*	)
+vex_updatenmls	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+vex_matchattrib	[ 0	locks=0	autoscope=0 ]	(	id	)
+vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
+vex_precision	[ 0	locks=0	autoscope=0 ]	(	auto	)
+folder2	[ 0	locks=0	autoscope=0 ]	(	1	1	1	)
+keepSize	[ 0	locks=0	autoscope=0 ]	(	[ keepSize	0 ] 	)
+stretch	[ 0	locks=0	autoscope=0 ]	(	[ stretch	0 ] 	)
+offset	[ 0	locks=0	autoscope=0 ]	(	[ offset	0 ] 	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/geometry_deform_orig.netbox"
+Content-Type: text/plain
+
+__netbox2
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/geometry_deform_orig.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/curveTM_byAtt.init"
+Content-Type: text/plain
+
+type = attribwrangle
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/curveTM_byAtt.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 5.56156 -5.98395
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	switch1 0 1 "input1"
+}
+inputs
+{
+0 	switch1 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author choreofx@choreofx.com
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/curveTM_byAtt.multiparm"
+Content-Type: text/plain
+
+6
+scaleRamp#pos ../scaleRamp#pos
+scaleRamp#value ../scaleRamp#value
+scaleRamp#interp ../scaleRamp#interp
+rotationRamp#pos ../rotationRamp#pos
+rotationRamp#value ../rotationRamp#value
+rotationRamp#interp ../rotationRamp#interp
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/curveTM_byAtt.spareparmdef"
+Content-Type: text/plain
+
+    group {
+        name    "parameters"
+        label   "Parameters"
+
+        parm {
+            name    "upVector"
+            label   "Up Vector"
+            type    vector
+            size    3
+            default { "0" "0" "0" }
+            range   { -1 1 }
+        }
+        groupsimple {
+            name    "folder2"
+            label   "Scale"
+
+            parm {
+                name    "scale"
+                label   "Scale"
+                type    float
+                default { "0" }
+                range   { 0 3 }
+            }
+            parm {
+                name    "scaleRamp"
+                label   "Scale Ramp"
+                type    ramp_flt
+                default { "2" }
+                range   { 1! 10 }
+            }
+        }
+
+        groupsimple {
+            name    "folder3"
+            label   "Rotation"
+
+            parm {
+                name    "rotation"
+                label   "Rotation"
+                type    float
+                default { "0" }
+                range   { -720 720 }
+            }
+            parm {
+                name    "rotationRamp"
+                label   "Rotation Ramp"
+                type    ramp_flt
+                default { "2" }
+                range   { 1! 10 }
+            }
+        }
+
+    }
+
+    group {
+        name    "parameters_1"
+        label   "Code"
+
+        parm {
+            name    "group"
+            baseparm
+            label   "Group"
+            export  none
+            bindselector points "Modify Points"
+                "Select the points to affect and press Enter to complete."
+                0 1 0xffffffff 0 grouptype 0
+        }
+        parm {
+            name    "grouptype"
+            baseparm
+            label   "Group Type"
+            export  none
+        }
+        parm {
+            name    "class"
+            baseparm
+            label   "Run Over"
+            export  none
+        }
+        parm {
+            name    "vex_numcount"
+            baseparm
+            label   "Number Count"
+            export  none
+        }
+        parm {
+            name    "vex_threadjobsize"
+            baseparm
+            label   "Thread Job Size"
+            export  none
+        }
+        parm {
+            name    "snippet"
+            baseparm
+            label   "VEXpression"
+            export  all
+        }
+        parm {
+            name    "exportlist"
+            baseparm
+            label   "Attributes to Create"
+            export  none
+        }
+        parm {
+            name    "vex_strict"
+            baseparm
+            label   "Enforce Prototypes"
+            export  none
+        }
+    }
+
+    group {
+        name    "parameters_2"
+        label   "Bindings"
+
+        parm {
+            name    "autobind"
+            baseparm
+            label   "Autobind by Name"
+            export  none
+        }
+        multiparm {
+            name    "bindings"
+            label    "Number of Bindings"
+            baseparm
+            default 0
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "multistartoffset" "1" }
+
+            parm {
+                name    "bindname#"
+                baseparm
+                label   "Attribute Name"
+                export  none
+            }
+            parm {
+                name    "bindparm#"
+                baseparm
+                label   "VEX Parameter"
+                export  none
+            }
+        }
+
+        parm {
+            name    "groupautobind"
+            baseparm
+            label   "Autobind Groups by Name"
+            export  none
+        }
+        multiparm {
+            name    "groupbindings"
+            label    "Group Bindings"
+            baseparm
+            default 0
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "multistartoffset" "1" }
+
+            parm {
+                name    "bindgroupname#"
+                baseparm
+                label   "Group Name"
+                export  none
+            }
+            parm {
+                name    "bindgroupparm#"
+                baseparm
+                label   "VEX Parameter"
+                export  none
+            }
+        }
+
+        parm {
+            name    "vex_cwdpath"
+            baseparm
+            label   "Evaluation Node Path"
+            export  none
+        }
+        parm {
+            name    "vex_outputmask"
+            baseparm
+            label   "Export Parameters"
+            export  none
+        }
+        parm {
+            name    "vex_updatenmls"
+            baseparm
+            label   "Update Normals If Displaced"
+            export  none
+        }
+        parm {
+            name    "vex_matchattrib"
+            baseparm
+            label   "Attribute to Match"
+            export  none
+        }
+        parm {
+            name    "vex_inplace"
+            baseparm
+            label   "Compute Results In Place"
+            export  none
+        }
+        parm {
+            name    "vex_selectiongroup"
+            baseparm
+            label   "Output Selection Group"
+            export  none
+        }
+    }
+
+    parm {
+        name    "vex_precision"
+        baseparm
+        label   "VEX Precision"
+        export  none
+    }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/curveTM_byAtt.chn"
+Content-Type: text/plain
+
+{
+    channel scaleRamp1pos {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../scaleRamp1pos\") }
+    }
+    channel scaleRamp1value {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../scaleRamp1value\") }
+    }
+    channel scaleRamp1interp {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../scaleRamp1interp\") }
+    }
+    channel rotationRamp1pos {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../rotationRamp1pos\") }
+    }
+    channel rotationRamp1value {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../rotationRamp1value\") }
+    }
+    channel rotationRamp1interp {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../rotationRamp1interp\") }
+    }
+    channel rotationRamp2pos {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../rotationRamp2pos\") }
+    }
+    channel rotationRamp2value {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../rotationRamp2value\") }
+    }
+    channel rotationRamp2interp {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../rotationRamp2interp\") }
+    }
+    channel upVectorx {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../upVectorx\") }
+    }
+    channel upVectory {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../upVectory\") }
+    }
+    channel upVectorz {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../upVectorz\") }
+    }
+    channel scale {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../scale\") }
+    }
+    channel scaleRamp {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../scaleRamp\") }
+    }
+    channel rotation {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../rotation\") }
+    }
+    channel rotationRamp {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 value = 2 2 expr = ch(\"../rotationRamp\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/curveTM_byAtt.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+folder0	[ 0	locks=0	autoscope=0 ]	(	0	0	)
+group	[ 0	locks=0	autoscope=0 ]	(	""	)
+grouptype	[ 0	locks=0	autoscope=0 ]	(	"guess"	)
+class	[ 0	locks=0	autoscope=0 ]	(	"point"	)
+vex_numcount	[ 0	locks=0	autoscope=0 ]	(	10	)
+vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
+snippet	[ 0	locks=0	autoscope=0 ]	(	"//For every point a transform attribute is calculated using the tangent on every point and an 
+//upvector, the lookat function will be used with the point position and the position of the 
+//next point (tangent) and the upvector, the upvector will be taken from the transform of the 
+//previous point (y axis) so that twist-flipping can be avoided as much as possible, for the 
+//first point the upvector will be defined by the user, there could be flipping if the upvector 
+//is too close to the tangent of the first point, but it will be a flip of the whole mesh, not a 
+//twist flip.
+
+//this calculation can be run over the points in parallel, it does not depend on the TM
+//of the previous points
+
+int numPoints=primvertexcount(0,0);
+int pointNum=@ptnum;
+vector upVector=point(0,\"up\",@ptnum);
+matrix3 theTM;
+
+//the look at is calculated with the current point and the next, except for the last one
+//in that case the previous point is  used
+if (pointNum<(numPoints-1))
+    theTM=lookat(point(0,\"P\",pointNum+1),point(0,\"P\",pointNum),upVector);
+else
+    theTM=lookat(point(0,\"P\",pointNum),point(0,\"P\",pointNum-1),upVector);
+
+//The transform attribute will be scaled using a value and a ramp defined by the user, it will 
+//also be rotated using another value and another ramp, with that the geometry can change 
+//size along the curve and it can also twist.
+float rampVal=float(pointNum)/numPoints;
+rotate(theTM,radians(ch(\"rotationOffset\")+ch(\"rotation\")*chramp(\"rotationRamp\",rampVal)),set(theTM.zx,theTM.zy,theTM.zz));//rotation first!
+scale(theTM,ch(\"scale\")*chramp(\"scaleRamp\",rampVal));
+
+3@TM=theTM;//now set the tm attribute in the current point
+"	)
+exportlist	[ 0	locks=0	autoscope=0 ]	(	*	)
+vex_strict	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+autobind	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+bindings	[ 0	locks=0	autoscope=0 ]	(	0	)
+groupautobind	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+groupbindings	[ 0	locks=0	autoscope=0 ]	(	0	)
+vex_cwdpath	[ 0	locks=0	autoscope=0 ]	(	.	)
+vex_outputmask	[ 0	locks=0	autoscope=0 ]	(	*	)
+vex_updatenmls	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+vex_matchattrib	[ 0	locks=0	autoscope=0 ]	(	id	)
+vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
+vex_precision	[ 0	locks=0	autoscope=0 ]	(	auto	)
+parameters	[ 0	locks=0	autoscope=0 ]	(	1	1	1	)
+upVector	[ 0	locks=0	autoscope=0 ]	(	[ upVectorx	0 ] 	[ upVectory	0 ] 	[ upVectorz	0 ] 	)
+folder2	[ 0	locks=0	autoscope=0 ]	(	0	)
+scale	[ 0	locks=0	autoscope=0 ]	(	[ scale	0 ] 	)
+scaleRamp	[ 0	locks=0	autoscope=0 ]	(	[ scaleRamp	1 ] 	)
+scaleRamp1pos	[ 0	locks=0	autoscope=0 ]	(	[ scaleRamp1pos	0 ] 	)
+scaleRamp1value	[ 0	locks=0	autoscope=0 ]	(	[ scaleRamp1value	0 ] 	)
+scaleRamp1interp	[ 0	locks=0	autoscope=0 ]	(	[ scaleRamp1interp	0 ] 	)
+folder3	[ 0	locks=0	autoscope=0 ]	(	0	)
+rotation	[ 0	locks=0	autoscope=0 ]	(	[ rotation	0 ] 	)
+rotationRamp	[ 0	locks=0	autoscope=0 ]	(	[ rotationRamp	2 ] 	)
+rotationRamp1pos	[ 0	locks=0	autoscope=0 ]	(	[ rotationRamp1pos	0 ] 	)
+rotationRamp1value	[ 0	locks=0	autoscope=0 ]	(	[ rotationRamp1value	0 ] 	)
+rotationRamp1interp	[ 0	locks=0	autoscope=0 ]	(	[ rotationRamp1interp	0 ] 	)
+rotationRamp2pos	[ 0	locks=0	autoscope=0 ]	(	[ rotationRamp2pos	1 ] 	)
+rotationRamp2value	[ 0	locks=0	autoscope=0 ]	(	[ rotationRamp2value	1 ] 	)
+rotationRamp2interp	[ 0	locks=0	autoscope=0 ]	(	[ rotationRamp2interp	0 ] 	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/curveTM_byAtt.netbox"
+Content-Type: text/plain
+
+__netbox1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/curveTM_byAtt.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/curveTM_nonFlipping_multi.init"
+Content-Type: text/plain
+
+type = attribwrangle
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/curveTM_nonFlipping_multi.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 1.71311 -6.67201
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	curveTM_nonFlipping_orig 1 1 "input1"
+}
+inputs
+{
+0 	curveTM_nonFlipping_orig 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author choreofx@choreofx.com
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/curveTM_nonFlipping_multi.multiparm"
+Content-Type: text/plain
+
+6
+scaleRamp#pos ../scaleRamp#pos
+scaleRamp#value ../scaleRamp#value
+scaleRamp#interp ../scaleRamp#interp
+rotationRamp#pos ../rotationRamp#pos
+rotationRamp#value ../rotationRamp#value
+rotationRamp#interp ../rotationRamp#interp
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/curveTM_nonFlipping_multi.spareparmdef"
+Content-Type: text/plain
+
+    group {
+        name    "parameters"
+        label   "Parameters"
+
+        parm {
+            name    "upVector"
+            label   "Up Vector"
+            type    vector
+            size    3
+            default { "0" "0" "0" }
+            range   { -1 1 }
+        }
+        groupsimple {
+            name    "folder2"
+            label   "Scale"
+            grouptag { "group_type" "simple" }
+
+            parm {
+                name    "scale"
+                label   "Scale"
+                type    float
+                default { "0" }
+                range   { 0 3 }
+            }
+            parm {
+                name    "scaleRamp"
+                label   "Scale Ramp"
+                type    ramp_flt
+                default { "2" }
+                range   { 1! 10 }
+            }
+        }
+
+        groupsimple {
+            name    "folder3"
+            label   "Rotation"
+            grouptag { "group_type" "simple" }
+
+            parm {
+                name    "rotationOffset"
+                label   "Rotationoffset"
+                type    float
+                default { "0" }
+                range   { 0 1 }
+            }
+            parm {
+                name    "rotation"
+                label   "Rotation"
+                type    float
+                default { "0" }
+                range   { -720 720 }
+            }
+            parm {
+                name    "rotationRamp"
+                label   "Rotation Ramp"
+                type    ramp_flt
+                default { "2" }
+                range   { 1! 10 }
+            }
+        }
+
+    }
+
+    group {
+        name    "parameters_1"
+        label   "Code"
+
+        parm {
+            name    "group"
+            baseparm
+            label   "Group"
+            export  none
+            bindselector points "Modify Points"
+                "Select the points to affect and press Enter to complete."
+                0 1 0xffffffff 0 grouptype 0
+        }
+        parm {
+            name    "grouptype"
+            baseparm
+            label   "Group Type"
+            export  none
+        }
+        parm {
+            name    "class"
+            baseparm
+            label   "Run Over"
+            export  none
+        }
+        parm {
+            name    "vex_numcount"
+            baseparm
+            label   "Number Count"
+            export  none
+        }
+        parm {
+            name    "vex_threadjobsize"
+            baseparm
+            label   "Thread Job Size"
+            export  none
+        }
+        parm {
+            name    "snippet"
+            baseparm
+            label   "VEXpression"
+            export  all
+        }
+        parm {
+            name    "exportlist"
+            baseparm
+            label   "Attributes to Create"
+            export  none
+        }
+        parm {
+            name    "vex_strict"
+            baseparm
+            label   "Enforce Prototypes"
+            export  none
+        }
+    }
+
+    group {
+        name    "parameters_2"
+        label   "Bindings"
+
+        parm {
+            name    "autobind"
+            baseparm
+            label   "Autobind by Name"
+            export  none
+        }
+        multiparm {
+            name    "bindings"
+            label    "Number of Bindings"
+            baseparm
+            default 0
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "multistartoffset" "1" }
+
+            parm {
+                name    "bindname#"
+                baseparm
+                label   "Attribute Name"
+                export  none
+            }
+            parm {
+                name    "bindparm#"
+                baseparm
+                label   "VEX Parameter"
+                export  none
+            }
+        }
+
+        parm {
+            name    "groupautobind"
+            baseparm
+            label   "Autobind Groups by Name"
+            export  none
+        }
+        multiparm {
+            name    "groupbindings"
+            label    "Group Bindings"
+            baseparm
+            default 0
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "multistartoffset" "1" }
+
+            parm {
+                name    "bindgroupname#"
+                baseparm
+                label   "Group Name"
+                export  none
+            }
+            parm {
+                name    "bindgroupparm#"
+                baseparm
+                label   "VEX Parameter"
+                export  none
+            }
+        }
+
+        parm {
+            name    "vex_cwdpath"
+            baseparm
+            label   "Evaluation Node Path"
+            export  none
+        }
+        parm {
+            name    "vex_outputmask"
+            baseparm
+            label   "Export Parameters"
+            export  none
+        }
+        parm {
+            name    "vex_updatenmls"
+            baseparm
+            label   "Update Normals If Displaced"
+            export  none
+        }
+        parm {
+            name    "vex_matchattrib"
+            baseparm
+            label   "Attribute to Match"
+            export  none
+        }
+        parm {
+            name    "vex_inplace"
+            baseparm
+            label   "Compute Results In Place"
+            export  none
+        }
+        parm {
+            name    "vex_selectiongroup"
+            baseparm
+            label   "Output Selection Group"
+            export  none
+        }
+    }
+
+    parm {
+        name    "vex_precision"
+        baseparm
+        label   "VEX Precision"
+        export  none
+    }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/curveTM_nonFlipping_multi.chn"
+Content-Type: text/plain
+
+{
+    channel scaleRamp1pos {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../scaleRamp1pos\") }
+    }
+    channel scaleRamp1value {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../scaleRamp1value\") }
+    }
+    channel scaleRamp1interp {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../scaleRamp1interp\") }
+    }
+    channel rotationRamp1pos {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../rotationRamp1pos\") }
+    }
+    channel rotationRamp1value {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../rotationRamp1value\") }
+    }
+    channel rotationRamp1interp {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../rotationRamp1interp\") }
+    }
+    channel rotationRamp2pos {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../rotationRamp2pos\") }
+    }
+    channel rotationRamp2value {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../rotationRamp2value\") }
+    }
+    channel rotationRamp2interp {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../rotationRamp2interp\") }
+    }
+    channel upVectorx {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../upVectorx\") }
+    }
+    channel upVectory {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../upVectory\") }
+    }
+    channel upVectorz {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../upVectorz\") }
+    }
+    channel scale {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../scale\") }
+    }
+    channel scaleRamp {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../scaleRamp\") }
+    }
+    channel rotationOffset {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../rotationOffset\") }
+    }
+    channel rotation {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../rotation\") }
+    }
+    channel rotationRamp {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 value = 2 2 expr = ch(\"../rotationRamp\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/curveTM_nonFlipping_multi.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+folder0	[ 0	locks=0	autoscope=0 ]	(	0	0	)
+group	[ 0	locks=0	autoscope=0 ]	(	""	)
+grouptype	[ 0	locks=0	autoscope=0 ]	(	"guess"	)
+class	[ 0	locks=0	autoscope=0 ]	(	"primitive"	)
+vex_numcount	[ 0	locks=0	autoscope=0 ]	(	10	)
+vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
+snippet	[ 0	locks=0	autoscope=0 ]	(	"//Adapted from Path_Deform_FxJ to work on multiple primitives by SB
+//For every point a transform attribute is calculated using the tangent on every point and an 
+//upvector, the lookat function will be used with the point position and the position of the 
+//next point (tangent) and the upvector, the upvector will be taken from the transform of the 
+//previous point (y axis) so that twist-flipping can be avoided as much as possible, for the 
+//first point the upvector will be defined by the user, there could be flipping if the upvector 
+//is too close to the tangent of the first point, but it will be a flip of the whole mesh, not a 
+//twist flip.
+ 
+//this calculation has to be run over the primitive and not over the points because it can't
+//be run in parallel because the tm of every points depend on the tm of the previous point.
+
+int numPoints=primvertexcount(0,0);
+//vector upVector=chv(\"upVector\");//first upvector defined by user
+int pts[] = primpoints(0,@primnum);
+vector upVector = point(0,\"up\",pts[0]);
+matrix3 theTM=1;
+for (int i=0;i<(numPoints-1);i++)
+{
+    theTM=lookat(point(0,\"P\",pts[i+1]),point(0,\"P\",pts[i]),upVector);
+    upVector=set(theTM.yx,theTM.yy,theTM.yz);//up vector used for the next point (y axis of the tm)
+    
+    //The transform attribute will be scaled using a va lue and a ramp defined by the user, it will 
+    //also be rotated using another value and another ramp, with that the geometry can change 
+    //size along the curve and it can also twist.
+    float rampVal=float(i)/numPoints;
+    rotate(theTM,radians(ch(\"rotationOffset\")+ch(\"rotation\")*chramp(\"rotationRamp\",rampVal)),set(theTM.zx,theTM.zy,theTM.zz));//rotation first!
+    scale(theTM,ch(\"scale\")*chramp(\"scaleRamp\",rampVal));
+
+    setpointattrib(0,\"TM\",pts[i],theTM);//now set the tm attribute in the current point
+}
+
+//the last point will have the TM attribute the same as the previous one
+setpointattrib(0,\"TM\",pts[numPoints-1],theTM);
+"	)
+exportlist	[ 0	locks=0	autoscope=0 ]	(	*	)
+vex_strict	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+autobind	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+bindings	[ 0	locks=0	autoscope=0 ]	(	0	)
+groupautobind	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+groupbindings	[ 0	locks=0	autoscope=0 ]	(	0	)
+vex_cwdpath	[ 0	locks=0	autoscope=0 ]	(	.	)
+vex_outputmask	[ 0	locks=0	autoscope=0 ]	(	*	)
+vex_updatenmls	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+vex_matchattrib	[ 0	locks=0	autoscope=0 ]	(	id	)
+vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
+vex_precision	[ 0	locks=0	autoscope=0 ]	(	auto	)
+parameters	[ 0	locks=0	autoscope=0 ]	(	1	1	1	)
+upVector	[ 0	locks=0	autoscope=0 ]	(	[ upVectorx	0 ] 	[ upVectory	0 ] 	[ upVectorz	0 ] 	)
+folder2	[ 0	locks=0	autoscope=0 ]	(	0	)
+scale	[ 0	locks=0	autoscope=0 ]	(	[ scale	1 ] 	)
+scaleRamp	[ 0	locks=0	autoscope=0 ]	(	[ scaleRamp	1 ] 	)
+scaleRamp1pos	[ 0	locks=0	autoscope=0 ]	(	[ scaleRamp1pos	0 ] 	)
+scaleRamp1value	[ 0	locks=0	autoscope=0 ]	(	[ scaleRamp1value	1 ] 	)
+scaleRamp1interp	[ 0	locks=0	autoscope=0 ]	(	[ scaleRamp1interp	1 ] 	)
+folder3	[ 0	locks=0	autoscope=0 ]	(	0	)
+rotationOffset	[ 0	locks=0	autoscope=0 ]	(	[ rotationOffset	0 ] 	)
+rotation	[ 0	locks=0	autoscope=0 ]	(	[ rotation	0 ] 	)
+rotationRamp	[ 0	locks=0	autoscope=0 ]	(	[ rotationRamp	2 ] 	)
+rotationRamp1pos	[ 0	locks=0	autoscope=0 ]	(	[ rotationRamp1pos	0 ] 	)
+rotationRamp1value	[ 0	locks=0	autoscope=0 ]	(	[ rotationRamp1value	1 ] 	)
+rotationRamp1interp	[ 0	locks=0	autoscope=0 ]	(	[ rotationRamp1interp	1 ] 	)
+rotationRamp2pos	[ 0	locks=0	autoscope=0 ]	(	[ rotationRamp2pos	1 ] 	)
+rotationRamp2value	[ 0	locks=0	autoscope=0 ]	(	[ rotationRamp2value	1 ] 	)
+rotationRamp2interp	[ 0	locks=0	autoscope=0 ]	(	[ rotationRamp2interp	1 ] 	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/curveTM_nonFlipping_multi.netbox"
+Content-Type: text/plain
+
+__netbox1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/curveTM_nonFlipping_multi.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/geometry_deform_multi.init"
+Content-Type: text/plain
+
+type = attribwrangle
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/geometry_deform_multi.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -1.24401 -16.662
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+2 "output1"
+}
+inputsNamed3
+{
+0 	axis_align 0 1 "input1"
+1 	CURVE 0 1 "input2"
+}
+inputs
+{
+0 	axis_align 0 1
+1 	CURVE 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author choreofx@choreofx.com
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/geometry_deform_multi.spareparmdef"
+Content-Type: text/plain
+
+    group {
+        name    "folder2"
+        label   "Parameters"
+
+        parm {
+            name    "keepSize"
+            label   "Keep Size"
+            type    toggle
+            default { "0" }
+        }
+        parm {
+            name    "stretch"
+            label   "Stretch"
+            type    float
+            default { "0" }
+            range   { 0 5 }
+        }
+        parm {
+            name    "offset"
+            label   "Offset"
+            type    float
+            default { "0" }
+            range   { -2 2 }
+        }
+    }
+
+    group {
+        name    "folder2_1"
+        label   "Code"
+
+        parm {
+            name    "group"
+            baseparm
+            label   "Group"
+            export  none
+            bindselector points "Modify Points"
+                "Select the points to affect and press Enter to complete."
+                0 1 0xffffffff 0 grouptype 0
+        }
+        parm {
+            name    "grouptype"
+            baseparm
+            label   "Group Type"
+            export  none
+        }
+        parm {
+            name    "class"
+            baseparm
+            label   "Run Over"
+            export  none
+        }
+        parm {
+            name    "vex_numcount"
+            baseparm
+            label   "Number Count"
+            export  none
+        }
+        parm {
+            name    "vex_threadjobsize"
+            baseparm
+            label   "Thread Job Size"
+            export  none
+        }
+        parm {
+            name    "snippet"
+            baseparm
+            label   "VEXpression"
+            export  all
+        }
+        parm {
+            name    "exportlist"
+            baseparm
+            label   "Attributes to Create"
+            export  none
+        }
+        parm {
+            name    "vex_strict"
+            baseparm
+            label   "Enforce Prototypes"
+            export  none
+        }
+    }
+
+    group {
+        name    "folder2_2"
+        label   "Bindings"
+
+        parm {
+            name    "autobind"
+            baseparm
+            label   "Autobind by Name"
+            export  none
+        }
+        multiparm {
+            name    "bindings"
+            label    "Number of Bindings"
+            baseparm
+            default 0
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "multistartoffset" "1" }
+
+            parm {
+                name    "bindname#"
+                baseparm
+                label   "Attribute Name"
+                export  none
+            }
+            parm {
+                name    "bindparm#"
+                baseparm
+                label   "VEX Parameter"
+                export  none
+            }
+        }
+
+        parm {
+            name    "groupautobind"
+            baseparm
+            label   "Autobind Groups by Name"
+            export  none
+        }
+        multiparm {
+            name    "groupbindings"
+            label    "Group Bindings"
+            baseparm
+            default 0
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "multistartoffset" "1" }
+
+            parm {
+                name    "bindgroupname#"
+                baseparm
+                label   "Group Name"
+                export  none
+            }
+            parm {
+                name    "bindgroupparm#"
+                baseparm
+                label   "VEX Parameter"
+                export  none
+            }
+        }
+
+        parm {
+            name    "vex_cwdpath"
+            baseparm
+            label   "Evaluation Node Path"
+            export  none
+        }
+        parm {
+            name    "vex_outputmask"
+            baseparm
+            label   "Export Parameters"
+            export  none
+        }
+        parm {
+            name    "vex_updatenmls"
+            baseparm
+            label   "Update Normals If Displaced"
+            export  none
+        }
+        parm {
+            name    "vex_matchattrib"
+            baseparm
+            label   "Attribute to Match"
+            export  none
+        }
+        parm {
+            name    "vex_inplace"
+            baseparm
+            label   "Compute Results In Place"
+            export  none
+        }
+        parm {
+            name    "vex_selectiongroup"
+            baseparm
+            label   "Output Selection Group"
+            export  none
+        }
+    }
+
+    parm {
+        name    "attribute"
+        label   "Attribute"
+        type    string
+        default { "" }
+    }
+    parm {
+        name    "vex_precision"
+        baseparm
+        label   "VEX Precision"
+        export  none
+    }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/geometry_deform_multi.chn"
+Content-Type: text/plain
+
+{
+    channel keepSize {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../keepSize\") }
+    }
+    channel stretch {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../stretch\") }
+    }
+    channel offset {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../offset\") }
+    }
+    channel attribute {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = chs(\"../primidattrib\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/geometry_deform_multi.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+folder0	[ 0	locks=0	autoscope=0 ]	(	0	0	)
+group	[ 0	locks=0	autoscope=0 ]	(	""	)
+grouptype	[ 0	locks=0	autoscope=0 ]	(	"guess"	)
+class	[ 0	locks=0	autoscope=0 ]	(	"point"	)
+vex_numcount	[ 0	locks=0	autoscope=0 ]	(	10	)
+vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
+snippet	[ 0	locks=0	autoscope=0 ]	(	"//Every point will be transformed along the curve, for that every point will have a local 
+//position and a percent along the curve, and the transform will be done using the transform 
+//of the curve along its path that was calculated in the Step 1.
+
+//The local pos will be just the position of the point but without the z value, so that 
+//the z axis will be used to deform the geometry, if the geometry is not aligned with the 
+//z axis the user can specify a different axis, in that case the geometry will be just 
+//rotated to be aligned to the z axis having in mind the axis that the user specified. The 
+//z axis is used because the transform along the curve is calculated in the first step 
+//using the lookat function which align the z axis to the tangent of the curve.
+int primid = i@`chs(\"attribute\")`;
+vector pointPos=@P;
+vector localPos=pointPos;
+localPos.z=0;
+
+//The percent value will be calculated using the bounding box of the geometry, the points 
+//at the start of the box will have a percent value of zero, and the points at the end 
+//will have a full percent value (1).
+vector min,max;
+getbbox(0,min,max);
+float percent=fit(pointPos.z,min.z,max.z,0,1);
+
+//If the user wants to keep the size of the geometry along the curve, the length of the 
+//geometry and the length of the curve will be used to modify the percent value so that 
+//the size of the geometry will be preserved.
+vector curveLength=prim(1,\"length\",0);
+if (chi(\"keepSize\"))
+    percent*=(max.z-min.z)/curveLength;
+
+//The percent value will be multiplied by the stretch value and the offset value will be 
+//added, so that the geometry could be stretched or slide along the curve.
+percent=percent*ch(\"stretch\")+ch(\"offset\");
+
+//The transform attribute along the curve will be retrieved using the percent value, it 
+//will be used to transform the point, the position attribute along the curve will also 
+//be used to transform the point.
+matrix3 curveTM=primuv(1,\"TM\",primid,percent);
+vector curvePos=primuv(1,\"P\",primid,percent);
+@P=localPos*curveTM+curvePos;
+
+//If the percent goes beyond the limit of the curve, an offset position will be calculated 
+//depending on the tangent of the extreme parts of the curve, it will be taken using the 
+//z axis of the transform attribute.
+if (percent>1)
+    @P+=normalize(set(curveTM.zx,curveTM.zy,curveTM.zz))*(percent-1)*curveLength;
+else if (percent<0)
+    @P+=normalize(set(curveTM.zx,curveTM.zy,curveTM.zz))*percent*curveLength;
+    
+//the xform parameter is used to transform all the attributes later with a transform
+//by a attribute SOP
+3@xform=curveTM;
+"	)
+exportlist	[ 0	locks=0	autoscope=0 ]	(	*	)
+vex_strict	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+autobind	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+bindings	[ 0	locks=0	autoscope=0 ]	(	0	)
+groupautobind	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+groupbindings	[ 0	locks=0	autoscope=0 ]	(	0	)
+vex_cwdpath	[ 0	locks=0	autoscope=0 ]	(	.	)
+vex_outputmask	[ 0	locks=0	autoscope=0 ]	(	*	)
+vex_updatenmls	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+vex_matchattrib	[ 0	locks=0	autoscope=0 ]	(	id	)
+vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
+vex_precision	[ 0	locks=0	autoscope=0 ]	(	auto	)
+folder2	[ 0	locks=0	autoscope=0 ]	(	1	1	1	)
+keepSize	[ 0	locks=0	autoscope=0 ]	(	[ keepSize	1 ] 	)
+stretch	[ 0	locks=0	autoscope=0 ]	(	[ stretch	1 ] 	)
+offset	[ 0	locks=0	autoscope=0 ]	(	[ offset	0 ] 	)
+attribute	[ 0	locks=0	autoscope=0 ]	(	[ attribute	agent_id ] 	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/geometry_deform_multi.netbox"
+Content-Type: text/plain
+
+__netbox2
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/geometry_deform_multi.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch_Enable.init"
+Content-Type: text/plain
+
+type = switch
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch_Enable.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 0.201192 -1.52284
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+2 "output1"
+}
+inputsNamed3
+{
+0 	(0) "" 1 "input1"
+1 	Path_Deform_FxJ2 0 1 "input2"
+}
+inputs
+{
+0 	(0) 0 1
+1 	Path_Deform_FxJ2 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author choreofx@choreofx.com
+  access 0777
+}
+color UT_Color RGB 0.8 1 0.7 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch_Enable.chn"
+Content-Type: text/plain
+
+{
+    channel input {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      start = -2.125
+      segment { length = 0 expr = ch(\"../enable\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch_Enable.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+input	[ 0	locks=0	autoscope=0 ]	(	[ input	1 ] 	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch_Enable.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/trajectories.init"
+Content-Type: text/plain
+
+type = null
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/trajectories.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 1.25641 3.98826
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+0 "output1"
+}
+inputsNamed3
+{
+0 	(0) "" 1 "input1"
+}
+inputs
+{
+0 	(0) 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author choreofx@choreofx.com
+  access 0777
+}
+color UT_Color RGB 0.6 0.7 0.77 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/trajectories.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+copyinput	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+cacheinput	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/trajectories.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/paths.init"
+Content-Type: text/plain
+
+type = null
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/paths.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 3.49302 3.98826
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+0 "output1"
+}
+inputsNamed3
+{
+0 	(1) "" 1 "input1"
+}
+inputs
+{
+0 	(1) 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author choreofx@choreofx.com
+  access 0777
+}
+color UT_Color RGB 0.6 0.7 0.77 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/paths.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+copyinput	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+cacheinput	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/paths.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/output0.init"
+Content-Type: text/plain
+
+type = output
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/output0.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 0.201192 -3.14695
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+}
+inputsNamed3
+{
+0 	switch_Enable 2 1 "input1"
+}
+inputs
+{
+0 	switch_Enable 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author choreofx@choreofx.com
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/output0.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+outputidx	[ 0	locks=0	autoscope=0 ]	(	0	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/output0.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/OUT.init"
+Content-Type: text/plain
+
+type = null
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/OUT.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -2.20521 -21.9005
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault off exposed on
+outputsNamed3
+{
+}
+inputsNamed3
+{
+0 	transform_attributes 0 1 "input1"
+}
+inputs
+{
+0 	transform_attributes 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author choreofx@choreofx.com
+  access 0777
+}
+color UT_Color RGB 0 0 0 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/OUT.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+copyinput	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+cacheinput	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/OUT.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/copy2.init"
+Content-Type: text/plain
+
+type = copyxform
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/copy2.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -1.73993 -7.89413
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	(0) "" 1 "input1"
+}
+inputs
+{
+0 	(0) 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author choreofx@choreofx.com
+  access 0777
+}
+color UT_Color RGB 1 0.65 0.1 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/copy2.spareparmdef"
+Content-Type: text/plain
+
+    parm {
+        name    "sourcegroup"
+        baseparm
+        label   "Source Group"
+        export  none
+        bindselector prims "Copy Geometry"
+            "Select the geometry to copy and press Enter to complete."
+            0 1 0xffffffff 0 "" 0
+    }
+    parm {
+        name    "ncy"
+        baseparm
+        label   "Total Number"
+        export  all
+    }
+    parm {
+        name    "pack"
+        baseparm
+        label   "Pack and Instance"
+        export  none
+    }
+    parm {
+        name    "pivot"
+        baseparm
+        label   "Pivot Location"
+        export  none
+    }
+    parm {
+        name    "viewportlod"
+        baseparm
+        label   "Display As"
+        export  none
+    }
+    parm {
+        name    "xOrd"
+        baseparm
+        label   "Transform Order"
+        joinnext
+        export  none
+    }
+    parm {
+        name    "rOrd"
+        baseparm
+        label   "Rotate Order"
+        nolabel
+        export  none
+    }
+    parm {
+        name    "t"
+        baseparm
+        label   "Translate"
+        export  all
+    }
+    parm {
+        name    "r"
+        baseparm
+        label   "Rotate"
+        export  all
+    }
+    parm {
+        name    "s"
+        baseparm
+        label   "Scale"
+        export  all
+    }
+    parm {
+        name    "shear"
+        baseparm
+        label   "Shear"
+        export  none
+    }
+    parm {
+        name    "scale"
+        baseparm
+        label   "Uniform Scale"
+        export  none
+    }
+    groupcollapsible {
+        name    "parmgroup_pivotxform2"
+        label   "Pivot Transform"
+        grouptag { "group_type" "collapsible" }
+
+        parm {
+            name    "p"
+            baseparm
+            label   "Pivot Translate"
+            export  none
+        }
+        parm {
+            name    "pr"
+            baseparm
+            label   "Pivot Rotate"
+            export  none
+        }
+    }
+
+    parm {
+        name    "newgroups"
+        baseparm
+        label   "Create Output Groups"
+        nolabel
+        joinnext
+        export  none
+    }
+    parm {
+        name    "newgroupprefix"
+        baseparm
+        label   "Output Group Prefix"
+        export  none
+    }
+    parm {
+        name    "docopyattrib"
+        baseparm
+        label   "Create Output Groups"
+        nolabel
+        joinnext
+        export  none
+    }
+    parm {
+        name    "copyattrib"
+        baseparm
+        label   "Copy Number Attribute"
+        export  none
+    }
+    parm {
+        name    "spare_input0"
+        label   "Spare Input 0"
+        type    oppath
+        default { "" }
+        help    "Refer to this in expressions as -1, such as: npoint(-1)"
+        parmtag { "opfilter" "!!SOP!!" }
+        parmtag { "oprelative" "." }
+    }
+    parm {
+        name    "sourcegrouptype"
+        baseparm
+        label   "Source Group Type"
+        export  none
+    }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/copy2.chn"
+Content-Type: text/plain
+
+{
+    channel ncy {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 value = 2 2 expr = nprims(-1) }
+    }
+    channel copyattrib {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = chs(\"../primidattrib\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/copy2.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+sourcegroup	[ 0	locks=0	autoscope=0 ]	(	""	)
+sourcegrouptype	[ 0	locks=0	autoscope=0 ]	(	"guess"	)
+ncy	[ 0	locks=0	autoscope=0 ]	(	[ ncy	25 ] 	)
+pack	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+pivot	[ 0	locks=0	autoscope=0 ]	(	"centroid"	)
+viewportlod	[ 0	locks=0	autoscope=0 ]	(	"full"	)
+xOrd	[ 0	locks=0	autoscope=0 ]	(	"srt"	)
+rOrd	[ 0	locks=0	autoscope=0 ]	(	"xyz"	)
+t	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
+r	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
+s	[ 0	locks=0	autoscope=0 ]	(	1	1	1	)
+shear	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
+scale	[ 0	locks=0	autoscope=0 ]	(	1	)
+parmgroup_pivotxform	[ 0	locks=0	autoscope=0 ]	(	0	)
+p	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
+pr	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
+newgroups	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+newgroupprefix	[ 0	locks=0	autoscope=0 ]	(	copyGroup	)
+docopyattrib	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+copyattrib	[ 0	locks=0	autoscope=0 ]	(	[ copyattrib	agent_id ] 	)
+parmgroup_pivotxform2	[ 0	locks=0	autoscope=0 ]	(	0	)
+spare_input0	[ 0	locks=0	autoscope=0 ]	(	../timeshift1	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/copy2.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/switch_same_mesh.init"
+Content-Type: text/plain
+
+type = switch
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/switch_same_mesh.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -3.24643 -9.57927
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+2 "output1"
+}
+inputsNamed3
+{
+1 	(0) "" 1 "input1"
+0 	attribpromote1 0 1 "input2"
+}
+inputs
+{
+0 	(0) 0 1
+1 	attribpromote1 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author choreofx@choreofx.com
+  access 0777
+}
+color UT_Color RGB 0.8 1 0.7 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/switch_same_mesh.chn"
+Content-Type: text/plain
+
+{
+    channel input {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = "ch(\"../makecopiescheck\") && ch(\"../makecopies\")" }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/switch_same_mesh.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+input	[ 0	locks=0	autoscope=0 ]	(	[ input	0 ] 	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/switch_same_mesh.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/timeshift1.init"
+Content-Type: text/plain
+
+type = timeshift
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/timeshift1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -1.73993 -5.87278
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+}
+inputsNamed3
+{
+0 	switch1 0 1 "input1"
+}
+inputs
+{
+0 	switch1 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author choreofx@choreofx.com
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/timeshift1.chn"
+Content-Type: text/plain
+
+{
+    channel time {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = $T }
+    }
+    channel frange1 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = $FSTART }
+    }
+    channel frange2 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = $FEND }
+    }
+    channel trange1 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = $TSTART }
+    }
+    channel trange2 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = $TEND }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/timeshift1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+method	[ 0	locks=0	autoscope=0 ]	(	"byframe"	)
+frame	[ 0	locks=0	autoscope=0 ]	(	1	)
+integerframe	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+time	[ 0	locks=0	autoscope=0 ]	(	[ time	0 ] 	)
+rangeclamp	[ 0	locks=0	autoscope=0 ]	(	"none"	)
+frange	[ 0	locks=0	autoscope=0 ]	(	[ frange1	0 ] 	[ frange2	0 ] 	)
+trange	[ 0	locks=0	autoscope=0 ]	(	[ trange1	0 ] 	[ trange2	0 ] 	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/timeshift1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/attribpromote1.init"
+Content-Type: text/plain
+
+type = attribpromote
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/attribpromote1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -1.74338 -8.81664
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+0 "output1"
+}
+inputsNamed3
+{
+1 	copy2 1 1 "input1"
+}
+inputs
+{
+0 	copy2 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author choreofx@choreofx.com
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/attribpromote1.chn"
+Content-Type: text/plain
+
+{
+    channel inname {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = chs(\"../primidattrib\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/attribpromote1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+inname	[ 0	locks=0	autoscope=0 ]	(	[ inname	agent_id ] 	)
+inclass	[ 0	locks=0	autoscope=0 ]	(	"primitive"	)
+outclass	[ 0	locks=0	autoscope=0 ]	(	"point"	)
+usepieceattrib	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+pieceattrib	[ 0	locks=0	autoscope=0 ]	(	name	)
+method	[ 0	locks=0	autoscope=0 ]	(	"first"	)
+useoutname	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+outname	[ 0	locks=0	autoscope=0 ]	(	""	)
+deletein	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/attribpromote1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/subdivide.init"
+Content-Type: text/plain
+
+type = resample
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/subdivide.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 4.37343 -3.39149
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	(1) "" 1 "input1"
+}
+inputs
+{
+0 	(1) 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author choreofx@choreofx.com
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/subdivide.chn"
+Content-Type: text/plain
+
+{
+    channel segs {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 value = 100 100 expr = ch(\"../samples\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/subdivide.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+group	[ 0	locks=0	autoscope=0 ]	(	""	)
+lod	[ 0	locks=0	autoscope=0 ]	(	1	)
+edge	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+method	[ 0	locks=0	autoscope=0 ]	(	"dist"	)
+measure	[ 0	locks=0	autoscope=0 ]	(	"arc"	)
+dolength	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+length	[ 0	locks=0	autoscope=0 ]	(	0.77900000000000003	)
+dosegs	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+segs	[ 0	locks=0	autoscope=0 ]	(	[ segs	300 ] 	)
+useattribs	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+allequal	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+last	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+randomshift	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+onlypoints	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+treatpolysas	[ 0	locks=0	autoscope=0 ]	(	"straight"	)
+outputsubdpoly	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+doptdistattr	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+ptdistattr	[ 0	locks=0	autoscope=0 ]	(	ptdist	)
+dotangentattr	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+tangentattr	[ 0	locks=0	autoscope=0 ]	(	tangentu	)
+docurveuattr	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+curveuattr	[ 0	locks=0	autoscope=0 ]	(	curveu	)
+docurvenumattr	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+curvenumattr	[ 0	locks=0	autoscope=0 ]	(	curvenum	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/subdivide.netbox"
+Content-Type: text/plain
+
+__netbox1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/subdivide.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/curve_length.init"
+Content-Type: text/plain
+
+type = measure
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/curve_length.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 3.46395 -8.81805
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	switch 0 1 "input1"
+}
+inputs
+{
+0 	switch 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author choreofx@choreofx.com
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/curve_length.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+group	[ 0	locks=0	autoscope=0 ]	(	""	)
+type	[ 0	locks=0	autoscope=0 ]	(	"perimeter"	)
+override	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+attribname	[ 0	locks=0	autoscope=0 ]	(	length	)
+curvetype	[ 0	locks=0	autoscope=0 ]	(	"all"	)
+curve	[ 0	locks=0	autoscope=0 ]	(	0	1000	)
+t	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/curve_length.netbox"
+Content-Type: text/plain
+
+__netbox1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/curve_length.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/axis_align.init"
+Content-Type: text/plain
+
+type = xform
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/axis_align.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -3.13733 -12.8999
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+0 "output1"
+}
+inputsNamed3
+{
+1 	switch_same_mesh 2 1 "input1"
+}
+inputs
+{
+0 	switch_same_mesh 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author choreofx@choreofx.com
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/axis_align.spareparmdef"
+Content-Type: text/plain
+
+    group {
+        name    "folder0"
+        label   "Parameters"
+
+        parm {
+            name    "axis"
+            label   "Axis"
+            type    ordinal
+            default { "0" }
+            menu {
+                "x" "X"
+                "y" "Y"
+                "z" "Z"
+            }
+        }
+        parm {
+            name    "flipAxis"
+            label   "FlipAxis"
+            type    toggle
+            default { "0" }
+        }
+    }
+
+    group {
+        name    "folder0_1"
+        label   "Transform"
+
+        parm {
+            name    "group"
+            baseparm
+            label   "Group"
+            export  none
+            bindselector everything "Transform Geometry"
+                "Select the geometry to transform and press Enter to complete. Middle mouse to select. Left mouse to select and drag."
+                0 1 0xffffffff 1 grouptype 0
+        }
+        parm {
+            name    "grouptype"
+            baseparm
+            label   "Group Type"
+            export  none
+        }
+        parm {
+            name    "xOrd"
+            baseparm
+            label   "Transform Order"
+            joinnext
+            export  none
+        }
+        parm {
+            name    "rOrd"
+            baseparm
+            label   "Rotate Order"
+            nolabel
+            export  none
+        }
+        parm {
+            name    "t"
+            baseparm
+            label   "Translate"
+            export  none
+        }
+        parm {
+            name    "r"
+            baseparm
+            label   "Rotate"
+            export  none
+        }
+        parm {
+            name    "s"
+            baseparm
+            label   "Scale"
+            export  none
+        }
+        parm {
+            name    "shear"
+            baseparm
+            label   "Shear"
+            export  none
+        }
+        parm {
+            name    "p"
+            baseparm
+            label   "Pivot Translate"
+            export  none
+        }
+        parm {
+            name    "scale"
+            baseparm
+            label   "Uniform Scale"
+            export  none
+        }
+        parm {
+            name    "movecentroid"
+            baseparm
+            label   "Move Centroid to Origin"
+            export  none
+        }
+        parm {
+            name    "attribs"
+            baseparm
+            label   "Attributes"
+            export  none
+        }
+        parm {
+            name    "updatenmls"
+            baseparm
+            label   "Recompute Point Normals"
+            export  none
+        }
+        parm {
+            name    "updateaffectednmls"
+            baseparm
+            label   "Recompute Affected Normals"
+            export  none
+        }
+        parm {
+            name    "vlength"
+            baseparm
+            label   "Preserve Normal Length"
+            export  none
+        }
+        parm {
+            name    "invertxform"
+            baseparm
+            label   "Invert Transformation"
+            export  none
+        }
+    }
+
+    parm {
+        name    "pr"
+        baseparm
+        label   "Pivot Rotate"
+        export  none
+    }
+    parm {
+        name    "prexform_xOrd"
+        baseparm
+        label   "Pre-Transform Order"
+        export  none
+    }
+    parm {
+        name    "prexform_rOrd"
+        baseparm
+        label   "Pre-Rotate Order"
+        nolabel
+        export  none
+    }
+    parm {
+        name    "prexform_t"
+        baseparm
+        label   "Pre-Translate"
+        export  none
+    }
+    parm {
+        name    "prexform_r"
+        baseparm
+        label   "Pre-Rotate"
+        export  none
+    }
+    parm {
+        name    "prexform_s"
+        baseparm
+        label   "Pre-Scale"
+        export  none
+    }
+    parm {
+        name    "prexform_shear"
+        baseparm
+        label   "Pre-Shear"
+        export  none
+    }
+    parm {
+        name    "addattrib"
+        baseparm
+        label   "Output Attribute"
+        nolabel
+        export  none
+    }
+    parm {
+        name    "outputattrib"
+        baseparm
+        label   "Output Attribute"
+        export  none
+    }
+    parm {
+        name    "outputmerge"
+        baseparm
+        label   "Combine"
+        nolabel
+        export  none
+    }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/axis_align.chn"
+Content-Type: text/plain
+
+{
+    channel rx {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = if(ch(\"axis\")==1,90,0) }
+    }
+    channel ry {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = if(ch(\"axis\")==0,-90,0) }
+    }
+    channel invertxform {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"flipAxis\") }
+    }
+    channel axis {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../axis\") }
+    }
+    channel flipAxis {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../flipAxis\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/axis_align.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+group	[ 0	locks=0	autoscope=0 ]	(	""	)
+grouptype	[ 0	locks=0	autoscope=0 ]	(	"guess"	)
+xOrd	[ 0	locks=0	autoscope=0 ]	(	"srt"	)
+rOrd	[ 0	locks=0	autoscope=0 ]	(	"xyz"	)
+t	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
+r	[ 0	locks=0	autoscope=0 ]	(	[ rx	0 ] 	[ ry	-90 ] 	0	)
+s	[ 0	locks=0	autoscope=0 ]	(	1	1	1	)
+shear	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
+scale	[ 0	locks=0	autoscope=0 ]	(	1	)
+parmgroup_pivotxform	[ 0	locks=0	autoscope=0 ]	(	0	)
+p	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
+pr	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
+parmgroup_prexform	[ 0	locks=0	autoscope=0 ]	(	0	)
+prexform_xOrd	[ 0	locks=0	autoscope=0 ]	(	"srt"	)
+prexform_rOrd	[ 0	locks=0	autoscope=0 ]	(	"xyz"	)
+prexform_t	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
+prexform_r	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
+prexform_s	[ 0	locks=0	autoscope=0 ]	(	1	1	1	)
+prexform_shear	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
+movecentroid	[ 0	locks=0 ]	(	0	)
+attribs	[ 0	locks=0	autoscope=0 ]	(	*	)
+updatenmls	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+updateaffectednmls	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+vlength	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+invertxform	[ 0	locks=0	autoscope=0 ]	(	[ invertxform	0 ] 	)
+addattrib	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+outputattrib	[ 0	locks=0	autoscope=0 ]	(	xform	)
+outputmerge	[ 0	locks=0	autoscope=0 ]	(	"post"	)
+folder0	[ 0	locks=0	autoscope=0 ]	(	0	0	)
+axis	[ 0	locks=0	autoscope=0 ]	(	[ axis	0 ] 	)
+flipAxis	[ 0	locks=0	autoscope=0 ]	(	[ flipAxis	0 ] 	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/axis_align.netbox"
+Content-Type: text/plain
+
+__netbox2
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/axis_align.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/transform_attributes.init"
+Content-Type: text/plain
+
+type = xformbyattrib
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/transform_attributes.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -2.20521 -19.5034
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+0 "output1"
+}
+inputsNamed3
+{
+1 	switch2 0 1 "input1"
+}
+inputs
+{
+0 	switch2 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author choreofx@choreofx.com
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/transform_attributes.chn"
+Content-Type: text/plain
+
+{
+    channel attribs {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = chs(\"../attribs\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/transform_attributes.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+group	[ 0	locks=0	autoscope=0 ]	(	""	)
+grouptype	[ 0	locks=0	autoscope=0 ]	(	"points"	)
+xformattrib	[ 0	locks=0	autoscope=0 ]	(	xform	)
+invertxform	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+attribs	[ 0	locks=0	autoscope=0 ]	(	[ attribs	* ] 	)
+updateaffectednmls	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+vlength	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+deletexform	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/transform_attributes.netbox"
+Content-Type: text/plain
+
+__netbox2
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/transform_attributes.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/CURVE.init"
+Content-Type: text/plain
+
+type = null
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/CURVE.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 3.46395 -9.8993
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+0 "output1"
+}
+inputsNamed3
+{
+1 	curve_length 1 1 "input1"
+}
+inputs
+{
+0 	curve_length 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author choreofx@choreofx.com
+  access 0777
+}
+color UT_Color RGB 0.6 0.7 0.77 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/CURVE.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+copyinput	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+cacheinput	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/CURVE.netbox"
+Content-Type: text/plain
+
+__netbox1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/CURVE.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/switch.init"
+Content-Type: text/plain
+
+type = switch
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/switch.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 3.46395 -7.58365
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+0 "output1"
+}
+inputsNamed3
+{
+1 	curveTM_nonFlipping_multi 1 1 "input1"
+2 	curveTM_byAtt 1 1 "input2"
+}
+inputs
+{
+0 	curveTM_nonFlipping_multi 0 1
+1 	curveTM_byAtt 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author choreofx@choreofx.com
+  access 0777
+}
+color UT_Color RGB 0.8 1 0.7 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/switch.chn"
+Content-Type: text/plain
+
+{
+    channel input {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../upVectorByAttribute\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/switch.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+input	[ 0	locks=0	autoscope=0 ]	(	[ input	0 ] 	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/switch.netbox"
+Content-Type: text/plain
+
+__netbox1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/switch.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/switch1.init"
+Content-Type: text/plain
+
+type = switch
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/switch1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 2.69192 -4.49105
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+0 "output1"
+}
+inputsNamed3
+{
+1 	(1) "" 1 "input1"
+2 	subdivide 1 1 "input2"
+}
+inputs
+{
+0 	(1) 0 1
+1 	subdivide 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author choreofx@choreofx.com
+  access 0777
+}
+color UT_Color RGB 0.8 1 0.7 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/switch1.chn"
+Content-Type: text/plain
+
+{
+    channel input {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../doresample\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/switch1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+input	[ 0	locks=0	autoscope=0 ]	(	[ input	1 ] 	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/switch1.netbox"
+Content-Type: text/plain
+
+__netbox1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/switch1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/switch2.init"
+Content-Type: text/plain
+
+type = switch
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/switch2.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -2.20521 -17.7013
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+0 "output1"
+}
+inputsNamed3
+{
+1 	geometry_deform_orig 2 1 "input1"
+2 	geometry_deform_multi 2 1 "input2"
+}
+inputs
+{
+0 	geometry_deform_orig 0 1
+1 	geometry_deform_multi 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author choreofx@choreofx.com
+  access 0777
+}
+color UT_Color RGB 0.8 1 0.7 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/switch2.chn"
+Content-Type: text/plain
+
+{
+    channel input {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../multipath\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/switch2.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+input	[ 0	locks=0	autoscope=0 ]	(	[ input	1 ] 	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/switch2.netbox"
+Content-Type: text/plain
+
+__netbox2
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2/switch2.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2.order"
+Content-Type: text/plain
+
+18
+OUT
+copy2
+switch_same_mesh
+timeshift1
+attribpromote1
+curveTM_nonFlipping_orig
+geometry_deform_orig
+curveTM_byAtt
+curveTM_nonFlipping_multi
+geometry_deform_multi
+subdivide
+curve_length
+axis_align
+transform_attributes
+CURVE
+switch
+switch1
+switch2
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/Path_Deform_FxJ2.net"
+Content-Type: text/plain
+
+1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot.order"
+Content-Type: text/plain
+
+6
+switch_Enable
+trajectories
+paths
+output0
+vis_N_orient9
+Path_Deform_FxJ2
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot.net"
+Content-Type: text/plain
+
+1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY--

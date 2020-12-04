@@ -1,0 +1,346 @@
+# Dialog script for choreofx::crowdJointBlend::1 automatically generated
+
+{
+    name	choreofx::crowdJointBlend::1
+    script	choreofx
+    label	"Crowd Joint Blend"
+
+    help {
+	""
+    }
+
+    inputlabel	1	"Input Agents"
+    inputlabel	2	"Input Blend"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+    outputlabel	1	"Agent Primitives"
+
+    parm {
+        name    "sepparm4"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
+        name    "group"
+        label   "Group"
+        type    string
+        default { "" }
+        menutoggle {
+            [ "opmenu -l agent_lookat group" ]
+        }
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_action" "import soputils\nkwargs['geometrytype'] = kwargs['node'].parmTuple('grouptype')\nkwargs['inputindex'] = 0\nsoputils.selectGroupParm(kwargs)" }
+        parmtag { "script_action_help" "Select geometry from an available viewport." }
+        parmtag { "script_action_icon" "BUTTONS_reselect" }
+    }
+    parm {
+        name    "grouptype"
+        label   "Group Type"
+        type    ordinal
+        default { "guess" }
+        menu {
+            "guess"     "Guess from Group"
+            "vertices"  "Vertices"
+            "edges"     "Edges"
+            "points"    "Points"
+            "prims"     "Primitives"
+        }
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    group {
+        name    "folder1"
+        label   "Blend Settings"
+
+        parm {
+            name    "enable_joinblend"
+            label   "Enable Joint Blend"
+            type    toggle
+            default { "on" }
+            range   { 0! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "sepparm7"
+            label   "Separator"
+            type    separator
+            default { "" }
+        }
+        parm {
+            name    "xformspace"
+            label   "Xform Space"
+            type    ordinal
+            default { "0" }
+            menu {
+                "0" "World Transform"
+                "1" "Local Transform"
+            }
+            range   { 0! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "useoverride"
+            label   "Use Clip Override"
+            type    toggle
+            default { "0" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "currentclip"
+            label   "Blend Clip"
+            type    string
+            default { "rest" }
+            disablewhen "{ useoverride == 0 }"
+            menureplace {
+                [ "opmenu -l manual_clip currentclip" ]
+            }
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "cliptime"
+            label   "Clip Time"
+            type    float
+            default { "0" }
+            disablewhen "{ useoverride == 0 }"
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "sepparm6"
+            label   "Separator"
+            type    separator
+            default { "" }
+        }
+        parm {
+            name    "userandblend"
+            label   "Use Random Dart Amount"
+            type    toggle
+            invisible
+            default { "off" }
+            range   { 0! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        groupsimple {
+            name    "folder2"
+            label   "Random Amount"
+            invisibletab
+            hidewhentab "{ userandblend == 0 }"
+
+            parm {
+                name    "min"
+                label   "Min Value"
+                type    float
+                default { "0" }
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "max"
+                label   "Max Value"
+                type    float
+                default { "1" }
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+        }
+
+        parm {
+            name    "blendall"
+            label   "Blend Amount"
+            type    float
+            default { "1" }
+            range   { 0 1 }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "blendalljoints"
+            label   "Blend All joints in group"
+            type    toggle
+            default { "0" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "Blend_Point_Attribs"
+            label   "Blend Point Attribs"
+            type    toggle
+            default { "0" }
+            range   { 0! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "attribs"
+            label   "Attributes"
+            type    string
+            default { "*" }
+            disablewhen "{ Blend_Point_Attribs == 0 }"
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "transformgroup"
+            label   "Transformgroup"
+            type    string
+            default { "all" }
+            menureplace {
+                [ "opmenu -l -a blend_local_transform1 transformgroup" ]
+            }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "sepparm8"
+            label   "Separator"
+            type    separator
+            default { "" }
+        }
+        parm {
+            name    "use_activate"
+            label   "Use Activation Frame"
+            type    toggle
+            default { "off" }
+            range   { 0! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        groupsimple {
+            name    "folder3"
+            label   "Activation Frame"
+            hidewhentab "{ use_activate == 0 }"
+
+            parm {
+                name    "active_frame"
+                label   "Activation Frame"
+                type    integer
+                default { "19" }
+                range   { 0 500 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "rand_active"
+                label   "Random Frame Max"
+                type    integer
+                default { "7" }
+                range   { 0 10 }
+            }
+            parm {
+                name    "activeblendframes"
+                label   "Blend Frames"
+                type    integer
+                default { "5" }
+                range   { 0 10 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+        }
+
+        parm {
+            name    "use_deactivate"
+            label   "Use Dectivation Frame"
+            type    toggle
+            default { "off" }
+            range   { 0! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        groupsimple {
+            name    "folder4"
+            label   "Dectivation Frame"
+            hidewhentab "{ use_deactivate == 0 }"
+
+            parm {
+                name    "deactive_frame"
+                label   "Deactivation Frame"
+                type    integer
+                default { "100" }
+                range   { 0 500 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "rand_deactive"
+                label   "Random Frame Max"
+                type    integer
+                default { "5" }
+                range   { 0 10 }
+            }
+            parm {
+                name    "deactive_blend_frames"
+                label   "Blend Frames"
+                type    integer
+                default { "5" }
+                range   { 0 10 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+        }
+
+    }
+
+    group {
+        name    "folder1_1"
+        label   "Joint Settings"
+
+        parm {
+            name    "btn_init_aliens"
+            label   "Init Aliens"
+            type    button
+            joinnext
+            default { "0" }
+            parmtag { "script_callback" "hou.phm().init_aliens(kwargs['node'])" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "btn_init_wildebeest"
+            label   "Init Wildebeest"
+            type    button
+            default { "0" }
+            parmtag { "script_callback" "hou.phm().init_wildebeest(kwargs['node'])" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "sepparm3"
+            label   "Separator"
+            type    separator
+            default { "" }
+        }
+        multiparm {
+            name    "adjusttransforms"
+            label    "Adjust Transforms"
+            default 3
+
+            parm {
+                name    "enable#"
+                label   "Enable"
+                type    toggle
+                default { "1" }
+                range   { 0 1 }
+            }
+            parm {
+                name    "jointname#"
+                label   "Joint Name"
+                type    string
+                default { "" }
+                menureplace {
+                    [ "import crowdstoolutils" ]
+                    [ "return crowdstoolutils.buildTransformMenu(hou.pwd())" ]
+                    language python
+                }
+                range   { 0 1 }
+                parmtag { "script_action" "import crowdstoolutils\ncrowdstoolutils.selectJoint(kwargs['node'], kwargs['parmtuple'])" }
+                parmtag { "script_action_help" "Select a joint name from a tree view." }
+                parmtag { "script_action_icon" "BUTTONS_reselect" }
+            }
+            parm {
+                name    "jointblend#"
+                label   "Joint Blend"
+                type    float
+                default { "1" }
+                range   { 0 1 }
+            }
+        }
+
+    }
+
+}

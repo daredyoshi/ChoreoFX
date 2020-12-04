@@ -1,0 +1,527 @@
+= Crowd Layout Brush =
+#icon: /Icons/ChoreoFX.svg
+#tags: crowds, agents, ChoreoFX
+
+"""Documentation is Coming soon!"""
+
+This is placeholder documentation for Crowd Layout Brush
+
+@parameters
+
+== Global ==
+Clear All:
+	#id: clearAll
+	ToDo
+
+Clear Selected:
+	#id: clearSelected
+	ToDo
+
+Stamp From Selected:
+	#id: stampFromSelected
+	ToDo
+
+== Agent Attribs ==
+Agent Name:
+	#id: agentName
+	ToDo
+
+Costume Name:
+	#id: costumeName
+	ToDo
+
+Clip Name:
+	#id: clipName
+	ToDo
+
+Clip Time:
+	#id: clipTimeOffset
+	ToDo
+
+Vignette Name:
+	#id: vignetteName
+	ToDo
+
+AgentName Changed:
+	#id: agentNameChanged
+	ToDo
+
+CostumeName Changed:
+	#id: costumeNameChanged
+	ToDo
+
+Clip Name Changed:
+	#id: clipNameChanged
+	ToDo
+
+Clip Time Offset Changed:
+	#id: clipTimeOffsetChanged
+	ToDo
+
+VignetteName Changed:
+	#id: vignetteNameChanged
+	ToDo
+
+Agent Import Method:
+	#id: agentImportMethod
+	ToDo
+
+Agent OpPath:
+	#id: agentOppath
+	ToDo
+
+Agent Geo File:
+	#id: agentFile
+	ToDo
+
+Vignettes Import Method:
+	#id: vignetteImportMethod
+	ToDo
+
+Vignettes OpPath:
+	#id: vignetteOppath
+	ToDo
+
+Vignette Geo File:
+	#id: vignetteFile
+	ToDo
+
+== Settings ==
+Brush Display Mode:
+	#id: brushdisplay
+	ToDo
+
+All Point Display Mode:
+	#id: allpointdisplay
+	ToDo
+
+Visualize Transforms:
+	#id: visXform
+	ToDo
+
+Visualize:
+	#id: visualizers
+	ToDo
+
+Raycast GroundPlane:
+	#id: raygroundplane
+	ToDo
+
+Do Raycast after moving Points:
+	#id: useRaycastOnEdit
+	ToDo
+
+Intersect Search Distance:
+	#id: labelparm3
+	ToDo
+
+Use Intersection Detection:
+	#id: useIntersectDetect
+	ToDo
+
+Use pscale Multiplier:
+	#id: usepscalemultiplier
+	ToDo
+
+Search Distance:
+	#id: intersectSearchDist
+	ToDo
+
+Use Stroke:
+	#id: usestroke
+	ToDo
+
+Stroke Spacing:
+	#id: strokeSpacing
+	ToDo
+
+Point Scale:
+	#id: pscaleBase
+	ToDo
+
+Orient Up to Surface:
+	#id: orientSurfaceMax
+	ToDo
+
+Preserve Stamp Up:
+	#id: preserveStampUp
+	ToDo
+
+Enable Randomization:
+	#id: enableRandom
+	ToDo
+
+== Randomization ==
+Randomize on First Click:
+	#id: useFirstClickRandom
+	ToDo
+
+Randomize Model:
+	#id: modelrand
+	ToDo
+
+Use model weights from Input Collection:
+	#id: weightedModelRand
+	ToDo
+
+Orient Surface Random:
+	#id: orientSurfaceRand
+	ToDo
+
+Scale Random:
+	#id: pscalerand
+	ToDo
+
+Rotate Random:
+	#id: rotrand
+	ToDo
+
+== Brush ==
+== Brush ==
+Use Brush:
+	#id: useBrush
+	ToDo
+
+Brush Source:
+	#id: brush_source
+	ToDo
+
+Brush Shape:
+	#id: brush_shape
+	ToDo
+
+Brush Mode:
+	#id: brush_mode
+	ToDo
+
+Radius:
+	#id: brush_rad
+	ToDo
+
+Density:
+	#id: brush_density
+	ToDo
+
+Center Bias:
+	#id: brush_centerbias
+	ToDo
+
+Default Brush Orient:
+	#id: brush_orientMode
+	ToDo
+
+Projection Direction:
+	#id: brush_ProjectDir
+	ToDo
+
+Orient Brush To Surface:
+	#id: orientBrushToSurface
+	ToDo
+
+Use Brush Falloff:
+	#id: usefalloff
+	ToDo
+
+Falloff:
+	#id: brush_falloff
+	ToDo
+
+Brush Strength:
+	#id: brush_strength
+	ToDo
+
+Clamp Distance from Brush:
+	#id: useBrushDistClamp
+	ToDo
+
+Max Dist by Brush Size:
+	#id: brushDistClamp
+	ToDo
+
+Relax Uniform:
+	#id: brush_relax_uniform
+	ToDo
+
+Relax by pscale:
+	#id: brush_relax_pscale
+	ToDo
+
+== Modify Settings ==
+Update Children After Modify:
+	#id: doUpdateChildren
+	ToDo
+
+Single Mode Smudge Position Override:
+	#id: doSingleModePosOverride
+	ToDo
+
+Edit Scale:
+	#id: doEditScale
+	ToDo
+
+Edit Twist (Rot):
+	#id: doEditTwist
+	ToDo
+
+Edit Surface Up:
+	#id: doEditSurfaceUp
+	ToDo
+
+Edit Model:
+	#id: doEditModel
+	ToDo
+
+Use Value Snapping:
+	#id: useValueSnapping
+	ToDo
+
+Snap Angle:
+	#id: snapAngle
+	ToDo
+
+Snap Float:
+	#id: snapFloat
+	ToDo
+
+Min Scale:
+	#id: minScale
+	ToDo
+
+== Xform Handle ==
+Affects Position:
+	#id: handle_pos
+	ToDo
+
+Affects Rotation:
+	#id: handle_rot
+	ToDo
+
+Affect Scale:
+	#id: handle_scale
+	ToDo
+
+Translate:
+	#id: edt_t
+	ToDo
+
+Rotate:
+	#id: edt_r
+	ToDo
+
+Scale:
+	#id: edt_s
+	ToDo
+
+Shear:
+	#id: edt_shear
+	ToDo
+
+Pivot Translate:
+	#id: edt_p
+	ToDo
+
+Pivot Rotate:
+	#id: edt_pr
+	ToDo
+
+== Stamps ==
+Reload Geometry:
+	#id: reload
+	ToDo
+
+Stamp File:
+	#id: stampfile
+	ToDo
+
+Save to Disk:
+	#id: execute
+	ToDo
+
+== Groups ==
+Group Type:
+	#id: grouptype
+	ToDo
+
+Create Ordered:
+	#id: ordered
+	ToDo
+
+Mask Group:
+	#id: maskgroup
+	ToDo
+
+Include All instances of selected model:
+	#id: selectAllModelInstances
+	ToDo
+
+Include All instances in selected Collection:
+	#id: selectAllInCollection
+	ToDo
+
+Include All children of selected:
+	#id: selectAllChildren
+	ToDo
+
+Max Child Search Depth:
+	#id: childSearchIters
+	ToDo
+
+Invert Mask:
+	#id: useInvertMask
+	ToDo
+
+Group Single Point:
+	#id: grp_single
+	ToDo
+
+== Tool data ==
+Collection:
+	#id: activeCollection
+	ToDo
+
+Model Variation Count :
+	#id: modelcount
+	ToDo
+
+model:
+	#id: brush_model
+	ToDo
+
+Enable Add Points:
+	#id: toggle_add_points
+	ToDo
+
+brush Operation:
+	#id: brush_op
+	ToDo
+
+Mouse Screen Pos:
+	#id: mouse_screenP
+	ToDo
+
+Mouse Screen Delta:
+	#id: brush_screen_delta
+	ToDo
+
+mouse Pixel Multiplier:
+	#id: mouse_pixelMult
+	ToDo
+
+Brush Position:
+	#id: brush_position
+	ToDo
+
+Position Delta End:
+	#id: brush_position_delta
+	ToDo
+
+surface Normal:
+	#id: brush_surfaceN
+	ToDo
+
+surface N Mix:
+	#id: brush_surfaceMix
+	ToDo
+
+rot:
+	#id: brush_rot
+	ToDo
+
+scale:
+	#id: brush_scale
+	ToDo
+
+StampNumber:
+	#id: stampnumber
+	ToDo
+
+pressCount:
+	#id: pressCount
+	ToDo
+
+Is First Press:
+	#id: isfirstpress
+	ToDo
+
+Is Mouse Down:
+	#id: isMouseDown
+	ToDo
+
+is Valid Pos:
+	#id: validPos
+	ToDo
+
+is Selection Event:
+	#id: isSelectionEvent
+	ToDo
+
+is Brush Subtract:
+	#id: isBrushSubtract
+	ToDo
+
+is Kill Selected:
+	#id: isKillSelected
+	ToDo
+
+is Quick Clone:
+	#id: isQuickClone
+	ToDo
+
+is Cursor In Viewport:
+	#id: isCursorInViewport
+	ToDo
+
+brushscreenxform:
+	#id: brushscreenxform
+	ToDo
+
+testxf:
+	#id: testxf
+	ToDo
+
+cam_pivot:
+	#id: cam_pivot
+	ToDo
+
+cam_rot:
+	#id: cam_rot
+	ToDo
+
+ScreenRes:
+	#id: screenRes
+	ToDo
+
+mouse_point:
+	#id: mouse_point
+	ToDo
+
+mouse_dir:
+	#id: mouse_dir
+	ToDo
+
+Data all points:
+	#id: stash_all_points
+	ToDo
+
+Data stamp points:
+	#id: stash_stamp_points
+	ToDo
+
+Data ray geo:
+	#id: stash_ray_geo
+	ToDo
+
+Data smart ray points:
+	#id: stash_smart_ray_points
+	ToDo
+
+
+@inputs
+
+Placeholder:
+    Description of input
+
+@outputs
+
+Placeholder:
+    Description of output

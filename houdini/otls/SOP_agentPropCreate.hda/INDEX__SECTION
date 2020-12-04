@@ -1,0 +1,15 @@
+Operator:     choreofx::agentPropCreate::1
+Label:        Agent Prop Create
+Path:         oplib:/choreofx::Sop/agentPropCreate::1?choreofx::Sop/agentPropCreate::1
+Icon:         ChoreoFX
+Table:        Sop
+License:      
+Extra:        
+User:         
+Inputs:       1 to 2
+Outputs:      2
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Thu Dec  3 11:17:13 2020
+

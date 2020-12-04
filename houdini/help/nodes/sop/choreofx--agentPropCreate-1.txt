@@ -1,0 +1,115 @@
+= Agent Prop Create =
+#icon: /Icons/ChoreoFX.svg
+#tags: crowds, agents, ChoreoFX
+
+"""Documentation is Coming soon!"""
+
+This is placeholder documentation for Agent Prop Create
+
+@parameters
+
+Source:
+	#id: source
+	ToDo
+
+Loop Method:
+	#id: loopMethod
+	ToDo
+
+Loop Range:
+	#id: loopRange
+	ToDo
+
+Start:
+	#id: start
+	ToDo
+
+End:
+	#id: end
+	ToDo
+
+Start:
+	#id: frStart
+	ToDo
+
+End:
+	#id: frEnd
+	ToDo
+
+== Prop Assign ==
+Source Geo by Path:
+	#id: sourceGeoPath
+	ToDo
+
+Geo Path:
+	#id: geoPath
+	ToDo
+
+Pack:
+	#id: pack
+	ToDo
+
+Prop Name:
+	#id: propName
+	ToDo
+
+Category:
+	#id: category
+	ToDo
+
+Transform Name:
+	#id: transformname
+	ToDo
+
+== Local Offset From Joint ==
+Offset Translate:
+	#id: offsetT
+	ToDo
+
+Offset Rotate:
+	#id: offsetR
+	ToDo
+
+Offset Scale:
+	#id: offsetScale
+	ToDo
+
+Visualize on Agent:
+	#id: visOnAgent
+	ToDo
+
+== Visualize on Agent ==
+Apply Agent Scale:
+	#id: applyAgentScale
+	ToDo
+
+Agent pscale:
+	#id: agentPscale
+	ToDo
+
+Set Current Clip:
+	#id: enablecurrentclip
+	ToDo
+
+Set Current Clip:
+	#id: currentclip
+	ToDo
+
+Set Clip Time:
+	#id: enablecliptime
+	ToDo
+
+Clip Time:
+	#id: cliptime
+	ToDo
+
+
+@inputs
+
+Placeholder:
+    Description of input
+
+@outputs
+
+Placeholder:
+    Description of output

@@ -1,0 +1,138 @@
+= Crowd Joint Blend =
+#icon: /Icons/ChoreoFX.svg
+#tags: crowds, agents, ChoreoFX
+
+"""Documentation is Coming soon!"""
+
+This is placeholder documentation for Crowd Joint Blend
+
+@parameters
+
+Group:
+	#id: group
+	ToDo
+
+Group Type:
+	#id: grouptype
+	ToDo
+
+== Blend Settings ==
+Enable Joint Blend:
+	#id: enable_joinblend
+	ToDo
+
+Xform Space:
+	#id: xformspace
+	ToDo
+
+Use Clip Override:
+	#id: useoverride
+	ToDo
+
+Blend Clip:
+	#id: currentclip
+	ToDo
+
+Clip Time:
+	#id: cliptime
+	ToDo
+
+Use Random Dart Amount:
+	#id: userandblend
+	ToDo
+
+== Random Amount ==
+Min Value:
+	#id: min
+	ToDo
+
+Max Value:
+	#id: max
+	ToDo
+
+Blend Amount:
+	#id: blendall
+	ToDo
+
+Blend All joints in group:
+	#id: blendalljoints
+	ToDo
+
+Blend Point Attribs:
+	#id: Blend_Point_Attribs
+	ToDo
+
+Attributes:
+	#id: attribs
+	ToDo
+
+Transformgroup:
+	#id: transformgroup
+	ToDo
+
+Use Activation Frame:
+	#id: use_activate
+	ToDo
+
+== Activation Frame ==
+Activation Frame:
+	#id: active_frame
+	ToDo
+
+Random Frame Max:
+	#id: rand_active
+	ToDo
+
+Blend Frames:
+	#id: activeblendframes
+	ToDo
+
+Use Dectivation Frame:
+	#id: use_deactivate
+	ToDo
+
+== Dectivation Frame ==
+Deactivation Frame:
+	#id: deactive_frame
+	ToDo
+
+Random Frame Max:
+	#id: rand_deactive
+	ToDo
+
+Blend Frames:
+	#id: deactive_blend_frames
+	ToDo
+
+== Joint Settings ==
+Init Aliens:
+	#id: btn_init_aliens
+	ToDo
+
+Init Wildebeest:
+	#id: btn_init_wildebeest
+	ToDo
+
+== Adjust Transforms ==
+Enable:
+	#id: enable#
+	ToDo
+
+Joint Name:
+	#id: jointname#
+	ToDo
+
+Joint Blend:
+	#id: jointblend#
+	ToDo
+
+
+@inputs
+
+Placeholder:
+    Description of input
+
+@outputs
+
+Placeholder:
+    Description of output

@@ -1,0 +1,14 @@
+Operator:     choreofx::crowdLayoutBrush::4
+Label:        Crowd Layout Brush
+Path:         oplib:/choreofx::Sop/crowdLayoutBrush::4?choreofx::Sop/crowdLayoutBrush::4
+Icon:         ChoreoFX
+Table:        Sop
+License:      
+Extra:        guide=HDA_GUIDE_VECTORS 
+User:         
+Inputs:       0 to 4
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Thu Dec  3 16:20:11 2020
+

@@ -1,0 +1,16 @@
+{
+	"values":["18.5.351"
+	],
+	"indexes":{
+		"hdaroot/groupdelete1.userdata":0,
+		"hdaroot/promote_ref_primnum_to_prim.userdata":0,
+		"hdaroot/revert_to_original_order.userdata":0,
+		"hdaroot/longest_seg_len.userdata":0,
+		"hdaroot/switch2.userdata":0,
+		"hdaroot/blast1.userdata":0,
+		"hdaroot/output0.userdata":0,
+		"hdaroot/attribcopy1.userdata":0,
+		"hdaroot/sort1.userdata":0,
+		"hdaroot/switch1.userdata":0
+	}
+}

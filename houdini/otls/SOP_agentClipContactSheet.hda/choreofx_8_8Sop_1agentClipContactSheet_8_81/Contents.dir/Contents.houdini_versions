@@ -1,0 +1,26 @@
+{
+	"values":["18.5.351"
+	],
+	"indexes":{
+		"hdaroot/output0.userdata":0,
+		"hdaroot/merge1.userdata":0,
+		"hdaroot/group1.userdata":0,
+		"hdaroot/agentunpack2.userdata":0,
+		"hdaroot/switch_show_skeletons.userdata":0,
+		"hdaroot/OUT_clipcontactsheet.userdata":0,
+		"hdaroot/copy_radii.userdata":0,
+		"hdaroot/merge2.userdata":0,
+		"hdaroot/meta1.userdata":0,
+		"hdaroot/timeshift1.userdata":0,
+		"hdaroot/transform1.userdata":0,
+		"hdaroot/font1.userdata":0,
+		"hdaroot/blast1.userdata":0,
+		"hdaroot/switch_do_test.userdata":0,
+		"hdaroot/IN_AGENT.userdata":0,
+		"hdaroot/bound1.userdata":0,
+		"hdaroot/foreach_clip.userdata":0,
+		"hdaroot/pack1.userdata":0,
+		"hdaroot/foreach_begin.userdata":0,
+		"hdaroot/switch_empty_clip.userdata":0
+	}
+}

@@ -1,0 +1,11 @@
+'''
+node = kwargs["node"]
+def selectionChanged(node, event_type, **kwargs):
+    hou.geom
+    print("AAAAAAAAAAAAAAAAHHHHHHHHh")
+
+print("ADDED_%s" % node.name())
+
+node.addEventCallback((hou.nodeEventType.SelectionChanged, ), selectionChanged)
+print node.eventCallbacks()
+'''

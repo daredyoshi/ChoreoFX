@@ -1,0 +1,182 @@
+= Crowd Override =
+#icon: /Icons/ChoreoFX.svg
+#tags: crowds, agents, ChoreoFX
+
+"""Documentation is Coming soon!"""
+
+This is placeholder documentation for Crowd Override
+
+@parameters
+
+Selected Agents:
+	#id: selectedAgents
+	ToDo
+
+Source Agent Defs:
+	#id: importMethod
+	ToDo
+
+OpPath:
+	#id: agentOppath
+	ToDo
+
+Geo File:
+	#id: agentFile
+	ToDo
+
+== Edits ==
+Launch Viewport Controls:
+	#id: newparameter
+	ToDo
+
+Vis Id:
+	#id: vis_id
+	ToDo
+
+Active Id:
+	#id: active_id
+	ToDo
+
+Group Type:
+	#id: grouptype
+	ToDo
+
+== Agent Edit ==
+enablePosition:
+	#id: enablePosition
+	ToDo
+
+Position:
+	#id: posOffset
+	ToDo
+
+enableHeadingDir:
+	#id: enableHeadingDir
+	ToDo
+
+Heading Dir:
+	#id: headingDir
+	ToDo
+
+Rotation Offset:
+	#id: rotOffset__
+	ToDo
+
+enableActor:
+	#id: enableActor
+	ToDo
+
+Actor:
+	#id: actor
+	ToDo
+
+enableCostume:
+	#id: enableCostume
+	ToDo
+
+Costume:
+	#id: costume
+	ToDo
+
+enableClipName:
+	#id: enableClipName
+	ToDo
+
+Clip Name:
+	#id: clipName
+	ToDo
+
+enableTimeAnchor:
+	#id: enableTimeAnchor
+	ToDo
+
+Time Anchor:
+	#id: timeAnchor
+	ToDo
+
+enableTimeOffset:
+	#id: enableTimeOffset
+	ToDo
+
+Time Offset:
+	#id: timeOffset
+	ToDo
+
+enableTimeSpeed:
+	#id: enableTimeSpeed
+	ToDo
+
+Time Speed:
+	#id: timeSpeed
+	ToDo
+
+== User Data ==
+== User Data ==
+#:
+	#id: dataEnable_#
+	ToDo
+
+Type:
+	#id: dataType_#
+	ToDo
+
+Name:
+	#id: dataName_#
+	ToDo
+
+Int:
+	#id: dataInt_#
+	ToDo
+
+Float:
+	#id: dataFloat_#
+	ToDo
+
+Vector:
+	#id: dataVector_#
+	ToDo
+
+String:
+	#id: dataString_#
+	ToDo
+
+== Joint Transform ==
+== Adjust Transforms ==
+Enable:
+	#id: enable#
+	ToDo
+
+Transform Name:
+	#id: transformname#
+	ToDo
+
+Translate:
+	#id: t#
+	ToDo
+
+Rotate:
+	#id: r#
+	ToDo
+
+Scale:
+	#id: s#
+	ToDo
+
+Use VEXpressions:
+	#id: uselocaladjust#
+	ToDo
+
+ :
+	#id: localadjustexpression#
+	ToDo
+
+
+@inputs
+
+Placeholder:
+    Description of input
+
+@outputs
+
+Placeholder:
+    Description of output

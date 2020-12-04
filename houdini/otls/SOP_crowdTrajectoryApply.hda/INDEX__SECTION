@@ -1,0 +1,14 @@
+Operator:     choreofx::crowdTrajectoryApply::2
+Label:        Crowd Trajectory Apply
+Path:         oplib:/choreofx::Sop/crowdTrajectoryApply::2?choreofx::Sop/crowdTrajectoryApply::2
+Icon:         ChoreoFX
+Table:        Sop
+License:      
+Extra:        guide=OUT_GUIDE 
+User:         
+Inputs:       1 to 2
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Thu Dec  3 10:18:54 2020
+

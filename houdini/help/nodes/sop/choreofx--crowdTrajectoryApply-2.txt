@@ -1,0 +1,72 @@
+= Crowd Trajectory Apply =
+#icon: /Icons/ChoreoFX.svg
+#tags: crowds, agents, ChoreoFX
+
+"""Documentation is Coming soon!"""
+
+This is placeholder documentation for Crowd Trajectory Apply
+
+@parameters
+
+Agent Method:
+	#id: agentMethod
+	ToDo
+
+== Create Agents ==
+Agent Source:
+	#id: agentSource
+	ToDo
+
+== Traj Apply Settings ==
+Lookup Clip Time:
+	#id: lookupClipTime
+	ToDo
+
+Lookup Clip Names:
+	#id: lookupClipNames
+	ToDo
+
+Lookup Clip Weights:
+	#id: lookupClipWeights
+	ToDo
+
+Lookup Agent World Transforms:
+	#id: lookupAgentWorldTransforms
+	ToDo
+
+Remove Agents Out of FrameRange:
+	#id: removeOutOfRange
+	ToDo
+
+== Guides ==
+vis Trajectory Timing Paths:
+	#id: visTimingPaths
+	ToDo
+
+== TimingPaths ==
+MajorFrameInterval:
+	#id: majorFrameInverval
+	ToDo
+
+MinorFrameInterval:
+	#id: minorFrameInverval
+	ToDo
+
+majorFrameScale:
+	#id: majorFrameScale
+	ToDo
+
+minorFrameScaleMult:
+	#id: minorFrameScaleMult
+	ToDo
+
+
+@inputs
+
+Placeholder:
+    Description of input
+
+@outputs
+
+Placeholder:
+    Description of output

@@ -1,0 +1,50 @@
+= Crowd Mirror =
+#icon: /Icons/ChoreoFX.svg
+#tags: crowds, agents, ChoreoFX
+
+"""Documentation is Coming soon!"""
+
+This is placeholder documentation for Crowd Mirror
+
+@parameters
+
+== Agent Mirror ==
+Rest Clip:
+	#id: restClip
+	ToDo
+
+Reflectionplane:
+	#id: reflectionPlane
+	ToDo
+
+Angle:
+	#id: angle
+	ToDo
+
+Planeorigin:
+	#id: planeOrigin
+	ToDo
+
+== mappings ==
+Leftprefix:
+	#id: leftPrefix#
+	ToDo
+
+Rightprefix:
+	#id: rightPrefix#
+	ToDo
+
+Use As Prefix:
+	#id: useAsPrefix#
+	ToDo
+
+
+@inputs
+
+Placeholder:
+    Description of input
+
+@outputs
+
+Placeholder:
+    Description of output

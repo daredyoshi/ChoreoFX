@@ -1,0 +1,221 @@
+# Dialog script for choreofx::crowdClipPlayer::1 automatically generated
+
+{
+    name	choreofx::crowdClipPlayer::1
+    script	agentClipFromAgent::00.01
+    label	"Crowd Clip Player"
+
+    help {
+	""
+    }
+
+    inputlabel	1	"Crowd Agents"
+    inputlabel	2	"Sub-Network Input #2"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+    outputlabel	1	"Crowd Agents"
+    outputlabel	2	"Trim Guide"
+
+    group {
+        name    "stdswitcher"
+        label   "Clip Player"
+
+        parm {
+            name    "playAtOrigin"
+            label   "Play at Origin"
+            type    toggle
+            default { "0" }
+            range   { 0! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "loopTransitionType"
+            label   "Loop Transition Type"
+            type    integer
+            default { "1" }
+            help    "Locomotive - The locomotion channel will be preserved. For when agent should move in a direction.        In-Place - Locomotion channel loops around to start. For when agent should loop on the spot"
+            menu {
+                "0" "In-Place"
+                "1" "Locomotive"
+            }
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "sepparm2"
+            label   "Separator"
+            type    separator
+            default { "" }
+        }
+        groupsimple {
+            name    "folder0"
+            label   "Locomotion Settings"
+            disablewhentab "{ loopTransitionType == 0 }"
+
+            parm {
+                name    "advanceLoco"
+                label   "Advance Locomotion"
+                type    toggle
+                default { "1" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "sepparm7"
+                label   "Separator"
+                type    separator
+                default { "" }
+            }
+            parm {
+                name    "applyScale"
+                label   "Scale Compensation"
+                type    integer
+                default { "1" }
+                menu {
+                    "0" "None"
+                    "1" "Adjust Clip Speed"
+                    "2" "Adjust Position"
+                }
+                range   { 0 10 }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "sepparm5"
+                label   "Separator"
+                type    separator
+                default { "" }
+            }
+            parm {
+                name    "timeOffsetLoco"
+                label   "Time Offset Locomotion"
+                type    integer
+                default { "0" }
+                help    "Locomotive - The locomotion channel will be preserved. For when agent should move in a direction.        In-Place - Locomotion channel loops around to start. For when agent should loop on the spot"
+                menu {
+                    "0" "Back Transform"
+                    "1" "Back Translate"
+                    "2" "No Change"
+                }
+                range   { 0 10 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "sepparm4"
+                label   "Separator"
+                type    separator
+                default { "" }
+            }
+            parm {
+                name    "removeLocoStart"
+                label   "Remove Loco Start Xform"
+                type    toggle
+                default { "on" }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "locoType"
+                label   "Locomotion Type"
+                type    ordinal
+                default { "0" }
+                menu {
+                    "0" "Point R & T"
+                    "1" "Joint R, Point T"
+                    "2" "Joint R & T"
+                }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "locoJoint"
+                label   "Locomotion Joint"
+                type    string
+                default { "Hips" }
+                disablewhen "{ locoType == 0 }"
+                menureplace {
+                    [ "import crowdstoolutils" ]
+                    [ "return crowdstoolutils.buildTransformMenu(hou.pwd())" ]
+                    language python
+                }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+        }
+
+        parm {
+            name    "visAnchorFrame"
+            label   "vis Anchor Frame"
+            type    toggle
+            default { "0" }
+            range   { 0! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+    }
+
+    group {
+        name    "stdswitcher_1"
+        label   "Time Defaults"
+
+        parm {
+            name    "time"
+            label   "Time"
+            type    float
+            default { "$T - $TSTART" }
+            range   { 0 10 }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "sepparm6"
+            label   "Separator"
+            type    separator
+            default { "" }
+        }
+        parm {
+            name    "labelparm"
+            label   " "
+            type    label
+            size    4
+            default { "*To use if no existing attribs are found*" "" "" "" }
+        }
+        parm {
+            name    "sepparm3"
+            label   "Separator"
+            type    separator
+            default { "" }
+        }
+        parm {
+            name    "timeSpeed"
+            label   "Time Speed"
+            type    float
+            default { "1" }
+            range   { 0 10 }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "timeAnchor"
+            label   "Time Anchor (Frame)"
+            type    integer
+            default { "1" }
+            range   { -100 500 }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "timeOffset"
+            label   "Time Offset (sec)"
+            type    float
+            default { "0" }
+            range   { -10 10 }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "sepparm"
+            label   "Separator"
+            type    separator
+            default { "" }
+        }
+    }
+
+}

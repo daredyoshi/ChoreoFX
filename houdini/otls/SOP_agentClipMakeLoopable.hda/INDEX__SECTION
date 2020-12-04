@@ -1,0 +1,15 @@
+Operator:     choreofx::agentClipMakeLoopable::1
+Label:        Agent Clip Make Loopable
+Path:         oplib:/choreofx::Sop/agentClipMakeLoopable::1?choreofx::Sop/agentClipMakeLoopable::1
+Icon:         ChoreoFX
+Table:        Sop
+License:      
+Extra:        guide=vis 
+User:         
+Inputs:       1 to 1
+Outputs:      2
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Thu Dec  3 11:16:26 2020
+

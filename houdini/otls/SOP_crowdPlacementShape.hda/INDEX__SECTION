@@ -1,0 +1,14 @@
+Operator:     choreofx::crowdPlacementShape::1
+Label:        Crowd Placement Shape
+Path:         oplib:/choreofx::Sop/crowdPlacementShape::1?choreofx::Sop/crowdPlacementShape::1
+Icon:         ChoreoFX
+Table:        Sop
+License:      
+Extra:        guide=OUT_GUIDE 
+User:         
+Inputs:       0 to 4
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Thu Dec  3 11:17:19 2020
+

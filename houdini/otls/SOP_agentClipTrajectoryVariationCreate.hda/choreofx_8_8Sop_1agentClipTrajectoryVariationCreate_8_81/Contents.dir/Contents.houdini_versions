@@ -1,0 +1,26 @@
+{
+	"values":["18.5.351"
+	],
+	"indexes":{
+		"hdaroot/merge1.userdata":0,
+		"hdaroot/compile_begin1.userdata":0,
+		"hdaroot/compile_end1_obj_trajectory_sequencer_subnet1_attribdelete1.userdata":0,
+		"hdaroot/copytopoints2.userdata":0,
+		"hdaroot/foreach_traj_group_meta_import.userdata":0,
+		"hdaroot/switch_do_looping.userdata":0,
+		"hdaroot/foreach_traj_group.userdata":0,
+		"hdaroot/copytopoints1.userdata":0,
+		"hdaroot/pointgenerate1.userdata":0,
+		"hdaroot/TEST_PRIM.userdata":0,
+		"hdaroot/null1.userdata":0,
+		"hdaroot/for_each_traj.userdata":0,
+		"hdaroot/pointgenerate2.userdata":0,
+		"hdaroot/switch1.userdata":0,
+		"hdaroot/foreach_begin5.userdata":0,
+		"hdaroot/merge2.userdata":0,
+		"hdaroot/output0.userdata":0,
+		"hdaroot/output1.userdata":0,
+		"hdaroot/foreach_begin1.userdata":0,
+		"hdaroot/foreach_traj_group_meta.userdata":0
+	}
+}

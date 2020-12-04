@@ -1,0 +1,109 @@
+= Crowd Vignette Assign =
+#icon: /Icons/ChoreoFX.svg
+#tags: crowds, agents, ChoreoFX
+
+"""Documentation is Coming soon!"""
+
+This is placeholder documentation for Crowd Vignette Assign
+
+@parameters
+
+Source:
+	#id: source
+	ToDo
+
+Loop Method:
+	#id: loopMethod
+	ToDo
+
+Loop Range:
+	#id: loopRange
+	ToDo
+
+Start:
+	#id: start
+	ToDo
+
+End:
+	#id: end
+	ToDo
+
+Start:
+	#id: frStart
+	ToDo
+
+End:
+	#id: frEnd
+	ToDo
+
+== Actor Assign ==
+Agent Group:
+	#id: agentgroup
+	ToDo
+
+Group Type:
+	#id: grouptype
+	ToDo
+
+== Vignette Templates Import ==
+Sourve Vignettes:
+	#id: importMethodVig
+	ToDo
+
+OpPath:
+	#id: vignettesOppath
+	ToDo
+
+Geo File:
+	#id: vignettesFile
+	ToDo
+
+Seed Attribute:
+	#id: seedAttrib
+	ToDo
+
+Set Vignette:
+	#id: setSingleVignette
+	ToDo
+
+Randomize Vignette:
+	#id: randomizeVignette
+	ToDo
+
+Random Seed:
+	#id: randomVignetteSeed
+	ToDo
+
+== Vignette List ==
+== Vignette Groups ==
+Vignette Pattern:
+	#id: vignettePattern_#
+	ToDo
+
+Weight:
+	#id: vignetteWeight_#
+	ToDo
+
+== Manual Vignette Edits ==
+Enable:
+	#id: manualEnable_#
+	ToDo
+
+Affected Group:
+	#id: manualGroup_#
+	ToDo
+
+Vignette:
+	#id: manualVignetteName_#
+	ToDo
+
+
+@inputs
+
+Placeholder:
+    Description of input
+
+@outputs
+
+Placeholder:
+    Description of output

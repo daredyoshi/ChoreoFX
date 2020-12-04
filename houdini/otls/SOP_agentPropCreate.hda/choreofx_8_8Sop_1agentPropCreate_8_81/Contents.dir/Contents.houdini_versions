@@ -1,0 +1,20 @@
+{
+	"values":["18.5.351"
+	],
+	"indexes":{
+		"hdaroot/group1.userdata":0,
+		"hdaroot/timeshift1.userdata":0,
+		"hdaroot/switch3.userdata":0,
+		"hdaroot/blast1.userdata":0,
+		"hdaroot/apply_PropXform.userdata":0,
+		"hdaroot/IN_REF_AGENT.userdata":0,
+		"hdaroot/pack1.userdata":0,
+		"hdaroot/switch1.userdata":0,
+		"hdaroot/OUT_PROP.userdata":0,
+		"hdaroot/IN_PROP_GEO.userdata":0,
+		"hdaroot/merge1.userdata":0,
+		"hdaroot/merge_props.userdata":0,
+		"hdaroot/OUT_vis.userdata":0,
+		"hdaroot/switch2.userdata":0
+	}
+}

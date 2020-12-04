@@ -1,0 +1,257 @@
+# Dialog script for choreofx::CrowdFullBodyIK::1 automatically generated
+
+{
+    name	choreofx::CrowdFullBodyIK::1
+    script	choreofx::CrowdFullBodyIK::1
+    label	"Crowd Full Body IK"
+
+    help {
+	""
+    }
+
+    inputlabel	1	"Agent Primitives"
+    inputlabel	2	"Target Points"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+    outputlabel	1	"Agent Primitives"
+
+    parm {
+        name    "group"
+        label   "Group"
+        type    string
+        default { "" }
+        menutoggle {
+            [ "kwargs['node'].generateInputGroupMenu(0)" ]
+            language python
+        }
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_action" "import soputils\nkwargs['geometrytype'] = kwargs['node'].parmTuple('grouptype')\nkwargs['inputindex'] = 0\nsoputils.selectGroupParm(kwargs)" }
+        parmtag { "script_action_help" "Select geometry from an available viewport." }
+        parmtag { "script_action_icon" "BUTTONS_reselect" }
+    }
+    parm {
+        name    "grouptype"
+        label   "Group Type"
+        type    ordinal
+        default { "guess" }
+        menu {
+            "guess"     "Guess from Group"
+            "vertices"  "Vertices"
+            "edges"     "Edges"
+            "points"    "Points"
+            "prims"     "Primitives"
+        }
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "sepparm3"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
+        name    "method"
+        label   "Method"
+        type    integer
+        default { "0" }
+        menu {
+            "0" "Simple fbik"
+            "1" "Weighted fbik"
+        }
+        range   { 0! 10 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "sepparm2"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
+        name    "ik_tolerance"
+        label   "Ik Tolerance"
+        type    float
+        default { "0.0001" }
+        range   { 0 0.0001 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "ik_iterations"
+        label   "Ik Iterations"
+        type    integer
+        default { "5" }
+        range   { 1 50 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "pinroot"
+        label   "Pinroot"
+        type    toggle
+        default { "on" }
+        range   { 0 10 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "ignorelimits"
+        label   "remove joint limits"
+        type    toggle
+        default { "1" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "sepparm"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    groupsimple {
+        name    "folder0"
+        label   "Agent Skeleton to match Joint Names"
+
+        parm {
+            name    "agent_id_attrib"
+            label   "agent ID attrib"
+            type    string
+            default { "agent_id" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "skel_search_prim"
+            label   "Skel Prim"
+            type    integer
+            default { "0" }
+            disablewhen "{ useagentname == 1 }"
+            range   { 0 100 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "useagentname"
+            label   "Find prim with agentname"
+            type    toggle
+            default { "0" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "agentname"
+            label   "agentname"
+            type    string
+            default { "horse" }
+            help    "find a point with an agentname point attribute that matches this string"
+            disablewhen "{ useagentname == 0 }"
+            parmtag { "script_callback_language" "python" }
+        }
+    }
+
+    parm {
+        name    "sepparm4"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
+        name    "transformgroup"
+        label   "Transform Group"
+        type    string
+        default { "" }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "transformnames"
+        label   "Joint Names"
+        type    string
+        default { "LeftFingerBase_To_LeftHandIndex1 RightFingerBase_To_RightHandIndex1" }
+        hidewhen "{ method != 0 }"
+        menutoggle {
+            [ "opmenu -l -a build_bone_list transformname" ]
+        }
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_action" "import crowdstoolutils\ncrowdstoolutils.selectJoint(kwargs['node'], kwargs['parmtuple'])" }
+        parmtag { "script_action_help" "Select a joint name from a tree view." }
+        parmtag { "script_action_icon" "BUTTONS_reselect" }
+    }
+    multiparm {
+        name    "joints"
+        label    "Joints"
+        default 0
+        hidewhen "{ method != 1 }"
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "multistartoffset" "0" }
+
+        parm {
+            name    "enable#"
+            label   " "
+            type    toggle
+            joinnext
+            default { "1" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "jointname#"
+            label   "Joint Name"
+            type    string
+            default { "" }
+            menureplace {
+                [ "import crowdstoolutils" ]
+                [ "return crowdstoolutils.buildTransformMenu(hou.pwd().node(\"build_bone_list\"))" ]
+                language python
+            }
+            range   { 0 1 }
+            parmtag { "script_action" "import crowdstoolutils\ncrowdstoolutils.selectJoint(kwargs['node'].node(\"build_bone_list\"), kwargs['parmtuple'])" }
+            parmtag { "script_action_help" "Select a joint name from a tree view." }
+            parmtag { "script_action_icon" "BUTTONS_reselect" }
+        }
+        parm {
+            name    "weight#"
+            label   "Weight"
+            type    float
+            default { "1" }
+            range   { 0 10 }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "priority#"
+            label   "Priority"
+            type    integer
+            default { "0" }
+            range   { 0 10 }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "depth#"
+            label   "Depth"
+            type    integer
+            default { "-1" }
+            range   { -1 10 }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "targettype#"
+            label   "targettype"
+            type    integer
+            default { "0" }
+            menu {
+                "0" "position"
+                "1" "orientation"
+                "2" "both"
+            }
+            range   { 0 2 }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "sepparm#_2"
+            label   "Separator"
+            type    separator
+            default { "" }
+        }
+    }
+
+}

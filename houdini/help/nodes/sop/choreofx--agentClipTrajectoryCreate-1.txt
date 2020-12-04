@@ -1,0 +1,28 @@
+= Agent Clip Trajectory Create =
+#icon: /Icons/ChoreoFX.svg
+#tags: crowds, agents, ChoreoFX
+
+"""Documentation is Coming soon!"""
+
+This is placeholder documentation for Agent Clip Trajectory Create
+
+@parameters
+
+Agentnames:
+	#id: agentnames
+	ToDo
+
+Clipnames:
+	#id: clipnames
+	ToDo
+
+
+@inputs
+
+Placeholder:
+    Description of input
+
+@outputs
+
+Placeholder:
+    Description of output

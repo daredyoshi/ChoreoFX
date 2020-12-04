@@ -1,0 +1,589 @@
+# Dialog script for choreofx::crowdGuideGenerator::1 automatically generated
+
+{
+    name	choreofx::crowdGuideGenerator::1
+    script	agent_clip_player::00.01
+    label	"Crowd Guide Generator"
+
+    help {
+	""
+    }
+
+    inputlabel	1	"Crowd Agents"
+    inputlabel	2	"Move Paths"
+    inputlabel	3	"Delay Curve"
+    inputlabel	4	"Delta Positions"
+    inputlabel	5	"Snap Surface"
+    outputlabel	1	Agents
+    outputlabel	2	Paths
+    outputlabel	3	"Vector Field"
+
+    parm {
+        name    "basegroup"
+        label   "Affected Group"
+        type    string
+        default { "" }
+        menutoggle {
+            [ "opmenu -l __clipplayergroup basegroup" ]
+        }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_action" "import soputils\nkwargs['geometrytype'] = kwargs['node'].parmTuple('grouptype')\nkwargs['inputindex'] = 0\n#kwargs['ordered'] = kwargs['node'].parm('ordered').eval()\nsoputils.selectGroupParm(kwargs)" }
+        parmtag { "script_action_help" "Select geometry from an available viewport.\nShift-click to turn on Select Groups." }
+        parmtag { "script_action_icon" "BUTTONS_reselect" }
+    }
+    parm {
+        name    "grouptype"
+        label   "Group Type"
+        type    ordinal
+        invisible
+        default { "point" }
+        menu {
+            "primitive" "Primitives"
+            "point"     "Points"
+            "edge"      "Edges"
+            "vertex"    "Vertices"
+        }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_action" "import soputils\nkwargs['geometrytype'] = kwargs['node'].parmTuple('grouptype')\nkwargs['inputindex'] = 0\nkwargs['ordered'] = kwargs['node'].parm('ordered').eval()\nsoputils.selectGroupParm(kwargs)" }
+    }
+    parm {
+        name    "seedattrib"
+        label   "Global Seed Attribute"
+        type    string
+        default { "agent_id" }
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    group {
+        name    "folder1_2"
+        label   "Path Generation"
+
+        parm {
+            name    "sepparm11"
+            label   "Separator"
+            type    separator
+            default { "" }
+        }
+        parm {
+            name    "showmovepaths"
+            label   "Show Movement Paths"
+            type    toggle
+            default { "0" }
+            range   { 0! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        groupsimple {
+            name    "folder0"
+            label   "Input Paths"
+
+            parm {
+                name    "usedeltapaths"
+                label   "Use Delta Agent Position (Input4)"
+                type    toggle
+                default { "0" }
+                range   { 0! 10 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "copy_path_per_agent"
+                label   "Copy Input Path Per Agent"
+                type    toggle
+                default { "0" }
+                range   { 0! 10 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "sepparm23"
+                label   "Separator"
+                type    separator
+                default { "" }
+            }
+            parm {
+                name    "revinpaths"
+                label   "Reverse Input Paths"
+                type    toggle
+                default { "0" }
+                range   { 0! 10 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "reversepathgroup"
+                label   "Reverse Group"
+                type    string
+                default { "" }
+                hidewhen "{ revinpaths == 0 }"
+                menutoggle {
+                    [ "opmenu -l reverse1 group" ]
+                }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_action" "import soputils\nkwargs['geometrytype'] = (hou.geometryType.Primitives,)\nkwargs['inputindex'] = 1\nsoputils.selectGroupParm(kwargs)" }
+                parmtag { "script_action_help" "Select geometry from an available viewport.\nShift-click to turn on Select Groups." }
+                parmtag { "script_action_icon" "BUTTONS_reselect" }
+            }
+            parm {
+                name    "revoutpaths"
+                label   "Reverse Output Paths"
+                type    toggle
+                default { "0" }
+                range   { 0! 10 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "reverseoutputgroup"
+                label   "Reverse Output Group"
+                type    string
+                invisible
+                default { "" }
+                hidewhen "{ revoutpaths == 0 }"
+                menutoggle {
+                    [ "opmenu -l reverse2 group" ]
+                }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_action" "import soputils\nkwargs['geometrytype'] = (hou.geometryType.Primitives,)\nkwargs['inputindex'] = 0\nsoputils.selectGroupParm(kwargs)" }
+                parmtag { "script_action_help" "Select geometry from an available viewport.\nShift-click to turn on Select Groups." }
+                parmtag { "script_action_icon" "BUTTONS_reselect" }
+            }
+            parm {
+                name    "sepparm3"
+                label   "Separator"
+                type    separator
+                default { "" }
+            }
+            parm {
+                name    "inputpathresample"
+                label   "Resample"
+                type    float
+                default { "0.13" }
+                range   { 0.05! 1 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "units" "m1" }
+            }
+            parm {
+                name    "resample_method"
+                label   "Resample Method"
+                type    ordinal
+                default { "subd" }
+                menu {
+                    "straight"  "Straight Edges"
+                    "subd"      "Subdivision Curves"
+                    "interp"    "Interpolating Curves"
+                }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "resample_input_paths"
+                label   "Resample input paths"
+                type    toggle
+                default { "1" }
+                range   { 0! 10 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "inputpathsmooth"
+                label   "Smooth"
+                type    float
+                default { "13.2" }
+                range   { 0! 50 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "sepparm13"
+                label   "Separator"
+                type    separator
+                default { "" }
+            }
+        }
+
+        groupsimple {
+            name    "folder10"
+            label   "Lean Around Bends"
+
+            parm {
+                name    "usecurvature"
+                label   "Use Curvature"
+                type    toggle
+                default { "0" }
+                range   { 0! 10 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            groupsimple {
+                name    "folder11"
+                label   "Curvature Settings"
+                hidewhentab "{ usecurvature == 0 }"
+
+                parm {
+                    name    "leanamount"
+                    label   "Lean in Curve Amount"
+                    type    float
+                    default { "0.5" }
+                    range   { -2 2 }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "parmvop" "1" }
+                    parmtag { "shaderparmcontexts" "cvex" }
+                }
+                parm {
+                    name    "sepparm22"
+                    label   "Separator"
+                    type    separator
+                    default { "" }
+                }
+                parm {
+                    name    "foresightdistance"
+                    label   "Foresight Distance"
+                    type    float
+                    default { "0.3" }
+                    range   { 0 1 }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "parmvop" "1" }
+                    parmtag { "shaderparmcontexts" "cvex" }
+                }
+                parm {
+                    name    "sepparm24"
+                    label   "Separator"
+                    type    separator
+                    default { "" }
+                }
+                parm {
+                    name    "curvesensitivity"
+                    label   "Curve Sensitivity"
+                    type    float
+                    default { "5" }
+                    range   { 0 10 }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "curvature_blur"
+                    label   "Curvature blur"
+                    type    integer
+                    default { "10" }
+                    range   { 0 100 }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "script_callback_language" "python" }
+                }
+            }
+
+        }
+
+    }
+
+    group {
+        name    "folder1_2_1"
+        label   "Path Start Align"
+
+        parm {
+            name    "start_align_mix"
+            label   "Start Align Mix"
+            type    float
+            default { "1" }
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "parmvop" "1" }
+            parmtag { "shaderparmcontexts" "cvex" }
+        }
+        parm {
+            name    "align_dist"
+            label   "Align Distance"
+            type    float
+            default { "10" }
+            range   { 0.001! 20 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "biasdist"
+            label   "Bias distance by angle difference"
+            type    float
+            default { "0.5" }
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "parmvop" "1" }
+            parmtag { "shaderparmcontexts" "cvex" }
+        }
+        parm {
+            name    "ramp_start_align"
+            label   "ramp start align"
+            type    ramp_flt
+            default { "4" }
+            range   { 1! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "parmvop" "1" }
+            parmtag { "rampbasis_var" "rampu_the_basis_strings" }
+            parmtag { "rampbasisdefault" "linear" }
+            parmtag { "rampfloatdefault" "1pos ( 0 ) 1value ( 1 ) 1interp ( bspline ) 2pos ( 0.088014982640743256 ) 2value ( 1 ) 2interp ( bspline ) 3pos ( 0.63295882940292358 ) 3value ( 0 ) 3interp ( bspline ) 4pos ( 1 ) 4value ( 0 ) 4interp ( bspline )" }
+            parmtag { "rampkeys_var" "rampu_the_key_positions" }
+            parmtag { "rampshowcontrolsdefault" "1" }
+            parmtag { "rampvalues_var" "rampu_the_key_values" }
+            parmtag { "shaderparmcontexts" "cvex" }
+        }
+    }
+
+    group {
+        name    "folder1_2_2"
+        label   "Path noise"
+
+        parm {
+            name    "dopathnoise"
+            label   "Enable Path Noise"
+            type    toggle
+            default { "0" }
+            range   { 0! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        groupsimple {
+            name    "folder4"
+            label   "path noise"
+            hidewhen "{ dopathnoise == 0 }"
+
+            parm {
+                name    "randpath"
+                label   "Random Per Path"
+                type    toggle
+                default { "0" }
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "parmvop" "1" }
+                parmtag { "shaderparmcontexts" "cvex" }
+            }
+            parm {
+                name    "seed"
+                label   "Seed"
+                type    integer
+                default { "10" }
+                disablewhen "{ randpath == 0 }"
+                range   { 0 100 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "parmvop" "1" }
+                parmtag { "shaderparmcontexts" "cvex" }
+            }
+            parm {
+                name    "pnoiseresamplelength"
+                label   "Path Resample Length"
+                type    float
+                default { "0.5" }
+                range   { 0.05! 1 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "units" "m1" }
+            }
+            parm {
+                name    "sepparm15"
+                label   "Separator"
+                type    separator
+                default { "" }
+            }
+            parm {
+                name    "pathnoisetype"
+                label   "Noise Type"
+                type    string
+                default { "xnoise" }
+                menu {
+                    "pnoise"        "Perlin Noise"
+                    "onoise"        "Original Perlin Noise"
+                    "snoise"        "Sparse Convolution Noise"
+                    "anoise"        "Alligator Noise"
+                    "xnoise"        "Simplex Noise"
+                    "correctnoise"  "Zero Centered Perlin Noise"
+                }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "parmvop" "1" }
+                parmtag { "shaderparmcontexts" "cvex" }
+            }
+            parm {
+                name    "freq"
+                label   "Frequency"
+                type    float
+                default { "0.13" }
+                range   { 0 10 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "parmvop" "1" }
+                parmtag { "shaderparmcontexts" "cvex" }
+            }
+            parm {
+                name    "pathnoiseoffset"
+                label   "Offset"
+                type    float
+                default { "0" }
+                range   { 0 10 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "parmvop" "1" }
+                parmtag { "shaderparmcontexts" "cvex" }
+            }
+            parm {
+                name    "pathnoiseamp"
+                label   "Amplitude"
+                type    float
+                default { "10" }
+                range   { 0 20 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "parmvop" "1" }
+                parmtag { "shaderparmcontexts" "cvex" }
+            }
+            parm {
+                name    "pathnoiserough"
+                label   "Roughness"
+                type    float
+                default { "0.191" }
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "parmvop" "1" }
+                parmtag { "shaderparmcontexts" "cvex" }
+            }
+            parm {
+                name    "pathnoiseturb"
+                label   "Turbulence"
+                type    integer
+                default { "1" }
+                range   { 0 10 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "parmvop" "1" }
+                parmtag { "shaderparmcontexts" "cvex" }
+            }
+        }
+
+    }
+
+    group {
+        name    "folder1_2_3"
+        label   "Vector Field"
+
+        parm {
+            name    "usevectorfield"
+            label   "Use Vector Field"
+            type    toggle
+            default { "0" }
+            range   { 0! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        groupsimple {
+            name    "folder7"
+            label   " "
+            disablewhen "{ usevectorfield == 0 }"
+
+            parm {
+                name    "sepparm5"
+                label   "Separator"
+                type    separator
+                default { "" }
+            }
+            parm {
+                name    "visfield"
+                label   "Show Field Arrows"
+                type    toggle
+                default { "0" }
+                range   { 0! 10 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "cellsize"
+                label   "Grid Cell Size"
+                type    float
+                default { "1.5" }
+                range   { 0.5 10 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "grid_bounds_padding"
+                label   "Grid Bounds Padding"
+                type    float
+                default { "0" }
+                range   { 0 50 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "fieldbluriterations"
+                label   "Blur Field"
+                type    integer
+                default { "1" }
+                range   { 0! 10 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "sepparm4"
+                label   "Separator"
+                type    separator
+                default { "" }
+            }
+            parm {
+                name    "useflowsurface"
+                label   "Use Flow Surface (Input 5)"
+                type    toggle
+                default { "0" }
+                range   { 0! 10 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "thresholddist"
+                label   "Path to Surface Max Distance"
+                type    float
+                default { "48" }
+                range   { 0 200 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "snapflowsurface"
+                label   "Snap to Surface"
+                type    integer
+                default { "0" }
+                menu {
+                    "0" "None"
+                    "1" "Nearest Position"
+                    "2" "Raycast Down"
+                }
+                range   { 0! 10 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "sepparm21"
+                label   "Separator"
+                type    separator
+                default { "" }
+            }
+            parm {
+                name    "traillen"
+                label   "Volume Trail Length"
+                type    float
+                default { "50" }
+                range   { 0 50 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "sepparm20"
+                label   "Separator"
+                type    separator
+                default { "" }
+            }
+            parm {
+                name    "extendcurves"
+                label   "Extend Curves"
+                type    toggle
+                default { "0" }
+                range   { 0! 10 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "extenddist"
+                label   "Extend Distance"
+                type    float
+                default { "30" }
+                range   { 0 50 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "sepparm6"
+                label   "Separator"
+                type    separator
+                default { "" }
+            }
+        }
+
+    }
+
+}

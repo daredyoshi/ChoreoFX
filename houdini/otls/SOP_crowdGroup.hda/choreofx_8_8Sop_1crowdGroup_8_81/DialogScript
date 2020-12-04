@@ -1,0 +1,338 @@
+# Dialog script for choreofx::crowdGroup::1 automatically generated
+
+{
+    name	choreofx::crowdGroup::1
+    script	agentClipFromAgent::00.01
+    label	"Crowd Group"
+
+    help {
+	""
+    }
+
+    inputlabel	1	"Crowd Agents"
+    inputlabel	2	"Source Props"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+    outputlabel	1	"Crowd Agents"
+    outputlabel	2	Props
+
+    parm {
+        name    "agentgroup"
+        label   "Agent Group"
+        type    string
+        default { "" }
+        menutoggle {
+            [ "kwargs['node'].generateInputGroupMenu(0)" ]
+            language python
+        }
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_action" "import soputils\nkwargs['geometrytype'] = kwargs['node'].parmTuple('grouptype')\nkwargs['inputindex'] = 0\nsoputils.selectGroupParm(kwargs)" }
+        parmtag { "script_action_help" "Select geometry from an available viewport." }
+        parmtag { "script_action_icon" "BUTTONS_reselect" }
+    }
+    parm {
+        name    "grouptype"
+        label   "Group Type"
+        type    ordinal
+        invisible
+        default { "points" }
+        menu {
+            "guess"     "Guess from Group"
+            "vertices"  "Vertices"
+            "edges"     "Edges"
+            "points"    "Points"
+            "prims"     "Primitives"
+        }
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "sepparm4"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
+        name    "outGroup"
+        label   "Output Group Name"
+        type    string
+        default { "selected" }
+        menureplace {
+            [ "kwargs['node'].generateInputGroupMenu(0)" ]
+            language python
+        }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "groupmergeop"
+        label   "Merge With Existing"
+        type    ordinal
+        default { "0" }
+        menu {
+            "replace"   "Replace"
+            "union"     "Union"
+            "intersect" "Intersect"
+            "subtract"  "Subtract"
+        }
+    }
+    parm {
+        name    "sepparm5"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
+        name    "invertSelection"
+        label   "Invert Filter Selection"
+        type    toggle
+        default { "0" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "sepparm6"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
+        name    "seedAttrib"
+        label   "Seed Attribute"
+        type    string
+        default { "agent_id" }
+        menureplace {
+            "agent_id"      "agent_id"
+            "vignette_id"   "vignette_id"
+        }
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "sepparm7"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    multiparm {
+        name    "userdata"
+        label    "Data Filters"
+
+        parm {
+            name    "dataEnable_#"
+            label   "#"
+            type    toggle
+            joinnext
+            default { "1" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "filterType_#"
+            label   "Filter Type"
+            type    string
+            joinnext
+            default { "agentdef" }
+            menu {
+                "agentdef"      "Agent Def"
+                "costume"       "Costume"
+                "clip"          "Clip"
+                "vignette"      "Vignette"
+                "ingroup"       "In Group"
+                "randthreshold" "Random Chance"
+                "custom"        "Custom Attrib"
+            }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "mergeop_#"
+            label   "Merge Op"
+            type    ordinal
+            default { "0" }
+            menu {
+                "union"     "Union"
+                "intersect" "Intersect"
+                "subtract"  "Subtract"
+            }
+        }
+        parm {
+            name    "agentDef_#"
+            label   "Agent Def"
+            type    string
+            default { "" }
+            hidewhen "{ filterType_# != agentdef }"
+            menutoggle {
+                [ "import crowdstoolutils" ]
+                [ "" ]
+                [ "input_agents = hou.pwd()" ]
+                [ "geo = input_agents.geometry()" ]
+                [ "agentnames = geo.findPointAttrib(\"agentname\") if geo else None" ]
+                [ "" ]
+                [ "names = []" ]
+                [ "if agentnames:" ]
+                [ "    names = crowdstoolutils.buildMenuStringList(agentnames.strings())" ]
+                [ "" ]
+                [ "return names" ]
+                language python
+            }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "costume_#"
+            label   "Costume"
+            type    string
+            default { "" }
+            hidewhen "{ filterType_# != costume }"
+            menutoggle {
+                [ "import crowdstoolutils" ]
+                [ "return crowdstoolutils.buildLayerMenu(hou.pwd())" ]
+                language python
+            }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "clip_#"
+            label   "Clip"
+            type    string
+            default { "" }
+            hidewhen "{ filterType_# != clip }"
+            menutoggle {
+                [ "import crowdstoolutils" ]
+                [ "return crowdstoolutils.buildClipMenu(hou.pwd())" ]
+                language python
+            }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "groupFilter_#"
+            label   "Group"
+            type    string
+            default { "" }
+            hidewhen "{ filterType_# != ingroup }"
+            menureplace {
+                [ "kwargs['node'].generateInputGroupMenu(0)" ]
+                language python
+            }
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_action" "import soputils\nkwargs['geometrytype'] = kwargs['node'].parmTuple('grouptype')\nkwargs['inputindex'] = 0\nsoputils.selectGroupParm(kwargs)" }
+            parmtag { "script_action_help" "Select geometry from an available viewport." }
+            parmtag { "script_action_icon" "BUTTONS_reselect" }
+        }
+        parm {
+            name    "groupFilterType#"
+            label   "Group Type"
+            type    ordinal
+            invisible
+            default { "0" }
+            hidewhen "{ filterType_# != 3 }"
+            menu {
+                "0" "Points"
+                "1" "Primitives"
+            }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "chance_#"
+            label   "Chance"
+            type    float
+            default { "0.5" }
+            hidewhen "{ filterType_# != randthreshold }"
+            range   { 0 1 }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "seed_#"
+            label   "Seed"
+            type    integer
+            default { "50" }
+            hidewhen "{ filterType_# != randthreshold }"
+            range   { 0 100 }
+            parmtag { "script_callback_language" "python" }
+        }
+        groupsimple {
+            name    "folder0_#"
+            label   "Custom"
+            hidewhentab "{ filterType_# != custom }"
+
+            parm {
+                name    "dataName_#"
+                label   "Name"
+                type    string
+                default { "userdata#" }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "op_#"
+                label   "Op"
+                type    string
+                joinnext
+                default { "0" }
+                menu {
+                    "=="    "= ="
+                    "!="    "! ="
+                    ">"     ">"
+                    "<"     "<"
+                }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "dataType_#"
+                label   "Type"
+                type    ordinal
+                default { "float" }
+                menu {
+                    "int"       "Integer"
+                    "float"     "Float"
+                    "vector"    "Vector"
+                    "string"    "String"
+                }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "dataInt_#"
+                label   "Int"
+                type    integer
+                default { "0" }
+                hidewhen "{ dataType_# != int }"
+                range   { 0 10 }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "dataFloat_#"
+                label   "Float"
+                type    float
+                default { "0" }
+                hidewhen "{ dataType_# != float }"
+                range   { 0 10 }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "dataVector_#"
+                label   "Vector"
+                type    vector
+                size    3
+                default { "0" "0" "0" }
+                hidewhen "{ dataType_# != vector }"
+                range   { -1 1 }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "dataString_#"
+                label   "String"
+                type    string
+                default { "" }
+                hidewhen "{ dataType_# != string }"
+                parmtag { "script_callback_language" "python" }
+            }
+        }
+
+        parm {
+            name    "sepparm#_2"
+            label   "Separator"
+            type    separator
+            default { "" }
+        }
+    }
+
+}

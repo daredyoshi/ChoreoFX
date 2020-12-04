@@ -1,0 +1,276 @@
+# Dialog script for choreofx::crowdAgentAssign::3 automatically generated
+
+{
+    name	choreofx::crowdAgentAssign::3
+    script	agentClipFromAgent::00.01
+    label	"Crowd Agent Assign"
+
+    help {
+	""
+    }
+
+    inputlabel	1	"Crowd Agents/Vignette Points"
+    inputlabel	2	"Source Agent Prims"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+    outputlabel	1	"Crowd Agents"
+
+    parm {
+        name    "agentgroup"
+        label   "Agent Group"
+        type    string
+        default { "" }
+        menutoggle {
+            [ "kwargs['node'].generateInputGroupMenu(0)" ]
+            language python
+        }
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_action" "import soputils\nkwargs['geometrytype'] = kwargs['node'].parmTuple('grouptype')\nkwargs['inputindex'] = 0\nsoputils.selectGroupParm(kwargs)" }
+        parmtag { "script_action_help" "Select geometry from an available viewport." }
+        parmtag { "script_action_icon" "BUTTONS_reselect" }
+    }
+    parm {
+        name    "grouptype"
+        label   "Group Type"
+        type    ordinal
+        default { "points" }
+        menu {
+            "guess"     "Guess from Group"
+            "vertices"  "Vertices"
+            "edges"     "Edges"
+            "points"    "Points"
+            "prims"     "Primitives"
+        }
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "sepparm3"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
+        name    "importMethod"
+        label   "Source Agents"
+        type    integer
+        default { "0" }
+        menu {
+            "0" "Input2"
+            "1" "Object Merge"
+            "2" "File Load"
+        }
+        range   { 0! 10 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "agentOppath"
+        label   "OpPath"
+        type    oppath
+        default { "" }
+        hidewhen "{ importMethod != 1 }"
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "opfilter" "!!SOP!!" }
+        parmtag { "oprelative" "." }
+    }
+    parm {
+        name    "agentFile"
+        label   "Geo File"
+        type    geometry
+        default { "default.bgeo" }
+        hidewhen "{ importMethod != 2 }"
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "filechooser_mode" "read_and_write" }
+    }
+    parm {
+        name    "sepparm15"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
+        name    "setSingleAgent"
+        label   "Set Agent"
+        type    string
+        default { "" }
+        disablewhen "{ randomizeAgents == 1 }"
+        menureplace {
+            [ "import crowdstoolutils" ]
+            [ "" ]
+            [ "input_agents = hou.node(\"./INPUT_AGENTS\")" ]
+            [ "geo = input_agents.geometry()" ]
+            [ "agentnames = geo.findPointAttrib(\"agentname\") if geo else None" ]
+            [ "" ]
+            [ "names = []" ]
+            [ "if agentnames:" ]
+            [ "    names = crowdstoolutils.buildMenuStringList(agentnames.strings())" ]
+            [ "" ]
+            [ "return names" ]
+            language python
+        }
+    }
+    parm {
+        name    "sepparm14"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
+        name    "randomizeAgents"
+        label   "Randomize Agents"
+        type    toggle
+        default { "0" }
+    }
+    parm {
+        name    "randomAgentSeed"
+        label   "Random Seed"
+        type    integer
+        default { "100" }
+        disablewhen "{ randomizeAgents == 0 }"
+        range   { 0 1000 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "seedAttrib"
+        label   "Seed Attribute"
+        type    string
+        default { "agent_id" }
+        disablewhen "{ randomizeAgents == 0 }"
+        menureplace {
+            "vignette_id"   "vignette_id"
+            "agent_id"      "agent_id"
+        }
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    groupsimple {
+        name    "folder5"
+        label   "Agent List"
+        disablewhentab "{ randomizeAgents == 0 }"
+
+        multiparm {
+            name    "numAgentPatterns"
+            label    "Agent Groups"
+            default 1
+
+            parm {
+                name    "agentPattern_#"
+                label   "Agent Pattern"
+                type    string
+                default { "*" }
+                menutoggle {
+                    [ "import crowdstoolutils" ]
+                    [ "" ]
+                    [ "input_agents = hou.node(\"./INPUT_AGENTS\")" ]
+                    [ "geo = input_agents.geometry()" ]
+                    [ "agentnames = geo.findPointAttrib(\"agentname\") if geo else None" ]
+                    [ "" ]
+                    [ "names = []" ]
+                    [ "if agentnames:" ]
+                    [ "    names = crowdstoolutils.buildMenuStringList(agentnames.strings())" ]
+                    [ "" ]
+                    [ "return names" ]
+                    language python
+                }
+            }
+            parm {
+                name    "agentWeight_#"
+                label   "Weight"
+                type    float
+                default { "1" }
+                range   { 0! 10 }
+            }
+        }
+
+    }
+
+    parm {
+        name    "sepparm2"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    multiparm {
+        name    "manualAgentEdits"
+        label    "Manual Agent Edits"
+        default 0
+
+        parm {
+            name    "manualEnable_#"
+            label   "Enable"
+            type    toggle
+            default { "1" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "manualGroup_#"
+            label   "Affected Group"
+            type    string
+            default { "" }
+            menutoggle {
+                [ "opmenu -l __manualgroup basegroup" ]
+            }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_action" "import soputils\nkwargs['geometrytype'] = hou.geometryType.Points\nkwargs['inputindex'] = 0\n#kwargs['ordered'] = kwargs['node'].parm('ordered').eval()\nsoputils.selectGroupParm(kwargs)" }
+            parmtag { "script_action_help" "Select geometry from an available viewport.\nShift-click to turn on Select Groups." }
+            parmtag { "script_action_icon" "BUTTONS_reselect" }
+        }
+        parm {
+            name    "manualAgentName_#"
+            label   "Agent"
+            type    string
+            default { "" }
+            menureplace {
+                [ "import crowdstoolutils" ]
+                [ "" ]
+                [ "input_agents = hou.node(\"./INPUT_AGENTS\")" ]
+                [ "geo = input_agents.geometry()" ]
+                [ "agentnames = geo.findPointAttrib(\"agentname\") if geo else None" ]
+                [ "" ]
+                [ "names = []" ]
+                [ "if agentnames:" ]
+                [ "    names = crowdstoolutils.buildMenuStringList(agentnames.strings())" ]
+                [ "" ]
+                [ "return names" ]
+                language python
+            }
+        }
+    }
+
+    groupsimple {
+        name    "folder0"
+        label   "Vignettes"
+
+        parm {
+            name    "vignettegroupname"
+            label   "Vignette Group Name"
+            type    string
+            default { "vignettes" }
+            menutoggle {
+                [ "opmenu -l -a split_vignettes group" ]
+            }
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_action_help" "Select geometry from an available viewport." }
+            parmtag { "script_action_icon" "BUTTONS_reselect" }
+        }
+        parm {
+            name    "randomizeVignetteAgents"
+            label   "Randomize Vignette Agents"
+            type    toggle
+            invisible
+            default { "1" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "applyScaleToPositions"
+            label   "Apply Scale to Agent Positions"
+            type    toggle
+            default { "1" }
+            parmtag { "script_callback_language" "python" }
+        }
+    }
+
+}

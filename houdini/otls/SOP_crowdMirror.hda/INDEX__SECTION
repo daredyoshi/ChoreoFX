@@ -1,0 +1,14 @@
+Operator:     choreofx::crowdMirror::1
+Label:        Crowd Mirror
+Path:         oplib:/choreofx::Sop/crowdMirror::1?choreofx::Sop/crowdMirror::1
+Icon:         ChoreoFX
+Table:        Sop
+License:      
+Extra:        guide=GUIDE 
+User:         
+Inputs:       1 to 1
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Thu Dec  3 10:33:56 2020
+

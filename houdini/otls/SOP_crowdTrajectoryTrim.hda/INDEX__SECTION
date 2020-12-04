@@ -1,0 +1,14 @@
+Operator:     choreofx::crowdTrajectoryTrim::1
+Label:        Crowd Trajectory Trim
+Path:         oplib:/choreofx::Sop/crowdTrajectoryTrim::1?choreofx::Sop/crowdTrajectoryTrim::1
+Icon:         ChoreoFX
+Table:        Sop
+License:      
+Extra:        
+User:         
+Inputs:       1 to 1
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Thu Dec  3 10:19:03 2020
+

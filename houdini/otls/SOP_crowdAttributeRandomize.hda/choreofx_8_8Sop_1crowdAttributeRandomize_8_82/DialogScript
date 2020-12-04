@@ -1,0 +1,325 @@
+# Dialog script for choreofx::crowdAttributeRandomize::2 automatically generated
+
+{
+    name	choreofx::crowdAttributeRandomize::2
+    script	agentClipFromAgent::00.01
+    label	"Crowd Attribute Randomize"
+
+    help {
+	""
+    }
+
+    inputlabel	1	"Agent Prim"
+    inputlabel	2	"Sub-Network Input #2"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+    outputlabel	1	"Agent with Trimmed clip"
+    outputlabel	2	"Trim Guide"
+
+    parm {
+        name    "affectedGroup"
+        label   "Agent Group"
+        type    string
+        default { "" }
+        menutoggle {
+            [ "opmenu -l -a __clipplayergroup basegroup" ]
+        }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_action" "import soputils\nkwargs['geometrytype'] = kwargs['node'].parmTuple('grouptype')\nkwargs['inputindex'] = 0\n#kwargs['ordered'] = kwargs['node'].parm('ordered').eval()\nsoputils.selectGroupParm(kwargs)" }
+        parmtag { "script_action_help" "Select geometry from an available viewport.\nShift-click to turn on Select Groups." }
+        parmtag { "script_action_icon" "BUTTONS_reselect" }
+    }
+    parm {
+        name    "grouptype"
+        label   "Group Type"
+        type    ordinal
+        default { "point" }
+        menu {
+            "primitive" "Primitives"
+            "point"     "Points"
+            "edge"      "Edges"
+            "vertex"    "Vertices"
+        }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "sepparm2"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
+        name    "seedAttrib"
+        label   "Seed Attribute"
+        type    string
+        default { "agent_id" }
+        menureplace {
+            "agent_id"      "agent_id"
+            "vignette_id"   "vignette_id"
+        }
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "sepparm7"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    groupsimple {
+        name    "folder4_1"
+        label   "Common"
+
+        parm {
+            name    "enableTimeAnchor"
+            label   "Enable Time Anchor"
+            type    toggle
+            default { "0" }
+            range   { 0! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        groupsimple {
+            name    "folder1"
+            label   "Time Anchor (Frames)"
+            hidewhentab "{ enableTimeAnchor == 0 }"
+
+            parm {
+                name    "anchorBase"
+                label   "Anchor Base"
+                type    integer
+                default { "1" }
+                range   { -100 500 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "anchorVar"
+                label   "Anchor Var Add"
+                type    integer
+                default { "0" }
+                range   { 0 200 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "anchorSeed"
+                label   "Seed"
+                type    integer
+                default { "100" }
+                range   { 0 200 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+        }
+
+        parm {
+            name    "enableTimeOffset"
+            label   "Enable Time Offset"
+            type    toggle
+            default { "0" }
+            range   { 0! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        groupsimple {
+            name    "folder0"
+            label   "Time Offset (Seconds)"
+            hidewhentab "{ enableTimeOffset == 0 }"
+
+            parm {
+                name    "offsetBase"
+                label   "Offset Base"
+                type    float
+                default { "0" }
+                range   { -10 10 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "offsetVar"
+                label   "Offset Var Add"
+                type    float
+                default { "0" }
+                range   { -10 10 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "offsetSeed"
+                label   "Seed"
+                type    integer
+                default { "100" }
+                range   { 0 200 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+        }
+
+        parm {
+            name    "enableTimeSpeed"
+            label   "Enable Time Speed"
+            type    toggle
+            default { "0" }
+            range   { 0! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        groupsimple {
+            name    "folder2"
+            label   "Time Speed (Multiplier)"
+            hidewhentab "{ enableTimeSpeed == 0 }"
+
+            parm {
+                name    "speedBase"
+                label   "Speed Base"
+                type    float
+                default { "1" }
+                range   { 0 5 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "speedVar"
+                label   "Speed Var Add"
+                type    float
+                default { "0" }
+                range   { 0 5 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "speedSeed"
+                label   "Seed"
+                type    integer
+                default { "100" }
+                range   { 0 200 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "sepparm"
+                label   "Separator"
+                type    separator
+                default { "" }
+            }
+        }
+
+    }
+
+    groupsimple {
+        name    "folder3"
+        label   "Custom"
+
+        multiparm {
+            name    "customAttribs"
+            label    "Custom Attribs"
+
+            parm {
+                name    "enable_#"
+                label   "Enable"
+                type    toggle
+                joinnext
+                default { "1" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "attribName_#"
+                label   "Attrib Name"
+                type    string
+                default { "" }
+                menureplace {
+                    "pscale"        "pscale"
+                    "timeAnchor"    "timeAnchor"
+                    "timeSpeed"     "timeSpeed"
+                    "timeOffset"    "timeOffset"
+                }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "action#"
+                label   "Action"
+                type    ordinal
+                default { "0" }
+                menu {
+                    "0" "Random"
+                }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "_sepparm3_#"
+                label   "Separator"
+                type    separator
+                default { "" }
+            }
+            parm {
+                name    "randomMethod_#"
+                label   "Random Method"
+                type    ordinal
+                default { "1" }
+                menu {
+                    "0" "Base/Variation"
+                    "1" "Min/Max"
+                    "2" "Custom Ramp"
+                }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "valueSeed_#"
+                label   "Seed"
+                type    integer
+                default { "100" }
+                range   { 0 200 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "sepparm2_#"
+                label   "Separator"
+                type    separator
+                default { "" }
+            }
+            parm {
+                name    "valueBase_#"
+                label   "Value Base"
+                type    float
+                default { "1" }
+                hidewhen "{ randomMethod_# != 0 }"
+                range   { -10 10 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "valueVar_#"
+                label   "Value Var"
+                type    float
+                default { "0" }
+                hidewhen "{ randomMethod_# != 0 }"
+                range   { 0 10 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "valueMin_#"
+                label   "Value Min"
+                type    float
+                default { "0" }
+                hidewhen "{ randomMethod_# == 0 }"
+                range   { 0 5 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "valueMax_#"
+                label   "Value Max"
+                type    float
+                default { "1" }
+                hidewhen "{ randomMethod_# == 0 }"
+                range   { 0 5 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "valueRamp_#"
+                label   "Value Ramp"
+                type    ramp_flt
+                default { "3" }
+                hidewhen "{ randomMethod_# != 2 }"
+                range   { 1! 10 }
+                parmtag { "rampbasisdefault" "bspline" }
+                parmtag { "rampfloatdefault" "1pos ( 0 ) 1value ( 0 ) 1interp ( bspline ) 2pos ( 0.86015039682388306 ) 2value ( 0.12962962687015533 ) 2interp ( bspline ) 3pos ( 1 ) 3value ( 1 ) 3interp ( bspline )" }
+                parmtag { "rampshowcontrolsdefault" "0" }
+                parmtag { "script_callback_language" "python" }
+            }
+        }
+
+    }
+
+}

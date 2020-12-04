@@ -1,0 +1,93 @@
+# Dialog script for choreofx::agentImport::1 automatically generated
+
+{
+    name	choreofx::agentImport::1
+    script	choreofx::agentImport::1
+    label	"Agent Import"
+
+    help {
+	""
+    }
+
+    inputlabel	1	"Agent Prims"
+    inputlabel	2	"Sub-Network Input #2"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+    outputlabel	1	"Agent Prims"
+
+    parm {
+        name    "importMethod"
+        label   "Import Method"
+        type    integer
+        default { "0" }
+        menu {
+            "0" "Input1"
+            "1" "Object Merge"
+            "2" "File Load"
+        }
+        range   { 0! 10 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "agentOppath"
+        label   "OpPath"
+        type    oppath
+        default { "" }
+        hidewhen "{ importMethod != 1 }"
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "opfilter" "!!SOP!!" }
+        parmtag { "oprelative" "." }
+    }
+    parm {
+        name    "agentFile"
+        label   "Geo File"
+        type    geometry
+        default { "default.bgeo" }
+        hidewhen "{ importMethod != 2 }"
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "filechooser_mode" "read_and_write" }
+    }
+    parm {
+        name    "sepparm"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
+        name    "agentfilter"
+        label   "Filter"
+        type    integer
+        default { "0" }
+        menu {
+            "0" "Keep Unique"
+            "1" "Single Definition"
+            "2" "Unfiltered"
+        }
+        range   { 0! 10 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "singleAgentDef"
+        label   "Single Agent"
+        type    string
+        default { "" }
+        disablewhen "{ agentfilter != 1 }"
+        menureplace {
+            [ "import crowdstoolutils" ]
+            [ "" ]
+            [ "input_agents = hou.node(\"./IN_REF_AGENT_SOURCES\")" ]
+            [ "geo = input_agents.geometry()" ]
+            [ "agentnames = geo.findPointAttrib(\"agentname\") if geo else None" ]
+            [ "" ]
+            [ "names = []" ]
+            [ "if agentnames:" ]
+            [ "    names = crowdstoolutils.buildMenuStringList(agentnames.strings())" ]
+            [ "" ]
+            [ "return names" ]
+            language python
+        }
+        parmtag { "script_callback_language" "python" }
+    }
+}

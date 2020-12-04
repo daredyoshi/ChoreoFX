@@ -1,0 +1,24 @@
+{
+	"values":["18.5.351"
+	],
+	"indexes":{
+		"hdaroot/switch_applyPropAnim.userdata":0,
+		"hdaroot/freeze2.userdata":0,
+		"hdaroot/merge2.userdata":0,
+		"hdaroot/switch_staticCalc.userdata":0,
+		"hdaroot/freeze.userdata":0,
+		"hdaroot/OUT_PROPS.userdata":0,
+		"hdaroot/apply_PropXform.userdata":0,
+		"hdaroot/OUT_AGENTS.userdata":0,
+		"hdaroot/merge1.userdata":0,
+		"hdaroot/copytopoints1.userdata":0,
+		"hdaroot/INPUT_PROPS.userdata":0,
+		"hdaroot/repeat_begin1.userdata":0,
+		"hdaroot/merge_props.userdata":0,
+		"hdaroot/repeat_end1.userdata":0,
+		"hdaroot/OUT_AGENTS_AND_PROPS.userdata":0,
+		"hdaroot/switch1.userdata":0,
+		"hdaroot/meta.userdata":0,
+		"hdaroot/switch_useManualClipEdits.userdata":0
+	}
+}

@@ -1,0 +1,134 @@
+# Dialog script for choreofx::agentTrajectoryTransition::1 automatically generated
+
+{
+    name	choreofx::agentTrajectoryTransition::1
+    script	choreofx::agentTrajectoryTransition::1
+    label	"Agent Trajectory Transition"
+
+    help {
+	""
+    }
+
+    inputlabel	1	"Trajectory A"
+    inputlabel	2	"Trajectory B"
+    inputlabel	3	"Agent Primitive"
+    inputlabel	4	"Sub-Network Input #4"
+    outputlabel	1	"Transitioned Trajectory"
+
+    parm {
+        name    "transitionType"
+        label   "Type"
+        type    string
+        default { "linear" }
+        menu {
+            "none"      "None"
+            "linear"    "Linear"
+            "planted"   "Planted"
+        }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "transition_len"
+        label   "Length"
+        type    integer
+        default { "15" }
+        range   { 0 50 }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "movetostart"
+        label   "Move To Start"
+        type    toggle
+        default { "0" }
+        hidewhen "{ transitionType != linear }"
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "auto_planted"
+        label   "Auto"
+        type    toggle
+        joinnext
+        default { "1" }
+        hidewhen "{ transitionType != planted }"
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "auto_first_planted"
+        label   "auto_first_planted"
+        type    integer
+        nolabel
+        joinnext
+        default { "0" }
+        disablewhen "{ auto_planted == 0 }"
+        hidewhen "{ transitionType != planted }"
+        menu {
+            "0" "Last Planted Foot"
+            "1" "First Planted Foot"
+        }
+        range   { 0! 1! }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "planted_idx"
+        label   "Planted Channel"
+        type    integer
+        joinnext
+        default { "-1" }
+        disablewhen "{ auto_planted == 1 }"
+        hidewhen "{ transitionType != planted }"
+        menu {
+            [ "import choreofx" ]
+            [ "from choreofx.hda.menu_list import MenuListCreator" ]
+            [ "" ]
+            [ "node=kwargs[\"node\"]" ]
+            [ "geo = node.inputGeometry(0)" ]
+            [ "attrib = geo.findPrimAttrib(\"agentname\")" ]
+            [ "if attrib:" ]
+            [ "    agentname = node.inputGeometry(0).prim(0).attribValue(\"agentname\")" ]
+            [ "" ]
+            [ "    return MenuListCreator(" ]
+            [ "        node, input=2 " ]
+            [ "        ).foot_plant_channels(" ]
+            [ "            agentname" ]
+            [ "        )" ]
+            [ "else:" ]
+            [ "    return []" ]
+            language python
+        }
+        range   { 0 10 }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "flatten_orient"
+        label   "Flatten Orient"
+        type    toggle
+        joinnext
+        default { "0" }
+        hidewhen "{ transitionType != planted }"
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "flatten_pos"
+        label   "Flatten Pos"
+        type    toggle
+        default { "0" }
+        hidewhen "{ transitionType != planted }"
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "max_frames_to_check"
+        label   "Max Frames to Search Planted"
+        type    integer
+        default { "0" }
+        hidewhen "{ transitionType != planted }"
+        range   { 1! 100 }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "debug"
+        label   "Debug Colors"
+        type    toggle
+        default { "0" }
+        parmtag { "script_callback_language" "python" }
+    }
+}

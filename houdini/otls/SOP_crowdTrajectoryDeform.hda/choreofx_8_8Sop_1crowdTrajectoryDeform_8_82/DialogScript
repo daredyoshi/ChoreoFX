@@ -1,0 +1,217 @@
+# Dialog script for choreofx::crowdTrajectoryDeform::2 automatically generated
+
+{
+    name	choreofx::crowdTrajectoryDeform::2
+    script	crowdTrajectoryApply::00.01
+    label	"Crowd Trajectory Deform"
+
+    help {
+	""
+    }
+
+    inputlabel	1	Trajectories
+    inputlabel	2	"Rest Paths"
+    inputlabel	3	"Deform Paths"
+    inputlabel	4	"Sub-Network Input #4"
+    outputlabel	1	"Deformed Trajectories"
+    outputlabel	2	"Rest Handles"
+    outputlabel	3	"Deform Handles"
+
+    groupsimple {
+        name    "folder1"
+        label   "Deform"
+
+        parm {
+            name    "primIdAttrib"
+            label   "Prim ID Attribute"
+            type    string
+            default { "agent_id" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "sepparm5"
+            label   "Separator"
+            type    separator
+            default { "" }
+        }
+        parm {
+            name    "deformMethod"
+            label   "Deform Method"
+            type    integer
+            default { "3" }
+            menu {
+                "0" "Handle Pos Lerp"
+                "1" "Handle Xform"
+                "2" "Handle Xform Lerp"
+                "3" "Path Deform"
+            }
+            range   { 0! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "sepparm4"
+            label   "Separator"
+            type    separator
+            default { "" }
+        }
+        parm {
+            name    "ignoreStatic"
+            label   "Ignore Handles Under Offset Threshold"
+            type    toggle
+            default { "1" }
+            range   { 0! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "ignoreThreshold"
+            label   "Minimum Offset Distance Threshold"
+            type    float
+            default { "0.05" }
+            disablewhen "{ ignoreStatic == 0 }"
+            range   { 0 1 }
+            parmtag { "script_callback_language" "python" }
+        }
+    }
+
+    groupsimple {
+        name    "folder4"
+        label   "Sliding"
+
+        parm {
+            name    "autoSlideExisting"
+            label   "Auto Slide Existing Points"
+            type    toggle
+            default { "0" }
+            parmtag { "script_callback_language" "python" }
+        }
+        groupsimple {
+            name    "folder2"
+            label   " "
+
+            parm {
+                name    "constrainLocoLength"
+                label   "Constrain Loco Length"
+                type    toggle
+                default { "0" }
+                disablewhen "{ autoSlideExisting == 0 }"
+                parmtag { "script_callback_language" "python" }
+            }
+        }
+
+    }
+
+    groupsimple {
+        name    "folder5"
+        label   "Path Deform"
+        hidewhentab "{ deformMethod != 3 }"
+
+        parm {
+            name    "sepparm2"
+            label   "Separator"
+            type    separator
+            default { "" }
+        }
+        parm {
+            name    "restPathsMethod"
+            label   "Rest Paths Method"
+            type    integer
+            default { "1" }
+            menu {
+                "0" "Smoothed Trajectories"
+                "1" "Rest Handle Paths"
+            }
+            range   { 0! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "sepparm"
+            label   "Separator"
+            type    separator
+            default { "" }
+        }
+        parm {
+            name    "treatpolysas"
+            label   "Treat Polygons As"
+            type    ordinal
+            default { "subd" }
+            menu {
+                "straight"  "Straight Edges"
+                "subd"      "Subdivision Curves"
+                "interp"    "Interpolating Curves"
+            }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "resampleLength"
+            label   "Resample Length"
+            type    float
+            default { "0.5" }
+            range   { 0! 5 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "units" "m1" }
+        }
+        parm {
+            name    "segsamples"
+            label   "Resample Segments"
+            type    integer
+            invisible
+            default { "200" }
+            range   { 0! 500 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "sepparm3"
+            label   "Separator"
+            type    separator
+            default { "" }
+        }
+        groupsimple {
+            name    "folder6"
+            label   "Rest Detail Extraction"
+            disablewhentab "{ restPathsMethod == 1 }"
+
+            parm {
+                name    "strength"
+                label   "Strength"
+                type    float
+                default { "50" }
+                range   { 0! 500 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "filterquality"
+                label   "Filter Quality"
+                type    integer
+                default { "1" }
+                range   { 1! 5! }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "smoothiterations"
+                label   "Smooth Iterations"
+                type    integer
+                default { "5" }
+                range   { 0 10 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "smoothmaxdist"
+                label   "Max smooth dist per iter"
+                type    float
+                default { "0.2" }
+                range   { 0 2 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+        }
+
+    }
+
+}

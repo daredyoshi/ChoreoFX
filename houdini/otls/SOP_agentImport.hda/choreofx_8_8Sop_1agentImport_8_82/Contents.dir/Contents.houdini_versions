@@ -1,0 +1,24 @@
+{
+	"values":["18.5.351"
+	],
+	"indexes":{
+		"hdaroot/switch_is_demo.userdata":0,
+		"hdaroot/OUT_Chora.userdata":0,
+		"hdaroot/groupdelete1.userdata":0,
+		"hdaroot/switch1.userdata":0,
+		"hdaroot/switch_demo_Agent.userdata":0,
+		"hdaroot/switch_filter.userdata":0,
+		"hdaroot/IN_REF_AGENT_SOURCES.userdata":0,
+		"hdaroot/refagent_file.userdata":0,
+		"hdaroot/switch_refagent_source.userdata":0,
+		"hdaroot/refagent_om.userdata":0,
+		"hdaroot/error_sourceagents1.userdata":0,
+		"hdaroot/freeze.userdata":0,
+		"hdaroot/OUT_Otto.userdata":0,
+		"hdaroot/keep_single.userdata":0,
+		"hdaroot/matnet_demochars.userdata":0,
+		"hdaroot/refagent_input1.userdata":0,
+		"hdaroot/output0.userdata":0,
+		"hdaroot/keep_unique.userdata":0
+	}
+}

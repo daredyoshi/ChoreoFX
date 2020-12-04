@@ -1,0 +1,165 @@
+= Crowd Placement Shape =
+#icon: /Icons/ChoreoFX.svg
+#tags: crowds, agents, ChoreoFX
+
+"""Documentation is Coming soon!"""
+
+This is placeholder documentation for Crowd Placement Shape
+
+@parameters
+
+Enable:
+	#id: enable
+	ToDo
+
+== Crowd Placement Shape ==
+Layout Name:
+	#id: layout_name
+	ToDo
+
+== Source Agent ==
+Import Method:
+	#id: importMethod
+	ToDo
+
+OpPath:
+	#id: agentOppath
+	ToDo
+
+Geo File:
+	#id: agentFile
+	ToDo
+
+Single Agent:
+	#id: singleAgentDef
+	ToDo
+
+Translate:
+	#id: handle_t
+	ToDo
+
+Rotate:
+	#id: handle_r
+	ToDo
+
+Shape:
+	#id: shape
+	ToDo
+
+Custom Type:
+	#id: customType
+	ToDo
+
+Do Scatter:
+	#id: doScatter
+	ToDo
+
+Raycast to Surface:
+	#id: doraycast
+	ToDo
+
+== Formation Grid ==
+Rows:
+	#id: formationrows
+	ToDo
+
+Columns:
+	#id: formationcols
+	ToDo
+
+Spacing Forward:
+	#id: formationspacingz
+	ToDo
+
+Spacing Side:
+	#id: formationspacingx
+	ToDo
+
+== Scatter ==
+Grid Size:
+	#id: gridScatterSize
+	ToDo
+
+Force Total Count:
+	#id: npts
+	ToDo
+
+ usedensityattrib:
+	#id: usedensityattrib
+	ToDo
+
+Density Attribute:
+	#id: densityattrib
+	ToDo
+
+Relax Iterations:
+	#id: relaxiterations
+	ToDo
+
+Global Seed:
+	#id: seed
+	ToDo
+
+== Along Curve ==
+Curve Spacing:
+	#id: curveSpacing
+	ToDo
+
+== Duplicate ==
+Duplicate Rows Cols:
+	#id: duplicateRows
+	ToDo
+
+Spacing Distance:
+	#id: duplicate_Spacing
+	ToDo
+
+== Deform To Curve ==
+Deform to custom Curve:
+	#id: deformCurve
+	ToDo
+
+Axis:
+	#id: axis
+	ToDo
+
+Offset:
+	#id: offset
+	ToDo
+
+== Jitter Position ==
+Jitter Side:
+	#id: jitterSide
+	ToDo
+
+Jitter Forward:
+	#id: jitterForward
+	ToDo
+
+Jitter Seed:
+	#id: jitterSeed
+	ToDo
+
+== Rotate Forward ==
+Rotate Amount:
+	#id: rotAmp
+	ToDo
+
+Rotate rand:
+	#id: rotRandAmp
+	ToDo
+
+Rotate rand seed:
+	#id: rotRandSeed
+	ToDo
+
+
+@inputs
+
+Placeholder:
+    Description of input
+
+@outputs
+
+Placeholder:
+    Description of output

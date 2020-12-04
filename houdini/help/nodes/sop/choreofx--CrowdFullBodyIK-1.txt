@@ -1,0 +1,94 @@
+= Crowd Full Body IK =
+#icon: /Icons/ChoreoFX.svg
+#tags: crowds, agents, ChoreoFX
+
+"""Documentation is Coming soon!"""
+
+This is placeholder documentation for Crowd Full Body IK
+
+@parameters
+
+Group:
+	#id: group
+	ToDo
+
+Group Type:
+	#id: grouptype
+	ToDo
+
+Method:
+	#id: method
+	ToDo
+
+Ik Tolerance:
+	#id: ik_tolerance
+	ToDo
+
+Ik Iterations:
+	#id: ik_iterations
+	ToDo
+
+Pinroot:
+	#id: pinroot
+	ToDo
+
+remove joint limits:
+	#id: ignorelimits
+	ToDo
+
+== Agent Skeleton to match Joint Names ==
+Skel Prim:
+	#id: skel_search_prim
+	ToDo
+
+Find prim with agentname:
+	#id: useagentname
+	ToDo
+
+agentname:
+	#id: agentname
+	ToDo
+
+Transform Group:
+	#id: transformgroup
+	ToDo
+
+Joint Names:
+	#id: transformnames
+	ToDo
+
+== Joints ==
+ :
+	#id: enable#
+	ToDo
+
+Joint Name:
+	#id: jointname#
+	ToDo
+
+Weight:
+	#id: weight#
+	ToDo
+
+Priority:
+	#id: priority#
+	ToDo
+
+Depth:
+	#id: depth#
+	ToDo
+
+targettype:
+	#id: targettype#
+	ToDo
+
+
+@inputs
+
+Placeholder:
+    Description of input
+
+@outputs
+
+Placeholder:
+    Description of output

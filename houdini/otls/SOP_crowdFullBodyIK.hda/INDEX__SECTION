@@ -1,0 +1,14 @@
+Operator:     choreofx::CrowdFullBodyIK::1
+Label:        Crowd Full Body IK
+Path:         oplib:/choreofx::Sop/CrowdFullBodyIK::1?choreofx::Sop/CrowdFullBodyIK::1
+Icon:         ChoreoFX
+Table:        Sop
+License:      
+Extra:        
+User:         
+Inputs:       2 to 2
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Thu Nov 26 17:46:16 2020
+

@@ -1,0 +1,15 @@
+Operator:     choreofx::crowdTrajectoryCreate::2
+Label:        Crowd Trajectory Create
+Path:         oplib:/choreofx::Sop/crowdTrajectoryCreate::2?choreofx::Sop/crowdTrajectoryCreate::2
+Icon:         ChoreoFX
+Table:        Sop
+License:      
+Extra:        
+User:         
+Inputs:       1 to 1
+Outputs:      2
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Thu Dec  3 10:18:51 2020
+

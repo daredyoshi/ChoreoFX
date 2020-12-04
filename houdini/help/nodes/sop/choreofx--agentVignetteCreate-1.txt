@@ -1,0 +1,37 @@
+= Agent Vignette Create =
+#icon: /Icons/ChoreoFX.svg
+#tags: crowds, agents, ChoreoFX
+
+"""Documentation is Coming soon!"""
+
+This is placeholder documentation for Agent Vignette Create
+
+@parameters
+
+Visualize Agents:
+	#id: visAgents
+	ToDo
+
+Vignette Name:
+	#id: vignetteName
+	ToDo
+
+== Visualize ==
+Loop Transition Type:
+	#id: loopTransitionType
+	ToDo
+
+Advance Locomotion:
+	#id: advanceLoco
+	ToDo
+
+
+@inputs
+
+Placeholder:
+    Description of input
+
+@outputs
+
+Placeholder:
+    Description of output

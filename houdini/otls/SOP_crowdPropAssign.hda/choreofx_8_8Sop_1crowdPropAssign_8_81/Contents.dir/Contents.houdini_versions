@@ -1,0 +1,20 @@
+{
+	"values":["18.0.499"
+	],
+	"indexes":{
+		"hdaroot/merge2.userdata":0,
+		"hdaroot/OUT_PROPS.userdata":0,
+		"hdaroot/apply_PropXform.userdata":0,
+		"hdaroot/OUT_AGENTS.userdata":0,
+		"hdaroot/merge1.userdata":0,
+		"hdaroot/copytopoints1.userdata":0,
+		"hdaroot/INPUT_PROPS.userdata":0,
+		"hdaroot/repeat_end1.userdata":0,
+		"hdaroot/repeat_begin1_metadata1.userdata":0,
+		"hdaroot/OUT_AGENTS_AND_PROPS.userdata":0,
+		"hdaroot/repeat_begin1.userdata":0,
+		"hdaroot/merge_props.userdata":0,
+		"hdaroot/switch1.userdata":0,
+		"hdaroot/switch_useManualClipEdits.userdata":0
+	}
+}

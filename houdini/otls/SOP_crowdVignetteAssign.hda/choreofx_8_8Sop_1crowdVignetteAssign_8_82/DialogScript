@@ -1,0 +1,262 @@
+# Dialog script for choreofx::crowdVignetteAssign::2 automatically generated
+
+{
+    name	choreofx::crowdVignetteAssign::2
+    script	agentClipFromAgent::00.01
+    label	"Crowd Vignette Assign"
+
+    help {
+	""
+    }
+
+    inputlabel	1	"Crowd Agents"
+    inputlabel	2	"Source Vignette Prims"
+    inputlabel	3	"Source Agents"
+    inputlabel	4	"Sub-Network Input #4"
+    outputlabel	1	"Crowd Agents & Vignettes"
+    outputlabel	2	"Agent Vignettes"
+
+    parm {
+        name    "agentgroup"
+        label   "Agent Group"
+        type    string
+        default { "vignettes" }
+        menutoggle {
+            [ "kwargs['node'].generateInputGroupMenu(0)" ]
+            language python
+        }
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_action" "import soputils\nkwargs['geometrytype'] = kwargs['node'].parmTuple('grouptype')\nkwargs['inputindex'] = 0\nsoputils.selectGroupParm(kwargs)" }
+        parmtag { "script_action_help" "Select geometry from an available viewport." }
+        parmtag { "script_action_icon" "BUTTONS_reselect" }
+    }
+    parm {
+        name    "grouptype"
+        label   "Group Type"
+        type    ordinal
+        invisible
+        default { "points" }
+        menu {
+            "guess"     "Guess from Group"
+            "vertices"  "Vertices"
+            "edges"     "Edges"
+            "points"    "Points"
+            "prims"     "Primitives"
+        }
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "sepparm3"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    groupsimple {
+        name    "folder0"
+        label   "Vignette Templates Import"
+
+        parm {
+            name    "importMethodVig"
+            label   "Sourve Vignettes"
+            type    integer
+            default { "0" }
+            menu {
+                "0" "Input2"
+                "1" "Object Merge"
+                "2" "File Load"
+            }
+            range   { 0! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "vignettesOppath"
+            label   "OpPath"
+            type    oppath
+            default { "" }
+            hidewhen "{ importMethodVig != 1 }"
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "opfilter" "!!SOP!!" }
+            parmtag { "oprelative" "." }
+        }
+        parm {
+            name    "vignettesFile"
+            label   "Geo File"
+            type    geometry
+            default { "default.bgeo" }
+            hidewhen "{ importMethodVig != 2 }"
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "filechooser_mode" "read_and_write" }
+        }
+    }
+
+    parm {
+        name    "sepparm"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
+        name    "outgroupname"
+        label   "Output Vig Group Name"
+        type    string
+        default { "vignettes" }
+        menureplace {
+            [ "opmenu -l -a vignette_group groupname" ]
+        }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "sepparm15"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
+        name    "setSingleVignette"
+        label   "Set Vignette"
+        type    string
+        default { "" }
+        disablewhen "{ randomizeVignette == 1 }"
+        menureplace {
+            [ "import crowdstoolutils" ]
+            [ "" ]
+            [ "input_agents = hou.node(\"./INPUT_VIGNETTES\")" ]
+            [ "geo = input_agents.geometry()" ]
+            [ "vignames = geo.findPointAttrib(\"vignetteName\") if geo else None" ]
+            [ "" ]
+            [ "names = []" ]
+            [ "if vignames:" ]
+            [ "    names = crowdstoolutils.buildMenuStringList(vignames.strings())" ]
+            [ "" ]
+            [ "return names" ]
+            language python
+        }
+    }
+    parm {
+        name    "sepparm14"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
+        name    "randomizeVignette"
+        label   "Randomize Vignette"
+        type    toggle
+        default { "0" }
+    }
+    parm {
+        name    "randomVignetteSeed"
+        label   "Random Seed"
+        type    integer
+        default { "100" }
+        disablewhen "{ randomizeVignette == 0 }"
+        range   { 0 1000 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "seedAttrib"
+        label   "Seed Attribute"
+        type    string
+        default { "agent_id" }
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    groupsimple {
+        name    "folder5"
+        label   "Vignette List"
+        disablewhentab "{ randomizeVignette == 0 }"
+
+        multiparm {
+            name    "numVignettePatterns"
+            label    "Vignette Groups"
+            default 1
+
+            parm {
+                name    "vignettePattern_#"
+                label   "Vignette Pattern"
+                type    string
+                default { "" }
+                menutoggle {
+                    [ "import crowdstoolutils" ]
+                    [ "" ]
+                    [ "input_agents = hou.node(\"./INPUT_VIGNETTES\")" ]
+                    [ "geo = input_agents.geometry()" ]
+                    [ "vignames = geo.findPointAttrib(\"vignetteName\") if geo else None" ]
+                    [ "" ]
+                    [ "names = []" ]
+                    [ "if vignames:" ]
+                    [ "    names = crowdstoolutils.buildMenuStringList(vignames.strings())" ]
+                    [ "" ]
+                    [ "return names" ]
+                    language python
+                }
+            }
+            parm {
+                name    "vignetteWeight_#"
+                label   "Weight"
+                type    float
+                default { "1" }
+                range   { 0! 10 }
+            }
+        }
+
+    }
+
+    parm {
+        name    "sepparm2"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    multiparm {
+        name    "manualVignetteEdits"
+        label    "Manual Vignette Edits"
+        default 0
+
+        parm {
+            name    "manualEnable_#"
+            label   "Enable"
+            type    toggle
+            default { "1" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "manualGroup_#"
+            label   "Affected Group"
+            type    string
+            default { "" }
+            menutoggle {
+                [ "opmenu -l __manualgroup basegroup" ]
+            }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_action" "import soputils\nkwargs['geometrytype'] = hou.geometryType.Points\nkwargs['inputindex'] = 0\n#kwargs['ordered'] = kwargs['node'].parm('ordered').eval()\nsoputils.selectGroupParm(kwargs)" }
+            parmtag { "script_action_help" "Select geometry from an available viewport.\nShift-click to turn on Select Groups." }
+            parmtag { "script_action_icon" "BUTTONS_reselect" }
+        }
+        parm {
+            name    "manualVignetteName_#"
+            label   "Vignette"
+            type    string
+            default { "" }
+            menureplace {
+                [ "import crowdstoolutils" ]
+                [ "" ]
+                [ "input_agents = hou.node(\"./INPUT_VIGNETTES\")" ]
+                [ "geo = input_agents.geometry()" ]
+                [ "vignames = geo.findPointAttrib(\"vignetteName\") if geo else None" ]
+                [ "" ]
+                [ "names = []" ]
+                [ "if vignames:" ]
+                [ "    names = crowdstoolutils.buildMenuStringList(vignames.strings())" ]
+                [ "" ]
+                [ "return names" ]
+                language python
+            }
+        }
+    }
+
+}

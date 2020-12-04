@@ -1,0 +1,110 @@
+= Agent Clip Make Loopable =
+#icon: /Icons/ChoreoFX.svg
+#tags: crowds, agents, ChoreoFX
+
+"""Documentation is Coming soon!"""
+
+This is placeholder documentation for Agent Clip Make Loopable
+
+@parameters
+
+enable:
+	#id: enable
+	ToDo
+
+== Clip Make Loopable ==
+Source:
+	#id: source
+	ToDo
+
+Clip to Loop:
+	#id: clip
+	ToDo
+
+Loop Method:
+	#id: loopMethod
+	ToDo
+
+Output Clip Name:
+	#id: outClipName
+	ToDo
+
+Loop Range:
+	#id: loopRange
+	ToDo
+
+ :
+	#id: valueType
+	ToDo
+
+Start:
+	#id: start
+	ToDo
+
+End:
+	#id: end
+	ToDo
+
+Blend Time Per Side:
+	#id: blendTime
+	ToDo
+
+Start:
+	#id: frStart
+	ToDo
+
+End:
+	#id: frEnd
+	ToDo
+
+Blend Frames Per Side:
+	#id: blendFrames
+	ToDo
+
+Loop Transition Type:
+	#id: loopTransitionType
+	ToDo
+
+Only extend in loco tz channel:
+	#id: extendDominant
+	ToDo
+
+Append First Frame to End:
+	#id: doAppend
+	ToDo
+
+== Blending Options ==
+Method:
+	#id: blendmethod
+	ToDo
+
+Shape:
+	#id: blendfunc
+	ToDo
+
+Bias Start or End:
+	#id: blendbias
+	ToDo
+
+Set Output Clip:
+	#id: visOutClip
+	ToDo
+
+Apply Clip Locomotion:
+	#id: applylocomotion
+	ToDo
+
+Visualise Guides:
+	#id: vis
+	ToDo
+
+
+@inputs
+
+Placeholder:
+    Description of input
+
+@outputs
+
+Placeholder:
+    Description of output

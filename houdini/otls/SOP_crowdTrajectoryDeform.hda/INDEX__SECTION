@@ -1,0 +1,29 @@
+Operator:     choreofx::crowdTrajectoryDeform::1
+Label:        Crowd Trajectory Deform
+Path:         oplib:/choreofx::Sop/crowdTrajectoryDeform::1?choreofx::Sop/crowdTrajectoryDeform::1
+Icon:         ChoreoFX
+Table:        Sop
+License:      
+Extra:        
+User:         
+Inputs:       2 to 2
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Mon Nov 23 19:39:24 2020
+
+Operator:     choreofx::crowdTrajectoryDeform::2
+Label:        Crowd Trajectory Deform
+Path:         oplib:/choreofx::Sop/crowdTrajectoryDeform::2?choreofx::Sop/crowdTrajectoryDeform::2
+Icon:         ChoreoFX
+Table:        Sop
+License:      
+Extra:        
+User:         
+Inputs:       3 to 3
+Outputs:      3
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Thu Dec  3 10:19:00 2020
+

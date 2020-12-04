@@ -1,0 +1,151 @@
+# Dialog script for choreofx::crowdMirror::1 automatically generated
+
+{
+    name	choreofx::crowdMirror::1
+    script	choreofx::crowdMirror::1
+    label	"Crowd Mirror"
+
+    help {
+	""
+    }
+
+    inputlabel	1	"Crowd Agents"
+    inputlabel	2	"Sub-Network Input #2"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+    outputlabel	1	"Mirrored Crowd Agents"
+
+    parm {
+        name    "agentgroup"
+        label   "Agent Group"
+        type    string
+        default { "" }
+        menutoggle {
+            [ "kwargs['node'].generateInputGroupMenu(0)" ]
+            language python
+        }
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_action" "import soputils\nkwargs['geometrytype'] = kwargs['node'].parmTuple('grouptype')\nkwargs['inputindex'] = 0\nsoputils.selectGroupParm(kwargs)" }
+        parmtag { "script_action_help" "Select geometry from an available viewport." }
+        parmtag { "script_action_icon" "BUTTONS_reselect" }
+    }
+    parm {
+        name    "grouptype"
+        label   "Group Type"
+        type    ordinal
+        invisible
+        default { "points" }
+        menu {
+            "guess"     "Guess from Group"
+            "vertices"  "Vertices"
+            "edges"     "Edges"
+            "points"    "Points"
+            "prims"     "Primitives"
+        }
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "sepparm3"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
+        name    "restClip"
+        label   "Rest Clip"
+        type    string
+        default { "rest" }
+        menureplace {
+            [ "import crowdstoolutils" ]
+            [ "return crowdstoolutils.buildClipMenu(hou.pwd())" ]
+            language python
+        }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "sepparm2"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
+        name    "reflectionPlane"
+        label   "Reflectionplane"
+        type    string
+        default { "agent" }
+        menu {
+            "agent"     "agent"
+            "x"         "x"
+            "z"         "z"
+            "custom"    "custom"
+        }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "angle"
+        label   "Angle"
+        type    float
+        default { "90" }
+        range   { -90 90 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "planeOrigin"
+        label   "Planeorigin"
+        type    vector
+        size    3
+        default { "0" "0" "0" }
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "sepparm"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    multiparm {
+        name    "mappings"
+        label    "mappings"
+        default 1
+        parmtag { "autoscope" "0000000000000000" }
+
+        parm {
+            name    "leftPrefix#"
+            label   "Leftprefix"
+            type    string
+            joinnext
+            default { "" }
+            menureplace {
+                [ "import crowdstoolutils" ]
+                [ "return crowdstoolutils.buildTransformMenu(hou.pwd())" ]
+                language python
+            }
+        }
+        parm {
+            name    "rightPrefix#"
+            label   "Rightprefix"
+            type    string
+            joinnext
+            default { "" }
+            menureplace {
+                [ "import crowdstoolutils" ]
+                [ "return crowdstoolutils.buildTransformMenu(hou.pwd())" ]
+                language python
+            }
+        }
+        parm {
+            name    "useAsPrefix#"
+            label   "Use As Prefix"
+            type    toggle
+            default { "0" }
+        }
+    }
+
+}

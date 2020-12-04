@@ -1,0 +1,244 @@
+# Dialog script for choreofx::agentClipMakeLoopable::1 automatically generated
+
+{
+    name	choreofx::agentClipMakeLoopable::1
+    script	agentClipFromAgent::00.01
+    label	"Agent Clip Make Loopable"
+
+    help {
+	""
+    }
+
+    inputlabel	1	"Agent Prim"
+    inputlabel	2	"Sub-Network Input #2"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+    outputlabel	1	"Agent Prim with Looped Clip"
+    outputlabel	2	Guide
+
+    parm {
+        name    "source"
+        label   "Source"
+        type    ordinal
+        invisible
+        default { "clip" }
+        menu {
+            "0" "Clip"
+            "1" "Pose Anim Input"
+        }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "clip"
+        label   "Clip to Loop"
+        type    string
+        default { "walk_test" }
+        disablewhen "{ source == 1 }"
+        menureplace {
+            [ "import crowdstoolutils" ]
+            [ "return crowdstoolutils.buildClipMenu(hou.pwd())" ]
+            language python
+        }
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "loopMethod"
+        label   "Loop Method"
+        type    integer
+        invisible
+        default { "1" }
+        menu {
+            "0" "VEX"
+            "1" "CHOPS"
+        }
+        range   { 0 10 }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "outClipName"
+        label   "Output Clip Name"
+        type    string
+        default { [ "chs(\"clip\")" hscript-expr ] }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "sepparm4"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
+        name    "valueType"
+        label   " "
+        type    ordinal
+        default { "1" }
+        menu {
+            "0" "Time"
+            "1" "Frames"
+        }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "blendTime"
+        label   "Blend Time Per Side"
+        type    float
+        default { "0.5" }
+        hidewhen "{ valueType != 0 }"
+        range   { 0 2 }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "blendFrames"
+        label   "Blend Frames Per Side"
+        type    integer
+        default { "5" }
+        hidewhen "{ valueType != 1 }"
+        range   { 0 48 }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "sepparm2"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
+        name    "loopTransitionType"
+        label   "Loop Transition Type"
+        type    integer
+        default { "1" }
+        help    "Locomotive - The locomotion channel will be preserved. For when agent should move in a direction.        In-Place - Locomotion channel loops around to start. For when agent should loop on the spot"
+        menu {
+            "0" "In-Place"
+            "1" "Locomotive"
+        }
+        range   { 0 10 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "extendDominant"
+        label   "Only extend in loco tz channel"
+        type    toggle
+        default { "1" }
+        disablewhen "{ loopTransitionType == 0 }"
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "sepparm"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
+        name    "doAppend"
+        label   "Append First Frame to End"
+        type    toggle
+        default { "0" }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "sepparm3"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    groupsimple {
+        name    "folder0"
+        label   "Blending Options"
+        disablewhentab "{ loopMethod == 0 }"
+
+        parm {
+            name    "blendmethod"
+            label   "Method"
+            type    ordinal
+            default { "pre" }
+            menu {
+                "pre"   "Preserve Length"
+                "ovl"   "Overlap Sequences"
+                "ins"   "Insert Blend Region"
+            }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "blendfunc"
+            label   "Shape"
+            type    ordinal
+            default { "lin" }
+            menu {
+                "lin"   "Linear"
+                "ei"    "Ease in"
+                "eo"    "Ease out"
+                "cos"   "Ease in Ease out"
+                "cub"   "Cubic"
+                "add"   "Add"
+            }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "sepparm6"
+            label   "Separator"
+            type    separator
+            default { "" }
+        }
+        parm {
+            name    "blendbias"
+            label   "Bias Start or End"
+            type    float
+            default { "0" }
+            range   { -1! 1! }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+    }
+
+    parm {
+        name    "sepparm8"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
+        name    "visOutClip"
+        label   "Set Output Clip"
+        type    integer
+        default { "2" }
+        menu {
+            "0" "None"
+            "1" "Input Clip"
+            "2" "Looped Clip"
+        }
+        range   { 0 10 }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "applylocomotion"
+        label   "Apply Clip Locomotion"
+        type    toggle
+        default { "off" }
+        disablewhen "{ visOutClip == 0 }"
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "sepparm5"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
+        name    "vis"
+        label   "Visualise Guides"
+        type    toggle
+        default { "1" }
+        disablewhen "{ visOutClip < 2 }"
+        parmtag { "script_callback_language" "python" }
+    }
+}

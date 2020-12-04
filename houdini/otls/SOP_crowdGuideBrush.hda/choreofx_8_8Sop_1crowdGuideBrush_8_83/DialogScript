@@ -1,0 +1,966 @@
+# Dialog script for choreofx::crowdGuideBrush::3 automatically generated
+
+{
+    name	choreofx::crowdGuideBrush::3
+    script	choreofx::crowdGuideBrush::3
+    label	"Crowd Guide Brush"
+
+    help {
+	""
+    }
+
+    inputlabel	1	Trajectories
+    inputlabel	2	"Crowd Agents"
+    inputlabel	3	"Existing Timing Points"
+    inputlabel	4	"Sub-Network Input #4"
+    outputlabel	1	"vis points for pystate selection"
+    outputlabel	2	Trajectories
+    outputlabel	3	"Crowd Agents"
+    outputlabel	4	"Timing Points"
+    outputlabel	5	"Smooth Timing Paths"
+
+    group {
+        name    "folder1"
+        label   "Settings"
+
+        groupsimple {
+            name    "folder3"
+            label   "State Options"
+
+            parm {
+                name    "labelparm"
+                label   "Path Mode"
+                type    label
+                default { "" }
+            }
+            parm {
+                name    "path_mode"
+                label   "Path Mode"
+                type    ordinal
+                nolabel
+                joinnext
+                default { "0" }
+                menu {
+                    "position"  "Position"
+                    "timing"    "Timing"
+                }
+                export  all
+                parmtag { "script_callback" "hou.phm().switchPathModeTabs(kwargs['parm'])" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "useLiveUpdate"
+                label   "Use Live Update"
+                type    toggle
+                default { "1" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "sepparm14"
+                label   "Separator"
+                type    separator
+                default { "" }
+            }
+            group {
+                name    "tabs_pathmode"
+                label   "Position Mode"
+                disablewhentab "{ path_mode != position }"
+
+                parm {
+                    name    "sepparm15"
+                    label   "Separator"
+                    type    separator
+                    default { "" }
+                }
+                parm {
+                    name    "clearAll"
+                    label   "Clear All Positions"
+                    type    button
+                    default { "0" }
+                    parmtag { "script_callback" "hou.pwd().parm(\"stash_all_points\").revertToDefaults()" }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "sepparm7"
+                    label   "Separator"
+                    type    separator
+                    default { "" }
+                }
+                parm {
+                    name    "brush_mode"
+                    label   "Brush Mode"
+                    type    buttonstrip
+                    nolabel
+                    joinnext
+                    default { "0" }
+                    hidewhen "{ path_mode != position }"
+                    menu {
+                        "addremove" "   + / -   "
+                        "xform"     "Xform  "
+                        "reverse"   "Reverse"
+                        "clone"     "  Clone  "
+                        "join"      "   Join   "
+                    }
+                    export  all
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "xform_op"
+                    label   "Xform Mode"
+                    type    buttonstrip
+                    nolabel
+                    default { "0" }
+                    disablewhen "{ brush_mode != 1 }"
+                    hidewhen "{ path_mode != position }"
+                    menu {
+                        "move"      "   Move   "
+                        "rotate"    "  Rotate  "
+                        "scale"     "  Scale  "
+                    }
+                    export  all
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "sepparm17"
+                    label   "Separator"
+                    type    separator
+                    default { "" }
+                }
+                parm {
+                    name    "selectAllPrimPoints"
+                    label   "Select All Prim Points"
+                    type    toggle
+                    default { "0" }
+                    export  all
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "affectAhead"
+                    label   "Affect Ahead"
+                    type    toggle
+                    default { "0" }
+                    range   { 0 10 }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "affectBehind"
+                    label   "Affect Behind"
+                    type    toggle
+                    default { "0" }
+                    range   { 0 10 }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "autoStickConnectedTips"
+                    label   "Auto Stick Connected Tips"
+                    type    toggle
+                    default { "1" }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "insertIntoSelected"
+                    label   "Insert Into All Selected Prims"
+                    type    toggle
+                    invisible
+                    default { "0" }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "autoslideDist"
+                    label   "Auto Slide Distance on Change"
+                    type    toggle
+                    invisible
+                    default { "0" }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "sepparm6"
+                    label   "Separator"
+                    type    separator
+                    default { "" }
+                }
+                parm {
+                    name    "useFalloff"
+                    label   "Use Falloff"
+                    type    toggle
+                    joinnext
+                    default { "0" }
+                    hidewhen "{ path_mode != position }"
+                    range   { 0! 10 }
+                    export  all
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "falloffDist"
+                    label   "Falloff Distance"
+                    type    angle
+                    nolabel
+                    default { "20" }
+                    disablewhen "{ useFalloff == 0 }"
+                    hidewhen "{ path_mode != position }"
+                    range   { 0 100 }
+                    export  all
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "script_callback_language" "python" }
+                    parmtag { "units" "" }
+                }
+                groupcollapsible {
+                    name    "folder4"
+                    label   "Falloff Ramp"
+
+                    parm {
+                        name    "falloffRamp"
+                        label   "Falloff Ramp"
+                        type    ramp_flt
+                        default { "3" }
+                        range   { 1! 10 }
+                        parmtag { "autoscope" "0000000000000000" }
+                        parmtag { "rampbasisdefault" "bspline" }
+                        parmtag { "rampfloatdefault" "1pos ( 0 ) 1value ( 0 ) 1interp ( bspline ) 2pos ( 0.68261563777923584 ) 2value ( 0.24074074625968933 ) 2interp ( bspline ) 3pos ( 1 ) 3value ( 1 ) 3interp ( bspline )" }
+                        parmtag { "rampshowcontrolsdefault" "0" }
+                        parmtag { "script_callback_language" "python" }
+                    }
+                }
+
+                parm {
+                    name    "sepparm21"
+                    label   "Separator"
+                    type    separator
+                    default { "" }
+                }
+                groupcollapsible {
+                    name    "folder2"
+                    label   "Guides"
+
+                    parm {
+                        name    "visTiminginPositionMode"
+                        label   "Show Timing in Position Mode"
+                        type    toggle
+                        default { "0" }
+                        parmtag { "script_callback_language" "python" }
+                    }
+                    parm {
+                        name    "handleScale"
+                        label   "Handle Scale"
+                        type    float
+                        default { "0.25" }
+                        range   { 0 2 }
+                        parmtag { "autoscope" "0000000000000000" }
+                        parmtag { "script_callback_language" "python" }
+                    }
+                    parm {
+                        name    "visDirArrows"
+                        label   "Vis Direction Arrows"
+                        type    toggle
+                        default { "1" }
+                        range   { 0! 1! }
+                        parmtag { "autoscope" "0000000000000000" }
+                        parmtag { "script_callback_language" "python" }
+                    }
+                    parm {
+                        name    "dirArrowScale"
+                        label   "Direction Arrow Scale"
+                        type    float
+                        default { "1" }
+                        range   { 0 10 }
+                        parmtag { "autoscope" "0000000000000000" }
+                        parmtag { "script_callback_language" "python" }
+                    }
+                    parm {
+                        name    "dirArrowInterval"
+                        label   "Direction Arrow Interval"
+                        type    float
+                        default { "5" }
+                        range   { 0.5! 20 }
+                        parmtag { "autoscope" "0000000000000000" }
+                        parmtag { "units" "m1" }
+                    }
+                    parm {
+                        name    "sepparm20"
+                        label   "Separator"
+                        type    separator
+                        default { "" }
+                    }
+                    groupsimple {
+                        name    "folder0"
+                        label   "Output Paths"
+
+                        parm {
+                            name    "visOutputPaths"
+                            label   "Vis Output Paths"
+                            type    toggle
+                            default { "1" }
+                            range   { 0! 1! }
+                            parmtag { "autoscope" "0000000000000000" }
+                            parmtag { "script_callback_language" "python" }
+                        }
+                        parm {
+                            name    "resampleLength"
+                            label   "Resample Length"
+                            type    float
+                            default { "0.2" }
+                            range   { 0! 5 }
+                            parmtag { "autoscope" "0000000000000000" }
+                            parmtag { "units" "m1" }
+                        }
+                        parm {
+                            name    "resampleMethod"
+                            label   "Resample Method"
+                            type    ordinal
+                            default { "subd" }
+                            menu {
+                                "straight"  "Straight Edges"
+                                "subd"      "Subdivision Curves"
+                                "interp"    "Interpolating Curves"
+                            }
+                            parmtag { "autoscope" "0000000000000000" }
+                            parmtag { "script_callback_language" "python" }
+                        }
+                    }
+
+                }
+
+            }
+
+            group {
+                name    "tabs_pathmode_1"
+                label   "Timing Mode"
+                disablewhentab "{ path_mode != timing }"
+
+                parm {
+                    name    "sepparm16"
+                    label   "Separator"
+                    type    separator
+                    default { "" }
+                }
+                parm {
+                    name    "clearAllTiming"
+                    label   "Clear All Timing"
+                    type    button
+                    default { "0" }
+                    parmtag { "script_callback" "hou.pwd().parm(\"stash_timing_points\").revertToDefaults()" }
+                    parmtag { "script_callback_language" "python" }
+                }
+                groupsimple {
+                    name    "folder7"
+                    label   "Settings"
+
+                    parm {
+                        name    "time_op"
+                        label   "Time Op"
+                        type    buttonstrip
+                        nolabel
+                        default { "0" }
+                        menu {
+                            "add"           "  Add  "
+                            "remove"        " Remove "
+                            "slidedist"     "  Move "
+                            "slideframe"    " Frame "
+                        }
+                        parmtag { "script_callback_language" "python" }
+                    }
+                    parm {
+                        name    "adjustAhead"
+                        label   "Adjust Handles Ahead"
+                        type    toggle
+                        default { "off" }
+                        parmtag { "autoscope" "0000000000000000" }
+                        parmtag { "script_callback_language" "python" }
+                    }
+                    parm {
+                        name    "adjustBehind"
+                        label   "Adjust Handles Behind"
+                        type    toggle
+                        default { "off" }
+                        parmtag { "autoscope" "0000000000000000" }
+                        parmtag { "script_callback_language" "python" }
+                    }
+                    parm {
+                        name    "sepparm12"
+                        label   "Separator"
+                        type    separator
+                        default { "" }
+                    }
+                    parm {
+                        name    "clampMethod"
+                        label   "Clamp Method"
+                        type    integer
+                        default { "1" }
+                        menu {
+                            "0" "none"
+                            "1" "To prev/next handle"
+                        }
+                        range   { 0! 10 }
+                        parmtag { "autoscope" "0000000000000000" }
+                        parmtag { "script_callback_language" "python" }
+                    }
+                    parm {
+                        name    "clampInGroups"
+                        label   "Clamp In Groups"
+                        type    toggle
+                        default { "1" }
+                        disablewhen "{ clampMethod == 0 }"
+                        parmtag { "script_callback_language" "python" }
+                    }
+                    parm {
+                        name    "extendtips"
+                        label   "Allow Extend Beyond Tips"
+                        type    toggle
+                        default { "off" }
+                        range   { 0 10 }
+                        parmtag { "autoscope" "0000000000000000" }
+                        parmtag { "script_callback_language" "python" }
+                    }
+                    parm {
+                        name    "sepparm18"
+                        label   "Separator"
+                        type    separator
+                        default { "" }
+                    }
+                    parm {
+                        name    "removeNotFound"
+                        label   "Remove if MatchPrim Not Found"
+                        type    toggle
+                        default { "1" }
+                        range   { 0 10 }
+                        parmtag { "autoscope" "0000000000000000" }
+                        parmtag { "script_callback_language" "python" }
+                    }
+                    parm {
+                        name    "autocreateUntimedPaths"
+                        label   "Autocreate Paths if Empty"
+                        type    toggle
+                        default { "1" }
+                        range   { 0! 1! }
+                        parmtag { "autoscope" "0000000000000000" }
+                        parmtag { "script_callback_language" "python" }
+                    }
+                    parm {
+                        name    "hideInactive"
+                        label   "Hide InActive Prims on Change"
+                        type    toggle
+                        default { "on" }
+                        range   { 0! 1! }
+                        parmtag { "autoscope" "0000000000000000" }
+                        parmtag { "script_callback_language" "python" }
+                    }
+                    parm {
+                        name    "sepparm19"
+                        label   "Separator"
+                        type    separator
+                        default { "" }
+                    }
+                    groupsimple {
+                        name    "folder9"
+                        label   "Velocity Transition Smoothing"
+
+                        parm {
+                            name    "smoothIters"
+                            label   "Smooth Iterations"
+                            type    integer
+                            default { "2" }
+                            range   { 0 10 }
+                            parmtag { "autoscope" "0000000000000000" }
+                            parmtag { "script_callback_language" "python" }
+                        }
+                        parm {
+                            name    "velSmoothStrength"
+                            label   "Smooth Strength"
+                            type    float
+                            default { "50" }
+                            range   { 0! 50 }
+                            parmtag { "autoscope" "0000000000000000" }
+                            parmtag { "script_callback_language" "python" }
+                        }
+                    }
+
+                }
+
+                groupsimple {
+                    name    "folder7_1"
+                    label   "Guides"
+
+                    groupsimple {
+                        name    "folder8"
+                        label   "Guide Settings"
+
+                        parm {
+                            name    "timingHandleSize"
+                            label   "Handle Size"
+                            type    float
+                            default { "0.25" }
+                            range   { 0 10 }
+                            parmtag { "autoscope" "0000000000000000" }
+                            parmtag { "script_callback_language" "python" }
+                        }
+                        parm {
+                            name    "sepparm11"
+                            label   "Separator"
+                            type    separator
+                            default { "" }
+                        }
+                        parm {
+                            name    "visTextOnHandles"
+                            label   "Show Frame Text on Handles"
+                            type    toggle
+                            default { "1" }
+                            parmtag { "autoscope" "0000000000000000" }
+                            parmtag { "script_callback_language" "python" }
+                        }
+                        parm {
+                            name    "textcolor"
+                            label   "Text Color"
+                            type    color
+                            size    3
+                            default { "0" "0.5" "1" }
+                            range   { 0 1 }
+                            parmtag { "autoscope" "0000000000000000" }
+                        }
+                        parm {
+                            name    "intervalMeasureMethod"
+                            label   "Interval Measure Method"
+                            type    integer
+                            default { "1" }
+                            menu {
+                                "0" "From First Point"
+                                "1" "By Global Frame"
+                            }
+                            range   { 0 10 }
+                            parmtag { "autoscope" "0000000000000000" }
+                            parmtag { "script_callback_language" "python" }
+                        }
+                        parm {
+                            name    "visMajorFrames"
+                            label   "Show Major Frames"
+                            type    toggle
+                            default { "on" }
+                            parmtag { "autoscope" "0000000000000000" }
+                            parmtag { "script_callback_language" "python" }
+                        }
+                        parm {
+                            name    "visTextOnMajorFrames"
+                            label   "Show Text on Major Frames"
+                            type    toggle
+                            default { "off" }
+                            parmtag { "autoscope" "0000000000000000" }
+                            parmtag { "script_callback_language" "python" }
+                        }
+                        parm {
+                            name    "majorFrameInverval"
+                            label   "Major Frame Interval"
+                            type    integer
+                            default { [ "$FPS" hscript-expr ] }
+                            range   { 1 50 }
+                            parmtag { "autoscope" "0000000000000000" }
+                            parmtag { "script_callback_language" "python" }
+                        }
+                        parm {
+                            name    "majorFrameScale"
+                            label   "Major Frame Scale"
+                            type    float
+                            default { "0.5" }
+                            range   { 0 2 }
+                            parmtag { "autoscope" "0000000000000000" }
+                            parmtag { "script_callback_language" "python" }
+                        }
+                        parm {
+                            name    "sepparm8"
+                            label   "Separator"
+                            type    separator
+                            default { "" }
+                            parmtag { "autoscope" "0000000000000000" }
+                        }
+                        parm {
+                            name    "visMinorFrames"
+                            label   "Show Minor Frames"
+                            type    toggle
+                            default { "on" }
+                            parmtag { "autoscope" "0000000000000000" }
+                            parmtag { "script_callback_language" "python" }
+                        }
+                        parm {
+                            name    "minorFrameInverval"
+                            label   "Minor Frame Interval"
+                            type    integer
+                            default { "6" }
+                            range   { 1 50 }
+                            parmtag { "autoscope" "0000000000000000" }
+                            parmtag { "script_callback_language" "python" }
+                        }
+                        parm {
+                            name    "minorFrameScaleMult"
+                            label   "Minor Frame Scale Mult"
+                            type    float
+                            default { "0.25" }
+                            range   { 0 1 }
+                            parmtag { "autoscope" "0000000000000000" }
+                            parmtag { "script_callback_language" "python" }
+                        }
+                        parm {
+                            name    "sepparm9"
+                            label   "Separator"
+                            type    separator
+                            default { "" }
+                            parmtag { "autoscope" "0000000000000000" }
+                        }
+                        parm {
+                            name    "visVelGraph"
+                            label   "Show Velocity Graph"
+                            type    toggle
+                            default { "off" }
+                            parmtag { "autoscope" "0000000000000000" }
+                            parmtag { "script_callback_language" "python" }
+                        }
+                        parm {
+                            name    "velGraphHeight"
+                            label   "Velocity Graph Height"
+                            type    float
+                            default { "0.5" }
+                            range   { 0 2 }
+                            parmtag { "autoscope" "0000000000000000" }
+                            parmtag { "script_callback_language" "python" }
+                        }
+                        parm {
+                            name    "sepparm10"
+                            label   "Separator"
+                            type    separator
+                            default { "" }
+                            parmtag { "autoscope" "0000000000000000" }
+                        }
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+    group {
+        name    "folder1_1"
+        label   "stateparms"
+
+        parm {
+            name    "iconstrip"
+            label   "Label"
+            type    iconstrip
+            invisible
+            nolabel
+            default { "0" }
+            menureplace {
+                "hicon:/SVGIcons.index?BUTTONS_close.svg"       "close"
+                "hicon:/SVGIcons.index?TOOLS_handles.svg"       "xform"
+                "hicon:/SVGIcons.index?BUTTONS_list_add.svg"    "add"
+                "hicon:/SVGIcons.index?LOP_createlod.svg"       "cloner"
+                "hicon:/SVGIcons.index?TOOLS_move.svg"          "move"
+                "hicon:/SVGIcons.index?TOOLS_rotate.svg"        "rotate"
+                "hicon:/SVGIcons.index?TOOLS_scale.svg"         "scale"
+            }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "guideDisplay"
+            label   "Guide Display"
+            type    ordinal
+            default { "1" }
+            menu {
+                "0" "HDA Guides"
+                "1" "Pystate Drawables"
+            }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "brush_type"
+            label   "Brush Type"
+            type    ordinal
+            nolabel
+            default { "0" }
+            menu {
+                "0" "Single Point"
+                "1" "Circle Brush"
+            }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "addremove_op"
+            label   "Add Mode"
+            type    buttonstrip
+            nolabel
+            default { "0" }
+            disablewhen "{ brush_mode != 0 }"
+            menu {
+                "add"       "   Add   "
+                "insert"    "  Insert  "
+                "remove"    "  Remove  "
+            }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "sepparm13"
+            label   "Separator"
+            type    separator
+            default { "" }
+        }
+        parm {
+            name    "selectedPointsGroup"
+            label   "Selected Points Group"
+            type    string
+            default { "-1" }
+            menutoggle {
+                [ "opmenu -l -a selectedPoints basegroup" ]
+            }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_action" "import soputils\nkwargs['geometrytype'] = hou.geometryType.Points\nkwargs['inputindex'] = 0\nkwargs['ordered'] = 0\nkwargs['nodepath'] = kwargs['node'].path()\nsoputils.selectGroupParm(kwargs)" }
+            parmtag { "script_action_help" "Select geometry from an available viewport.\nShift-click to turn on Select Groups." }
+            parmtag { "script_action_icon" "BUTTONS_reselect" }
+        }
+        parm {
+            name    "activePoint"
+            label   "active Handle Point"
+            type    integer
+            default { "-1" }
+            range   { -1 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "activePrim"
+            label   "active Prim"
+            type    integer
+            default { "-1" }
+            range   { -1 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "activePrimU"
+            label   "activePrimU"
+            type    float
+            default { "-1" }
+            range   { -1 1 }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "activeTipPoint"
+            label   "activeTipPoint"
+            type    integer
+            default { "-1" }
+            range   { -1 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "snapPoint"
+            label   "snapPoint"
+            type    integer
+            default { "-1" }
+            range   { -1 10 }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "sepparm3"
+            label   "Separator"
+            type    separator
+            default { "" }
+        }
+        parm {
+            name    "sepparm4"
+            label   "Separator"
+            type    separator
+            default { "" }
+        }
+        parm {
+            name    "brush_position"
+            label   "Brush Position"
+            type    vector
+            size    3
+            default { "0" "0" "0" }
+            range   { -1 1 }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "brush_positionEnd"
+            label   "Brush Position End"
+            type    vector
+            size    3
+            default { "0" "0" "0" }
+            range   { -1 1 }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "brush_rot"
+            label   "Brush Rot"
+            type    vector
+            size    3
+            default { "0" "0" "0" }
+            range   { -1 1 }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "brush_size"
+            label   "Brush Size"
+            type    float
+            default { "5" }
+            range   { 0 20 }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "brush_falloff"
+            label   "Brush Falloff"
+            type    float
+            default { "0" }
+            range   { 0 0.95 }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "sepparm5"
+            label   "Separator"
+            type    separator
+            default { "" }
+        }
+        parm {
+            name    "cursorScreenPos"
+            label   "Cursor Screen Position"
+            type    vector2
+            size    2
+            default { "0" "0" }
+            range   { -1 1 }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "cursorScreenPosEnd"
+            label   "Cursor Screen Position End"
+            type    vector2
+            size    2
+            default { "0" "0" }
+            range   { -1 1 }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "sepparm"
+            label   "Separator"
+            type    separator
+            default { "" }
+        }
+        parm {
+            name    "lock_op"
+            label   "Lock Op"
+            type    ordinal
+            default { "0" }
+            disablewhen "{ brush_mode != 1 }"
+            hidewhen "{ path_mode != position }"
+            menu {
+                "lock"      "Lock"
+                "unlock"    "Unlock"
+            }
+            export  all
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "isLockMode"
+            label   "is Lock Mode"
+            type    toggle
+            default { "0" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "isMouseDown"
+            label   "is Mouse Down"
+            type    toggle
+            default { "0" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "isCursorInViewport"
+            label   "is Cursor In Viewport"
+            type    toggle
+            default { "0" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "isSelectionEvent"
+            label   "is Selection Event"
+            type    toggle
+            default { "0" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "isCtrl"
+            label   "is Ctrl"
+            type    toggle
+            default { "0" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "isShift"
+            label   "is Shift"
+            type    toggle
+            default { "0" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "isReadOnlyOp"
+            label   "is ReadOnly Op"
+            type    toggle
+            default { "0" }
+            parmtag { "script_callback_language" "python" }
+        }
+        groupsimple {
+            name    "folder6"
+            label   "timing"
+
+            parm {
+                name    "currentGlobalFrame"
+                label   "Current Global Frame"
+                type    integer
+                default { "0" }
+                range   { 0 10 }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "currentPrimDist"
+                label   "Current Prim Dist"
+                type    float
+                default { "0" }
+                range   { 0 10 }
+                parmtag { "script_callback_language" "python" }
+            }
+        }
+
+        parm {
+            name    "sepparm2"
+            label   "Separator"
+            type    separator
+            default { "" }
+        }
+        parm {
+            name    "out5_dataid"
+            label   "out5_dataid"
+            type    integer
+            default { "0" }
+            range   { 0 10 }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "stash_all_points"
+            label   "Geometry Position Stash"
+            type    geometrydata
+            default { "0" }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "stash_timing_points"
+            label   "Geometry Timing Stash"
+            type    geometrydata
+            default { "0" }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+    }
+
+}

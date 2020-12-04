@@ -1,0 +1,8 @@
+def switchPathModeTabs(value):
+    pass
+    # I want to set the current tab in the parm interface
+    #parmtabs = hou.pwd().parm('tabs_pathmode0')
+    #print value.eval()
+    #print parmtabs
+    
+    

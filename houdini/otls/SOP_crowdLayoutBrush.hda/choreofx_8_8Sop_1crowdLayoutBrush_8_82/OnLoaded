@@ -1,0 +1,5 @@
+print "try load"
+#node_type = kwargs["type"]
+#state_typename = node_type.definition().sections()["DefaultState"].contents()
+hou.ui.reloadViewerState('sun_sop_dressingbrush')
+print "loaded"

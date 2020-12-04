@@ -1,0 +1,97 @@
+# Dialog script for choreofx::crowdTrajectoryTrim::1 automatically generated
+
+{
+    name	choreofx::crowdTrajectoryTrim::1
+    script	choreofx::crowdTrajectoryTrim::1
+    label	"Crowd Trajectory Trim"
+
+    help {
+	""
+    }
+
+    inputlabel	1	"Crowd Trajectories"
+    inputlabel	2	"Sub-Network Input #2"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+    outputlabel	1	"Trimmed Crowd Trajectories"
+
+    parm {
+        name    "group"
+        label   "Group"
+        type    string
+        default { "*" }
+        menutoggle {
+            [ "opmenu -l -a get_attribs group" ]
+        }
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_action" "import soputils\nkwargs['geometrytype'] = kwargs['node'].parmTuple('grouptype')\nkwargs['inputindex'] = 0\nsoputils.selectGroupParm(kwargs)" }
+        parmtag { "script_action_help" "Select geometry from an available viewport." }
+        parmtag { "script_action_icon" "BUTTONS_reselect" }
+    }
+    parm {
+        name    "newstartframe"
+        label   "New Start Frame"
+        type    integer
+        default { "1" }
+        hidewhen "{ use_prim_attribs == 1 }"
+        range   { 0 500 }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "newendframe"
+        label   "New End Frame"
+        type    integer
+        default { "100" }
+        hidewhen "{ use_prim_attribs == 1 }"
+        range   { 0 500 }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "start_frame_attrib"
+        label   "Start Attrib Name"
+        type    string
+        default { "trim_start" }
+        hidewhen "{ use_prim_attribs == 0 }"
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "end_frame_attrib"
+        label   "End Frame Attrib Name"
+        type    string
+        default { "trim_end" }
+        hidewhen "{ use_prim_attribs == 0 }"
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "put_first_to_start"
+        label   "Put First to Start"
+        type    toggle
+        joinnext
+        default { "0" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "loop_out_of_range"
+        label   "Loop Out of Range"
+        type    toggle
+        joinnext
+        default { "0" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "use_prim_attribs"
+        label   "Use Prim Attribs"
+        type    toggle
+        joinnext
+        default { "0" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "output_group"
+        label   "Output trim_del group instead of blasting"
+        type    toggle
+        default { "0" }
+        parmtag { "script_callback_language" "python" }
+    }
+}

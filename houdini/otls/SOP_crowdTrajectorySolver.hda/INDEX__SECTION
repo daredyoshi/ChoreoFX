@@ -1,0 +1,15 @@
+Operator:     choreofx::crowdTrajectorySolver::1
+Label:        Crowd Trajectory Solver
+Path:         oplib:/choreofx::Sop/crowdTrajectorySolver::1?choreofx::Sop/crowdTrajectorySolver::1
+Icon:         ChoreoFX
+Table:        Sop
+License:      
+Extra:        
+User:         
+Inputs:       3 to 4
+Outputs:      2
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Thu Dec  3 14:47:33 2020
+

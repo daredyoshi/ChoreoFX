@@ -1,0 +1,301 @@
+= Crowd Guide Brush =
+#icon: /Icons/ChoreoFX.svg
+#tags: crowds, agents, ChoreoFX
+
+"""Documentation is Coming soon!"""
+
+This is placeholder documentation for Crowd Guide Brush
+
+@parameters
+
+== Settings ==
+== State Options ==
+Path Mode:
+	#id: path_mode
+	ToDo
+
+== Position Mode ==
+Clear All:
+	#id: clearAll
+	ToDo
+
+Brush Type:
+	#id: brush_type
+	ToDo
+
+Brush Mode:
+	#id: brush_mode
+	ToDo
+
+Add Mode:
+	#id: addremove_op
+	ToDo
+
+Xform Mode:
+	#id: xform_op
+	ToDo
+
+Select All Prim Points:
+	#id: selectAllPrimPoints
+	ToDo
+
+Affect Ahead:
+	#id: affectAhead
+	ToDo
+
+Affect Behind:
+	#id: affectBehind
+	ToDo
+
+Insert Into All Selected Prims:
+	#id: insertIntoSelected
+	ToDo
+
+== Time Sliding ==
+Show Timing in Position Mode:
+	#id: visTiminginPositionMode
+	ToDo
+
+Auto Slide Distance on Change:
+	#id: autoslideDist
+	ToDo
+
+Use Falloff:
+	#id: useFalloff
+	ToDo
+
+Falloff Distance:
+	#id: falloffDist
+	ToDo
+
+Falloff Ramp:
+	#id: falloffRamp
+	ToDo
+
+== Output Paths ==
+Vis Output Paths:
+	#id: visOutputPaths
+	ToDo
+
+Resample Length:
+	#id: resampleLength
+	ToDo
+
+Resample Method:
+	#id: resampleMethod
+	ToDo
+
+== Guides ==
+Handle Scale:
+	#id: handleScale
+	ToDo
+
+Vis Direction Arrows:
+	#id: visDirArrows
+	ToDo
+
+Direction Arrow Scale:
+	#id: dirArrowScale
+	ToDo
+
+Direction Arrow Interval:
+	#id: dirArrowInterval
+	ToDo
+
+== Timing Mode ==
+Clear All Timing:
+	#id: clearAllTiming
+	ToDo
+
+== Settings ==
+Time Op:
+	#id: time_op
+	ToDo
+
+Adjust Handles Ahead:
+	#id: adjustAhead
+	ToDo
+
+Adjust Handles Behind:
+	#id: adjustBehind
+	ToDo
+
+Extend Beyond Tips:
+	#id: extendtips
+	ToDo
+
+Clamp Method:
+	#id: clampMethod
+	ToDo
+
+Clamp In Groups:
+	#id: clampInGroups
+	ToDo
+
+Hide InActive Prims on Change:
+	#id: hideInactive
+	ToDo
+
+== Velocity Transition Smoothing ==
+Smooth Iterations:
+	#id: smoothIters
+	ToDo
+
+Smooth Strength:
+	#id: velSmoothStrength
+	ToDo
+
+== Guides ==
+== Guide Settings ==
+Handle Size:
+	#id: timingHandleSize
+	ToDo
+
+Show Frame Text on Handles:
+	#id: visTextOnHandles
+	ToDo
+
+Interval Measure Method:
+	#id: intervalMeasureMethod
+	ToDo
+
+Show Major Frames:
+	#id: visMajorFrames
+	ToDo
+
+Show Text on Major Frames:
+	#id: visTextOnMajorFrames
+	ToDo
+
+Major Frame Interval:
+	#id: majorFrameInverval
+	ToDo
+
+Show Minor Frames:
+	#id: visMinorFrames
+	ToDo
+
+Minor Frame Interval:
+	#id: minorFrameInverval
+	ToDo
+
+Show Velocity Graph:
+	#id: visVelGraph
+	ToDo
+
+Velocity Graph Height:
+	#id: velGraphHeight
+	ToDo
+
+== stateparms ==
+Label:
+	#id: iconstrip
+	ToDo
+
+Selected Points Group:
+	#id: selectedPointsGroup
+	ToDo
+
+active Handle Point:
+	#id: activePoint
+	ToDo
+
+active Prim:
+	#id: activePrim
+	ToDo
+
+activePrimU:
+	#id: activePrimU
+	ToDo
+
+activeTipPoint:
+	#id: activeTipPoint
+	ToDo
+
+Brush Position:
+	#id: brush_position
+	ToDo
+
+Brush Position End:
+	#id: brush_positionEnd
+	ToDo
+
+Brush Rot:
+	#id: brush_rot
+	ToDo
+
+Brush Size:
+	#id: brush_size
+	ToDo
+
+Brush Falloff:
+	#id: brush_falloff
+	ToDo
+
+Cursor Screen Position:
+	#id: cursorScreenPos
+	ToDo
+
+Cursor Screen Position End:
+	#id: cursorScreenPosEnd
+	ToDo
+
+Lock Op:
+	#id: lock_op
+	ToDo
+
+is Lock Mode:
+	#id: isLockMode
+	ToDo
+
+is Mouse Down:
+	#id: isMouseDown
+	ToDo
+
+is Cursor In Viewport:
+	#id: isCursorInViewport
+	ToDo
+
+is Selection Event:
+	#id: isSelectionEvent
+	ToDo
+
+is Ctrl:
+	#id: isCtrl
+	ToDo
+
+is Shift:
+	#id: isShift
+	ToDo
+
+is ReadOnly Op:
+	#id: isReadOnlyOp
+	ToDo
+
+== timing ==
+Current Global Frame:
+	#id: currentGlobalFrame
+	ToDo
+
+Current Prim Dist:
+	#id: currentPrimDist
+	ToDo
+
+Geometry Position Stash:
+	#id: stash_all_points
+	ToDo
+
+Geometry Timing Stash:
+	#id: stash_timing_points
+	ToDo
+
+
+@inputs
+
+Placeholder:
+    Description of input
+
+@outputs
+
+Placeholder:
+    Description of output

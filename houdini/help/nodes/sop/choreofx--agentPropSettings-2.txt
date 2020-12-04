@@ -1,0 +1,184 @@
+= Agent Prop Settings =
+#icon: /Icons/ChoreoFX.svg
+#tags: crowds, agents, ChoreoFX
+
+"""Documentation is Coming soon!"""
+
+This is placeholder documentation for Agent Prop Settings
+
+@parameters
+
+Source:
+	#id: source
+	ToDo
+
+Loop Method:
+	#id: loopMethod
+	ToDo
+
+Loop Range:
+	#id: loopRange
+	ToDo
+
+Start:
+	#id: start
+	ToDo
+
+End:
+	#id: end
+	ToDo
+
+Start:
+	#id: frStart
+	ToDo
+
+End:
+	#id: frEnd
+	ToDo
+
+== Prop Assign ==
+== Joint Xform ==
+Ref Agent Source:
+	#id: refAgentSource
+	ToDo
+
+OpPath:
+	#id: refAgentOppath
+	ToDo
+
+Ref Agent Geo File:
+	#id: refAgentFile
+	ToDo
+
+Reference Agent:
+	#id: refAgentDef
+	ToDo
+
+Prop Agent Source:
+	#id: PropAgentSource
+	ToDo
+
+OpPath:
+	#id: propOppath
+	ToDo
+
+Prop Geo File:
+	#id: propFile
+	ToDo
+
+Prop Name:
+	#id: propName
+	ToDo
+
+Default Costume:
+	#id: defaultCostume
+	ToDo
+
+Category:
+	#id: category
+	ToDo
+
+Prop Joint:
+	#id: propJointName
+	ToDo
+
+Agent Joint:
+	#id: agentJointName
+	ToDo
+
+== Local Offset From Joint ==
+Offset Translate:
+	#id: offsetT
+	ToDo
+
+Offset Rotate:
+	#id: offsetR
+	ToDo
+
+Offset Scale:
+	#id: offsetScale
+	ToDo
+
+Visualize on Agent:
+	#id: visOnAgent
+	ToDo
+
+== Visualize on Agent ==
+Set Current Clip:
+	#id: enablecurrentclip
+	ToDo
+
+Set Current Clip:
+	#id: currentclip
+	ToDo
+
+Set Clip Time:
+	#id: enablecliptime
+	ToDo
+
+Clip Time:
+	#id: cliptime
+	ToDo
+
+Apply Clip Locomotion:
+	#id: applylocomotion
+	ToDo
+
+Apply Agent Scale:
+	#id: applyAgentScale
+	ToDo
+
+Agent pscale:
+	#id: agentPscale
+	ToDo
+
+Visualize Prop Anim:
+	#id: visPropAnim
+	ToDo
+
+== visualize Prop Anim ==
+Clip Source:
+	#id: propClipSource
+	ToDo
+
+== Prop Clip Override ==
+Set Current Clip:
+	#id: enablecurrentclipprop
+	ToDo
+
+Set Current Clip:
+	#id: currentclipprop
+	ToDo
+
+Set Clip Time:
+	#id: enablecliptimeprop
+	ToDo
+
+Clip Time:
+	#id: cliptimeprop
+	ToDo
+
+Apply Clip Locomotion:
+	#id: applylocomotionprop
+	ToDo
+
+== Clip Mapping ==
+== Clip Mappings ==
+Agent:
+	#id: agentclip_#
+	ToDo
+
+Prop:
+	#id: propclip_#
+	ToDo
+
+
+@inputs
+
+Placeholder:
+    Description of input
+
+@outputs
+
+Placeholder:
+    Description of output

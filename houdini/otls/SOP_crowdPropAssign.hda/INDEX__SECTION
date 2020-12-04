@@ -1,0 +1,15 @@
+Operator:     choreofx::crowdPropAssign::2
+Label:        Crowd Prop Assign
+Path:         oplib:/choreofx::Sop/crowdPropAssign::2?choreofx::Sop/crowdPropAssign::2
+Icon:         ChoreoFX
+Table:        Sop
+License:      
+Extra:        guide=OUT_PROPS 
+User:         
+Inputs:       1 to 3
+Outputs:      3
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Thu Dec  3 11:17:09 2020
+

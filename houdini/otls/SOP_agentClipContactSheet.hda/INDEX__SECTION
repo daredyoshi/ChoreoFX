@@ -1,0 +1,14 @@
+Operator:     choreofx::agentClipContactSheet::1
+Label:        Agent Clip Contact Sheet
+Path:         oplib:/choreofx::Sop/agentClipContactSheet::1?choreofx::Sop/agentClipContactSheet::1
+Icon:         ChoreoFX
+Table:        Sop
+License:      
+Extra:        
+User:         
+Inputs:       1 to 1
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Thu Dec  3 11:16:54 2020
+

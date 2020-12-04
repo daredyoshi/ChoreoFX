@@ -1,0 +1,7018 @@
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY"
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename=".OPfallbacks"
+Content-Type: application/external-reference
+
+.OPfallbacks
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename=".OPdummydefs"
+Content-Type: application/external-reference
+
+.OPdummydefs
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="node_type"
+Content-Type: text/plain
+
+Sop
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot.init"
+Content-Type: text/plain
+
+type = choreofx::choreoAgentPrep::1.0
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 1.4618 1.9971
+connectornextid 0
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create -1
+  modify -1
+  author daredyoshi@_192.168.1.108
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot.inp"
+Content-Type: text/plain
+
+1
+0 -9.79674067764436 4.4633610104336956 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/set_locomotion.init"
+Content-Type: text/plain
+
+type = attribwrangle
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/set_locomotion.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -8.35701 -8.56385
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	crowdClipPlayer1 0 1 "input1"
+}
+inputs
+{
+0 	crowdClipPlayer1 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author daredyoshi@_192.168.1.108
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/set_locomotion.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+folder0	[ 0	locks=0 ]	(	0	0	)
+group	[ 0	locks=0 ]	(	""	)
+grouptype	[ 0	locks=0 ]	(	"guess"	)
+class	[ 0	locks=0 ]	(	"point"	)
+vex_numcount	[ 0	locks=0 ]	(	10	)
+vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
+snippet	[ 0	locks=0 ]	(	"vector planted_center= {0,0,0};
+matrix agent_xform = primintrinsic(0, \"packedfulltransform\", @ptnum);
+
+int max_frames_to_check = 100;
+int least_frames_since_planted = 100;
+//set foot plant attribs if they exista
+if(len(s[]@agentrig_footchannels) > 0){
+    string clipname = agentclipnames(0, @ptnum)[0];
+    float cliptime = agentcliptimes(0, @ptnum)[0];
+    float sample_rate = agentclipsamplerate(0, @ptnum, clipname);
+    
+    string lowerlimbs [] = s[]@agentrig_lowerlimbs;
+    vector foot_offsets [] = v[]@agentrig_footoffsets;
+    int num_lowerlimbs = len(lowerlimbs);
+    
+    // for each limb
+    foreach(int footchannel_idx; string footchannel_name; s[]@agentrig_footchannels){
+        // for each channel
+        int limb_idx = floor(footchannel_idx / 2);
+        
+       
+        int channel_idx = agentrigfindchannel(0, @ptnum, footchannel_name);
+        //float planted = agentchannelvalue(0, @ptnum, channel_idx);
+        float planted =agentclipsample(0, @ptnum, clipname, cliptime, footchannel_name);
+        setpointattrib(0, sprintf(\"planted_%d\", footchannel_idx), @ptnum, planted);
+        setpointattrib(0, sprintf(\"footchannel_idx_%d\", footchannel_idx), @ptnum, footchannel_name);
+        // get joint position
+        if(planted == 1.0){
+            
+            // find out how long this channel has been planted
+            int frames_to_subtract = 0;
+            for(frames_to_subtract; frames_to_subtract < max_frames_to_check; frames_to_subtract++ ){
+                float check_time = cliptime - sample_rate * frames_to_subtract;
+                float check_planted =agentclipsample(0, @ptnum, clipname, check_time, footchannel_name);
+                if(check_planted != 1.0){
+                    break;
+                }
+            }
+            
+            if(frames_to_subtract < least_frames_since_planted){
+                // fuck side fx for not having a linear mapping between foot channels and lower limbs
+                int lowerlimb_idx = 2 + (footchannel_idx % 2) + (limb_idx * 4);
+                string foot_channel_name = lowerlimbs[lowerlimb_idx];
+                vector foot_channel_offset = foot_offsets[footchannel_idx];
+
+                i@lowerlimb_idx = lowerlimb_idx;
+                s@foot_channel_name = s[]@agentrig_lowerlimbs[lowerlimb_idx];
+                
+                int foot_channel_idx = agentrigfind(0, @ptnum, foot_channel_name);
+                matrix foot_xform = agentworldtransform(0, @ptnum,foot_channel_idx );
+                foot_channel_offset *= foot_xform;
+                //translate(foot_xform, foot_channel_offset);
+                
+                
+                vector foot_P = cracktransform(0, 0, 0, {0,0,0}, foot_xform) ;//- @P;
+                foot_P += (foot_channel_offset - foot_P);
+                
+                
+                //this option is useful when averaging all the planted
+                //planted_center += foot_P * planted / 2;
+                planted_center = foot_P;
+                least_frames_since_planted = frames_to_subtract;
+            }            
+        }
+        
+    }
+}
+
+
+matrix all_transforms [] = agentworldtransforms(0, @ptnum);
+foreach(int idx; matrix xform; all_transforms){
+    translate(xform, -planted_center);
+    all_transforms[idx] = xform;
+}
+setagentworldtransforms(0, @ptnum, all_transforms);
+
+
+int agent_locomotion_idx = agentrigfind(0, @ptnum, \"__locomotion__\");
+
+
+planted_center = qrotate(p@orient, planted_center);
+matrix agent_locomotion_xform = qconvert(p@orient, @P+planted_center);
+setagentworldtransform(0, @ptnum,  agent_locomotion_xform, agent_locomotion_idx);
+
+// set to in place
+@P = {0,0,0};
+p@orient = {0,0,0,1};
+
+
+
+"	)
+exportlist	[ 0	locks=0 ]	(	*	)
+vex_strict	[ 0	locks=0 ]	(	"off"	)
+autobind	[ 0	locks=0 ]	(	"on"	)
+bindings	[ 0	locks=0 ]	(	0	)
+groupautobind	[ 0	locks=0 ]	(	"on"	)
+groupbindings	[ 0	locks=0 ]	(	0	)
+vex_cwdpath	[ 0	locks=0 ]	(	.	)
+vex_outputmask	[ 0	locks=0 ]	(	*	)
+vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
+vex_matchattrib	[ 0	locks=0 ]	(	id	)
+vex_inplace	[ 0	locks=0 ]	(	"off"	)
+vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/set_locomotion.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/foot_plants.init"
+Content-Type: text/plain
+
+type = chopnet
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/foot_plants.def"
+Content-Type: text/plain
+
+comment ""
+position -6.52627 -3.42946
+connectornextid 0
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create -1
+  modify -1
+  author daredyoshi@_192.168.1.108
+  access 0777
+}
+color UT_Color RGB 0.67 0.4 0.25 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/foot_plants.spareparmdef"
+Content-Type: text/plain
+
+    parm {
+        name    "iteration"
+        label   "Clip Iteration"
+        type    integer
+        default { "0" }
+        range   { 0 10 }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "spare_input0"
+        label   "Spare Input 0"
+        type    oppath
+        default { "" }
+        help    "Refer to this in expressions as -1, such as: npoints(-1)"
+        parmtag { "opfilter" "!!SOP!!" }
+        parmtag { "oprelative" "." }
+    }
+    parm {
+        name    "clipname"
+        label   "Clip Name"
+        type    string
+        default { "" }
+        parmtag { "script_callback_language" "python" }
+    }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/foot_plants.chn"
+Content-Type: text/plain
+
+{
+    channel iteration {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = "detail(-1, \"iteration\", 0)" }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/foot_plants.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+iteration	[ 0	locks=0 ]	(	[ iteration	22 ] 	)
+spare_input0	[ 0	locks=0 ]	(	../metadata	)
+clipname	[ 0	locks=0 ]	(	`chs(\"../load_foot_plant_channels/name1\")`	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/foot_plants.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/foot_plants/foreach1.init"
+Content-Type: text/plain
+
+type = foreach
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/foot_plants/foreach1.def"
+Content-Type: text/plain
+
+comment ""
+position -12.191 -4.72415
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on audio on export off
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	current___clip 0 1 "input1"
+}
+inputs
+{
+0 	current___clip 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author daredyoshi@_192.168.1.108
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/foot_plants/foreach1.chn"
+Content-Type: text/plain
+
+{
+    channel count {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../../lowerlimbs\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/foot_plants/foreach1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+stdswitcher	[ 0	locks=0 ]	(	0	0	)
+iterate	[ 0	locks=0 ]	(	"numbers"	)
+count	[ 0	locks=0 ]	(	[ count	2 ] 	)
+changrp	[ 0	locks=0 ]	(	"tx* ty* tz*"	)
+chanindex	[ 0	locks=0 ]	(	"append"	)
+chanreplace	[ 0	locks=0 ]	(	IDX	)
+reindex	[ 0	locks=0 ]	(	"off"	)
+baseindex	[ 0	locks=0 ]	(	1	)
+preview	[ 0	locks=0 ]	(	"off"	)
+previewgrp	[ 0	locks=0 ]	(	1	)
+debug	[ 0	locks=0 ]	(	"off"	)
+debuggrp	[ 0	locks=0 ]	(	1	)
+scope	[ 0	locks=0 ]	(	*	)
+srselect	[ 0	locks=0 ]	(	"max"	)
+units	[ 0	locks=0 ]	(	"seconds"	)
+timeslice	[ 0	locks=0 ]	(	"off"	)
+unload	[ 0	locks=0 ]	(	"off"	)
+export	[ 0	locks=0 ]	(	../..	)
+gcolor	[ 0	locks=0 ]	(	0	0.89999997615814209	0.44999998807907104	)
+gcolorstep	[ 0	locks=0 ]	(	0.050000000000000003	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/foot_plants/foreach1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/foot_plants/foreach1.chop"
+Content-Type: text/plain
+
+5
+2
+0
+0
+1
+0
+0
+0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/foot_plants/foreach1.inp"
+Content-Type: text/plain
+
+4
+0 0 6 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+1 3 6.5 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+2 6 7 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+3 9 7.5 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/foot_plants/foreach1/ankle_channel.init"
+Content-Type: text/plain
+
+type = footplant
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/foot_plants/foreach1/ankle_channel.def"
+Content-Type: text/plain
+
+comment ""
+position 3 4.51898
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display on render off highlight off unload off savedata off compress on colordefault on exposed on audio off export off
+outputsNamed3
+{
+0 "output1"
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create -1
+  modify -1
+  author daredyoshi@_192.168.1.108
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/foot_plants/foreach1/ankle_channel.chn"
+Content-Type: text/plain
+
+{
+    channel framerange1 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = $RFSTART }
+    }
+    channel framerange2 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = $RFEND }
+    }
+    channel channelname {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"$OS\"
+      flags = 0
+      segment { options = {	 autoslope  ai ao }
+
+	 length = 0 accel = 0.33333333333333331 0.33333333333333331 expr = "chs(\"../../../agent_prep/ankledownchannel\" + (ch(\"../Foreach_Iteration/loopindex\") + 1))" }
+    }
+    channel offsetx {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = "ch(\"../../../agent_prep/ankleoffset\" + (ch(\"../Foreach_Iteration/loopindex\") + 1) + \"x\")" }
+    }
+    channel offsety {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = "ch(\"../../../agent_prep/ankleoffset\" + (ch(\"../Foreach_Iteration/loopindex\") + 1) + \"y\")" }
+    }
+    channel offsetz {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = "ch(\"../../../agent_prep/ankleoffset\" + (ch(\"../Foreach_Iteration/loopindex\") + 1) + \"z\")" }
+    }
+    channel terrainsource {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../../../ankle_terrainsource\") }
+    }
+    channel planeoriginx {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../../ankle_planeoriginx\") }
+    }
+    channel planeoriginy {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../../ankle_planeoriginy\") }
+    }
+    channel planeoriginz {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../../ankle_planeoriginz\") }
+    }
+    channel planenormalx {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../../ankle_planenormalx\") }
+    }
+    channel planenormaly {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../../../ankle_planenormaly\") }
+    }
+    channel planenormalz {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../../ankle_planenormalz\") }
+    }
+    channel distancethreshold {
+      lefttype = extend
+      righttype = extend
+      default = 0.01
+      flags = 0
+      segment { length = 0 value = 0.01 0.01 expr = ch(\"../../../ankle_distancethreshold\") }
+    }
+    channel blendoutframes {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../../ankle_blendoutframes\") }
+    }
+    channel blendinframes {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../../ankle_blendinframes\") }
+    }
+    channel speedthreshold {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../../ankle_speedthreshold\") }
+    }
+    channel method {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../../../ankle_method\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/foot_plants/foreach1/ankle_channel.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+stdswitcher	[ 0	locks=0 ]	(	0	)
+opmenu	[ 0	locks=0 ]	(	__audio_chop__	)
+scope	[ 0	locks=0 ]	(	*	)
+srselect	[ 0	locks=0 ]	(	"max"	)
+units	[ 0	locks=0 ]	(	"seconds"	)
+timeslice	[ 0	locks=0 ]	(	"off"	)
+unload	[ 0	locks=0 ]	(	"off"	)
+export	[ 0	locks=0 ]	(	../..	)
+gcolor	[ 0	locks=0 ]	(	0	0.89999997615814209	0.89999997615814209	)
+gcolorstep	[ 0	locks=0 ]	(	0.050000000000000003	)
+folder0	[ 0	locks=0 ]	(	1	1	)
+source	[ 0	locks=0 ]	(	"agent"	)
+soppath	[ 0	locks=0	autoscope=1	autosel=4294967295 ]	(	`chsop(\"../../current___clip/soppath\")`	)
+group	[ 0	locks=0	autoscope=1	autosel=4294967295 ]	(	""	)
+clipname	[ 0	locks=0	autoscope=1	autosel=4294967295 ]	(	`chs(\"../../clipname\")`	)
+transformname	[ 0	locks=0	autoscope=1	autosel=4294967295 ]	(	"`chs(\"../../../agent_prep/ankle\" + (ch(\"../Foreach_Iteration/loopindex\") + 1))`"	)
+targetpath	[ 0	locks=0 ]	(	""	)
+referencepath	[ 0	locks=0 ]	(	""	)
+offset	[ 0	locks=0 ]	(	[ offsetx	8.9152317540126536 ] 	[ offsety	-12.288244554472165 ] 	[ offsetz	2.5991457182060369 ] 	)
+framerange	[ 0	locks=0 ]	(	[ framerange1	1 ] 	[ framerange2	240 ] 	)
+sepparm	[ 0	locks=0 ]	(	)
+method	[ 0	locks=0 ]	(	[ method	0 ] 	)
+speedthreshold	[ 0	locks=0 ]	(	[ speedthreshold	0.29999999999999999 ] 	)
+terrainsource	[ 0	locks=0 ]	(	[ terrainsource	1 ] 	)
+terrain_soppath	[ 0	locks=0 ]	(	""	)
+planeorigin	[ 0	locks=0 ]	(	[ planeoriginx	0 ] 	[ planeoriginy	0 ] 	[ planeoriginz	0 ] 	)
+planenormal	[ 0	locks=0 ]	(	[ planenormalx	0 ] 	[ planenormaly	1 ] 	[ planenormalz	0 ] 	)
+distancethreshold	[ 0	locks=0 ]	(	[ distancethreshold	0.01 ] 	)
+sepparm2	[ 0	locks=0 ]	(	)
+channelname	[ 0	locks=0	autoscope=1	autosel=4294967295 ]	(	[ channelname	r_ankle_plant ] 	)
+blendinframes	[ 0	locks=0 ]	(	[ blendinframes	1 ] 	)
+blendoutframes	[ 0	locks=0 ]	(	[ blendoutframes	3 ] 	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/foot_plants/foreach1/ankle_channel.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/foot_plants/foreach1/ankle_channel.chop"
+Content-Type: text/plain
+
+5
+2
+0
+0
+1
+0
+0
+0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/foot_plants/foreach1/toe_channel.init"
+Content-Type: text/plain
+
+type = footplant
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/foot_plants/foreach1/toe_channel.def"
+Content-Type: text/plain
+
+comment ""
+position 4.95961 4.51898
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on audio off export off
+outputsNamed3
+{
+0 "output1"
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create -1
+  modify -1
+  author daredyoshi@_192.168.1.108
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/foot_plants/foreach1/toe_channel.chn"
+Content-Type: text/plain
+
+{
+    channel framerange1 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = $RFSTART }
+    }
+    channel framerange2 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = $RFEND }
+    }
+    channel offsetx {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = "ch(\"../../../agent_prep/toeoffset\" + (ch(\"../Foreach_Iteration/loopindex\") + 1) + \"x\")" }
+    }
+    channel offsety {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = "ch(\"../../../agent_prep/toeoffset\" + (ch(\"../Foreach_Iteration/loopindex\") + 1) + \"y\")" }
+    }
+    channel offsetz {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = "ch(\"../../../agent_prep/toeoffset\" + (ch(\"../Foreach_Iteration/loopindex\") + 1) + \"z\")" }
+    }
+    channel method {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../../../toe_method\") }
+    }
+    channel speedthreshold {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../../toe_speedthreshold\") }
+    }
+    channel blendinframes {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../../../toe_blendinframes\") }
+    }
+    channel blendoutframes {
+      lefttype = extend
+      righttype = extend
+      default = 3
+      flags = 0
+      segment { length = 0 value = 3 3 expr = ch(\"../../../toe_blendoutframes\") }
+    }
+    channel terrainsource {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../../../toe_terrainsource\") }
+    }
+    channel planeoriginx {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../../toe_planeoriginx\") }
+    }
+    channel planeoriginy {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../../toe_planeoriginy\") }
+    }
+    channel planeoriginz {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../../toe_planeoriginz\") }
+    }
+    channel planenormalx {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../../toe_planenormalx\") }
+    }
+    channel planenormaly {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../../../toe_planenormaly\") }
+    }
+    channel planenormalz {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../../../toe_planenormalz\") }
+    }
+    channel distancethreshold {
+      lefttype = extend
+      righttype = extend
+      default = 0.01
+      flags = 0
+      segment { length = 0 value = 0.01 0.01 expr = ch(\"../../../toe_distancethreshold\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/foot_plants/foreach1/toe_channel.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+stdswitcher	[ 0	locks=0 ]	(	0	)
+opmenu	[ 0	locks=0 ]	(	__audio_chop__	)
+scope	[ 0	locks=0 ]	(	*	)
+srselect	[ 0	locks=0 ]	(	"max"	)
+units	[ 0	locks=0 ]	(	"seconds"	)
+timeslice	[ 0	locks=0 ]	(	"off"	)
+unload	[ 0	locks=0 ]	(	"off"	)
+export	[ 0	locks=0 ]	(	../..	)
+gcolor	[ 0	locks=0 ]	(	0	0.89999997615814209	0.89999997615814209	)
+gcolorstep	[ 0	locks=0 ]	(	0.050000000000000003	)
+folder0	[ 0	locks=0 ]	(	0	0	)
+source	[ 0	locks=0 ]	(	"agent"	)
+soppath	[ 0	locks=0	autoscope=1	autosel=4294967295 ]	(	`chsop(\"../../current___clip/soppath\")`	)
+group	[ 0	locks=0	autoscope=1	autosel=4294967295 ]	(	""	)
+clipname	[ 0	locks=0	autoscope=1	autosel=4294967295 ]	(	`chs(\"../../clipname\")`	)
+transformname	[ 8	locks=0	autoscope=1	autosel=4294967295 ]	(	"`chs(\"../../../agent_prep/toe\" + (ch(\"../Foreach_Iteration/loopindex\") + 1))`"	)
+targetpath	[ 0	locks=0 ]	(	""	)
+referencepath	[ 0	locks=0 ]	(	""	)
+offset	[ 0	locks=0 ]	(	[ offsetx	0 ] 	[ offsety	0 ] 	[ offsetz	0 ] 	)
+framerange	[ 0	locks=0 ]	(	[ framerange1	1 ] 	[ framerange2	240 ] 	)
+sepparm	[ 0	locks=0 ]	(	)
+method	[ 0	locks=0 ]	(	[ method	0 ] 	)
+speedthreshold	[ 0	locks=0 ]	(	[ speedthreshold	0.29999999999999999 ] 	)
+terrainsource	[ 0	locks=0 ]	(	[ terrainsource	0 ] 	)
+terrain_soppath	[ 0	locks=0 ]	(	""	)
+planeorigin	[ 0	locks=0 ]	(	[ planeoriginx	0 ] 	[ planeoriginy	0 ] 	[ planeoriginz	0 ] 	)
+planenormal	[ 0	locks=0 ]	(	[ planenormalx	0 ] 	[ planenormaly	1 ] 	[ planenormalz	0 ] 	)
+distancethreshold	[ 0	locks=0 ]	(	[ distancethreshold	0.01 ] 	)
+sepparm2	[ 0	locks=0 ]	(	)
+channelname	[ 0	locks=0	autoscope=1	autosel=4294967295 ]	(	"`chs(\"../../../agent_prep/footdownchannel\" + (ch(\"../Foreach_Iteration/loopindex\") + 1))`"	)
+blendinframes	[ 0	locks=0 ]	(	[ blendinframes	1 ] 	)
+blendoutframes	[ 0	locks=0 ]	(	[ blendoutframes	1 ] 	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/foot_plants/foreach1/toe_channel.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/foot_plants/foreach1/toe_channel.chop"
+Content-Type: text/plain
+
+5
+2
+0
+0
+1
+0
+0
+0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/crowdClipAssign1.init"
+Content-Type: text/plain
+
+type = choreofx::crowdClipAssign::1
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/crowdClipAssign1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -8.35401 -6.52395
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+0 "output1"
+}
+inputsNamed3
+{
+1 	OUT_FOOT_PLANTS 1 1 "input1"
+}
+inputs
+{
+0 	OUT_FOOT_PLANTS 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author stephen@stephen-m2
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/crowdClipAssign1.spareparmdef"
+Content-Type: text/plain
+
+    parm {
+        name    "agentgroup"
+        baseparm
+        label   "Agent Group"
+        export  none
+    }
+    parm {
+        name    "grouptype"
+        baseparm
+        label   "Group Type"
+        export  none
+    }
+    parm {
+        name    "sepparm16"
+        baseparm
+        label   "Separator"
+        export  none
+    }
+    parm {
+        name    "seedAttrib"
+        baseparm
+        label   "Seed Attribute"
+        export  none
+    }
+    parm {
+        name    "setSingleClip"
+        baseparm
+        label   "Set Current Clip"
+        export  none
+    }
+    parm {
+        name    "sepparm14"
+        baseparm
+        label   "Separator"
+        export  none
+    }
+    parm {
+        name    "randomizeClips"
+        baseparm
+        label   "Randomize Clips"
+        export  none
+    }
+    parm {
+        name    "randomClipSeed"
+        baseparm
+        label   "Random Seed"
+        export  none
+    }
+    groupsimple {
+        name    "folder6"
+        label   "Clip List"
+        disablewhentab "{ randomizeClips == 0 }"
+
+        multiparm {
+            name    "numClipPatterns"
+            label    "Clip Groups"
+            baseparm
+            default 1
+
+            parm {
+                name    "clipPattern_#"
+                baseparm
+                label   "Clip Pattern"
+                export  none
+            }
+            parm {
+                name    "clipWeight_#"
+                baseparm
+                label   "Weight"
+                export  none
+            }
+        }
+
+    }
+
+    parm {
+        name    "sepparm2"
+        baseparm
+        label   "Separator"
+        export  none
+    }
+    multiparm {
+        name    "manualClipEdits"
+        label    "Manual Clip Edits"
+        baseparm
+        default 0
+
+        parm {
+            name    "manualEnable_#"
+            baseparm
+            label   "Enable"
+            export  none
+        }
+        parm {
+            name    "manualGroup_#"
+            baseparm
+            label   "Affected Group"
+            export  none
+        }
+        parm {
+            name    "manualClipName_#"
+            baseparm
+            label   "Clip"
+            export  none
+        }
+    }
+
+    parm {
+        name    "spare_input0"
+        label   "Spare Input 0"
+        type    oppath
+        default { "" }
+        help    "Refer to this in expressions as -1, such as: npoints(-1)"
+        parmtag { "opfilter" "!!SOP!!" }
+        parmtag { "oprelative" "." }
+    }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/crowdClipAssign1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+agentgroup	[ 0	locks=0 ]	(	""	)
+grouptype	[ 0	locks=0 ]	(	"points"	)
+sepparm16	[ 0	locks=0 ]	(	)
+setSingleClip	[ 0	locks=0	autoscope=0 ]	(	`chs(\"../load_foot_plant_channels/name1\")`	)
+sepparm14	[ 0	locks=0 ]	(	)
+randomizeClips	[ 0	locks=0 ]	(	"off"	)
+randomClipSeed	[ 0	locks=0 ]	(	100	)
+seedAttrib	[ 0	locks=0 ]	(	agent_id	)
+folder5	[ 0	locks=0 ]	(	0	)
+numClipPatterns	[ 0	locks=0	autoscope=0 ]	(	1	)
+sepparm2	[ 0	locks=0 ]	(	)
+manualClipEdits	[ 0	locks=0	autoscope=0 ]	(	0	)
+clipPattern_1	[ 0	locks=0	autoscope=0 ]	(	rest	)
+clipWeight_1	[ 0	locks=0 ]	(	1	)
+folder6	[ 0	locks=0 ]	(	0	)
+spare_input0	[ 0	locks=0 ]	(	../metadata	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/crowdClipAssign1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	},
+	"wirestyle":{
+		"type":"string",
+		"value":"rounded"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/crowdClipPlayer1.init"
+Content-Type: text/plain
+
+type = choreofx::crowdClipPlayer::1
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/crowdClipPlayer1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -8.35401 -7.52395
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+0 "output1"
+}
+inputsNamed3
+{
+1 	crowdClipAssign1 0 1 "input1"
+}
+inputs
+{
+0 	crowdClipAssign1 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author stephen@stephen-m2
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/crowdClipPlayer1.chn"
+Content-Type: text/plain
+
+{
+    channel time {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = "$T - $TSTART" }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/crowdClipPlayer1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+stdswitcher	[ 0	locks=0 ]	(	0	0	)
+playAtOrigin	[ 0	locks=0 ]	(	"off"	)
+loopTransitionType	[ 0	locks=0 ]	(	1	)
+sepparm2	[ 0	locks=0 ]	(	)
+folder0	[ 0	locks=0 ]	(	0	)
+advanceLoco	[ 0	locks=0 ]	(	"on"	)
+sepparm7	[ 0	locks=0 ]	(	)
+applyScale	[ 0	locks=0 ]	(	1	)
+sepparm5	[ 0	locks=0 ]	(	)
+timeOffsetLoco	[ 0	locks=0 ]	(	0	)
+sepparm4	[ 0	locks=0 ]	(	)
+removeLocoStart	[ 0	locks=0 ]	(	"on"	)
+locoType	[ 0	locks=0 ]	(	"0"	)
+locoJoint	[ 0	locks=0 ]	(	Hips	)
+visAnchorFrame	[ 0	locks=0 ]	(	"off"	)
+time	[ 0	locks=0 ]	(	[ time	0.083333333333333329 ] 	)
+sepparm6	[ 0	locks=0 ]	(	)
+labelparm	[ 0	locks=0 ]	(	"*To use if no existing attribs are found*"	""	""	""	)
+sepparm3	[ 0	locks=0 ]	(	)
+timeSpeed	[ 0	locks=0 ]	(	1	)
+timeAnchor	[ 0	locks=0 ]	(	1	)
+timeOffset	[ 0	locks=0 ]	(	0	)
+sepparm	[ 0	locks=0 ]	(	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/crowdClipPlayer1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	},
+	"wirestyle":{
+		"type":"string",
+		"value":"rounded"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/agent_prep.init"
+Content-Type: text/plain
+
+type = agentprep::3.0
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/agent_prep.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -9.79674 -0.00880984
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	attribpromote1 1 1 "input1"
+}
+inputs
+{
+0 	attribpromote1 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author daredyoshi@_192.168.1.108
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/agent_prep.multiparm"
+Content-Type: text/plain
+
+18
+upperarm# ../upperarm#
+lowerarm# ../lowerarm#
+hand# ../hand#
+hips# ../hips#
+lowerback# ../lowerback#
+head# ../head#
+upperleg# ../upperleg#
+knee# ../knee#
+ankle# ../ankle#
+toe# ../toe#
+ankledownchannel# ../ankledownchannel#
+footdownchannel# ../footdownchannel#
+ankleoffset#x ../ankleoffset#x
+ankleoffset#y ../ankleoffset#y
+ankleoffset#z ../ankleoffset#z
+toeoffset#x ../toeoffset#x
+toeoffset#y ../toeoffset#y
+toeoffset#z ../toeoffset#z
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/agent_prep.chn"
+Content-Type: text/plain
+
+{
+    channel restclip {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"rest\"
+      flags = 0
+      segment { length = 0 expr = chs(\"../restclip\") }
+    }
+    channel upperlimbs {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../upperlimbs\") }
+    }
+    channel torso {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../torso\") }
+    }
+    channel lowerlimbs {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../lowerlimbs\") }
+    }
+    channel guidescale {
+      lefttype = extend
+      righttype = extend
+      default = 0.10000000000000001
+      flags = 0
+      segment { length = 0 value = 0.10000000000000001 0.10000000000000001 expr = ch(\"../guidescale\") }
+    }
+    channel hips1 {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"Hips\"
+      flags = 0
+      segment { length = 0 expr = chs(\"../hips1\") }
+    }
+    channel lowerback1 {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"Hips_To_LowerBack\"
+      flags = 0
+      segment { length = 0 expr = chs(\"../lowerback1\") }
+    }
+    channel head1 {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"Head_To_HeadEnd\"
+      flags = 0
+      segment { length = 0 expr = chs(\"../head1\") }
+    }
+    channel upperleg1 {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"LeftUpLeg_To_LeftLeg\"
+      flags = 0
+      segment { length = 0 expr = chs(\"../upperleg1\") }
+    }
+    channel knee1 {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"LeftLeg_To_LeftFoot\"
+      flags = 0
+      segment { length = 0 expr = chs(\"../knee1\") }
+    }
+    channel ankle1 {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"LeftFoot_To_LeftToeBase\"
+      flags = 0
+      segment { length = 0 expr = chs(\"../ankle1\") }
+    }
+    channel toe1 {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"LeftToeBase_To_LeftToeBaseEnd\"
+      flags = 0
+      segment { length = 0 expr = chs(\"../toe1\") }
+    }
+    channel ankledownchannel1 {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"\"
+      flags = 0
+      segment { length = 0 expr = chs(\"../ankledownchannel1\") }
+    }
+    channel footdownchannel1 {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"\"
+      flags = 0
+      segment { length = 0 expr = chs(\"../footdownchannel1\") }
+    }
+    channel ankleoffset1x {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../ankleoffset1x\") }
+    }
+    channel ankleoffset1y {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../ankleoffset1y\") }
+    }
+    channel ankleoffset1z {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../ankleoffset1z\") }
+    }
+    channel toeoffset1x {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../toeoffset1x\") }
+    }
+    channel toeoffset1y {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../toeoffset1y\") }
+    }
+    channel toeoffset1z {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../toeoffset1z\") }
+    }
+    channel upperleg2 {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"LeftUpLeg_To_LeftLeg\"
+      flags = 0
+      segment { length = 0 expr = chs(\"../upperleg2\") }
+    }
+    channel knee2 {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"LeftLeg_To_LeftFoot\"
+      flags = 0
+      segment { length = 0 expr = chs(\"../knee2\") }
+    }
+    channel ankle2 {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"LeftFoot_To_LeftToeBase\"
+      flags = 0
+      segment { length = 0 expr = chs(\"../ankle2\") }
+    }
+    channel toe2 {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"LeftToeBase_To_LeftToeBaseEnd\"
+      flags = 0
+      segment { length = 0 expr = chs(\"../toe2\") }
+    }
+    channel ankledownchannel2 {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"\"
+      flags = 0
+      segment { length = 0 expr = chs(\"../ankledownchannel2\") }
+    }
+    channel footdownchannel2 {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"\"
+      flags = 0
+      segment { length = 0 expr = chs(\"../footdownchannel2\") }
+    }
+    channel ankleoffset2x {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../ankleoffset2x\") }
+    }
+    channel ankleoffset2y {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../ankleoffset2y\") }
+    }
+    channel ankleoffset2z {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../ankleoffset2z\") }
+    }
+    channel toeoffset2x {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../toeoffset2x\") }
+    }
+    channel toeoffset2y {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../toeoffset2y\") }
+    }
+    channel toeoffset2z {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../toeoffset2z\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/agent_prep.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+group	[ 0	locks=0 ]	(	""	)
+folder0	[ 0	locks=0 ]	(	0	0	0	)
+restclip	[ 0	locks=0 ]	(	[ restclip	rest ] 	)
+sepparm4	[ 0	locks=0 ]	(	)
+upperlimbs	[ 0	locks=0 ]	(	[ upperlimbs	0 ] 	)
+torso	[ 0	locks=0 ]	(	[ torso	1 ] 	)
+lowerlimbs	[ 0	locks=0 ]	(	[ lowerlimbs	2 ] 	)
+choppaths	[ 0	locks=0 ]	(	""	)
+createchopnet	[ 0	locks=0 ]	(	0	)
+sepparm2	[ 0	locks=0 ]	(	)
+loadclips	[ 0	locks=0 ]	(	"on"	)
+clipsource	[ 0	locks=0 ]	(	"chop"	)
+keepexternalref	[ 0	locks=0 ]	(	"on"	)
+reloadclips	[ 0	locks=0 ]	(	0	)
+sepparm	[ 0	locks=0 ]	(	)
+agentname	[ 0	locks=0 ]	(	agent1	)
+cachedir	[ 0	locks=0 ]	(	${HIP}/agents/${AGENT}	)
+clippaths	[ 0	locks=0 ]	(	${CACHEDIR}/${AGENT}_clip.${CLIP}_modified.bclip.sc	)
+saveclips	[ 0	locks=0 ]	(	0	)
+guidescale	[ 0	locks=0 ]	(	[ guidescale	0.10000000000000001 ] 	)
+hips1	[ 0	locks=0 ]	(	[ hips1	Hips ] 	)
+lowerback1	[ 0	locks=0 ]	(	[ lowerback1	Hips_To_LowerBack ] 	)
+head1	[ 0	locks=0 ]	(	[ head1	Head_To_HeadEnd ] 	)
+sepparm1_4	[ 0	locks=0 ]	(	)
+upperleg1	[ 0	locks=0 ]	(	[ upperleg1	LeftUpLeg_To_LeftLeg ] 	)
+knee1	[ 0	locks=0 ]	(	[ knee1	LeftLeg_To_LeftFoot ] 	)
+ankle1	[ 0	locks=0 ]	(	[ ankle1	LeftFoot_To_LeftToeBase ] 	)
+toe1	[ 0	locks=0 ]	(	[ toe1	LeftToeBase_To_LeftToeBaseEnd ] 	)
+sepparm1_5	[ 0	locks=0 ]	(	)
+ankledownchannel1	[ 0	locks=0 ]	(	[ ankledownchannel1	"" ] 	)
+footdownchannel1	[ 0	locks=0 ]	(	[ footdownchannel1	"" ] 	)
+sepparm1_2	[ 0	locks=0 ]	(	)
+ankleoffset1	[ 0	locks=0 ]	(	[ ankleoffset1x	0 ] 	[ ankleoffset1y	0 ] 	[ ankleoffset1z	0 ] 	)
+toeoffset1	[ 0	locks=0 ]	(	[ toeoffset1x	0 ] 	[ toeoffset1y	0 ] 	[ toeoffset1z	0 ] 	)
+upperleg2	[ 0	locks=0 ]	(	[ upperleg2	LeftUpLeg_To_LeftLeg ] 	)
+knee2	[ 0	locks=0 ]	(	[ knee2	LeftLeg_To_LeftFoot ] 	)
+ankle2	[ 0	locks=0 ]	(	[ ankle2	LeftFoot_To_LeftToeBase ] 	)
+toe2	[ 0	locks=0 ]	(	[ toe2	LeftToeBase_To_LeftToeBaseEnd ] 	)
+sepparm2_5	[ 0	locks=0 ]	(	)
+ankledownchannel2	[ 0	locks=0 ]	(	[ ankledownchannel2	"" ] 	)
+footdownchannel2	[ 0	locks=0 ]	(	[ footdownchannel2	"" ] 	)
+sepparm2_2	[ 0	locks=0 ]	(	)
+ankleoffset2	[ 0	locks=0 ]	(	[ ankleoffset2x	0 ] 	[ ankleoffset2y	0 ] 	[ ankleoffset2z	0 ] 	)
+toeoffset2	[ 0	locks=0 ]	(	[ toeoffset2x	0 ] 	[ toeoffset2y	0 ] 	[ toeoffset2z	0 ] 	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/agent_prep.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	},
+	"___toolcount___":{
+		"type":"string",
+		"value":"2"
+	},
+	"___toolid___":{
+		"type":"string",
+		"value":"object_crowdbake"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/create_attributes.init"
+Content-Type: text/plain
+
+type = attribwrangle
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/create_attributes.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 1.31184 -2.38465
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress off colordefault off exposed on
+outputsNamed3
+{
+4 "output1"
+}
+inputsNamed3
+{
+0 	init_attributes 1 1 "input1"
+}
+inputs
+{
+0 	init_attributes 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author nobody@nowhere
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/create_attributes.chn"
+Content-Type: text/plain
+
+{
+    channel vex_numcount {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = "npoints(opinputpath(\".\", 0))" }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/create_attributes.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+folder0	[ 0	locks=0 ]	(	0	0	)
+group	[ 8	locks=0 ]	(	""	)
+grouptype	[ 0	locks=0 ]	(	"guess"	)
+class	[ 0	locks=0 ]	(	"point"	)
+vex_numcount	[ 0	locks=0 ]	(	[ vex_numcount	2 ] 	)
+vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
+snippet	[ 0	locks=0 ]	(	"void validate_channel(const int primnum; const string channel_name)
+{
+    // Ignore empty channel names to avoid tons of warnings if the user
+    // isn't doing foot locking.
+    if (len(channel_name) == 0)
+        return;
+    
+    foreach (string clipname; agentclipcatalog(0, primnum))
+    {
+        if (agentclipchannel(0, primnum, clipname, channel_name) < 0)
+        {
+            warning(\"Channel '%s' not found in clip '%s'\", channel_name, clipname);
+        }
+    }
+}
+
+void validate_hierarchy(const int primnum; const string parent;
+                        const string child)
+{
+    if (len(child) == 0)
+        return;
+
+    int child_idx = agentrigfind(0, primnum, child);
+    if (child_idx < 0)
+        warning(\"Transform '%g' not found in rig\", child);
+
+    int parent_idx = agentrigfind(0, primnum, parent);
+    if (parent_idx < 0)
+        warning(\"Transform '%g' not found in rig\", parent);
+
+    while (child_idx >= 0)
+    {
+        child_idx = agentrigparent(0, primnum, child_idx);
+        if (child_idx == parent_idx)
+            return;
+    }
+
+    warning(\"'%g' is not a child of '%g'\", child, parent);
+}
+
+// setup lower limbs
+for (int n=1; n<=chi(\"../lowerlimbs\"); n++)
+{
+    string upperleg = chs(sprintf(\"../upperleg%d\",n));
+    string knee = chs(sprintf(\"../knee%d\",n));
+    string ankle = chs(sprintf(\"../ankle%d\",n));
+    string toe = chs(sprintf(\"../toe%d\",n));
+
+    validate_hierarchy(@primnum, upperleg, knee);
+    validate_hierarchy(@primnum, knee, ankle);
+    validate_hierarchy(@primnum, ankle, toe);
+
+    push(s[]@agentrig_lowerlimbs, upperleg);
+    push(s[]@agentrig_lowerlimbs, knee);
+    push(s[]@agentrig_lowerlimbs, ankle);
+    push(s[]@agentrig_lowerlimbs, toe);
+    
+    string channel_name = chs(sprintf(\"../ankledownchannel%d\", n));
+    validate_channel(@primnum, channel_name);
+    push(s[]@agentrig_footchannels, channel_name);
+    
+    channel_name = chs(sprintf(\"../footdownchannel%d\", n));
+    validate_channel(@primnum, channel_name);
+    push(s[]@agentrig_footchannels, channel_name);
+    
+    push(v[]@agentrig_footoffsets, chv(sprintf(\"../ankleoffset%d\", n)));
+    push(v[]@agentrig_footoffsets, chv(sprintf(\"../toeoffset%d\", n)));
+}
+
+// setup upper limbs
+for (int n=1; n<=chi(\"../upperlimbs\"); n++)
+{
+    push(s[]@agentrig_upperlimbs, chs(sprintf(\"../upperarm%d\",n)));    
+    push(s[]@agentrig_upperlimbs, chs(sprintf(\"../lowerarm%d\",n)));
+    push(s[]@agentrig_upperlimbs, chs(sprintf(\"../hand%d\",n)));    
+}
+// setup torso
+for (int n=1; n<=chi(\"../torso\"); n++)
+{
+    push(s[]@agentrig_hips, chs(sprintf(\"../hips%d\",n)));    
+    push(s[]@agentrig_lowerback, chs(sprintf(\"../lowerback%d\",n)));
+    push(s[]@agentrig_head, chs(sprintf(\"../head%d\",n)));    
+}
+
+// setup misc
+s@agentrig_restclip = chs(\"../restclip\");
+"	)
+exportlist	[ 0	locks=0 ]	(	agentrig_*	)
+vex_strict	[ 0	locks=0 ]	(	"off"	)
+autobind	[ 0	locks=0 ]	(	"on"	)
+bindings	[ 0	locks=0 ]	(	0	)
+groupautobind	[ 0	locks=0 ]	(	"on"	)
+groupbindings	[ 0	locks=0 ]	(	0	)
+vex_cwdpath	[ 0	locks=0 ]	(	.	)
+vex_outputmask	[ 0	locks=0 ]	(	*	)
+vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
+vex_matchattrib	[ 0	locks=0 ]	(	id	)
+vex_inplace	[ 0	locks=0 ]	(	"off"	)
+vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/create_attributes.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/load_clips.init"
+Content-Type: text/plain
+
+type = attribwrangle
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/load_clips.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 2.64364 0.710139
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress off colordefault off exposed on
+outputsNamed3
+{
+4 "output1"
+}
+inputsNamed3
+{
+0 	(0) "" 1 "input1"
+}
+inputs
+{
+0 	(0) 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author nobody@nowhere
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/load_clips.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+folder0	[ 0	locks=0 ]	(	0	0	)
+group	[ 0	locks=0 ]	(	""	)
+grouptype	[ 0	locks=0 ]	(	"guess"	)
+class	[ 0	locks=0 ]	(	"point"	)
+vex_numcount	[ 0	locks=0 ]	(	10	)
+vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
+snippet	[ 0	locks=0 ]	(	"int keep_ref = chi(\"../keepexternalref\");
+
+for (int i = 0; i < npoints(1); ++i)
+{
+    string clipname = point(1, \"clipname\", i);
+    
+    string clip_path;
+    if (chs(\"../clipsource\") == \"file\")
+        clip_path = point(1, \"filename\", i);
+    else
+    {
+        clip_path = point(1, \"node\", i);
+        clip_path = sprintf(\"op:%s\", clip_path);
+    }
+    
+    agentaddclip(0, @primnum, clipname, clip_path, keep_ref);
+}"	)
+exportlist	[ 0	locks=0 ]	(	*	)
+vex_strict	[ 0	locks=0 ]	(	"off"	)
+autobind	[ 0	locks=0 ]	(	"on"	)
+bindings	[ 0	locks=0 ]	(	0	)
+groupautobind	[ 0	locks=0 ]	(	"on"	)
+groupbindings	[ 0	locks=0 ]	(	0	)
+vex_cwdpath	[ 0	locks=0 ]	(	.	)
+vex_outputmask	[ 0	locks=0 ]	(	*	)
+vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
+vex_matchattrib	[ 0	locks=0 ]	(	id	)
+vex_inplace	[ 0	locks=0 ]	(	"off"	)
+vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/load_clips.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/guide_points.init"
+Content-Type: text/plain
+
+type = attribwrangle
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/guide_points.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 0.00657383 0.960129
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress off colordefault off exposed on
+outputsNamed3
+{
+4 "output1"
+}
+inputsNamed3
+{
+0 	"" "" 1 "input1"
+1 	agent_group 1 1 "input2"
+}
+inputs
+{
+0 	"" 0 1
+1 	agent_group 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author nobody@nowhere
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/guide_points.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+folder0	[ 0	locks=0 ]	(	0	0	)
+group	[ 0	locks=0 ]	(	""	)
+grouptype	[ 0	locks=0 ]	(	"guess"	)
+class	[ 0	locks=0 ]	(	"detail"	)
+vex_numcount	[ 0	locks=0 ]	(	10	)
+vex_threadjobsize	[ 0	locks=0 ]	(	1024	)
+snippet	[ 0	locks=0 ]	(	"void
+draw_marker(const string xform_name; const vector offset)
+{
+    int xform_idx = agentrigfind(1, 0, xform_name);
+    if (xform_idx < 0)
+        return;
+    
+    matrix xform = agentworldtransform(1, 0, xform_idx);    
+    matrix agent_xform = primintrinsic(1, \"packedfulltransform\", 0);
+    xform *= agent_xform;
+    
+    addpoint(0, offset * xform);
+}
+
+for (int i = 1; i <= chi(\"../lowerlimbs\"); ++i)
+{
+    draw_marker(chs(sprintf(\"../upperleg%d\", i)), {0, 0, 0});
+    draw_marker(chs(sprintf(\"../knee%d\", i)), {0, 0, 0});
+    draw_marker(chs(sprintf(\"../ankle%d\", i)),
+                chv(sprintf(\"../ankleoffset%d\", i)));
+    draw_marker(chs(sprintf(\"../toe%d\", i)),
+                chv(sprintf(\"../toeoffset%d\", i)));
+}
+
+for (int i = 1; i <= chi(\"../torso\"); ++i)
+{
+    draw_marker(chs(sprintf(\"../hips%d\", i)), {0, 0, 0});
+}"	)
+exportlist	[ 0	locks=0 ]	(	*	)
+vex_strict	[ 0	locks=0 ]	(	"off"	)
+autobind	[ 0	locks=0 ]	(	"on"	)
+bindings	[ 0	locks=0 ]	(	0	)
+groupautobind	[ 0	locks=0 ]	(	"on"	)
+groupbindings	[ 0	locks=0 ]	(	0	)
+vex_cwdpath	[ 0	locks=0 ]	(	.	)
+vex_outputmask	[ 0	locks=0 ]	(	*	)
+vex_updatenmls	[ 0	locks=0 ]	(	"off"	)
+vex_matchattrib	[ 0	locks=0 ]	(	id	)
+vex_inplace	[ 0	locks=0 ]	(	"off"	)
+vex_selectiongroup	[ 0	locks=0 ]	(	""	)
+vex_precision	[ 0	locks=0 ]	(	auto	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/guide_points.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/configureclipinfo1.init"
+Content-Type: text/plain
+
+type = kinefx::configureclipinfo
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/configureclipinfo1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -4.22909 -11.9285
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	motionclip1 1 1 "input1"
+}
+inputs
+{
+0 	motionclip1 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author daredyoshi@_192.168.1.108
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/configureclipinfo1.chn"
+Content-Type: text/plain
+
+{
+    channel samplerate {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = $FPS }
+    }
+    channel range1 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = $TSTART }
+    }
+    channel range2 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = $TEND }
+    }
+    channel framerange1 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = $FSTART }
+    }
+    channel framerange2 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = $FEND }
+    }
+    channel sourcesamplerate {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = $FPS }
+    }
+    channel sourcerange1 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = $TSTART }
+    }
+    channel sourcerange2 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = $TEND }
+    }
+    channel sourceframerange1 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = $FSTART }
+    }
+    channel sourceframerange2 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = $FEND }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/configureclipinfo1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+units	[ 0	locks=0 ]	(	"frames"	)
+setclipname	[ 0	locks=0 ]	(	"on"	)
+clipname	[ 0	locks=0 ]	(	`chs(\"../load_foot_plant_channels/name1\")`	)
+setsamplerate	[ 0	locks=0 ]	(	"off"	)
+samplerate	[ 0	locks=0 ]	(	[ samplerate	25 ] 	)
+setrange	[ 0	locks=0 ]	(	"off"	)
+range	[ 0	locks=0 ]	(	[ range1	0 ] 	[ range2	0 ] 	)
+setframerange	[ 0	locks=0 ]	(	"off"	)
+framerange	[ 0	locks=0 ]	(	[ framerange1	1 ] 	[ framerange2	2000 ] 	)
+setsourcesamplerate	[ 0	locks=0 ]	(	"off"	)
+sourcesamplerate	[ 0	locks=0 ]	(	[ sourcesamplerate	25 ] 	)
+setsourcerange	[ 0	locks=0 ]	(	"off"	)
+sourcerange	[ 0	locks=0 ]	(	[ sourcerange1	0 ] 	[ sourcerange2	0 ] 	)
+setsourceframerange	[ 0	locks=0 ]	(	"off"	)
+sourceframerange	[ 0	locks=0 ]	(	[ sourceframerange1	1 ] 	[ sourceframerange2	2000 ] 	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/configureclipinfo1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/foot_plants/current___clip.init"
+Content-Type: text/plain
+
+type = agent
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/foot_plants/current___clip.def"
+Content-Type: text/plain
+
+comment ""
+position -12.191 -3.72415
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on audio off export off
+outputsNamed3
+{
+0 "output1"
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create -1
+  modify -1
+  author daredyoshi@_192.168.1.108
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/foot_plants/current___clip.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+stdswitcher	[ 0	locks=0 ]	(	0	0	0	)
+soppath	[ 0	locks=0 ]	(	../../AGENT_TEMPLATE	)
+group	[ 8	locks=0	autoscope=1	autosel=4294967295 ]	(	""	)
+fetchmode	[ 0	locks=0 ]	(	"clip"	)
+inplace	[ 0	locks=0 ]	(	"off"	)
+clipname	[ 0	locks=0 ]	(	`chs(\"../clipname\")`	)
+space	[ 0	locks=0 ]	(	"local"	)
+range	[ 0	locks=0 ]	(	"full"	)
+start	[ 0	locks=0 ]	(	0	)
+end	[ 0	locks=0 ]	(	10	)
+rate	[ 0	locks=0 ]	(	24	)
+left	[ 0	locks=0 ]	(	"hold"	)
+right	[ 0	locks=0 ]	(	"hold"	)
+defval	[ 0	locks=0 ]	(	0	)
+scope	[ 0	locks=0 ]	(	*	)
+srselect	[ 0	locks=0 ]	(	"max"	)
+units	[ 0	locks=0 ]	(	"seconds"	)
+timeslice	[ 0	locks=0 ]	(	"off"	)
+unload	[ 0	locks=0 ]	(	"off"	)
+export	[ 0	locks=0 ]	(	../..	)
+gcolor	[ 0	locks=0 ]	(	0	0.89999997615814209	0.44999998807907104	)
+gcolorstep	[ 0	locks=0 ]	(	0.050000000000000003	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/foot_plants/current___clip.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/foot_plants/current___clip.chop"
+Content-Type: text/plain
+
+5
+2
+0
+0
+1
+0
+0
+0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/foot_plants/OUT.init"
+Content-Type: text/plain
+
+type = null
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/foot_plants/OUT.def"
+Content-Type: text/plain
+
+comment ""
+position -12.191 -5.72415
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display on render off highlight off unload off savedata off compress on colordefault on exposed on audio off export off
+outputsNamed3
+{
+}
+inputsNamed3
+{
+0 	foreach1 1 1 "input1"
+}
+inputs
+{
+0 	foreach1 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author daredyoshi@_192.168.1.108
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/foot_plants/OUT.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+stdswitcher	[ 0	locks=0 ]	(	0	)
+scope	[ 0	locks=0 ]	(	*	)
+srselect	[ 0	locks=0 ]	(	"max"	)
+units	[ 0	locks=0 ]	(	"seconds"	)
+timeslice	[ 0	locks=0 ]	(	"off"	)
+unload	[ 0	locks=0 ]	(	"off"	)
+export	[ 0	locks=0 ]	(	../..	)
+gcolor	[ 0	locks=0 ]	(	0.44999998807907104	0.89999997615814209	0	)
+gcolorstep	[ 0	locks=0 ]	(	0.050000000000000003	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/foot_plants/OUT.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/foot_plants/OUT.chop"
+Content-Type: text/plain
+
+5
+2
+0
+0
+1
+0
+0
+0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/foot_plants/foreach1/Foreach_Iteration.init"
+Content-Type: text/plain
+
+type = for
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/foot_plants/foreach1/Foreach_Iteration.def"
+Content-Type: text/plain
+
+comment ""
+position -1.11759e-08 4.88688
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display off render on highlight off unload off savedata off compress on colordefault on exposed on audio off export off
+outputsNamed3
+{
+0 "output1"
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create -1
+  modify -1
+  author daredyoshi@_192.168.1.108
+  access 0444
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/foot_plants/foreach1/Foreach_Iteration.chn"
+Content-Type: text/plain
+
+{
+    channel loopindex {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = $IDX }
+    }
+    channel loopgroup {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"\"
+      flags = 0
+      segment { length = 0 expr = $GRP }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/foot_plants/foreach1/Foreach_Iteration.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+switcher	[ 0	locks=0 ]	(	0	0	)
+loopindex	[ 0	locks=0 ]	(	[ loopindex	1 ] 	)
+loopgroup	[ 0	locks=0 ]	(	[ loopgroup	"" ] 	)
+scope	[ 0	locks=0 ]	(	*	)
+srselect	[ 0	locks=0 ]	(	"max"	)
+units	[ 0	locks=0 ]	(	"seconds"	)
+timeslice	[ 0	locks=0 ]	(	"off"	)
+unload	[ 0	locks=0 ]	(	"off"	)
+export	[ 0	locks=0 ]	(	../../..	)
+gcolor	[ 0	locks=0 ]	(	0	0.89999997615814209	0.89999997615814209	)
+gcolorstep	[ 0	locks=0 ]	(	0.050000000000000003	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/foot_plants/foreach1/Foreach_Iteration.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/foot_plants/foreach1/Foreach_Iteration.chop"
+Content-Type: text/plain
+
+5
+2
+0
+0
+1
+0
+0
+0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/foot_plants/foreach1/Foreach_Iteration.for"
+Content-Type: text/plain
+
+2 1 {
+   rate = 24
+   start = -1
+   tracklength = 3
+   tracks = 380
+   {
+      name = Bip001_Pelvis:tx
+      data = 0.00014606062904931605 0.00014606062904931605 0.00014606062904931605 
+   }
+   {
+      name = Bip001_Pelvis:ty
+      data = 0.85681319236755371 0.85681319236755371 0.85681319236755371 
+   }
+   {
+      name = Bip001_Pelvis:tz
+      data = -0.002989581786096096 -0.002989581786096096 -0.002989581786096096 
+   }
+   {
+      name = Bip001_Pelvis:rx
+      data = 90.035844149518923 90.035844149518923 90.035844149518923 
+   }
+   {
+      name = Bip001_Pelvis:ry
+      data = -1.0245283755019125e-05 -1.0245283755019125e-05 -1.0245283755019125e-05 
+   }
+   {
+      name = Bip001_Pelvis:rz
+      data = 89.415591028524361 89.415591028524361 89.415591028524361 
+   }
+   {
+      name = Bip001_Pelvis:sx
+      default = 1
+      data = 0.010000000707805157 0.010000000707805157 0.010000000707805157 
+   }
+   {
+      name = Bip001_Pelvis:sy
+      default = 1
+      data = 0.0099999988451600075 0.0099999988451600075 0.0099999988451600075 
+   }
+   {
+      name = Bip001_Pelvis:sz
+      default = 1
+      data = 0.0099999988451600075 0.0099999988451600075 0.0099999988451600075 
+   }
+   {
+      name = Bip001_Spine:tx
+      data = 11.576729774475098 11.576729774475098 11.576729774475098 
+   }
+   {
+      name = Bip001_Spine:ty
+      data = -0.015479085966944695 -0.015479085966944695 -0.015479085966944695 
+   }
+   {
+      name = Bip001_Spine:tz
+      data = 1.5958041331032291e-05 1.5958041331032291e-05 1.5958041331032291e-05 
+   }
+   {
+      name = Bip001_Spine:rx
+      data = -0.00020000087994700348 -0.00020000087994700348 -0.00020000087994700348 
+   }
+   {
+      name = Bip001_Spine:ry
+      data = -9.9993789408218375e-05 -9.9993789408218375e-05 -9.9993789408218375e-05 
+   }
+   {
+      name = Bip001_Spine:rz
+      data = -13.422299289900012 -13.422299289900012 -13.422299289900012 
+   }
+   {
+      name = Bip001_Spine:sx
+      default = 1
+      data = 0.9999997615814209 0.9999997615814209 0.9999997615814209 
+   }
+   {
+      name = Bip001_Spine:sy
+      default = 1
+      data = 0.99999988079071045 0.99999988079071045 0.99999988079071045 
+   }
+   {
+      name = Bip001_Spine:sz
+      default = 1
+      data = 0.99999982118606567 0.99999982118606567 0.99999982118606567 
+   }
+   {
+      name = Bip001_L_Thigh:tx
+      data = -11.264107704162598 -11.264107704162598 -11.264107704162598 
+   }
+   {
+      name = Bip001_L_Thigh:ty
+      data = -2.6722509860992432 -2.6722509860992432 -2.6722509860992432 
+   }
+   {
+      name = Bip001_L_Thigh:tz
+      data = 12.259065628051758 12.259065628051758 12.259065628051758 
+   }
+   {
+      name = Bip001_L_Thigh:rx
+      data = -14.996721926611425 -14.996721926611425 -14.996721926611425 
+   }
+   {
+      name = Bip001_L_Thigh:ry
+      data = -174.21957493323953 -174.21957493323953 -174.21957493323953 
+   }
+   {
+      name = Bip001_L_Thigh:rz
+      data = -2.9259187845275894 -2.9259187845275894 -2.9259187845275894 
+   }
+   {
+      name = Bip001_L_Thigh:sx
+      default = 1
+      data = 1 1 1 
+   }
+   {
+      name = Bip001_L_Thigh:sy
+      default = 1
+      data = 1.0000001192092896 1.0000001192092896 1.0000001192092896 
+   }
+   {
+      name = Bip001_L_Thigh:sz
+      default = 1
+      data = 1 1 1 
+   }
+   {
+      name = Bip001_L_Calf:tx
+      data = 31.269998550415039 31.269998550415039 31.269998550415039 
+   }
+   {
+      name = Bip001_L_Calf:ty
+      data = 5.4315074748956249e-07 5.4315074748956249e-07 5.4315074748956249e-07 
+   }
+   {
+      name = Bip001_L_Calf:tz
+      data = 2.9448523264363757e-07 2.9448523264363757e-07 2.9448523264363757e-07 
+   }
+   {
+      name = Bip001_L_Calf:rx
+      data = 4.5595643135899976e-07 4.5595643135899976e-07 4.5595643135899976e-07 
+   }
+   {
+      name = Bip001_L_Calf:ry
+      data = 2.4137720555269448e-07 2.4137720555269448e-07 2.4137720555269448e-07 
+   }
+   {
+      name = Bip001_L_Calf:rz
+      data = -60.888103846672188 -60.888103846672188 -60.888103846672188 
+   }
+   {
+      name = Bip001_L_Calf:sx
+      default = 1
+      data = 1.0000001192092896 1.0000001192092896 1.0000001192092896 
+   }
+   {
+      name = Bip001_L_Calf:sy
+      default = 1
+      data = 1.0000001192092896 1.0000001192092896 1.0000001192092896 
+   }
+   {
+      name = Bip001_L_Calf:sz
+      default = 1
+      data = 1.0000001192092896 1.0000001192092896 1.0000001192092896 
+   }
+   {
+      name = Bip001_L_HorseLink:tx
+      data = 22.468320846557617 22.468320846557617 22.468320846557617 
+   }
+   {
+      name = Bip001_L_HorseLink:ty
+      data = 5.4562019613513257e-06 5.4562019613513257e-06 5.4562019613513257e-06 
+   }
+   {
+      name = Bip001_L_HorseLink:tz
+      data = -9.7919303243543254e-07 -9.7919303243543254e-07 -9.7919303243543254e-07 
+   }
+   {
+      name = Bip001_L_HorseLink:rx
+      data = -6.1748606607792722e-07 -6.1748606607792722e-07 -6.1748606607792722e-07 
+   }
+   {
+      name = Bip001_L_HorseLink:ry
+      data = 3.0638901546368135e-07 3.0638901546368135e-07 3.0638901546368135e-07 
+   }
+   {
+      name = Bip001_L_HorseLink:rz
+      data = 51.51329696551992 51.51329696551992 51.51329696551992 
+   }
+   {
+      name = Bip001_L_HorseLink:sx
+      default = 1
+      data = 0.99999994039535522 0.99999994039535522 0.99999994039535522 
+   }
+   {
+      name = Bip001_L_HorseLink:sy
+      default = 1
+      data = 0.99999994039535522 0.99999994039535522 0.99999994039535522 
+   }
+   {
+      name = Bip001_L_HorseLink:sz
+      default = 1
+      data = 0.99999988079071045 0.99999988079071045 0.99999988079071045 
+   }
+   {
+      name = Bip001_L_Foot:tx
+      data = 30.490926742553711 30.490926742553711 30.490926742553711 
+   }
+   {
+      name = Bip001_L_Foot:ty
+      data = 1.9085366602666909e-06 1.9085366602666909e-06 1.9085366602666909e-06 
+   }
+   {
+      name = Bip001_L_Foot:tz
+      data = -1.4707433138028136e-07 -1.4707433138028136e-07 -1.4707433138028136e-07 
+   }
+   {
+      name = Bip001_L_Foot:rx
+      data = -4.0920329260990469 -4.0920329260990469 -4.0920329260990469 
+   }
+   {
+      name = Bip001_L_Foot:ry
+      data = -0.40881710410927857 -0.40881710410927857 -0.40881710410927857 
+   }
+   {
+      name = Bip001_L_Foot:rz
+      data = -8.1692016530168541 -8.1692016530168541 -8.1692016530168541 
+   }
+   {
+      name = Bip001_L_Foot:sx
+      default = 1
+      data = 0.99999994039535522 0.99999994039535522 0.99999994039535522 
+   }
+   {
+      name = Bip001_L_Foot:sy
+      default = 1
+      data = 1 1 1 
+   }
+   {
+      name = Bip001_L_Foot:sz
+      default = 1
+      data = 1.0000001192092896 1.0000001192092896 1.0000001192092896 
+   }
+   {
+      name = Bip001_L_Toe0:tx
+      data = 8.5208988189697266 8.5208988189697266 8.5208988189697266 
+   }
+   {
+      name = Bip001_L_Toe0:ty
+      data = 23.897279739379883 23.897279739379883 23.897279739379883 
+   }
+   {
+      name = Bip001_L_Toe0:tz
+      data = -1.4897166167315845e-08 -1.4897166167315845e-08 -1.4897166167315845e-08 
+   }
+   {
+      name = Bip001_L_Toe0:rx
+      data = 8.6514220125113814e-06 8.6514220125113814e-06 8.6514220125113814e-06 
+   }
+   {
+      name = Bip001_L_Toe0:ry
+      data = -8.6514220125113814e-06 -8.6514220125113814e-06 -8.6514220125113814e-06 
+   }
+   {
+      name = Bip001_L_Toe0:rz
+      data = 90.000004325711018 90.000004325711018 90.000004325711018 
+   }
+   {
+      name = Bip001_L_Toe0:sx
+      default = 1
+      data = 1.0000001192092896 1.0000001192092896 1.0000001192092896 
+   }
+   {
+      name = Bip001_L_Toe0:sy
+      default = 1
+      data = 1.0000001192092896 1.0000001192092896 1.0000001192092896 
+   }
+   {
+      name = Bip001_L_Toe0:sz
+      default = 1
+      data = 0.99999994039535522 0.99999994039535522 0.99999994039535522 
+   }
+   {
+      name = Bip001_R_Thigh:tx
+      data = -11.264107704162598 -11.264107704162598 -11.264107704162598 
+   }
+   {
+      name = Bip001_R_Thigh:ty
+      data = -2.6721823215484619 -2.6721823215484619 -2.6721823215484619 
+   }
+   {
+      name = Bip001_R_Thigh:tz
+      data = -12.259078979492188 -12.259078979492188 -12.259078979492188 
+   }
+   {
+      name = Bip001_R_Thigh:rx
+      data = 17.452164687947253 17.452164687947253 17.452164687947253 
+   }
+   {
+      name = Bip001_R_Thigh:ry
+      data = 178.02104330168086 178.02104330168086 178.02104330168086 
+   }
+   {
+      name = Bip001_R_Thigh:rz
+      data = 1.2957298943988489 1.2957298943988489 1.2957298943988489 
+   }
+   {
+      name = Bip001_R_Thigh:sx
+      default = 1
+      data = 1.0000001192092896 1.0000001192092896 1.0000001192092896 
+   }
+   {
+      name = Bip001_R_Thigh:sy
+      default = 1
+      data = 1.0000001192092896 1.0000001192092896 1.0000001192092896 
+   }
+   {
+      name = Bip001_R_Thigh:sz
+      default = 1
+      data = 1.0000001192092896 1.0000001192092896 1.0000001192092896 
+   }
+   {
+      name = Bip001_R_Calf:tx
+      data = 31.27000617980957 31.27000617980957 31.27000617980957 
+   }
+   {
+      name = Bip001_R_Calf:ty
+      data = 1.6820104065118358e-07 1.6820104065118358e-07 1.6820104065118358e-07 
+   }
+   {
+      name = Bip001_R_Calf:tz
+      data = -5.4112241798520699e-08 -5.4112241798520699e-08 -5.4112241798520699e-08 
+   }
+   {
+      name = Bip001_R_Calf:rx
+      data = -1.3284117143653246e-07 -1.3284117143653246e-07 -1.3284117143653246e-07 
+   }
+   {
+      name = Bip001_R_Calf:ry
+      data = 5.9268211600575335e-07 5.9268211600575335e-07 5.9268211600575335e-07 
+   }
+   {
+      name = Bip001_R_Calf:rz
+      data = -55.857338258783052 -55.857338258783052 -55.857338258783052 
+   }
+   {
+      name = Bip001_R_Calf:sx
+      default = 1
+      data = 1 1 1 
+   }
+   {
+      name = Bip001_R_Calf:sy
+      default = 1
+      data = 1.0000001192092896 1.0000001192092896 1.0000001192092896 
+   }
+   {
+      name = Bip001_R_Calf:sz
+      default = 1
+      data = 1.0000001192092896 1.0000001192092896 1.0000001192092896 
+   }
+   {
+      name = Bip001_R_HorseLink:tx
+      data = 22.468324661254883 22.468324661254883 22.468324661254883 
+   }
+   {
+      name = Bip001_R_HorseLink:ty
+      data = 1.4572889313058113e-06 1.4572889313058113e-06 1.4572889313058113e-06 
+   }
+   {
+      name = Bip001_R_HorseLink:tz
+      data = -6.1009622243091144e-08 -6.1009622243091144e-08 -6.1009622243091144e-08 
+   }
+   {
+      name = Bip001_R_HorseLink:rx
+      data = 3.7926872887904801e-07 3.7926872887904801e-07 3.7926872887904801e-07 
+   }
+   {
+      name = Bip001_R_HorseLink:ry
+      data = -5.8590692386773728e-07 -5.8590692386773728e-07 -5.8590692386773728e-07 
+   }
+   {
+      name = Bip001_R_HorseLink:rz
+      data = 55.852000465946688 55.852000465946688 55.852000465946688 
+   }
+   {
+      name = Bip001_R_HorseLink:sx
+      default = 1
+      data = 0.99999988079071045 0.99999988079071045 0.99999988079071045 
+   }
+   {
+      name = Bip001_R_HorseLink:sy
+      default = 1
+      data = 0.99999994039535522 0.99999994039535522 0.99999994039535522 
+   }
+   {
+      name = Bip001_R_HorseLink:sz
+      default = 1
+      data = 0.99999988079071045 0.99999988079071045 0.99999988079071045 
+   }
+   {
+      name = Bip001_R_Foot:tx
+      data = 30.490932464599609 30.490932464599609 30.490932464599609 
+   }
+   {
+      name = Bip001_R_Foot:ty
+      data = -1.6634331814202596e-06 -1.6634331814202596e-06 -1.6634331814202596e-06 
+   }
+   {
+      name = Bip001_R_Foot:tz
+      data = 1.7462006098867278e-06 1.7462006098867278e-06 1.7462006098867278e-06 
+   }
+   {
+      name = Bip001_R_Foot:rx
+      data = -7.5170159174763098 -7.5170159174763098 -7.5170159174763098 
+   }
+   {
+      name = Bip001_R_Foot:ry
+      data = 1.6259648450139108 1.6259648450139108 1.6259648450139108 
+   }
+   {
+      name = Bip001_R_Foot:rz
+      data = -12.814093142425182 -12.814093142425182 -12.814093142425182 
+   }
+   {
+      name = Bip001_R_Foot:sx
+      default = 1
+      data = 0.99999988079071045 0.99999988079071045 0.99999988079071045 
+   }
+   {
+      name = Bip001_R_Foot:sy
+      default = 1
+      data = 1.0000001192092896 1.0000001192092896 1.0000001192092896 
+   }
+   {
+      name = Bip001_R_Foot:sz
+      default = 1
+      data = 0.9999997615814209 0.9999997615814209 0.9999997615814209 
+   }
+   {
+      name = Bip001_R_ToeUseless:tx
+      data = 8.5208978652954102 8.5208978652954102 8.5208978652954102 
+   }
+   {
+      name = Bip001_R_ToeUseless:ty
+      data = 23.897283554077148 23.897283554077148 23.897283554077148 
+   }
+   {
+      name = Bip001_R_ToeUseless:tz
+      data = 1.8325305291000404e-06 1.8325305291000404e-06 1.8325305291000404e-06 
+   }
+   {
+      name = Bip001_R_ToeUseless:rx
+      data = -9.3244003032109019e-06 -9.3244003032109019e-06 -9.3244003032109019e-06 
+   }
+   {
+      name = Bip001_R_ToeUseless:ry
+      data = 2.4069812506821084e-05 2.4069812506821084e-05 2.4069812506821084e-05 
+   }
+   {
+      name = Bip001_R_ToeUseless:rz
+      data = 89.999988844099832 89.999988844099832 89.999988844099832 
+   }
+   {
+      name = Bip001_R_ToeUseless:sx
+      default = 1
+      data = 1.0000001192092896 1.0000001192092896 1.0000001192092896 
+   }
+   {
+      name = Bip001_R_ToeUseless:sy
+      default = 1
+      data = 1.0000001192092896 1.0000001192092896 1.0000001192092896 
+   }
+   {
+      name = Bip001_R_ToeUseless:sz
+      default = 1
+      data = 1 1 1 
+   }
+   {
+      name = Bip001_Spine1:tx
+      data = 19.996675491333008 19.996675491333008 19.996675491333008 
+   }
+   {
+      name = Bip001_Spine1:ty
+      data = -0.015292501077055931 -0.015292501077055931 -0.015292501077055931 
+   }
+   {
+      name = Bip001_Spine1:tz
+      data = -1.7190286527579701e-08 -1.7190286527579701e-08 -1.7190286527579701e-08 
+   }
+   {
+      name = Bip001_Spine1:rx
+      data = 0.010506295031880811 0.010506295031880811 0.010506295031880811 
+   }
+   {
+      name = Bip001_Spine1:ry
+      data = 0.62010679160822813 0.62010679160822813 0.62010679160822813 
+   }
+   {
+      name = Bip001_Spine1:rz
+      data = 16.147443169671199 16.147443169671199 16.147443169671199 
+   }
+   {
+      name = Bip001_Spine1:sx
+      default = 1
+      data = 1 1 1 
+   }
+   {
+      name = Bip001_Spine1:sy
+      default = 1
+      data = 1.0000001192092896 1.0000001192092896 1.0000001192092896 
+   }
+   {
+      name = Bip001_Spine1:sz
+      default = 1
+      data = 1 1 1 
+   }
+   {
+      name = Bip001_Neck:tx
+      data = 26.059707641601562 26.059707641601562 26.059707641601562 
+   }
+   {
+      name = Bip001_Neck:ty
+      data = 1.083085298538208 1.083085298538208 1.083085298538208 
+   }
+   {
+      name = Bip001_Neck:tz
+      data = 4.783096585470048e-09 4.783096585470048e-09 4.783096585470048e-09 
+   }
+   {
+      name = Bip001_Neck:rx
+      data = -4.0979956026622931e-07 -4.0979956026622931e-07 -4.0979956026622931e-07 
+   }
+   {
+      name = Bip001_Neck:ry
+      data = 9.2333230589077616e-05 9.2333230589077616e-05 9.2333230589077616e-05 
+   }
+   {
+      name = Bip001_Neck:rz
+      data = -20.000002833280426 -20.000002833280426 -20.000002833280426 
+   }
+   {
+      name = Bip001_Neck:sx
+      default = 1
+      data = 1 1 1 
+   }
+   {
+      name = Bip001_Neck:sy
+      default = 1
+      data = 1 1 1 
+   }
+   {
+      name = Bip001_Neck:sz
+      default = 1
+      data = 0.99999988079071045 0.99999988079071045 0.99999988079071045 
+   }
+   {
+      name = Bip001_L_Clavicle:tx
+      data = -2.8070416450500488 -2.8070416450500488 -2.8070416450500488 
+   }
+   {
+      name = Bip001_L_Clavicle:ty
+      data = -2.1765570640563965 -2.1765570640563965 -2.1765570640563965 
+   }
+   {
+      name = Bip001_L_Clavicle:tz
+      data = 3.071627140045166 3.071627140045166 3.071627140045166 
+   }
+   {
+      name = Bip001_L_Clavicle:rx
+      data = -4.8616653582797094 -4.8616653582797094 -4.8616653582797094 
+   }
+   {
+      name = Bip001_L_Clavicle:ry
+      data = -82.782946410919578 -82.782946410919578 -82.782946410919578 
+   }
+   {
+      name = Bip001_L_Clavicle:rz
+      data = -155.29254882847675 -155.29254882847675 -155.29254882847675 
+   }
+   {
+      name = Bip001_L_Clavicle:sx
+      default = 1
+      data = 1.0000002384185791 1.0000002384185791 1.0000002384185791 
+   }
+   {
+      name = Bip001_L_Clavicle:sy
+      default = 1
+      data = 0.99999994039535522 0.99999994039535522 0.99999994039535522 
+   }
+   {
+      name = Bip001_L_Clavicle:sz
+      default = 1
+      data = 1.0000001192092896 1.0000001192092896 1.0000001192092896 
+   }
+   {
+      name = Bip001_L_UpperArm:tx
+      data = 9.996129035949707 9.996129035949707 9.996129035949707 
+   }
+   {
+      name = Bip001_L_UpperArm:ty
+      data = 4.0181080862566887e-07 4.0181080862566887e-07 4.0181080862566887e-07 
+   }
+   {
+      name = Bip001_L_UpperArm:tz
+      data = 1.4972038115956821e-05 1.4972038115956821e-05 1.4972038115956821e-05 
+   }
+   {
+      name = Bip001_L_UpperArm:rx
+      data = 17.541781892499696 17.541781892499696 17.541781892499696 
+   }
+   {
+      name = Bip001_L_UpperArm:ry
+      data = -7.1909230497060337 -7.1909230497060337 -7.1909230497060337 
+   }
+   {
+      name = Bip001_L_UpperArm:rz
+      data = -0.61489423669359755 -0.61489423669359755 -0.61489423669359755 
+   }
+   {
+      name = Bip001_L_UpperArm:sx
+      default = 1
+      data = 0.99999994039535522 0.99999994039535522 0.99999994039535522 
+   }
+   {
+      name = Bip001_L_UpperArm:sy
+      default = 1
+      data = 1.0000001192092896 1.0000001192092896 1.0000001192092896 
+   }
+   {
+      name = Bip001_L_UpperArm:sz
+      default = 1
+      data = 1 1 1 
+   }
+   {
+      name = Bip001_L_Forearm:tx
+      data = 31.086660385131836 31.086660385131836 31.086660385131836 
+   }
+   {
+      name = Bip001_L_Forearm:ty
+      data = -2.8426978815332404e-07 -2.8426978815332404e-07 -2.8426978815332404e-07 
+   }
+   {
+      name = Bip001_L_Forearm:tz
+      data = -9.6750773082021624e-07 -9.6750773082021624e-07 -9.6750773082021624e-07 
+   }
+   {
+      name = Bip001_L_Forearm:rx
+      data = -2.8922236595926253e-07 -2.8922236595926253e-07 -2.8922236595926253e-07 
+   }
+   {
+      name = Bip001_L_Forearm:ry
+      data = -9.6107228318351656e-10 -9.6107228318351656e-10 -9.6107228318351656e-10 
+   }
+   {
+      name = Bip001_L_Forearm:rz
+      data = 1.9204420711057526e-07 1.9204420711057526e-07 1.9204420711057526e-07 
+   }
+   {
+      name = Bip001_L_Forearm:sx
+      default = 1
+      data = 1 1 1 
+   }
+   {
+      name = Bip001_L_Forearm:sy
+      default = 1
+      data = 1.0000001192092896 1.0000001192092896 1.0000001192092896 
+   }
+   {
+      name = Bip001_L_Forearm:sz
+      default = 1
+      data = 1 1 1 
+   }
+   {
+      name = Bip001_L_Hand:tx
+      data = 25.522993087768555 25.522993087768555 25.522993087768555 
+   }
+   {
+      name = Bip001_L_Hand:ty
+      data = -2.7576740535550925e-07 -2.7576740535550925e-07 -2.7576740535550925e-07 
+   }
+   {
+      name = Bip001_L_Hand:tz
+      data = -2.8849223099314258e-07 -2.8849223099314258e-07 -2.8849223099314258e-07 
+   }
+   {
+      name = Bip001_L_Hand:rx
+      data = -105.2236745417362 -105.2236745417362 -105.2236745417362 
+   }
+   {
+      name = Bip001_L_Hand:ry
+      data = 61.209136398041132 61.209136398041132 61.209136398041132 
+   }
+   {
+      name = Bip001_L_Hand:rz
+      data = -82.973138037314897 -82.973138037314897 -82.973138037314897 
+   }
+   {
+      name = Bip001_L_Hand:sx
+      default = 1
+      data = 1.0000001192092896 1.0000001192092896 1.0000001192092896 
+   }
+   {
+      name = Bip001_L_Hand:sy
+      default = 1
+      data = 1 1 1 
+   }
+   {
+      name = Bip001_L_Hand:sz
+      default = 1
+      data = 1.0000001192092896 1.0000001192092896 1.0000001192092896 
+   }
+   {
+      name = Bip001_L_FingerUseless:tx
+      data = -0.25831478834152222 -0.25831478834152222 -0.25831478834152222 
+   }
+   {
+      name = Bip001_L_FingerUseless:ty
+      data = -1.3978743553161621 -1.3978743553161621 -1.3978743553161621 
+   }
+   {
+      name = Bip001_L_FingerUseless:tz
+      data = 0.39842668175697327 0.39842668175697327 0.39842668175697327 
+   }
+   {
+      name = Bip001_L_FingerUseless:rx
+      data = 79.96928231204582 79.96928231204582 79.96928231204582 
+   }
+   {
+      name = Bip001_L_FingerUseless:ry
+      data = -33.710958724109872 -33.710958724109872 -33.710958724109872 
+   }
+   {
+      name = Bip001_L_FingerUseless:rz
+      data = -48.298548904342944 -48.298548904342944 -48.298548904342944 
+   }
+   {
+      name = Bip001_L_FingerUseless:sx
+      default = 1
+      data = 0.99999988079071045 0.99999988079071045 0.99999988079071045 
+   }
+   {
+      name = Bip001_L_FingerUseless:sy
+      default = 1
+      data = 0.99999994039535522 0.99999994039535522 0.99999994039535522 
+   }
+   {
+      name = Bip001_L_FingerUseless:sz
+      default = 1
+      data = 1 1 1 
+   }
+   {
+      name = Bip001_L_Finger01:tx
+      data = 0.60371989011764526 0.60371989011764526 0.60371989011764526 
+   }
+   {
+      name = Bip001_L_Finger01:ty
+      data = -9.4461279331881087e-07 -9.4461279331881087e-07 -9.4461279331881087e-07 
+   }
+   {
+      name = Bip001_L_Finger01:tz
+      data = 3.5562127322918968e-06 3.5562127322918968e-06 3.5562127322918968e-06 
+   }
+   {
+      name = Bip001_L_Finger01:rx
+      data = 119.01669196771986 119.01669196771986 119.01669196771986 
+   }
+   {
+      name = Bip001_L_Finger01:ry
+      data = 4.8425071704972407e-06 4.8425071704972407e-06 4.8425071704972407e-06 
+   }
+   {
+      name = Bip001_L_Finger01:rz
+      data = -3.639843876128817e-06 -3.639843876128817e-06 -3.639843876128817e-06 
+   }
+   {
+      name = Bip001_L_Finger01:sx
+      default = 1
+      data = 1.0000001192092896 1.0000001192092896 1.0000001192092896 
+   }
+   {
+      name = Bip001_L_Finger01:sy
+      default = 1
+      data = 1 1 1 
+   }
+   {
+      name = Bip001_L_Finger01:sz
+      default = 1
+      data = 1 1 1 
+   }
+   {
+      name = Bip001_L_Finger02:tx
+      data = 10.083327293395996 10.083327293395996 10.083327293395996 
+   }
+   {
+      name = Bip001_L_Finger02:ty
+      data = 2.5440929221076658e-06 2.5440929221076658e-06 2.5440929221076658e-06 
+   }
+   {
+      name = Bip001_L_Finger02:tz
+      data = -2.4700505036889808e-06 -2.4700505036889808e-06 -2.4700505036889808e-06 
+   }
+   {
+      name = Bip001_L_Finger02:rx
+      data = -2.0906218476696377e-06 -2.0906218476696377e-06 -2.0906218476696377e-06 
+   }
+   {
+      name = Bip001_L_Finger02:ry
+      data = 5.2369115229944377e-07 5.2369115229944377e-07 5.2369115229944377e-07 
+   }
+   {
+      name = Bip001_L_Finger02:rz
+      data = 47.604164552562771 47.604164552562771 47.604164552562771 
+   }
+   {
+      name = Bip001_L_Finger02:sx
+      default = 1
+      data = 1.0000002384185791 1.0000002384185791 1.0000002384185791 
+   }
+   {
+      name = Bip001_L_Finger02:sy
+      default = 1
+      data = 1.0000002384185791 1.0000002384185791 1.0000002384185791 
+   }
+   {
+      name = Bip001_L_Finger02:sz
+      default = 1
+      data = 1 1 1 
+   }
+   {
+      name = Bip001_L_Finger1:tx
+      data = 0.19979394972324371 0.19979394972324371 0.19979394972324371 
+   }
+   {
+      name = Bip001_L_Finger1:ty
+      data = -1.2383880615234375 -1.2383880615234375 -1.2383880615234375 
+   }
+   {
+      name = Bip001_L_Finger1:tz
+      data = -1.6006022691726685 -1.6006022691726685 -1.6006022691726685 
+   }
+   {
+      name = Bip001_L_Finger1:rx
+      data = 57.445101108717139 57.445101108717139 57.445101108717139 
+   }
+   {
+      name = Bip001_L_Finger1:ry
+      data = -68.358254421158449 -68.358254421158449 -68.358254421158449 
+   }
+   {
+      name = Bip001_L_Finger1:rz
+      data = -80.807332862828048 -80.807332862828048 -80.807332862828048 
+   }
+   {
+      name = Bip001_L_Finger1:sx
+      default = 1
+      data = 1.0000002384185791 1.0000002384185791 1.0000002384185791 
+   }
+   {
+      name = Bip001_L_Finger1:sy
+      default = 1
+      data = 1 1 1 
+   }
+   {
+      name = Bip001_L_Finger1:sz
+      default = 1
+      data = 0.99999988079071045 0.99999988079071045 0.99999988079071045 
+   }
+   {
+      name = Bip001_L_Finger11:tx
+      data = 10.248944282531738 10.248944282531738 10.248944282531738 
+   }
+   {
+      name = Bip001_L_Finger11:ty
+      data = -1.8923409470517072e-06 -1.8923409470517072e-06 -1.8923409470517072e-06 
+   }
+   {
+      name = Bip001_L_Finger11:tz
+      data = 3.582596946216654e-06 3.582596946216654e-06 3.582596946216654e-06 
+   }
+   {
+      name = Bip001_L_Finger11:rx
+      data = -2.8705852519838182e-06 -2.8705852519838182e-06 -2.8705852519838182e-06 
+   }
+   {
+      name = Bip001_L_Finger11:ry
+      data = 9.2054269990187082e-07 9.2054269990187082e-07 9.2054269990187082e-07 
+   }
+   {
+      name = Bip001_L_Finger11:rz
+      data = -1.4381671349797033e-06 -1.4381671349797033e-06 -1.4381671349797033e-06 
+   }
+   {
+      name = Bip001_L_Finger11:sx
+      default = 1
+      data = 1 1 1 
+   }
+   {
+      name = Bip001_L_Finger11:sy
+      default = 1
+      data = 0.99999982118606567 0.99999982118606567 0.99999982118606567 
+   }
+   {
+      name = Bip001_L_Finger11:sz
+      default = 1
+      data = 0.99999982118606567 0.99999982118606567 0.99999982118606567 
+   }
+   {
+      name = Bip001_L_Finger12:tx
+      data = 5.7980613708496094 5.7980613708496094 5.7980613708496094 
+   }
+   {
+      name = Bip001_L_Finger12:ty
+      data = 3.7496604363695951e-06 3.7496604363695951e-06 3.7496604363695951e-06 
+   }
+   {
+      name = Bip001_L_Finger12:tz
+      data = -2.3957557004905539e-06 -2.3957557004905539e-06 -2.3957557004905539e-06 
+   }
+   {
+      name = Bip001_L_Finger12:rx
+      data = 1.4636098422096651e-07 1.4636098422096651e-07 1.4636098422096651e-07 
+   }
+   {
+      name = Bip001_L_Finger12:ry
+      data = 5.0086255568439588e-06 5.0086255568439588e-06 5.0086255568439588e-06 
+   }
+   {
+      name = Bip001_L_Finger12:rz
+      data = 45.590269615406179 45.590269615406179 45.590269615406179 
+   }
+   {
+      name = Bip001_L_Finger12:sx
+      default = 1
+      data = 1.0000001192092896 1.0000001192092896 1.0000001192092896 
+   }
+   {
+      name = Bip001_L_Finger12:sy
+      default = 1
+      data = 1.0000001192092896 1.0000001192092896 1.0000001192092896 
+   }
+   {
+      name = Bip001_L_Finger12:sz
+      default = 1
+      data = 0.99999994039535522 0.99999994039535522 0.99999994039535522 
+   }
+   {
+      name = Bip001_L_Finger2:tx
+      data = 0.19979159533977509 0.19979159533977509 0.19979159533977509 
+   }
+   {
+      name = Bip001_L_Finger2:ty
+      data = -1.2346071004867554 -1.2346071004867554 -1.2346071004867554 
+   }
+   {
+      name = Bip001_L_Finger2:tz
+      data = 3.1521158218383789 3.1521158218383789 3.1521158218383789 
+   }
+   {
+      name = Bip001_L_Finger2:rx
+      data = 59.137075569912703 59.137075569912703 59.137075569912703 
+   }
+   {
+      name = Bip001_L_Finger2:ry
+      data = -68.358261251347628 -68.358261251347628 -68.358261251347628 
+   }
+   {
+      name = Bip001_L_Finger2:rz
+      data = -80.807319202449705 -80.807319202449705 -80.807319202449705 
+   }
+   {
+      name = Bip001_L_Finger2:sx
+      default = 1
+      data = 0.99999988079071045 0.99999988079071045 0.99999988079071045 
+   }
+   {
+      name = Bip001_L_Finger2:sy
+      default = 1
+      data = 0.99999982118606567 0.99999982118606567 0.99999982118606567 
+   }
+   {
+      name = Bip001_L_Finger2:sz
+      default = 1
+      data = 0.99999970197677612 0.99999970197677612 0.99999970197677612 
+   }
+   {
+      name = Bip001_L_Finger21:tx
+      data = 10.229549407958984 10.229549407958984 10.229549407958984 
+   }
+   {
+      name = Bip001_L_Finger21:ty
+      data = 2.757815991571988e-06 2.757815991571988e-06 2.757815991571988e-06 
+   }
+   {
+      name = Bip001_L_Finger21:tz
+      data = -6.2529702518077102e-06 -6.2529702518077102e-06 -6.2529702518077102e-06 
+   }
+   {
+      name = Bip001_L_Finger21:rx
+      data = -4.3594365868120756e-06 -4.3594365868120756e-06 -4.3594365868120756e-06 
+   }
+   {
+      name = Bip001_L_Finger21:ry
+      data = 8.7691627811367086e-07 8.7691627811367086e-07 8.7691627811367086e-07 
+   }
+   {
+      name = Bip001_L_Finger21:rz
+      data = -1.4648106161018857e-06 -1.4648106161018857e-06 -1.4648106161018857e-06 
+   }
+   {
+      name = Bip001_L_Finger21:sx
+      default = 1
+      data = 1 1 1 
+   }
+   {
+      name = Bip001_L_Finger21:sy
+      default = 1
+      data = 1 1 1 
+   }
+   {
+      name = Bip001_L_Finger21:sz
+      default = 1
+      data = 1.0000001192092896 1.0000001192092896 1.0000001192092896 
+   }
+   {
+      name = Bip001_L_Finger22:tx
+      data = 5.0334711074829102 5.0334711074829102 5.0334711074829102 
+   }
+   {
+      name = Bip001_L_Finger22:ty
+      data = -5.9274757404637057e-06 -5.9274757404637057e-06 -5.9274757404637057e-06 
+   }
+   {
+      name = Bip001_L_Finger22:tz
+      data = 2.5753893169166986e-06 2.5753893169166986e-06 2.5753893169166986e-06 
+   }
+   {
+      name = Bip001_L_Finger22:rx
+      data = 3.8595201570898843e-07 3.8595201570898843e-07 3.8595201570898843e-07 
+   }
+   {
+      name = Bip001_L_Finger22:ry
+      data = 1.3263311227148981e-07 1.3263311227148981e-07 1.3263311227148981e-07 
+   }
+   {
+      name = Bip001_L_Finger22:rz
+      data = 37.560945113949302 37.560945113949302 37.560945113949302 
+   }
+   {
+      name = Bip001_L_Finger22:sx
+      default = 1
+      data = 1.0000001192092896 1.0000001192092896 1.0000001192092896 
+   }
+   {
+      name = Bip001_L_Finger22:sy
+      default = 1
+      data = 1.0000001192092896 1.0000001192092896 1.0000001192092896 
+   }
+   {
+      name = Bip001_L_Finger22:sz
+      default = 1
+      data = 1.0000001192092896 1.0000001192092896 1.0000001192092896 
+   }
+   {
+      name = Bip001_R_Clavicle:tx
+      data = -2.8070411682128906 -2.8070411682128906 -2.8070411682128906 
+   }
+   {
+      name = Bip001_R_Clavicle:ty
+      data = -2.1765375137329102 -2.1765375137329102 -2.1765375137329102 
+   }
+   {
+      name = Bip001_R_Clavicle:tz
+      data = -3.0716331005096436 -3.0716331005096436 -3.0716331005096436 
+   }
+   {
+      name = Bip001_R_Clavicle:rx
+      data = 4.8592237930225304 4.8592237930225304 4.8592237930225304 
+   }
+   {
+      name = Bip001_R_Clavicle:ry
+      data = 82.782867636372998 82.782867636372998 82.782867636372998 
+   }
+   {
+      name = Bip001_R_Clavicle:rz
+      data = -155.29499232865231 -155.29499232865231 -155.29499232865231 
+   }
+   {
+      name = Bip001_R_Clavicle:sx
+      default = 1
+      data = 1 1 1 
+   }
+   {
+      name = Bip001_R_Clavicle:sy
+      default = 1
+      data = 1 1 1 
+   }
+   {
+      name = Bip001_R_Clavicle:sz
+      default = 1
+      data = 1.0000001192092896 1.0000001192092896 1.0000001192092896 
+   }
+   {
+      name = Bip001_R_UpperArm:tx
+      data = 9.996129035949707 9.996129035949707 9.996129035949707 
+   }
+   {
+      name = Bip001_R_UpperArm:ty
+      data = 1.5744202528367168e-06 1.5744202528367168e-06 1.5744202528367168e-06 
+   }
+   {
+      name = Bip001_R_UpperArm:tz
+      data = -1.5238383639371023e-05 -1.5238383639371023e-05 -1.5238383639371023e-05 
+   }
+   {
+      name = Bip001_R_UpperArm:rx
+      data = -14.114970117972167 -14.114970117972167 -14.114970117972167 
+   }
+   {
+      name = Bip001_R_UpperArm:ry
+      data = 7.1911655214215697 7.1911655214215697 7.1911655214215697 
+   }
+   {
+      name = Bip001_R_UpperArm:rz
+      data = -0.61457247075066657 -0.61457247075066657 -0.61457247075066657 
+   }
+   {
+      name = Bip001_R_UpperArm:sx
+      default = 1
+      data = 1 1 1 
+   }
+   {
+      name = Bip001_R_UpperArm:sy
+      default = 1
+      data = 1.0000001192092896 1.0000001192092896 1.0000001192092896 
+   }
+   {
+      name = Bip001_R_UpperArm:sz
+      default = 1
+      data = 0.99999994039535522 0.99999994039535522 0.99999994039535522 
+   }
+   {
+      name = Bip001_R_Forearm:tx
+      data = 31.086668014526367 31.086668014526367 31.086668014526367 
+   }
+   {
+      name = Bip001_R_Forearm:ty
+      data = 6.159247618597874e-07 6.159247618597874e-07 6.159247618597874e-07 
+   }
+   {
+      name = Bip001_R_Forearm:tz
+      data = -9.0433068180573173e-06 -9.0433068180573173e-06 -9.0433068180573173e-06 
+   }
+   {
+      name = Bip001_R_Forearm:rx
+      data = -1.2522883186191768e-07 -1.2522883186191768e-07 -1.2522883186191768e-07 
+   }
+   {
+      name = Bip001_R_Forearm:ry
+      data = -4.3773071008449537e-12 -4.3773071008449537e-12 -4.3773071008449537e-12 
+   }
+   {
+      name = Bip001_R_Forearm:rz
+      data = 1.9523929056582369e-07 1.9523929056582369e-07 1.9523929056582369e-07 
+   }
+   {
+      name = Bip001_R_Forearm:sx
+      default = 1
+      data = 0.99999982118606567 0.99999982118606567 0.99999982118606567 
+   }
+   {
+      name = Bip001_R_Forearm:sy
+      default = 1
+      data = 0.99999988079071045 0.99999988079071045 0.99999988079071045 
+   }
+   {
+      name = Bip001_R_Forearm:sz
+      default = 1
+      data = 1 1 1 
+   }
+   {
+      name = Bip001_R_Hand:tx
+      data = 25.522981643676758 25.522981643676758 25.522981643676758 
+   }
+   {
+      name = Bip001_R_Hand:ty
+      data = 1.0771793768071802e-06 1.0771793768071802e-06 1.0771793768071802e-06 
+   }
+   {
+      name = Bip001_R_Hand:tz
+      data = 3.5134735298925079e-06 3.5134735298925079e-06 3.5134735298925079e-06 
+   }
+   {
+      name = Bip001_R_Hand:rx
+      data = 104.24668109513409 104.24668109513409 104.24668109513409 
+   }
+   {
+      name = Bip001_R_Hand:ry
+      data = -64.606957434636541 -64.606957434636541 -64.606957434636541 
+   }
+   {
+      name = Bip001_R_Hand:rz
+      data = -82.102944616298601 -82.102944616298601 -82.102944616298601 
+   }
+   {
+      name = Bip001_R_Hand:sx
+      default = 1
+      data = 1 1 1 
+   }
+   {
+      name = Bip001_R_Hand:sy
+      default = 1
+      data = 1 1 1 
+   }
+   {
+      name = Bip001_R_Hand:sz
+      default = 1
+      data = 1.0000003576278687 1.0000003576278687 1.0000003576278687 
+   }
+   {
+      name = Bip001_R_Finger0:tx
+      data = -0.25830075144767761 -0.25830075144767761 -0.25830075144767761 
+   }
+   {
+      name = Bip001_R_Finger0:ty
+      data = -1.397865891456604 -1.397865891456604 -1.397865891456604 
+   }
+   {
+      name = Bip001_R_Finger0:tz
+      data = -0.3984275758266449 -0.3984275758266449 -0.3984275758266449 
+   }
+   {
+      name = Bip001_R_Finger0:rx
+      data = -79.969371104505015 -79.969371104505015 -79.969371104505015 
+   }
+   {
+      name = Bip001_R_Finger0:ry
+      data = 33.710965554299037 33.710965554299037 33.710965554299037 
+   }
+   {
+      name = Bip001_R_Finger0:rz
+      data = -48.29856256472128 -48.29856256472128 -48.29856256472128 
+   }
+   {
+      name = Bip001_R_Finger0:sx
+      default = 1
+      data = 0.99999994039535522 0.99999994039535522 0.99999994039535522 
+   }
+   {
+      name = Bip001_R_Finger0:sy
+      default = 1
+      data = 1 1 1 
+   }
+   {
+      name = Bip001_R_Finger0:sz
+      default = 1
+      data = 0.99999988079071045 0.99999988079071045 0.99999988079071045 
+   }
+   {
+      name = Bip001_R_Finger01:tx
+      data = 0.60371690988540649 0.60371690988540649 0.60371690988540649 
+   }
+   {
+      name = Bip001_R_Finger01:ty
+      data = 1.5545458609267371e-06 1.5545458609267371e-06 1.5545458609267371e-06 
+   }
+   {
+      name = Bip001_R_Finger01:tz
+      data = -9.3288153948378749e-06 -9.3288153948378749e-06 -9.3288153948378749e-06 
+   }
+   {
+      name = Bip001_R_Finger01:rx
+      data = -114.71899669569875 -114.71899669569875 -114.71899669569875 
+   }
+   {
+      name = Bip001_R_Finger01:ry
+      data = -6.2348797122846093e-06 -6.2348797122846093e-06 -6.2348797122846093e-06 
+   }
+   {
+      name = Bip001_R_Finger01:rz
+      data = -1.2219796527931633e-05 -1.2219796527931633e-05 -1.2219796527931633e-05 
+   }
+   {
+      name = Bip001_R_Finger01:sx
+      default = 1
+      data = 1.0000001192092896 1.0000001192092896 1.0000001192092896 
+   }
+   {
+      name = Bip001_R_Finger01:sy
+      default = 1
+      data = 1.0000001192092896 1.0000001192092896 1.0000001192092896 
+   }
+   {
+      name = Bip001_R_Finger01:sz
+      default = 1
+      data = 1.0000001192092896 1.0000001192092896 1.0000001192092896 
+   }
+   {
+      name = Bip001_R_Finger02:tx
+      data = 10.083325386047363 10.083325386047363 10.083325386047363 
+   }
+   {
+      name = Bip001_R_Finger02:ty
+      data = -4.6989607653813437e-06 -4.6989607653813437e-06 -4.6989607653813437e-06 
+   }
+   {
+      name = Bip001_R_Finger02:tz
+      data = -6.1391410781652667e-06 -6.1391410781652667e-06 -6.1391410781652667e-06 
+   }
+   {
+      name = Bip001_R_Finger02:rx
+      data = -2.3797885157553179e-06 -2.3797885157553179e-06 -2.3797885157553179e-06 
+   }
+   {
+      name = Bip001_R_Finger02:ry
+      data = 2.4700723007209654e-06 2.4700723007209654e-06 2.4700723007209654e-06 
+   }
+   {
+      name = Bip001_R_Finger02:rz
+      data = 47.604164552562771 47.604164552562771 47.604164552562771 
+   }
+   {
+      name = Bip001_R_Finger02:sx
+      default = 1
+      data = 0.99999994039535522 0.99999994039535522 0.99999994039535522 
+   }
+   {
+      name = Bip001_R_Finger02:sy
+      default = 1
+      data = 0.99999994039535522 0.99999994039535522 0.99999994039535522 
+   }
+   {
+      name = Bip001_R_Finger02:sz
+      default = 1
+      data = 1 1 1 
+   }
+   {
+      name = Bip001_R_Finger1:tx
+      data = 0.19980078935623169 0.19980078935623169 0.19980078935623169 
+   }
+   {
+      name = Bip001_R_Finger1:ty
+      data = -1.238381028175354 -1.238381028175354 -1.238381028175354 
+   }
+   {
+      name = Bip001_R_Finger1:tz
+      data = 1.6005995273590088 1.6005995273590088 1.6005995273590088 
+   }
+   {
+      name = Bip001_R_Finger1:rx
+      data = -70.991340157522558 -70.991340157522558 -70.991340157522558 
+   }
+   {
+      name = Bip001_R_Finger1:ry
+      data = 68.358261251347628 68.358261251347628 68.358261251347628 
+   }
+   {
+      name = Bip001_R_Finger1:rz
+      data = -80.807346523206391 -80.807346523206391 -80.807346523206391 
+   }
+   {
+      name = Bip001_R_Finger1:sx
+      default = 1
+      data = 1.0000001192092896 1.0000001192092896 1.0000001192092896 
+   }
+   {
+      name = Bip001_R_Finger1:sy
+      default = 1
+      data = 0.99999988079071045 0.99999988079071045 0.99999988079071045 
+   }
+   {
+      name = Bip001_R_Finger1:sz
+      default = 1
+      data = 0.9999997615814209 0.9999997615814209 0.9999997615814209 
+   }
+   {
+      name = Bip001_R_Finger11:tx
+      data = 10.248940467834473 10.248940467834473 10.248940467834473 
+   }
+   {
+      name = Bip001_R_Finger11:ty
+      data = 9.9437477274477715e-07 9.9437477274477715e-07 9.9437477274477715e-07 
+   }
+   {
+      name = Bip001_R_Finger11:tz
+      data = 7.0238420448731631e-06 7.0238420448731631e-06 7.0238420448731631e-06 
+   }
+   {
+      name = Bip001_R_Finger11:rx
+      data = -3.3915232652621136e-06 -3.3915232652621136e-06 -3.3915232652621136e-06 
+   }
+   {
+      name = Bip001_R_Finger11:ry
+      data = -5.5593480143812247e-07 -5.5593480143812247e-07 -5.5593480143812247e-07 
+   }
+   {
+      name = Bip001_R_Finger11:rz
+      data = -1.6144213638741848e-06 -1.6144213638741848e-06 -1.6144213638741848e-06 
+   }
+   {
+      name = Bip001_R_Finger11:sx
+      default = 1
+      data = 1.0000002384185791 1.0000002384185791 1.0000002384185791 
+   }
+   {
+      name = Bip001_R_Finger11:sy
+      default = 1
+      data = 1.0000001192092896 1.0000001192092896 1.0000001192092896 
+   }
+   {
+      name = Bip001_R_Finger11:sz
+      default = 1
+      data = 1 1 1 
+   }
+   {
+      name = Bip001_R_Finger12:tx
+      data = 5.7980613708496094 5.7980613708496094 5.7980613708496094 
+   }
+   {
+      name = Bip001_R_Finger12:ty
+      data = -3.7952422644593753e-06 -3.7952422644593753e-06 -3.7952422644593753e-06 
+   }
+   {
+      name = Bip001_R_Finger12:tz
+      data = -1.2138291367591592e-06 -1.2138291367591592e-06 -1.2138291367591592e-06 
+   }
+   {
+      name = Bip001_R_Finger12:rx
+      data = 4.582878237404999e-06 4.582878237404999e-06 4.582878237404999e-06 
+   }
+   {
+      name = Bip001_R_Finger12:ry
+      data = -2.6975020106623191e-06 -2.6975020106623191e-06 -2.6975020106623191e-06 
+   }
+   {
+      name = Bip001_R_Finger12:rz
+      data = 30.590269197993141 30.590269197993141 30.590269197993141 
+   }
+   {
+      name = Bip001_R_Finger12:sx
+      default = 1
+      data = 1.0000002384185791 1.0000002384185791 1.0000002384185791 
+   }
+   {
+      name = Bip001_R_Finger12:sy
+      default = 1
+      data = 1.0000002384185791 1.0000002384185791 1.0000002384185791 
+   }
+   {
+      name = Bip001_R_Finger12:sz
+      default = 1
+      data = 1 1 1 
+   }
+   {
+      name = Bip001_R_Finger2:tx
+      data = 0.19981008768081665 0.19981008768081665 0.19981008768081665 
+   }
+   {
+      name = Bip001_R_Finger2:ty
+      data = -1.2346038818359375 -1.2346038818359375 -1.2346038818359375 
+   }
+   {
+      name = Bip001_R_Finger2:tz
+      data = -3.1521165370941162 -3.1521165370941162 -3.1521165370941162 
+   }
+   {
+      name = Bip001_R_Finger2:rx
+      data = -80.965957176112425 -80.965957176112425 -80.965957176112425 
+   }
+   {
+      name = Bip001_R_Finger2:ry
+      data = 68.358220270212598 68.358220270212598 68.358220270212598 
+   }
+   {
+      name = Bip001_R_Finger2:rz
+      data = -80.807332862828048 -80.807332862828048 -80.807332862828048 
+   }
+   {
+      name = Bip001_R_Finger2:sx
+      default = 1
+      data = 0.99999988079071045 0.99999988079071045 0.99999988079071045 
+   }
+   {
+      name = Bip001_R_Finger2:sy
+      default = 1
+      data = 1 1 1 
+   }
+   {
+      name = Bip001_R_Finger2:sz
+      default = 1
+      data = 0.99999982118606567 0.99999982118606567 0.99999982118606567 
+   }
+   {
+      name = Bip001_R_Finger21:tx
+      data = 10.229552268981934 10.229552268981934 10.229552268981934 
+   }
+   {
+      name = Bip001_R_Finger21:ty
+      data = -9.6706651220301865e-07 -9.6706651220301865e-07 -9.6706651220301865e-07 
+   }
+   {
+      name = Bip001_R_Finger21:tz
+      data = -5.7944548643718008e-06 -5.7944548643718008e-06 -5.7944548643718008e-06 
+   }
+   {
+      name = Bip001_R_Finger21:rx
+      data = -8.9170673521556808e-08 -8.9170673521556808e-08 -8.9170673521556808e-08 
+   }
+   {
+      name = Bip001_R_Finger21:ry
+      data = -2.6665035105147771e-07 -2.6665035105147771e-07 -2.6665035105147771e-07 
+   }
+   {
+      name = Bip001_R_Finger21:rz
+      data = -1.6865247929473371e-06 -1.6865247929473371e-06 -1.6865247929473371e-06 
+   }
+   {
+      name = Bip001_R_Finger21:sx
+      default = 1
+      data = 1 1 1 
+   }
+   {
+      name = Bip001_R_Finger21:sy
+      default = 1
+      data = 1.0000001192092896 1.0000001192092896 1.0000001192092896 
+   }
+   {
+      name = Bip001_R_Finger21:sz
+      default = 1
+      data = 1 1 1 
+   }
+   {
+      name = Bip001_R_Finger22:tx
+      data = 5.0334668159484863 5.0334668159484863 5.0334668159484863 
+   }
+   {
+      name = Bip001_R_Finger22:ty
+      data = 2.8345812097541057e-06 2.8345812097541057e-06 2.8345812097541057e-06 
+   }
+   {
+      name = Bip001_R_Finger22:tz
+      data = 5.3220360314298887e-06 5.3220360314298887e-06 5.3220360314298887e-06 
+   }
+   {
+      name = Bip001_R_Finger22:rx
+      data = -3.3847691920071801e-08 -3.3847691920071801e-08 -3.3847691920071801e-08 
+   }
+   {
+      name = Bip001_R_Finger22:ry
+      data = 9.1476935704407825e-07 9.1476935704407825e-07 9.1476935704407825e-07 
+   }
+   {
+      name = Bip001_R_Finger22:rz
+      data = 37.560948529043884 37.560948529043884 37.560948529043884 
+   }
+   {
+      name = Bip001_R_Finger22:sx
+      default = 1
+      data = 0.99999994039535522 0.99999994039535522 0.99999994039535522 
+   }
+   {
+      name = Bip001_R_Finger22:sy
+      default = 1
+      data = 0.99999988079071045 0.99999988079071045 0.99999988079071045 
+   }
+   {
+      name = Bip001_R_Finger22:sz
+      default = 1
+      data = 1.0000001192092896 1.0000001192092896 1.0000001192092896 
+   }
+   {
+      name = Bip001_Head:tx
+      data = 5.3463602066040039 5.3463602066040039 5.3463602066040039 
+   }
+   {
+      name = Bip001_Head:ty
+      data = 1.7327467203140259 1.7327467203140259 1.7327467203140259 
+   }
+   {
+      name = Bip001_Head:tz
+      data = -1.2811658223199629e-07 -1.2811658223199629e-07 -1.2811658223199629e-07 
+   }
+   {
+      name = Bip001_Head:rx
+      data = -7.1683958183988582e-06 -7.1683958183988582e-06 -7.1683958183988582e-06 
+   }
+   {
+      name = Bip001_Head:ry
+      data = -4.7192460104167817e-05 -4.7192460104167817e-05 -4.7192460104167817e-05 
+   }
+   {
+      name = Bip001_Head:rz
+      data = 17.274919571438126 17.274919571438126 17.274919571438126 
+   }
+   {
+      name = Bip001_Head:sx
+      default = 1
+      data = 1.0000001192092896 1.0000001192092896 1.0000001192092896 
+   }
+   {
+      name = Bip001_Head:sy
+      default = 1
+      data = 1.0000001192092896 1.0000001192092896 1.0000001192092896 
+   }
+   {
+      name = Bip001_Head:sz
+      default = 1
+      data = 1 1 1 
+   }
+   {
+      name = __locomotion__:tx
+      data = 0 0 0 
+   }
+   {
+      name = __locomotion__:ty
+      data = 0 0 0 
+   }
+   {
+      name = __locomotion__:tz
+      data = 0 0 0 
+   }
+   {
+      name = __locomotion__:rx
+      data = 0 0 0 
+   }
+   {
+      name = __locomotion__:ry
+      data = 0 0 0 
+   }
+   {
+      name = __locomotion__:rz
+      data = 0 0 0 
+   }
+   {
+      name = __locomotion__:sx
+      default = 1
+      data = 1 1 1 
+   }
+   {
+      name = __locomotion__:sy
+      default = 1
+      data = 1 1 1 
+   }
+   {
+      name = __locomotion__:sz
+      default = 1
+      data = 1 1 1 
+   }
+   {
+      name = l_ankle_plant
+      data = 1 1 1 
+   }
+   {
+      name = l_toe_plant
+      data = 1 1 1 
+   }
+
+}
+"" 
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/foot_plants/foreach1/Foreach_Iteration.net"
+Content-Type: text/plain
+
+1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/foot_plants/foreach1/Output.init"
+Content-Type: text/plain
+
+type = null
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/foot_plants/foreach1/Output.def"
+Content-Type: text/plain
+
+comment ""
+position 0.00685457 2.50208
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on audio on export off
+outputsNamed3
+{
+}
+inputsNamed3
+{
+0 	merge1 1 1 "input1"
+}
+inputs
+{
+0 	merge1 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author daredyoshi@_192.168.1.108
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/foot_plants/foreach1/Output.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+stdswitcher	[ 0	locks=0 ]	(	0	)
+scope	[ 0	locks=0 ]	(	*	)
+srselect	[ 0	locks=0 ]	(	"max"	)
+units	[ 0	locks=0 ]	(	"seconds"	)
+timeslice	[ 0	locks=0 ]	(	"off"	)
+unload	[ 0	locks=0 ]	(	"off"	)
+export	[ 0	locks=0 ]	(	../../..	)
+gcolor	[ 0	locks=0 ]	(	0	0.44999998807907104	0.89999997615814209	)
+gcolorstep	[ 0	locks=0 ]	(	0.050000000000000003	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/foot_plants/foreach1/Output.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/foot_plants/foreach1/Output.chop"
+Content-Type: text/plain
+
+5
+2
+0
+0
+1
+0
+0
+0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/foot_plants/foreach1/merge1.init"
+Content-Type: text/plain
+
+type = merge
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/foot_plants/foreach1/merge1.def"
+Content-Type: text/plain
+
+comment ""
+position -0.00115002 3.52968
+connectornextid 4
+flags =  lock off model off template off footprint off xray off bypass off display on render off highlight off unload off savedata off compress on colordefault on exposed on audio off export off
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	Foreach_Iteration 0 1 "input1"
+2 	ankle_channel 0 1 "input2"
+3 	toe_channel 0 1 "input3"
+}
+inputs
+{
+0 	Foreach_Iteration 0 1
+1 	ankle_channel 0 1
+2 	toe_channel 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author daredyoshi@_192.168.1.108
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/foot_plants/foreach1/merge1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+stdswitcher	[ 0	locks=0 ]	(	1	1	)
+align	[ 0	locks=0 ]	(	"none"	)
+duplicate	[ 0	locks=0 ]	(	"unique"	)
+scope	[ 0	locks=0 ]	(	*	)
+srselect	[ 0	locks=0 ]	(	"max"	)
+units	[ 0	locks=0 ]	(	"seconds"	)
+timeslice	[ 0	locks=0 ]	(	"off"	)
+unload	[ 0	locks=0 ]	(	"off"	)
+export	[ 0	locks=0 ]	(	../..	)
+gcolor	[ 0	locks=0 ]	(	0.44999998807907104	0	0.89999997615814209	)
+gcolorstep	[ 0	locks=0 ]	(	0.050000000000000003	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/foot_plants/foreach1/merge1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/foot_plants/foreach1/merge1.chop"
+Content-Type: text/plain
+
+5
+2
+0
+0
+1
+0
+0
+0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/foot_plants/foreach1.order"
+Content-Type: text/plain
+
+5
+Foreach_Iteration
+Output
+ankle_channel
+merge1
+toe_channel
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/foot_plants/foreach1.net"
+Content-Type: text/plain
+
+1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/foot_plants.order"
+Content-Type: text/plain
+
+3
+current___clip
+OUT
+foreach1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/foot_plants.net"
+Content-Type: text/plain
+
+1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/output2.init"
+Content-Type: text/plain
+
+type = output
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/output2.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -9.82696 -24.8223
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+}
+inputsNamed3
+{
+0 	attribdelete1 1 1 "input1"
+}
+inputs
+{
+0 	attribdelete1 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author daredyoshi@_192.168.1.108
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/output2.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+outputidx	[ 0	locks=0 ]	(	0	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/output2.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/AGENT_TEMPLATE.init"
+Content-Type: text/plain
+
+type = null
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/AGENT_TEMPLATE.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -9.79674 -1.11151
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	agent_prep 1 1 "input1"
+}
+inputs
+{
+0 	agent_prep 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author daredyoshi@_192.168.1.108
+  access 0777
+}
+color UT_Color RGB 0.6 0.7 0.77 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/AGENT_TEMPLATE.spareparmdef"
+Content-Type: text/plain
+
+    parm {
+        name    "copyinput"
+        baseparm
+        label   "Copy Input (Note: Input will be still cooked if disabled)"
+        export  none
+    }
+    parm {
+        name    "cacheinput"
+        baseparm
+        label   "Cache Input"
+        export  none
+    }
+    parm {
+        name    "test"
+        label   "Label"
+        type    string
+        default { "" }
+        parmtag { "script_callback_language" "python" }
+    }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/AGENT_TEMPLATE.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+copyinput	[ 0	locks=0 ]	(	"on"	)
+cacheinput	[ 0	locks=0 ]	(	"off"	)
+test	[ 0	locks=0 ]	(	`chs(\"../ankle1\")`	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/AGENT_TEMPLATE.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribpromote1.init"
+Content-Type: text/plain
+
+type = attribpromote
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribpromote1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -9.80019 0.99119
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	remove_time_dependency1 1 1 "input1"
+}
+inputs
+{
+0 	remove_time_dependency1 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author daredyoshi@_192.168.1.108
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribpromote1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+inname	[ 0	locks=0 ]	(	agentname	)
+inclass	[ 0	locks=0 ]	(	"point"	)
+outclass	[ 0	locks=0 ]	(	"primitive"	)
+usepieceattrib	[ 0	locks=0 ]	(	"off"	)
+pieceattrib	[ 0	locks=0 ]	(	name	)
+method	[ 0	locks=0 ]	(	"mean"	)
+useoutname	[ 0	locks=0 ]	(	"off"	)
+outname	[ 0	locks=0 ]	(	""	)
+deletein	[ 0	locks=0 ]	(	"off"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribpromote1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/foreach_end2.init"
+Content-Type: text/plain
+
+type = block_end
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/foreach_end2.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -9.79514 -19.3779
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	switch1 1 1 "input1"
+}
+inputs
+{
+0 	switch1 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author daredyoshi@_192.168.1.108
+  access 0777
+}
+color UT_Color RGB 0.75 0.4 0 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/foreach_end2.chn"
+Content-Type: text/plain
+
+{
+    channel iterations {
+      lefttype = extend
+      righttype = extend
+      default = 2
+      flags = 0
+      segment { length = 0 value = 2 2 expr = len(pwd().node(\"../AGENT_TEMPLATE/\").inputGeometry(0).prims()[0].clipCatalog()) language = python }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/foreach_end2.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+itermethod	[ 0	locks=0 ]	(	"count"	)
+method	[ 0	locks=0 ]	(	"feedback"	)
+iterations	[ 0	locks=0 ]	(	[ iterations	54 ] 	)
+startvalue	[ 0	locks=0 ]	(	1	)
+increment	[ 0	locks=0 ]	(	1	)
+class	[ 0	locks=0 ]	(	"point"	)
+useattrib	[ 0	locks=0 ]	(	"on"	)
+attrib	[ 0	locks=0 ]	(	""	)
+usemaxiter	[ 0	locks=0 ]	(	"off"	)
+maxiter	[ 0	locks=0 ]	(	10	)
+blockpath	[ 0	locks=0 ]	(	../foreach_begin2	)
+templatepath	[ 0	locks=0 ]	(	../foreach_begin2	)
+resetcookpass	[ 0	locks=0 ]	(	0	)
+dosinglepass	[ 0	locks=0 ]	(	"off"	)
+singlepass	[ 0	locks=0 ]	(	12	)
+stopcondition	[ 0	locks=0 ]	(	0	)
+multithread	[ 0	locks=0 ]	(	"off"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/foreach_end2.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/foreach_begin2.init"
+Content-Type: text/plain
+
+type = block_begin
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/foreach_begin2.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -9.79514 -2.24991
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
+outputsNamed3
+{
+0 "output1"
+}
+inputsNamed3
+{
+1 	AGENT_TEMPLATE 1 1 "input1"
+}
+inputs
+{
+0 	AGENT_TEMPLATE 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author daredyoshi@_192.168.1.108
+  access 0777
+}
+color UT_Color RGB 0.75 0.4 0 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/foreach_begin2.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+method	[ 0	locks=0 ]	(	"feedback"	)
+blockpath	[ 0	locks=0 ]	(	../foreach_end2	)
+resetcookpass	[ 0	locks=0 ]	(	0	)
+createmetablock	[ 0	locks=0 ]	(	0	)
+label1	[ 0	locks=0 ]	(	"iteration, numiterations, value, ivalue"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/foreach_begin2.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/metadata.init"
+Content-Type: text/plain
+
+type = block_begin
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/metadata.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -6.37893 -2.23122
+connectornextid 0
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
+outputsNamed3
+{
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create -1
+  modify -1
+  author daredyoshi@_192.168.1.108
+  access 0777
+}
+color UT_Color RGB 0.75 0.4 0 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/metadata.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+method	[ 0	locks=0 ]	(	"metadata"	)
+blockpath	[ 0	locks=0 ]	(	../foreach_end2	)
+resetcookpass	[ 0	locks=0 ]	(	0	)
+createmetablock	[ 0	locks=0 ]	(	0	)
+label1	[ 0	locks=0 ]	(	"iteration, numiterations, value, ivalue"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/metadata.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/remove_time_dependency.init"
+Content-Type: text/plain
+
+type = timeshift
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/remove_time_dependency.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -9.82696 -22.5368
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	switch2 1 1 "input1"
+}
+inputs
+{
+0 	switch2 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author daredyoshi@_192.168.1.108
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/remove_time_dependency.chn"
+Content-Type: text/plain
+
+{
+    channel frame {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = $FSTART }
+    }
+    channel time {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = $T }
+    }
+    channel frange1 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = $FSTART }
+    }
+    channel frange2 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = $FEND }
+    }
+    channel trange1 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = $TSTART }
+    }
+    channel trange2 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = $TEND }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/remove_time_dependency.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+method	[ 0	locks=0 ]	(	"byframe"	)
+frame	[ 8	locks=0 ]	(	[ frame	1 ] 	)
+integerframe	[ 0	locks=0 ]	(	"on"	)
+time	[ 0	locks=0 ]	(	[ time	7 ] 	)
+rangeclamp	[ 0	locks=0 ]	(	"none"	)
+frange	[ 0	locks=0 ]	(	[ frange1	1 ] 	[ frange2	2000 ] 	)
+trange	[ 0	locks=0 ]	(	[ trange1	0 ] 	[ trange2	0 ] 	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/remove_time_dependency.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/remove_time_dependency1.init"
+Content-Type: text/plain
+
+type = timeshift
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/remove_time_dependency1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -9.79674 1.99119
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	(0) "" 1 "input1"
+}
+inputs
+{
+0 	(0) 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author daredyoshi@_192.168.1.108
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/remove_time_dependency1.chn"
+Content-Type: text/plain
+
+{
+    channel frame {
+      lefttype = extend
+      righttype = extend
+      default = 1
+      flags = 0
+      segment { length = 0 value = 1 1 expr = $FSTART }
+    }
+    channel time {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = $T }
+    }
+    channel frange1 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = $FSTART }
+    }
+    channel frange2 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = $FEND }
+    }
+    channel trange1 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = $TSTART }
+    }
+    channel trange2 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = $TEND }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/remove_time_dependency1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+method	[ 0	locks=0 ]	(	"byframe"	)
+frame	[ 8	locks=0 ]	(	[ frame	1 ] 	)
+integerframe	[ 0	locks=0 ]	(	"on"	)
+time	[ 0	locks=0 ]	(	[ time	5.7599999999999998 ] 	)
+rangeclamp	[ 0	locks=0 ]	(	"none"	)
+frange	[ 0	locks=0 ]	(	[ frange1	1 ] 	[ frange2	2000 ] 	)
+trange	[ 0	locks=0 ]	(	[ trange1	0 ] 	[ trange2	0 ] 	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/remove_time_dependency1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/load_modified_locomotion.init"
+Content-Type: text/plain
+
+type = agentclip::2.0
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/load_modified_locomotion.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -8.35706 -15.0628
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	OUT_LOCMOTION 1 1 "input1"
+}
+inputs
+{
+0 	OUT_LOCMOTION 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author daredyoshi@_192.168.1.108
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/load_modified_locomotion.chn"
+Content-Type: text/plain
+
+{
+    channel cliptime {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = $T }
+    }
+    channel framerange1_1 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = $FSTART }
+    }
+    channel framerange1_2 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = $FEND }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/load_modified_locomotion.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+group	[ 0	locks=0 ]	(	""	)
+clippreview	[ 0	locks=0 ]	(	0	)
+setcurrentclip	[ 0	locks=0 ]	(	"off"	)
+currentclip	[ 8	locks=0 ]	(	`chs(\"../clip_assign/setSingleClip\")`	)
+setcliptime	[ 0	locks=0 ]	(	"off"	)
+cliptime	[ 0	locks=0 ]	(	[ cliptime	8.4000000000000004 ] 	)
+applylocomotion	[ 0	locks=0 ]	(	"on"	)
+locomotionsettings	[ 0	locks=0 ]	(	0	)
+createlocomotionjoint	[ 0	locks=0 ]	(	"off"	)
+locomotionnode	[ 0	locks=0 ]	(	""	)
+locomotionorient	[ 0	locks=0 ]	(	""	)
+separator1	[ 0	locks=0 ]	(	)
+reload	[ 0	locks=0 ]	(	0	)
+clips	[ 0	locks=0 ]	(	1	)
+enable1	[ 0	locks=0 ]	(	"on"	)
+name1	[ 8	locks=0 ]	(	`chs(\"../clip_assign/setSingleClip\")`	)
+source1	[ 0	locks=0 ]	(	"chop"	)
+chop1	[ 0	locks=0 ]	(	../locomotion/output0	)
+usdsource1	[ 0	locks=0 ]	(	"lop"	)
+loppath1	[ 0	locks=0 ]	(	""	)
+usdfile1	[ 0	locks=0 ]	(	""	)
+primpattern1	[ 0	locks=0 ]	(	""	)
+file1	[ 0	locks=0 ]	(	""	)
+keepref1	[ 0	locks=0 ]	(	"on"	)
+delayload1	[ 0	locks=0 ]	(	"off"	)
+objsubnet1	[ 0	locks=0 ]	(	""	)
+traverseoutputs1	[ 0	locks=0 ]	(	"off"	)
+objpattern1	[ 0	locks=0 ]	(	*	)
+objtype1	[ 0	locks=0 ]	(	65535	)
+framerange1_	[ 0	locks=0 ]	(	[ framerange1_1	1 ] 	[ framerange1_2	2000 ] 	1	)
+fbxtake1	[ 0	locks=0 ]	(	*	)
+packedinputs1	[ 0	locks=0 ]	(	"on"	)
+convertunits1	[ 0	locks=0 ]	(	"on"	)
+minimalnodes1	[ 0	locks=0 ]	(	"on"	)
+keepdeformingshapexforms1	[ 0	locks=0 ]	(	"off"	)
+fbxoverridesamplerate1	[ 0	locks=0 ]	(	"off"	)
+fbxsamplerate1	[ 0	locks=0 ]	(	24	)
+converttoinplace1	[ 0	locks=0 ]	(	"off"	)
+projectaxis1	[ 0	locks=0 ]	(	"off"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/load_modified_locomotion.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/load_foot_plant_channels.init"
+Content-Type: text/plain
+
+type = agentclip::2.0
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/load_foot_plant_channels.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -9.79674 -3.28991
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	foreach_begin2 0 1 "input1"
+}
+inputs
+{
+0 	foreach_begin2 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author daredyoshi@_192.168.1.108
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/load_foot_plant_channels.chn"
+Content-Type: text/plain
+
+{
+    channel cliptime {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = $T }
+    }
+    channel framerange1_1 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = $FSTART }
+    }
+    channel framerange1_2 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = $FEND }
+    }
+    channel name1 {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"\"
+      flags = 0
+      segment { length = 0 expr = "iteration = pwd().node(\"../metadata\").geometry().attribValue(\"iteration\")
+return pwd().inputGeometry(0).prims()[0].clipCatalog()[iteration].name()
+" language = python }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/load_foot_plant_channels.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+group	[ 0	locks=0 ]	(	""	)
+clippreview	[ 0	locks=0 ]	(	0	)
+setcurrentclip	[ 0	locks=0 ]	(	"off"	)
+currentclip	[ 0	locks=0 ]	(	""	)
+setcliptime	[ 0	locks=0 ]	(	"off"	)
+cliptime	[ 0	locks=0 ]	(	[ cliptime	0 ] 	)
+applylocomotion	[ 0	locks=0 ]	(	"off"	)
+locomotionsettings	[ 0	locks=0 ]	(	0	)
+createlocomotionjoint	[ 0	locks=0 ]	(	"off"	)
+locomotionnode	[ 0	locks=0 ]	(	""	)
+locomotionorient	[ 0	locks=0 ]	(	""	)
+separator1	[ 0	locks=0 ]	(	)
+reload	[ 0	locks=0 ]	(	0	)
+clips	[ 0	locks=0 ]	(	1	)
+enable1	[ 0	locks=0 ]	(	"on"	)
+name1	[ 0	locks=0 ]	(	[ name1	rest ] 	)
+source1	[ 0	locks=0 ]	(	"chop"	)
+chop1	[ 0	locks=0 ]	(	../foot_plants/OUT	)
+usdsource1	[ 0	locks=0 ]	(	"lop"	)
+loppath1	[ 0	locks=0 ]	(	""	)
+usdfile1	[ 0	locks=0 ]	(	""	)
+primpattern1	[ 0	locks=0 ]	(	""	)
+file1	[ 0	locks=0 ]	(	""	)
+keepref1	[ 0	locks=0 ]	(	"on"	)
+delayload1	[ 0	locks=0 ]	(	"off"	)
+objsubnet1	[ 0	locks=0 ]	(	""	)
+traverseoutputs1	[ 0	locks=0 ]	(	"off"	)
+objpattern1	[ 0	locks=0 ]	(	*	)
+objtype1	[ 0	locks=0 ]	(	65535	)
+framerange1_	[ 0	locks=0 ]	(	[ framerange1_1	1 ] 	[ framerange1_2	2000 ] 	1	)
+fbxtake1	[ 0	locks=0 ]	(	*	)
+packedinputs1	[ 0	locks=0 ]	(	"off"	)
+convertunits1	[ 0	locks=0 ]	(	"on"	)
+minimalnodes1	[ 0	locks=0 ]	(	"on"	)
+keepdeformingshapexforms1	[ 0	locks=0 ]	(	"off"	)
+fbxoverridesamplerate1	[ 0	locks=0 ]	(	"off"	)
+fbxsamplerate1	[ 0	locks=0 ]	(	24	)
+converttoinplace1	[ 0	locks=0 ]	(	"off"	)
+projectaxis1	[ 0	locks=0 ]	(	"off"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/load_foot_plant_channels.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch_load_clips.init"
+Content-Type: text/plain
+
+type = switch
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch_load_clips.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 1.29264 -0.285151
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress off colordefault off exposed on
+outputsNamed3
+{
+0 "output1"
+}
+inputsNamed3
+{
+1 	(0) "" 1 "input1"
+2 	load_clips 4 1 "input2"
+}
+inputs
+{
+0 	(0) 0 1
+1 	load_clips 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author nobody@nowhere
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch_load_clips.chn"
+Content-Type: text/plain
+
+{
+    channel input {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = "ch(\"../loadclips\") && strlen(chs(\"../choppaths\")) > 0" }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch_load_clips.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch_load_clips.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/init_attributes.init"
+Content-Type: text/plain
+
+type = attribcreate::2.0
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/init_attributes.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 1.28924 -1.29496
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	switch_load_clips 0 1 "input1"
+}
+inputs
+{
+0 	switch_load_clips 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author nobody@nowhere
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/init_attributes.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+group	[ 0	locks=0 ]	(	""	)
+grouptype	[ 0	locks=0 ]	(	"guess"	)
+encodenames	[ 0	locks=0 ]	(	"off"	)
+numattr	[ 0	locks=0 ]	(	3	)
+enable1	[ 0	locks=0 ]	(	"on"	)
+name1	[ 0	locks=0 ]	(	agentrig_upperlimbs	)
+existing1	[ 0	locks=0 ]	(	"better"	)
+createvarmap1	[ 0	locks=0 ]	(	"off"	)
+varname1	[ 0	locks=0 ]	(	""	)
+class1	[ 0	locks=0 ]	(	"point"	)
+savetoinfo1	[ 0	locks=0 ]	(	"off"	)
+type1	[ 0	locks=0 ]	(	"stringarray"	)
+typeinfo1	[ 0	locks=0 ]	(	"guess"	)
+precision1	[ 0	locks=0 ]	(	"32"	)
+size1	[ 0	locks=0 ]	(	3	)
+default1v	[ 0	locks=0 ]	(	0	0	0	0	)
+writevalues1	[ 0	locks=0 ]	(	"on"	)
+uselocal1	[ 0	locks=0 ]	(	"on"	)
+value1v	[ 0	locks=0 ]	(	0	0	0	0	)
+string1	[ 0	locks=0 ]	(	""	)
+enable2	[ 0	locks=0 ]	(	"on"	)
+name2	[ 0	locks=0 ]	(	agentrig_lowerlimbs	)
+existing2	[ 0	locks=0 ]	(	"better"	)
+createvarmap2	[ 0	locks=0 ]	(	"off"	)
+varname2	[ 0	locks=0 ]	(	""	)
+class2	[ 0	locks=0 ]	(	"point"	)
+savetoinfo2	[ 0	locks=0 ]	(	"off"	)
+type2	[ 0	locks=0 ]	(	"stringarray"	)
+typeinfo2	[ 0	locks=0 ]	(	"guess"	)
+precision2	[ 0	locks=0 ]	(	"32"	)
+size2	[ 0	locks=0 ]	(	4	)
+default2v	[ 0	locks=0 ]	(	0	0	0	0	)
+writevalues2	[ 0	locks=0 ]	(	"on"	)
+uselocal2	[ 0	locks=0 ]	(	"on"	)
+value2v	[ 0	locks=0 ]	(	0	0	0	0	)
+string2	[ 0	locks=0 ]	(	""	)
+enable3	[ 0	locks=0 ]	(	"on"	)
+name3	[ 0	locks=0 ]	(	agentrig_footchannels	)
+existing3	[ 0	locks=0 ]	(	"better"	)
+createvarmap3	[ 0	locks=0 ]	(	"off"	)
+varname3	[ 0	locks=0 ]	(	""	)
+class3	[ 0	locks=0 ]	(	"point"	)
+savetoinfo3	[ 0	locks=0 ]	(	"off"	)
+type3	[ 0	locks=0 ]	(	"stringarray"	)
+typeinfo3	[ 0	locks=0 ]	(	"guess"	)
+precision3	[ 0	locks=0 ]	(	"32"	)
+size3	[ 0	locks=0 ]	(	2	)
+default3v	[ 0	locks=0 ]	(	0	0	0	0	)
+writevalues3	[ 0	locks=0 ]	(	"on"	)
+uselocal3	[ 0	locks=0 ]	(	"on"	)
+value3v	[ 0	locks=0 ]	(	0	0	0	0	)
+string3	[ 0	locks=0 ]	(	""	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/init_attributes.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/agent_group.init"
+Content-Type: text/plain
+
+type = blast
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/agent_group.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 0.00657383 2.08963
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress off colordefault off exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	(0) "" 1 "input1"
+}
+inputs
+{
+0 	(0) 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author nobody@nowhere
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/agent_group.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+group	[ 0	locks=0 ]	(	""	)
+grouptype	[ 0	locks=0 ]	(	"guess"	)
+computenorms	[ 0	locks=0 ]	(	"off"	)
+negate	[ 0	locks=0 ]	(	"on"	)
+fillhole	[ 0	locks=0 ]	(	"off"	)
+removegrp	[ 0	locks=0 ]	(	"off"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/agent_group.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/GUIDES.init"
+Content-Type: text/plain
+
+type = null
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/GUIDES.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -1.12303 -1.14827
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress off colordefault off exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	instance_guides 2 1 "input1"
+}
+inputs
+{
+0 	instance_guides 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author nobody@nowhere
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/GUIDES.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+copyinput	[ 0	locks=0 ]	(	"on"	)
+cacheinput	[ 0	locks=0 ]	(	"off"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/GUIDES.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/guide_nulls.init"
+Content-Type: text/plain
+
+type = control
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/guide_nulls.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -2.99976 0.961129
+connectornextid 0
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress off colordefault off exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create -1
+  modify -1
+  author nobody@nowhere
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/guide_nulls.chn"
+Content-Type: text/plain
+
+{
+    channel scale {
+      lefttype = extend
+      righttype = extend
+      default = 0.10000000000000001
+      flags = 0
+      segment { length = 0 value = 0.10000000000000001 0.10000000000000001 expr = ch(\"../guidescale\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/guide_nulls.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+usecolor	[ 0	locks=0 ]	(	"on"	)
+color	[ 0	locks=0 ]	(	0	0	0.90000000000000002	)
+size	[ 0	locks=0 ]	(	1	1	1	)
+t	[ 0	locks=0 ]	(	0	0	0	)
+r	[ 0	locks=0 ]	(	0	0	0	)
+scale	[ 0	locks=0 ]	(	[ scale	0.10000000000000001 ] 	)
+displayicon	[ 0	locks=0 ]	(	"iconandaxis"	)
+controltype	[ 0	locks=0 ]	(	"null"	)
+orientation	[ 0	locks=0 ]	(	"xyz"	)
+shadedmode	[ 0	locks=0 ]	(	"off"	)
+packed	[ 0	locks=0 ]	(	"on"	)
+numsnappoints	[ 0	locks=0 ]	(	0	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/guide_nulls.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/instance_guides.init"
+Content-Type: text/plain
+
+type = copytopoints
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/instance_guides.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -1.12303 -0.0520742
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+2 "output1"
+}
+inputsNamed3
+{
+0 	guide_nulls 1 1 "input1"
+1 	guide_points 4 1 "input2"
+}
+inputs
+{
+0 	guide_nulls 0 1
+1 	guide_points 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author nobody@nowhere.com
+  access 0777
+}
+color UT_Color RGB 1 0.65 0.1 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/instance_guides.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+sourcegroup	[ 0	locks=0 ]	(	""	)
+targetgroup	[ 0	locks=0 ]	(	""	)
+showguide	[ 0	locks=0 ]	(	"on"	)
+pack	[ 0	locks=0 ]	(	"off"	)
+pivot	[ 0	locks=0 ]	(	"centroid"	)
+viewportlod	[ 0	locks=0 ]	(	"full"	)
+transform	[ 0	locks=0 ]	(	"on"	)
+doattr	[ 0	locks=0 ]	(	"on"	)
+labelparm	[ 0	locks=0 ]	(	Set	Mult	Add	Sub	)
+setpt	[ 0	locks=0 ]	(	*,^v,^Alpha	)
+mulpt	[ 0	locks=0 ]	(	Alpha	)
+addpt	[ 0	locks=0 ]	(	v	)
+subpt	[ 0	locks=0 ]	(	""	)
+setprim	[ 0	locks=0 ]	(	""	)
+mulprim	[ 0	locks=0 ]	(	""	)
+addprim	[ 0	locks=0 ]	(	""	)
+subprim	[ 0	locks=0 ]	(	""	)
+setvtx	[ 0	locks=0 ]	(	""	)
+mulvtx	[ 0	locks=0 ]	(	""	)
+addvtx	[ 0	locks=0 ]	(	""	)
+subvtx	[ 0	locks=0 ]	(	""	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/instance_guides.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/force_reload_foot_plants.init"
+Content-Type: text/plain
+
+type = python
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/force_reload_foot_plants.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -9.79674 -4.28991
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+0 "output1"
+}
+inputsNamed3
+{
+1 	load_foot_plant_channels 1 1 "input1"
+}
+inputs
+{
+0 	load_foot_plant_channels 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author daredyoshi@_192.168.1.108
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/force_reload_foot_plants.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+python	[ 0	locks=0 ]	(	"node = hou.pwd()
+geo = node.geometry()
+
+# Add code to modify contents of geo.
+# Use drop down menu to select examples.
+node.parent().node(\"load_foot_plant_channels\").parm('reload').pressButton()"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/force_reload_foot_plants.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/OUT_FOOT_PLANTS.init"
+Content-Type: text/plain
+
+type = null
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/OUT_FOOT_PLANTS.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -9.79674 -5.39261
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	force_reload_foot_plants 0 1 "input1"
+}
+inputs
+{
+0 	force_reload_foot_plants 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author daredyoshi@_192.168.1.108
+  access 0777
+}
+color UT_Color RGB 0.6 0.7 0.77 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/OUT_FOOT_PLANTS.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+copyinput	[ 0	locks=0 ]	(	"on"	)
+cacheinput	[ 0	locks=0 ]	(	"off"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/OUT_FOOT_PLANTS.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/force_reload_lomotion.init"
+Content-Type: text/plain
+
+type = python
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/force_reload_lomotion.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -8.35706 -16.2023
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+0 "output1"
+}
+inputsNamed3
+{
+1 	load_modified_locomotion 1 1 "input1"
+}
+inputs
+{
+0 	load_modified_locomotion 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author daredyoshi@_192.168.1.108
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/force_reload_lomotion.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+python	[ 0	locks=0 ]	(	"node = hou.pwd()
+geo = node.geometry()
+
+# Add code to modify contents of geo.
+# Use drop down menu to select examples.
+node.parent().node(\"load_modified_locomotion\").parm('reload').pressButton()"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/force_reload_lomotion.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch1.init"
+Content-Type: text/plain
+
+type = switch
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -9.79674 -18.0298
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+2 	OUT_FOOT_PLANTS 1 1 "input1"
+0 	force_reload_lomotion 0 1 "input2"
+}
+inputs
+{
+0 	OUT_FOOT_PLANTS 0 1
+1 	force_reload_lomotion 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author daredyoshi@_192.168.1.108
+  access 0777
+}
+color UT_Color RGB 0.8 1 0.7 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch1.chn"
+Content-Type: text/plain
+
+{
+    channel input {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../set_locomotion_to_planted\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+input	[ 0	locks=0 ]	(	[ input	0 ] 	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/locomotion.init"
+Content-Type: text/plain
+
+type = chopnet
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/locomotion.def"
+Content-Type: text/plain
+
+comment ""
+position -4.45562 -15.3282
+connectornextid 0
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create -1
+  modify -1
+  author daredyoshi@_192.168.1.108
+  access 0777
+}
+color UT_Color RGB 0.67 0.4 0.25 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/locomotion.spareparmdef"
+Content-Type: text/plain
+
+    parm {
+        name    "iteration"
+        label   "Clip Iteration"
+        type    integer
+        default { "0" }
+        range   { 0 10 }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "spare_input0"
+        label   "Spare Input 0"
+        type    oppath
+        default { "" }
+        help    "Refer to this in expressions as -1, such as: npoints(-1)"
+        parmtag { "opfilter" "!!SOP!!" }
+        parmtag { "oprelative" "." }
+    }
+    parm {
+        name    "clipname"
+        label   "Clip Name"
+        type    string
+        default { "" }
+        parmtag { "script_callback_language" "python" }
+    }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/locomotion.chn"
+Content-Type: text/plain
+
+{
+    channel iteration {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = "detail(-1, \"iteration\", 0)" }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/locomotion.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+iteration	[ 0	locks=0 ]	(	[ iteration	22 ] 	)
+spare_input0	[ 0	locks=0 ]	(	../metadata	)
+clipname	[ 0	locks=0 ]	(	`chs(\"../load_foot_plant_channels/name1\")`	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/locomotion.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/locomotion/AGENT.init"
+Content-Type: text/plain
+
+type = agent
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/locomotion/AGENT.def"
+Content-Type: text/plain
+
+comment ""
+position -8.82535 -3.69027
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display off render on highlight off unload off savedata off compress on colordefault on exposed on audio off export off
+outputsNamed3
+{
+0 "output1"
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create -1
+  modify -1
+  author daredyoshi@_192.168.1.108
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/locomotion/AGENT.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+stdswitcher	[ 0	locks=0 ]	(	0	0	0	)
+soppath	[ 0	locks=0 ]	(	../../OUT_LOCMOTION	)
+group	[ 8	locks=0	autoscope=1	autosel=4294967295 ]	(	""	)
+fetchmode	[ 0	locks=0 ]	(	"clip"	)
+inplace	[ 0	locks=0 ]	(	"off"	)
+clipname	[ 0	locks=0 ]	(	`chs(\"../clipname\")`	)
+space	[ 0	locks=0 ]	(	"local"	)
+range	[ 0	locks=0 ]	(	"full"	)
+start	[ 0	locks=0 ]	(	0	)
+end	[ 0	locks=0 ]	(	10	)
+rate	[ 0	locks=0 ]	(	24	)
+left	[ 0	locks=0 ]	(	"hold"	)
+right	[ 0	locks=0 ]	(	"hold"	)
+defval	[ 0	locks=0 ]	(	0	)
+scope	[ 0	locks=0 ]	(	*	)
+srselect	[ 0	locks=0 ]	(	"max"	)
+units	[ 0	locks=0 ]	(	"seconds"	)
+timeslice	[ 0	locks=0 ]	(	"off"	)
+unload	[ 0	locks=0 ]	(	"off"	)
+export	[ 0	locks=0 ]	(	../..	)
+gcolor	[ 0	locks=0 ]	(	0	0.89999997615814209	0.44999998807907104	)
+gcolorstep	[ 0	locks=0 ]	(	0.050000000000000003	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/locomotion/AGENT.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/locomotion/AGENT.chop"
+Content-Type: text/plain
+
+5
+2
+0
+0
+1
+0
+0
+0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/locomotion/AGENT_CHANNELS.init"
+Content-Type: text/plain
+
+type = agent
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/locomotion/AGENT_CHANNELS.def"
+Content-Type: text/plain
+
+comment ""
+position -12.191 -3.69027
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display off render on highlight off unload off savedata off compress on colordefault on exposed on audio on export off
+outputsNamed3
+{
+0 "output1"
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create -1
+  modify -1
+  author daredyoshi@_192.168.1.108
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/locomotion/AGENT_CHANNELS.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+stdswitcher	[ 0	locks=0 ]	(	0	0	0	)
+soppath	[ 0	locks=0 ]	(	../../OUT_FOOT_PLANTS	)
+group	[ 8	locks=0	autoscope=1	autosel=4294967295 ]	(	""	)
+fetchmode	[ 0	locks=0 ]	(	"clip"	)
+inplace	[ 0	locks=0 ]	(	"off"	)
+clipname	[ 0	locks=0 ]	(	`chs(\"../clipname\")`	)
+space	[ 0	locks=0 ]	(	"local"	)
+range	[ 0	locks=0 ]	(	"full"	)
+start	[ 0	locks=0 ]	(	0	)
+end	[ 0	locks=0 ]	(	10	)
+rate	[ 0	locks=0 ]	(	24	)
+left	[ 0	locks=0 ]	(	"hold"	)
+right	[ 0	locks=0 ]	(	"hold"	)
+defval	[ 0	locks=0 ]	(	0	)
+scope	[ 0	locks=0 ]	(	*	)
+srselect	[ 0	locks=0 ]	(	"max"	)
+units	[ 0	locks=0 ]	(	"seconds"	)
+timeslice	[ 0	locks=0 ]	(	"off"	)
+unload	[ 0	locks=0 ]	(	"off"	)
+export	[ 0	locks=0 ]	(	../..	)
+gcolor	[ 0	locks=0 ]	(	0	0.89999997615814209	0.44999998807907104	)
+gcolorstep	[ 0	locks=0 ]	(	0.050000000000000003	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/locomotion/AGENT_CHANNELS.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/locomotion/AGENT_CHANNELS.chop"
+Content-Type: text/plain
+
+5
+2
+0
+0
+1
+0
+0
+0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/locomotion/merge1.init"
+Content-Type: text/plain
+
+type = merge
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/locomotion/merge1.def"
+Content-Type: text/plain
+
+comment ""
+position -12.1922 -5.43113
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on audio off export off
+outputsNamed3
+{
+2 "output1"
+}
+inputsNamed3
+{
+1 	AGENT_CHANNELS 0 1 "input1"
+0 	AGENT 0 1 "input2"
+}
+inputs
+{
+0 	AGENT_CHANNELS 0 1
+1 	AGENT 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author daredyoshi@_192.168.1.108
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/locomotion/merge1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+stdswitcher	[ 0	locks=0 ]	(	0	0	)
+align	[ 0	locks=0 ]	(	"none"	)
+duplicate	[ 0	locks=0 ]	(	"override"	)
+scope	[ 0	locks=0 ]	(	*	)
+srselect	[ 0	locks=0 ]	(	"max"	)
+units	[ 0	locks=0 ]	(	"seconds"	)
+timeslice	[ 0	locks=0 ]	(	"off"	)
+unload	[ 0	locks=0 ]	(	"off"	)
+export	[ 0	locks=0 ]	(	../..	)
+gcolor	[ 0	locks=0 ]	(	0.89999997615814209	0	0.89999997615814209	)
+gcolorstep	[ 0	locks=0 ]	(	0.050000000000000003	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/locomotion/merge1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/locomotion/merge1.chop"
+Content-Type: text/plain
+
+5
+2
+0
+0
+1
+0
+0
+0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/locomotion/output0.init"
+Content-Type: text/plain
+
+type = output
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/locomotion/output0.def"
+Content-Type: text/plain
+
+comment ""
+position -12.1922 -6.45873
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on audio off export off
+outputsNamed3
+{
+}
+inputsNamed3
+{
+0 	merge1 2 1 "input1"
+}
+inputs
+{
+0 	merge1 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author daredyoshi@_192.168.1.108
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/locomotion/output0.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+outputidx	[ 0	locks=0 ]	(	0	)
+stdswitcher	[ 0	locks=0 ]	(	0	)
+scope	[ 0	locks=0 ]	(	*	)
+srselect	[ 0	locks=0 ]	(	"max"	)
+units	[ 0	locks=0 ]	(	"seconds"	)
+timeslice	[ 0	locks=0 ]	(	"off"	)
+unload	[ 0	locks=0 ]	(	"off"	)
+export	[ 0	locks=0 ]	(	../..	)
+gcolor	[ 0	locks=0 ]	(	0.89999997615814209	0	0.44999998807907104	)
+gcolorstep	[ 0	locks=0 ]	(	0.050000000000000003	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/locomotion/output0.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/locomotion/output0.chop"
+Content-Type: text/plain
+
+5
+2
+0
+0
+1
+0
+0
+0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/locomotion.order"
+Content-Type: text/plain
+
+4
+AGENT
+AGENT_CHANNELS
+merge1
+output0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/locomotion.net"
+Content-Type: text/plain
+
+1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/OUT_LOCMOTION.init"
+Content-Type: text/plain
+
+type = null
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/OUT_LOCMOTION.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -8.35706 -13.8514
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	agentclip1 1 1 "input1"
+}
+inputs
+{
+0 	agentclip1 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author daredyoshi@_192.168.1.108
+  access 0777
+}
+color UT_Color RGB 0.6 0.7 0.77 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/OUT_LOCMOTION.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+copyinput	[ 0	locks=0 ]	(	"on"	)
+cacheinput	[ 0	locks=0 ]	(	"off"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/OUT_LOCMOTION.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/motionclip1.init"
+Content-Type: text/plain
+
+type = kinefx::motionclip
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/motionclip1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -4.22909 -11.0518
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	agentunpack1 1 1 "input1"
+}
+inputs
+{
+0 	agentunpack1 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author daredyoshi@_192.168.1.108
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/motionclip1.spareparmdef"
+Content-Type: text/plain
+
+    parm {
+        name    "packinputs"
+        baseparm
+        label   "Pack Inputs"
+        export  none
+    }
+    parm {
+        name    "restframe"
+        baseparm
+        label   "Rest Frame"
+        export  none
+    }
+    parm {
+        name    "usesamplerate"
+        baseparm
+        label   "Sample Range"
+        nolabel
+        joinnext
+        export  none
+    }
+    parm {
+        name    "samplerate"
+        baseparm
+        label   "Sample Rate"
+        export  none
+    }
+    parm {
+        name    "useframerange"
+        baseparm
+        label   "Frame Range"
+        nolabel
+        joinnext
+        export  none
+    }
+    parm {
+        name    "framerange"
+        baseparm
+        label   "Frame Range"
+        export  none
+    }
+    parm {
+        name    "reloadmethod"
+        baseparm
+        label   "Reload Method"
+        export  none
+    }
+    parm {
+        name    "attribs"
+        baseparm
+        label   "Attributes to Store"
+        export  none
+    }
+    parm {
+        name    "reload"
+        baseparm
+        label   "Reload"
+        export  none
+    }
+    parm {
+        name    "spare_input0"
+        label   "Spare Input 0"
+        type    oppath
+        default { "" }
+        help    "Refer to this in expressions as -1, such as: npoints(-1)"
+        parmtag { "opfilter" "!!SOP!!" }
+        parmtag { "oprelative" "." }
+    }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/motionclip1.chn"
+Content-Type: text/plain
+
+{
+    channel restframe {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = $FSTART }
+    }
+    channel samplerate {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = $FPS }
+    }
+    channel framerange1 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = $FSTART }
+    }
+    channel framerange2 {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"\"
+      flags = 0
+      segment { length = 0 expr = "node =pwd().node(\"../OUT_FOOT_PLANTS\")
+iteration = pwd().node(\"../metadata\").geometry().attribValue(\"iteration\")
+sample_rate = node.inputGeometry(0).prims()[0].clipCatalog()[iteration].sampleRate()
+return node.inputGeometry(0).prims()[0].clipCatalog()[iteration].length() * sample_rate" language = python }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/motionclip1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+packinputs	[ 0	locks=0 ]	(	"off"	)
+restframe	[ 0	locks=0 ]	(	[ restframe	1 ] 	)
+usesamplerate	[ 0	locks=0 ]	(	"off"	)
+samplerate	[ 0	locks=0 ]	(	[ samplerate	24 ] 	)
+useframerange	[ 0	locks=0 ]	(	"on"	)
+framerange	[ 0	locks=0 ]	(	[ framerange1	1 ] 	[ framerange2	3 ] 	)
+reloadmethod	[ 0	locks=0 ]	(	"auto"	)
+attribs	[ 0	locks=0 ]	(	*	)
+reload	[ 0	locks=0 ]	(	0	)
+spare_input0	[ 0	locks=0 ]	(	../metadata	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/motionclip1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/agentunpack1.init"
+Content-Type: text/plain
+
+type = agentunpack
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/agentunpack1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -4.22909 -9.55571
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	set_locomotion 1 1 "input1"
+}
+inputs
+{
+0 	set_locomotion 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author daredyoshi@_192.168.1.108
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/agentunpack1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+group	[ 0	locks=0 ]	(	""	)
+output	[ 0	locks=0 ]	(	"skeleton"	)
+applyagentxform	[ 0	locks=0 ]	(	"on"	)
+applyjointxforms	[ 0	locks=0 ]	(	"on"	)
+sepparm	[ 0	locks=0 ]	(	)
+shapefilter	[ 0	locks=0 ]	(	*	)
+limititerations	[ 0	locks=0 ]	(	"on"	)
+iterations	[ 0	locks=0 ]	(	1	)
+addshapedeformerattrib	[ 0	locks=0 ]	(	"off"	)
+shapedeformerattrib	[ 0	locks=0 ]	(	agentshapedeformer	)
+addxformnameattrib	[ 0	locks=0 ]	(	"off"	)
+xformnameattrib	[ 0	locks=0 ]	(	agenttransformname	)
+clipnames	[ 0	locks=0 ]	(	`chs(\"../load_foot_plant_channels/name1\")`	)
+transferattributes	[ 0	locks=0 ]	(	""	)
+transfergroups	[ 0	locks=0 ]	(	""	)
+numjointfilters	[ 0	locks=0 ]	(	0	)
+skeletoncolor	[ 0	locks=0 ]	(	0	0.089999999999999997	1	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/agentunpack1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/agentclip1.init"
+Content-Type: text/plain
+
+type = agentclip::2.0
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/agentclip1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -8.35706 -12.7487
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	set_locomotion 1 1 "input1"
+2 	configureclipinfo1 1 1 "input2"
+}
+inputs
+{
+0 	set_locomotion 0 1
+1 	configureclipinfo1 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author daredyoshi@_192.168.1.108
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/agentclip1.chn"
+Content-Type: text/plain
+
+{
+    channel cliptime {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = $T }
+    }
+    channel framerange1_1 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = $FSTART }
+    }
+    channel framerange1_2 {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = $FEND }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/agentclip1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+group	[ 0	locks=0 ]	(	""	)
+clippreview	[ 0	locks=0 ]	(	0	)
+setcurrentclip	[ 0	locks=0 ]	(	"off"	)
+currentclip	[ 0	locks=0 ]	(	""	)
+setcliptime	[ 0	locks=0 ]	(	"off"	)
+cliptime	[ 0	locks=0 ]	(	[ cliptime	0 ] 	)
+applylocomotion	[ 0	locks=0 ]	(	"off"	)
+locomotionsettings	[ 0	locks=0 ]	(	0	)
+createlocomotionjoint	[ 0	locks=0 ]	(	"on"	)
+locomotionnode	[ 0	locks=0 ]	(	""	)
+locomotionorient	[ 0	locks=0 ]	(	""	)
+separator1	[ 0	locks=0 ]	(	)
+reload	[ 0	locks=0 ]	(	0	)
+clips	[ 0	locks=0 ]	(	1	)
+enable1	[ 0	locks=0 ]	(	"on"	)
+name1	[ 0	locks=0 ]	(	`chs(\"../load_foot_plant_channels/name1\")`	)
+source1	[ 0	locks=0 ]	(	"sop"	)
+chop1	[ 0	locks=0 ]	(	""	)
+usdsource1	[ 0	locks=0 ]	(	"lop"	)
+loppath1	[ 0	locks=0 ]	(	""	)
+usdfile1	[ 0	locks=0 ]	(	""	)
+primpattern1	[ 0	locks=0 ]	(	""	)
+file1	[ 0	locks=0 ]	(	""	)
+keepref1	[ 0	locks=0 ]	(	"on"	)
+delayload1	[ 0	locks=0 ]	(	"off"	)
+objsubnet1	[ 0	locks=0 ]	(	""	)
+traverseoutputs1	[ 0	locks=0 ]	(	"off"	)
+objpattern1	[ 0	locks=0 ]	(	*	)
+objtype1	[ 0	locks=0 ]	(	65535	)
+framerange1_	[ 0	locks=0 ]	(	[ framerange1_1	1 ] 	[ framerange1_2	2000 ] 	1	)
+fbxtake1	[ 0	locks=0 ]	(	*	)
+packedinputs1	[ 0	locks=0 ]	(	"off"	)
+convertunits1	[ 0	locks=0 ]	(	"on"	)
+minimalnodes1	[ 0	locks=0 ]	(	"on"	)
+keepdeformingshapexforms1	[ 0	locks=0 ]	(	"off"	)
+fbxoverridesamplerate1	[ 0	locks=0 ]	(	"off"	)
+fbxsamplerate1	[ 0	locks=0 ]	(	24	)
+converttoinplace1	[ 0	locks=0 ]	(	"off"	)
+projectaxis1	[ 0	locks=0 ]	(	"off"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/agentclip1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribdelete1.init"
+Content-Type: text/plain
+
+type = attribdelete
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribdelete1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -9.83041 -23.6029
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	remove_time_dependency 1 1 "input1"
+}
+inputs
+{
+0 	remove_time_dependency 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author daredyoshi@_192.168.1.108
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribdelete1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+usereference	[ 0	locks=0 ]	(	"off"	)
+negate	[ 0	locks=0 ]	(	"off"	)
+doptdel	[ 0	locks=0 ]	(	"off"	)
+ptdel	[ 0	locks=0 ]	(	""	)
+dovtxdel	[ 0	locks=0 ]	(	"off"	)
+vtxdel	[ 0	locks=0 ]	(	""	)
+doprimdel	[ 0	locks=0 ]	(	"on"	)
+primdel	[ 0	locks=0 ]	(	agentname	)
+dodtldel	[ 0	locks=0 ]	(	"off"	)
+dtldel	[ 0	locks=0 ]	(	""	)
+updatevar	[ 0	locks=0 ]	(	"on"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/attribdelete1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/stash1.init"
+Content-Type: text/plain
+
+type = stash
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/stash1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -8.55068 -20.5003
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	foreach_end2 1 1 "input1"
+}
+inputs
+{
+0 	foreach_end2 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author daredyoshi@_192.168.1.108
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/stash1.chn"
+Content-Type: text/plain
+
+{
+    channel stashinput {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../calculate\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/stash1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+stash	[ 0	locks=0 ]	(	geometry:f05TSmJbKwALZmlsZXZlcnNpb24mACsBCDE4LjUuMzUxJgErAghoYXNpbmRleCYCMSsDCnBvaW50Y291bnQmAxEAKwQLdmVydGV4Y291bnQmBBEAKwUOcHJpbWl0aXZlY291bnQmBREAKwYEaW5mbyYGeysHBmFydGlzdCYHKwgKZGFyZWR5b3NoaSYIKwkIc29mdHdhcmUmCSsKEEhvdWRpbmkgMTguNS4zNTEmCisLBGRhdGUmCysMEzIwMjAtMTItMDMgMTM6MzM6NDkmDCsNCGhvc3RuYW1lJg0rDg5fMTkyLjE2OC4xLjEwOCYOKw8GYm91bmRzJg9AGQb///9+/////v///37////+////fv////4rEBFhdHRyaWJ1dGVfc3VtbWFyeSYQJxsgICAgIDEgcG9pbnQgYXR0cmlidXRlczoJUAp9KxEIdG9wb2xvZ3kmEVsrEghwb2ludHJlZiYSWysTB2luZGljZXMmE0ASAF1dKxQKYXR0cmlidXRlcyYUWysVD3BvaW50YXR0cmlidXRlcyYVW1tbKxYFc2NvcGUmFisXBnB1YmxpYyYXKxgEdHlwZSYYKxkHbnVtZXJpYyYZKxoEbmFtZSYaKxsBUCYbKxwHb3B0aW9ucyYceyYYeyYYKx0Gc3RyaW5nJh0rHgV2YWx1ZSYeKx8FcG9pbnQmH319XVsrIARzaXplJiARAyshB3N0b3JhZ2UmISsiCGZwcmVhbDMyJiIrIwhkZWZhdWx0cyYjWyYgEQEmISskCGZwcmVhbDY0JiQrJQZ2YWx1ZXMmJUAaAQAAAAAAAAAAXSYlWyYgEQMmISYiKyYIcGFnZXNpemUmJhIABCsnC3Jhd3BhZ2VkYXRhJidAGQBdXV1dXSsoCnByaW1pdGl2ZXMmKFtdJwVpbmRleFsnDmludGVnZXJlbnRyaWVze30nDXN0cmluZ2VudHJpZXN7fScRaW50ZWdlcmtleWVudGlyZXN7fScQc3RyaW5na2V5ZW50cmllc3t9XScNaW5kZXhwb3NpdGlvbhRmAAAAAAAAAF0=	)
+stashinput	[ 0	locks=0 ]	(	[ stashinput	0 ] 	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/stash1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch2.init"
+Content-Type: text/plain
+
+type = switch
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch2.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position -9.81314 -21.4772
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+2 	foreach_end2 1 1 "input1"
+0 	stash1 1 1 "input2"
+}
+inputs
+{
+0 	foreach_end2 0 1
+1 	stash1 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author daredyoshi@_192.168.1.108
+  access 0777
+}
+color UT_Color RGB 0.8 1 0.7 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch2.chn"
+Content-Type: text/plain
+
+{
+    channel input {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../do_manualrefresh\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch2.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch2.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot.order"
+Content-Type: text/plain
+
+37
+set_locomotion
+foot_plants
+crowdClipAssign1
+crowdClipPlayer1
+agent_prep
+output2
+AGENT_TEMPLATE
+attribpromote1
+foreach_end2
+foreach_begin2
+metadata
+remove_time_dependency
+remove_time_dependency1
+load_modified_locomotion
+load_foot_plant_channels
+create_attributes
+load_clips
+switch_load_clips
+init_attributes
+guide_points
+agent_group
+GUIDES
+guide_nulls
+instance_guides
+force_reload_foot_plants
+OUT_FOOT_PLANTS
+force_reload_lomotion
+switch1
+locomotion
+OUT_LOCMOTION
+motionclip1
+agentunpack1
+configureclipinfo1
+agentclip1
+attribdelete1
+stash1
+switch2
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot.net"
+Content-Type: text/plain
+
+1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY--

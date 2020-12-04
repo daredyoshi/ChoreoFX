@@ -1,0 +1,11 @@
+{
+	"values":["18.5.351"
+	],
+	"indexes":{
+		"hdaroot/switch1.userdata":0,
+		"hdaroot/switch3.userdata":0,
+		"hdaroot/OUT_agents_with_ik.userdata":0,
+		"hdaroot/IN_ik_points.userdata":0,
+		"hdaroot/output0.userdata":0
+	}
+}

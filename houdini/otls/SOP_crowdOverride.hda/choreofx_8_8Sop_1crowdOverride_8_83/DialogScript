@@ -1,0 +1,536 @@
+# Dialog script for choreofx::crowdOverride::3 automatically generated
+
+{
+    name	choreofx::crowdOverride::3
+    script	choreofx::crowdOverride::3
+    label	"Crowd Override"
+
+    help {
+	""
+    }
+    bindhandle xformpivotrx xform "agentXform" pivot_rx ""
+    bindhandle xformpivotry xform "agentXform" pivot_ry ""
+    bindhandle xformpivotrz xform "agentXform" pivot_rz ""
+    bindhandle xformpivotx xform "agentXform" px ""
+    bindhandle xformpivoty xform "agentXform" py ""
+    bindhandle xformpivotz xform "agentXform" pz ""
+    bindhandle rotOffsetx xform "agentXform" rx ""
+    bindhandle rotOffsety xform "agentXform" ry ""
+    bindhandle rotOffsetz xform "agentXform" rz ""
+    bindhandle posOffsetx xform "agentXform" tx ""
+    bindhandle posOffsety xform "agentXform" ty ""
+    bindhandle posOffsetz xform "agentXform" tz ""
+
+    inputlabel	1	"Crowd Agents"
+    inputlabel	2	"Source Agent Prims"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+    outputlabel	1	"Crowd Agents"
+
+    parm {
+        name    "selectedAgents"
+        label   "Agent Group"
+        type    string
+        default { "" }
+        menutoggle {
+            [ "kwargs['node'].generateInputGroupMenu(0)" ]
+            language python
+        }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_action" "import soputils\nkwargs['geometrytype'] = kwargs['node'].parmTuple('grouptype')\nkwargs['inputindex'] = 0\n#kwargs['ordered'] = kwargs['node'].parm('ordered').eval()\nsoputils.selectGroupParm(kwargs)" }
+        parmtag { "script_action_help" "Select geometry from an available viewport.\nShift-click to turn on Select Groups." }
+        parmtag { "script_action_icon" "BUTTONS_reselect" }
+    }
+    parm {
+        name    "sepparm2"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
+        name    "importMethod"
+        label   "Source Agent Defs"
+        type    integer
+        default { "0" }
+        menu {
+            "0" "Input2"
+            "1" "Object Merge"
+            "2" "File Load"
+        }
+        range   { 0! 10 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "agentOppath"
+        label   "OpPath"
+        type    oppath
+        default { "" }
+        hidewhen "{ importMethod != 1 }"
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "opfilter" "!!SOP!!" }
+        parmtag { "oprelative" "." }
+    }
+    parm {
+        name    "agentFile"
+        label   "Geo File"
+        type    geometry
+        default { "default.bgeo" }
+        hidewhen "{ importMethod != 2 }"
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "filechooser_mode" "read_and_write" }
+    }
+    parm {
+        name    "sepparm"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    group {
+        name    "folder1"
+        label   "Edits"
+
+        parm {
+            name    "grouptype"
+            label   "Group Type"
+            type    ordinal
+            invisible
+            default { "point" }
+            menu {
+                "guess"         "Guess from Group"
+                "breakpoints"   "Breakpoints"
+                "edges"         "Edges"
+                "points"        "Points"
+                "prims"         "Primitives"
+            }
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        groupsimple {
+            name    "agentedits"
+            label   "Agent Edit"
+
+            parm {
+                name    "enableXform"
+                label   "enableXform"
+                type    toggle
+                nolabel
+                joinnext
+                default { "0" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "overrideTransform"
+                label   "Replace Transform instead of Offset"
+                type    toggle
+                default { "0" }
+                disablewhen "{ enableXform == 0 }"
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "posOffset"
+                label   "Position"
+                type    vector
+                size    3
+                default { "0" "0" "0" }
+                disablewhen "{ enableXform == 0 }"
+                range   { -1 1 }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "rotOffset"
+                label   "Rotation"
+                type    vector
+                size    3
+                default { "0" "0" "0" }
+                disablewhen "{ enableXform == 0 }"
+                range   { -1 1 }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "enableScale"
+                label   "enableHeadingDir"
+                type    toggle
+                nolabel
+                joinnext
+                default { "0" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "scaleAbs"
+                label   "Scale"
+                type    float
+                default { "1" }
+                disablewhen "{ enableScale == 0 }"
+                range   { 0.2 2 }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "enableHeadingDir"
+                label   "enableHeadingDir"
+                type    toggle
+                invisible
+                nolabel
+                joinnext
+                default { "0" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "headingDir"
+                label   "Heading Dir"
+                type    float
+                invisible
+                default { "0" }
+                disablewhen "{ enableHeadingDir == 0 }"
+                range   { -1 1 }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "rotOffset__"
+                label   "Rotation Offset"
+                type    intvector
+                invisible
+                size    3
+                default { "0" "0" "0" }
+                range   { -1 1 }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "enableAgentDef"
+                label   "enableAgentDef"
+                type    toggle
+                nolabel
+                joinnext
+                default { "0" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "agentDef"
+                label   "Agent Def"
+                type    string
+                default { "" }
+                disablewhen "{ enableAgentDef == 0 }"
+                menureplace {
+                    [ "import crowdstoolutils" ]
+                    [ "" ]
+                    [ "input_agents = hou.node(\"./INPUT_AGENTS\")" ]
+                    [ "geo = input_agents.geometry()" ]
+                    [ "agentnames = geo.findPointAttrib(\"agentname\") if geo else None" ]
+                    [ "" ]
+                    [ "names = []" ]
+                    [ "if agentnames:" ]
+                    [ "    names = crowdstoolutils.buildMenuStringList(agentnames.strings())" ]
+                    [ "" ]
+                    [ "return names" ]
+                    language python
+                }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "enableCostume"
+                label   "enableCostume"
+                type    toggle
+                nolabel
+                joinnext
+                default { "0" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "costume"
+                label   "Costume"
+                type    string
+                default { "default" }
+                disablewhen "{ enableCostume == 0 }"
+                menureplace {
+                    [ "import crowdstoolutils" ]
+                    [ "return crowdstoolutils.buildLayerMenu(hou.node(\"./read_agents\"))" ]
+                    language python
+                }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "enableClipName"
+                label   "enableClipName"
+                type    toggle
+                nolabel
+                joinnext
+                default { "0" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "clipName"
+                label   "Clip Name"
+                type    string
+                default { "rest" }
+                disablewhen "{ enableClipName == 0 }"
+                menureplace {
+                    [ "import crowdstoolutils" ]
+                    [ "return crowdstoolutils.buildClipMenu(hou.node(\"./read_agents\"))" ]
+                    language python
+                }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "enableTimeAnchor"
+                label   "enableTimeAnchor"
+                type    toggle
+                nolabel
+                joinnext
+                default { "0" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "timeAnchor"
+                label   "Time Anchor"
+                type    integer
+                default { "0" }
+                disablewhen "{ enableTimeAnchor == 0 }"
+                range   { -100 300 }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "enableTimeOffset"
+                label   "enableTimeOffset"
+                type    toggle
+                nolabel
+                joinnext
+                default { "0" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "timeOffset"
+                label   "Time Offset"
+                type    float
+                default { "0" }
+                disablewhen "{ enableTimeOffset == 0 }"
+                range   { -10 10 }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "enableTimeSpeed"
+                label   "enableTimeSpeed"
+                type    toggle
+                nolabel
+                joinnext
+                default { "0" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "timeSpeed"
+                label   "Time Speed"
+                type    float
+                default { "1" }
+                disablewhen "{ enableTimeSpeed == 0 }"
+                range   { 0 10 }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "sepparm_"
+                label   "Separator"
+                type    separator
+                default { "" }
+            }
+        }
+
+    }
+
+    group {
+        name    "folder1_1"
+        label   "User Data"
+
+        multiparm {
+            name    "userdata"
+            label    "User Data"
+
+            parm {
+                name    "dataEnable_#"
+                label   "#"
+                type    toggle
+                default { "1" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "dataType_#"
+                label   "Type"
+                type    ordinal
+                joinnext
+                default { "float" }
+                menu {
+                    "int"       "Integer"
+                    "float"     "Float"
+                    "vector"    "Vector"
+                    "string"    "String"
+                }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "dataName_#"
+                label   "Name"
+                type    string
+                default { "userdata#" }
+                menureplace {
+                    "vignetteLocked"    "vignetteLocked"
+                    "costumeLocked"     "costumeLocked"
+                    "agentLocked"       "agentLocked"
+                }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "dataInt_#"
+                label   "Int"
+                type    integer
+                default { "0" }
+                hidewhen "{ dataType_# != int }"
+                range   { 0 10 }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "dataFloat_#"
+                label   "Float"
+                type    float
+                default { "0" }
+                hidewhen "{ dataType_# != float }"
+                range   { 0 10 }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "dataVector_#"
+                label   "Vector"
+                type    vector
+                size    3
+                default { "0" "0" "0" }
+                hidewhen "{ dataType_# != vector }"
+                range   { -1 1 }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "dataString_#"
+                label   "String"
+                type    string
+                default { "" }
+                hidewhen "{ dataType_# != string }"
+                parmtag { "script_callback_language" "python" }
+            }
+        }
+
+    }
+
+    group {
+        name    "folder1_2"
+        label   "Joint Transform"
+
+        multiparm {
+            name    "adjusttransforms"
+            label    "Adjust Transforms"
+            default 0
+            parmtag { "autoscope" "0000000000000000" }
+
+            parm {
+                name    "enable#"
+                label   "Enable"
+                type    toggle
+                nolabel
+                joinnext
+                default { "1" }
+                range   { 0 1 }
+            }
+            parm {
+                name    "transformname#"
+                label   "Transform Name"
+                type    string
+                default { "" }
+                disablewhen "{ enable# == 0 }"
+                menureplace {
+                    [ "import crowdstoolutils" ]
+                    [ "return crowdstoolutils.buildTransformMenu(hou.pwd())" ]
+                    language python
+                }
+                range   { 0 1 }
+                parmtag { "script_action" "import crowdstoolutils\ncrowdstoolutils.selectJoint(kwargs['node'], kwargs['parmtuple'])" }
+                parmtag { "script_action_help" "Select a joint name from a tree view." }
+                parmtag { "script_action_icon" "BUTTONS_reselect" }
+            }
+            parm {
+                name    "t#"
+                label   "Translate"
+                type    vector
+                size    3
+                default { "0" "0" "0" }
+                disablewhen "{ enable# == 0 }"
+                range   { -1 1 }
+            }
+            parm {
+                name    "r#"
+                label   "Rotate"
+                type    vector
+                size    3
+                default { "0" "0" "0" }
+                disablewhen "{ enable# == 0 }"
+                range   { -360 360 }
+            }
+            parm {
+                name    "s#"
+                label   "Scale"
+                type    vector
+                size    3
+                default { "1" "1" "1" }
+                disablewhen "{ enable# == 0 }"
+                range   { -1 1 }
+            }
+            parm {
+                name    "uselocaladjust#"
+                label   "Use VEXpressions"
+                type    toggle
+                default { "0" }
+                disablewhen "{ enable# == 0 }"
+            }
+            parm {
+                name    "localadjustexpression#"
+                label   " "
+                type    string
+                default { "" }
+                disablewhen "{ enable# == 0 }"
+                hidewhen "{ uselocaladjust# == 0 }"
+                menu {
+                    [ "import vexpressionmenu" ]
+                    [ "" ]
+                    [ "return vexpressionmenu.buildSnippetMenu('agentedit/localadjustexpression')" ]
+                    language python
+                }
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "editor" "1" }
+                parmtag { "editorlang" "vex" }
+                parmtag { "editorlines" "8-40" }
+            }
+        }
+
+    }
+
+    group {
+        name    "folder1_3"
+        label   "nodedata"
+
+        parm {
+            name    "xformpivot"
+            label   "pivot"
+            type    vector
+            size    3
+            default { [ "point(\"OUT_Pivot\", 0, \"P\", 0)" hscript-expr ] [ "point(\"OUT_Pivot\", 0, \"P\", 1)" hscript-expr ] [ "point(\"OUT_Pivot\", 0, \"P\", 2)" hscript-expr ] }
+            range   { -1 1 }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "xformpivotr"
+            label   "pivotr"
+            type    vector
+            size    3
+            default { [ "point(\"OUT_Pivot\", 0, \"pr\", 0)" hscript-expr ] [ "point(\"OUT_Pivot\", 0, \"pr\", 1)" hscript-expr ] [ "point(\"OUT_Pivot\", 0, \"pr\", 2)" hscript-expr ] }
+            range   { -1 1 }
+            parmtag { "script_callback_language" "python" }
+        }
+    }
+
+}

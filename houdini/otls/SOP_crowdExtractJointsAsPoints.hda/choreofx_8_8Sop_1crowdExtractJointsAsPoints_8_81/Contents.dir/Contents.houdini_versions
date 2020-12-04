@@ -1,0 +1,14 @@
+{
+	"values":["18.5.351"
+	],
+	"indexes":{
+		"hdaroot/orient_type.userdata":0,
+		"hdaroot/switch_clonepoints.userdata":0,
+		"hdaroot/_agentprims.userdata":0,
+		"hdaroot/switch_animated.userdata":0,
+		"hdaroot/in.userdata":0,
+		"hdaroot/static.userdata":0,
+		"hdaroot/out.userdata":0,
+		"hdaroot/keep_points.userdata":0
+	}
+}

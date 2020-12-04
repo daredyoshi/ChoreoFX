@@ -1,0 +1,14 @@
+Operator:     choreofx::agentVignetteImport::1
+Label:        Agent Vignette Import
+Path:         oplib:/choreofx::Sop/agentVignetteImport::1?choreofx::Sop/agentVignetteImport::1
+Icon:         ChoreoFX
+Table:        Sop
+License:      
+Extra:        
+User:         
+Inputs:       0 to 1
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Thu Dec  3 10:18:44 2020
+

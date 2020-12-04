@@ -1,0 +1,14 @@
+Operator:     choreofx::choreoAgentPrep::1.0
+Label:        Choreo Agent Prep
+Path:         oplib:/choreofx::Sop/choreoAgentPrep::1.0?choreofx::Sop/choreoAgentPrep::1.0
+Icon:         ChoreoFX
+Table:        Sop
+License:      
+Extra:        guide=GUIDES 
+User:         
+Inputs:       1 to 1
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Thu Dec  3 13:33:50 2020
+

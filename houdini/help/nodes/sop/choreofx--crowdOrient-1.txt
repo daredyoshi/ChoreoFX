@@ -1,0 +1,120 @@
+= Crowd Orient =
+#icon: /Icons/ChoreoFX.svg
+#tags: crowds, agents, ChoreoFX
+
+"""Documentation is Coming soon!"""
+
+This is placeholder documentation for Crowd Orient
+
+@parameters
+
+== Crowd Orient ==
+Affected Group:
+	#id: group
+	ToDo
+
+Group Type:
+	#id: grouptype
+	ToDo
+
+Vis Target Lines:
+	#id: visTargetLines
+	ToDo
+
+Vis Agent Direction:
+	#id: visAgentDir
+	ToDo
+
+== Set Heading ==
+Heading Method:
+	#id: headingMethod
+	ToDo
+
+Set Direction:
+	#id: setDir
+	ToDo
+
+Look At Position:
+	#id: lookatPosition
+	ToDo
+
+Transfer Attrib:
+	#id: transferAttrib
+	ToDo
+
+Attrib id to match:
+	#id: matchAttrib
+	ToDo
+
+Lookup Attrib:
+	#id: lookupAttrib
+	ToDo
+
+== Tweak Heading ==
+Blur Heading with Neighbours:
+	#id: blurHeading
+	ToDo
+
+Blur Iterations:
+	#id: blurIters
+	ToDo
+
+Proximity Radius:
+	#id: proxRad
+	ToDo
+
+Max Neighbors:
+	#id: maxneigh
+	ToDo
+
+Post Rotate Amount:
+	#id: postRotAmp
+	ToDo
+
+Random Rotate Amount:
+	#id: randRotAmp
+	ToDo
+
+Random Seed:
+	#id: randRotSeed
+	ToDo
+
+Flatten Heading to xz Plane:
+	#id: flattenHeading
+	ToDo
+
+== Masking ==
+Blend Strength:
+	#id: blendStrength
+	ToDo
+
+Mask Method:
+	#id: maskMethod
+	ToDo
+
+Mask Attribute:
+	#id: maskAttrib
+	ToDo
+
+mask Center:
+	#id: maskCenter
+	ToDo
+
+Mask Distance:
+	#id: maskDist
+	ToDo
+
+Falloff Distance:
+	#id: falloffDist
+	ToDo
+
+
+@inputs
+
+Placeholder:
+    Description of input
+
+@outputs
+
+Placeholder:
+    Description of output

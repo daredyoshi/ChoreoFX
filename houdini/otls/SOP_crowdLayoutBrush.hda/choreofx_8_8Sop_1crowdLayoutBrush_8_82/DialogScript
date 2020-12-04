@@ -1,0 +1,1459 @@
+# Dialog script for choreofx::crowdLayoutBrush::2 automatically generated
+
+{
+    name	choreofx::crowdLayoutBrush::2
+    script	sun_sop_dressingbrush::00.05
+    label	"Crowd Layout Brush"
+
+    help {
+	""
+    }
+    bindhandle pivot_comp_tx xform "editsop_handle" pivot_comp_tx "translate(1) rotate(1) scale(1)"
+    bindhandle pivot_comp_ty xform "editsop_handle" pivot_comp_ty "translate(1) rotate(1) scale(1)"
+    bindhandle pivot_comp_tz xform "editsop_handle" pivot_comp_tz "translate(1) rotate(1) scale(1)"
+    bindhandle roffsetx xform "editsop_handle" roffsetx "translate(1) rotate(1) scale(1)"
+    bindhandle roffsety xform "editsop_handle" roffsety "translate(1) rotate(1) scale(1)"
+    bindhandle roffsetz xform "editsop_handle" roffsetz "translate(1) rotate(1) scale(1)"
+    bindhandle rpivotx xform "editsop_handle" rpivotx "translate(1) rotate(1) scale(1)"
+    bindhandle rpivoty xform "editsop_handle" rpivoty "translate(1) rotate(1) scale(1)"
+    bindhandle rpivotz xform "editsop_handle" rpivotz "translate(1) rotate(1) scale(1)"
+
+    inputlabel	1	"optional existing geometry"
+    inputlabel	2	"collision geometry"
+    inputlabel	3	"model variations"
+    inputlabel	4	"Sub-Network Input #4"
+
+    groupsimple {
+        name    "folder3"
+        label   "Global"
+
+        parm {
+            name    "clearAll"
+            label   "Clear All"
+            type    button
+            joinnext
+            default { "0" }
+            parmtag { "script_callback" "hou.pwd().parm(\"stash_all_points\").revertToDefaults()" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "clearSelected"
+            label   "Clear Selected"
+            type    button
+            joinnext
+            default { "0" }
+            parmtag { "script_callback" "" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "stampFromSelected"
+            label   "Stamp From Selected"
+            type    button
+            default { "0" }
+            parmtag { "script_callback" "hou.pwd().parm(\"stash_all_points\").revertToDefaults()" }
+            parmtag { "script_callback_language" "python" }
+        }
+    }
+
+    group {
+        name    "folder4"
+        label   "Agent Attribs"
+
+        parm {
+            name    "agentName"
+            label   "Agent Name"
+            type    string
+            joinnext
+            default { "random" }
+            menureplace {
+                [ "import crowdstoolutils" ]
+                [ "" ]
+                [ "input_agents = hou.node(\"./INPUT_AGENTS\")" ]
+                [ "geo = input_agents.geometry()" ]
+                [ "agentnames = geo.findPointAttrib(\"agentname\") if geo else None" ]
+                [ "" ]
+                [ "#names = []" ]
+                [ "names = [\"random\", \"random\"]" ]
+                [ "if agentnames:" ]
+                [ "    names += crowdstoolutils.buildMenuStringList(agentnames.strings())" ]
+                [ "return names" ]
+                language python
+            }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "costumeName"
+            label   "Costume Name"
+            type    string
+            default { "random" }
+            menureplace {
+                [ "import crowdstoolutils" ]
+                [ "menu = [\"random\", \"random\"]" ]
+                [ "menu += crowdstoolutils.buildLayerMenu(hou.node(\"./read_agents\"))" ]
+                [ "" ]
+                [ "return menu" ]
+                language python
+            }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "clipName"
+            label   "Clip Name"
+            type    string
+            default { "random" }
+            menureplace {
+                [ "import crowdstoolutils" ]
+                [ "menu = [\"random\", \"random\"]" ]
+                [ "menu += crowdstoolutils.buildClipMenu(hou.node(\"./read_agents\"))" ]
+                [ "return menu" ]
+                language python
+            }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "clipTimeOffset"
+            label   "Clip Time"
+            type    float
+            default { "0" }
+            range   { 0 10 }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "sepparm11"
+            label   "Separator"
+            type    separator
+            default { "" }
+        }
+        parm {
+            name    "vignetteName"
+            label   "Vignette Name"
+            type    string
+            default { "none" }
+            menureplace {
+                [ "import crowdstoolutils" ]
+                [ "" ]
+                [ "input_agents = hou.node(\"./IN_VIGNETTE_SOURCES\")" ]
+                [ "geo = input_agents.geometry()" ]
+                [ "vignames = geo.findPointAttrib(\"vignetteName\") if geo else None" ]
+                [ "" ]
+                [ "names = []" ]
+                [ "if vignames:" ]
+                [ "    menu = [\"none\", \"none\"]" ]
+                [ "    menu += [\"random\", \"random\"]" ]
+                [ "    menu += crowdstoolutils.buildMenuStringList(vignames.strings())" ]
+                [ "" ]
+                [ "return menu" ]
+                language python
+            }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "sepparm2"
+            label   "Separator"
+            type    separator
+            default { "" }
+        }
+        parm {
+            name    "agentNameChanged"
+            label   "AgentName Changed"
+            type    toggle
+            default { "0" }
+            disablewhen "{ 1 != 1 }"
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "costumeNameChanged"
+            label   "CostumeName Changed"
+            type    toggle
+            default { "0" }
+            disablewhen "{ 1 != 1 }"
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "clipNameChanged"
+            label   "Clip Name Changed"
+            type    toggle
+            default { "0" }
+            disablewhen "{ 1 != 1 }"
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "clipTimeOffsetChanged"
+            label   "Clip Time Offset Changed"
+            type    toggle
+            default { "0" }
+            disablewhen "{ 1 != 1 }"
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "vignetteNameChanged"
+            label   "VignetteName Changed"
+            type    toggle
+            default { "0" }
+            disablewhen "{ 1 != 1 }"
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "sepparm34"
+            label   "Separator"
+            type    separator
+            default { "" }
+        }
+        parm {
+            name    "agentImportMethod"
+            label   "Agent Import Method"
+            type    integer
+            default { "1" }
+            menu {
+                "0" "Input1"
+                "1" "Object Merge"
+                "2" "File Load"
+            }
+            range   { 0! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "agentOppath"
+            label   "Agent OpPath"
+            type    oppath
+            default { "" }
+            hidewhen "{ agentImportMethod != 1 }"
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "opfilter" "!!SOP!!" }
+            parmtag { "oprelative" "." }
+        }
+        parm {
+            name    "agentFile"
+            label   "Agent Geo File"
+            type    geometry
+            default { "default.bgeo" }
+            hidewhen "{ agentImportMethod != 2 }"
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "filechooser_mode" "read_and_write" }
+        }
+        parm {
+            name    "sepparm35"
+            label   "Separator"
+            type    separator
+            default { "" }
+        }
+        parm {
+            name    "vignetteImportMethod"
+            label   "Vignettes Import Method"
+            type    integer
+            default { "1" }
+            menu {
+                "0" "Input1"
+                "1" "Object Merge"
+                "2" "File Load"
+            }
+            range   { 0! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "vignetteOppath"
+            label   "Vignettes OpPath"
+            type    oppath
+            default { "" }
+            hidewhen "{ vignetteImportMethod != 1 }"
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "opfilter" "!!SOP!!" }
+            parmtag { "oprelative" "." }
+        }
+        parm {
+            name    "vignetteFile"
+            label   "Vignette Geo File"
+            type    geometry
+            default { "default.bgeo" }
+            hidewhen "{ vignetteImportMethod != 2 }"
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "filechooser_mode" "read_and_write" }
+        }
+    }
+
+    group {
+        name    "folder4_1"
+        label   "Settings"
+
+        parm {
+            name    "sepparm"
+            label   "Separator"
+            type    separator
+            default { "" }
+        }
+        parm {
+            name    "brushdisplay"
+            label   "Brush Display Mode"
+            type    ordinal
+            default { "3" }
+            menu {
+                "0" "Nothing"
+                "1" "Points"
+                "2" "Agent Proxy"
+                "3" "Live Agent Merge"
+            }
+            range   { 0! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "allpointdisplay"
+            label   "All Point Display Mode"
+            type    ordinal
+            default { "1" }
+            menu {
+                "0" "Nothing"
+                "1" "Points"
+                "2" "Agent Proxy"
+                "3" "Agent Template"
+            }
+            range   { 0! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "visXform"
+            label   "Visualize Transforms"
+            type    toggle
+            default { "0" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "visualizers"
+            label   "Visualize"
+            type    integer
+            default { "3" }
+            menu {
+                "0" "None"
+                "1" "agentname"
+                "2" "clipName"
+                "3" "timeOffset"
+                "4" "agent_id"
+                "5" "costumeName"
+                "6" "pscale"
+                "7" "vignetteName"
+            }
+            range   { 0! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "sepparm32"
+            label   "Separator"
+            type    separator
+            default { "" }
+        }
+        parm {
+            name    "raygroundplane"
+            label   "Raycast GroundPlane"
+            type    toggle
+            default { "1" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "useRaycastOnEdit"
+            label   "Do Raycast after moving Points"
+            type    toggle
+            default { "1" }
+            range   { 0! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "sepparm12"
+            label   "Separator"
+            type    separator
+            default { "" }
+        }
+        parm {
+            name    "labelparm3"
+            label   "Intersect Search Distance"
+            type    label
+            default { "" }
+        }
+        parm {
+            name    "useIntersectDetect"
+            label   "Use Intersection Detection"
+            type    toggle
+            default { "1" }
+            range   { 0! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "usepscalemultiplier"
+            label   "Use pscale Multiplier"
+            type    toggle
+            default { "1" }
+            disablewhen "{ useIntersectDetect == 0 }"
+            range   { 0! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "intersectSearchDist"
+            label   "Search Distance"
+            type    float
+            default { "0.7" }
+            disablewhen "{ useIntersectDetect == 0 }"
+            range   { 0 5 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "sepparm4"
+            label   "Separator"
+            type    separator
+            default { "" }
+        }
+        parm {
+            name    "usestroke"
+            label   "Use Stroke"
+            type    toggle
+            default { "1" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "strokeSpacing"
+            label   "Stroke Spacing"
+            type    float
+            default { "0.5" }
+            disablewhen "{ usestroke == 0 }"
+            range   { 0 5 }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "sepparm10"
+            label   "Separator"
+            type    separator
+            default { "" }
+        }
+        parm {
+            name    "pscaleBase"
+            label   "Point Scale"
+            type    float
+            default { "1" }
+            range   { 0.01 10 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "sepparm5"
+            label   "Separator"
+            type    separator
+            default { "" }
+        }
+        parm {
+            name    "orientSurfaceMax"
+            label   "Orient Up to Surface"
+            type    float
+            default { "0" }
+            range   { 0 1 }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "preserveStampUp"
+            label   "Preserve Stamp Up"
+            type    float
+            default { "1" }
+            disablewhen "{ brush_source == circleScatter }"
+            range   { 0 1 }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "sepparm24"
+            label   "Separator"
+            type    separator
+            default { "" }
+        }
+        parm {
+            name    "enableRandom"
+            label   "Enable Randomization"
+            type    toggle
+            default { "0" }
+            parmtag { "script_callback_language" "python" }
+        }
+        groupsimple {
+            name    "folder1"
+            label   "Randomization"
+            disablewhentab "{ enableRandom == 0 }"
+
+            parm {
+                name    "useFirstClickRandom"
+                label   "Randomize on First Click"
+                type    toggle
+                default { "0" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "sepparm3"
+                label   "Separator"
+                type    separator
+                default { "" }
+            }
+            parm {
+                name    "modelrand"
+                label   "Randomize Model"
+                type    toggle
+                default { "1" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "weightedModelRand"
+                label   "Use model weights from Input Collection"
+                type    toggle
+                default { "1" }
+                disablewhen "{ modelrand == 0 }"
+                range   { 0! 10 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "orientSurfaceRand"
+                label   "Orient Surface Random"
+                type    float
+                default { "0" }
+                range   { 0 1 }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "pscalerand"
+                label   "Scale Random"
+                type    float
+                default { "0.3" }
+                range   { 0 1 }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "rotrand"
+                label   "Rotate Random"
+                type    float
+                default { "1" }
+                range   { 0 1 }
+                parmtag { "script_callback_language" "python" }
+            }
+        }
+
+    }
+
+    group {
+        name    "folder4_2"
+        label   "Brush"
+
+        groupsimple {
+            name    "folder2"
+            label   "Brush"
+
+            parm {
+                name    "useBrush"
+                label   "Use Brush"
+                type    toggle
+                default { "0" }
+                range   { 0! 10 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "sepparm31"
+                label   "Separator"
+                type    separator
+                default { "" }
+            }
+            parm {
+                name    "brush_source"
+                label   "Brush Source"
+                type    ordinal
+                default { "0" }
+                menu {
+                    "circleScatter" "Circle Scatter"
+                    "tempStash"     "Temp Stash"
+                    "fileLoad"      "File Load"
+                }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "brush_shape"
+                label   "Brush Shape"
+                type    ordinal
+                default { "0" }
+                menu {
+                    "surface"   "Surface"
+                    "screen"    "Screen"
+                }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "brush_mode"
+                label   "Brush Mode"
+                type    ordinal
+                default { "0" }
+                menu {
+                    "add_points"    "Add Points"
+                    "edit_override" "Edit Override"
+                    "edit_scale"    "Edit Modify"
+                    "xform_handle"  "Xform Handle"
+                }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "sepparm18"
+                label   "Separator"
+                type    separator
+                default { "" }
+            }
+            parm {
+                name    "brush_rad"
+                label   "Radius"
+                type    float
+                default { "1" }
+                range   { 0 10 }
+                export  all
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback" "" }
+                parmtag { "script_callback_language" "python" }
+                parmtag { "units" "m1" }
+            }
+            parm {
+                name    "brush_density"
+                label   "Density"
+                type    float
+                default { "5" }
+                range   { 0.1 100 }
+                export  all
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "units" "m-2" }
+            }
+            parm {
+                name    "brush_centerbias"
+                label   "Center Bias"
+                type    float
+                default { "0" }
+                range   { 0 5 }
+                export  all
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "sepparm21"
+                label   "Separator"
+                type    separator
+                default { "" }
+            }
+            parm {
+                name    "brush_orientMode"
+                label   "Default Brush Orient"
+                type    integer
+                default { "0" }
+                menu {
+                    "0" "World Up"
+                    "1" "View Camera"
+                }
+                range   { 0 10 }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "brush_ProjectDir"
+                label   "Projection Direction"
+                type    integer
+                default { "0" }
+                menu {
+                    "0" "Brush Up"
+                    "1" "Camera Dir"
+                }
+                range   { 0 10 }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "orientBrushToSurface"
+                label   "Orient Brush To Surface"
+                type    float
+                default { "0" }
+                range   { 0 1 }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "sepparm7"
+                label   "Separator"
+                type    separator
+                default { "" }
+            }
+            parm {
+                name    "usefalloff"
+                label   "Use Brush Falloff"
+                type    toggle
+                default { "1" }
+                range   { 0! 10 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "brush_falloff"
+                label   "Falloff"
+                type    float
+                default { "0.5" }
+                range   { 0 0.95 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "brush_strength"
+                label   "Brush Strength"
+                type    float
+                default { "1" }
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "sepparm22"
+                label   "Separator"
+                type    separator
+                default { "" }
+            }
+            parm {
+                name    "useBrushDistClamp"
+                label   "Clamp Distance from Brush"
+                type    toggle
+                default { "1" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "brushDistClamp"
+                label   "Max Dist by Brush Size"
+                type    float
+                default { "1.2" }
+                disablewhen "{ useBrushDistClamp == 0 }"
+                range   { 1 5 }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "sepparm8"
+                label   "Separator"
+                type    separator
+                default { "" }
+            }
+            parm {
+                name    "brush_relax_uniform"
+                label   "Relax Uniform"
+                type    integer
+                default { "2" }
+                range   { 0! 10 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "brush_relax_pscale"
+                label   "Relax by pscale"
+                type    integer
+                default { "4" }
+                range   { 0! 10 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "sepparm9"
+                label   "Separator"
+                type    separator
+                default { "" }
+            }
+        }
+
+    }
+
+    group {
+        name    "folder4_3"
+        label   "Modify Settings"
+
+        parm {
+            name    "doUpdateChildren"
+            label   "Update Children After Modify"
+            type    toggle
+            default { "0" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "doSingleModePosOverride"
+            label   "Single Mode Smudge Position Override"
+            type    toggle
+            default { "0" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "sepparm33"
+            label   "Separator"
+            type    separator
+            default { "" }
+        }
+        parm {
+            name    "doEditScale"
+            label   "Edit Scale"
+            type    toggle
+            default { "1" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "doEditTwist"
+            label   "Edit Twist (Rot)"
+            type    toggle
+            default { "0" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "doEditSurfaceUp"
+            label   "Edit Surface Up"
+            type    toggle
+            default { "0" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "doEditModel"
+            label   "Edit Model"
+            type    toggle
+            default { "0" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "sepparm27"
+            label   "Separator"
+            type    separator
+            default { "" }
+        }
+        parm {
+            name    "useValueSnapping"
+            label   "Use Value Snapping"
+            type    toggle
+            default { "0" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "snapAngle"
+            label   "Snap Angle"
+            type    angle
+            default { "15" }
+            range   { 0 360 }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "snapFloat"
+            label   "Snap Float"
+            type    float
+            default { "0.1" }
+            range   { 0 10 }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "minScale"
+            label   "Min Scale"
+            type    float
+            default { "0.05" }
+            range   { 0.005 0.1 }
+            parmtag { "script_callback_language" "python" }
+        }
+    }
+
+    group {
+        name    "folder4_4"
+        label   "Xform Handle"
+
+        parm {
+            name    "handle_pos"
+            label   "Affects Position"
+            type    toggle
+            default { "1" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "handle_rot"
+            label   "Affects Rotation"
+            type    toggle
+            default { "1" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "handle_scale"
+            label   "Affect Scale"
+            type    toggle
+            default { "0" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "sepparm25"
+            label   "Separator"
+            type    separator
+            default { "" }
+        }
+        parm {
+            name    "sepparm26"
+            label   "Separator"
+            type    separator
+            default { "" }
+        }
+        parm {
+            name    "edt_t"
+            label   "Translate"
+            type    vector
+            size    3
+            default { "0" "0" "0" }
+            range   { -1 1 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "edt_r"
+            label   "Rotate"
+            type    vector
+            size    3
+            default { "0" "0" "0" }
+            range   { -1 1 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "edt_s"
+            label   "Scale"
+            type    vector
+            size    3
+            default { "1" "1" "1" }
+            range   { -1 1 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "edt_shear"
+            label   "Shear"
+            type    float
+            size    3
+            default { "0" "0" "0" }
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "edt_p"
+            label   "Pivot Translate"
+            type    vector
+            size    3
+            default { "0" "0" "0" }
+            range   { -1 1 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "edt_pr"
+            label   "Pivot Rotate"
+            type    vector
+            size    3
+            default { "0" "0" "0" }
+            range   { -1 1 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+    }
+
+    group {
+        name    "folder4_5"
+        label   "Stamps"
+
+        parm {
+            name    "reload"
+            label   "Reload Geometry"
+            type    button
+            default { "0" }
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "stampfile"
+            label   "Stamp File"
+            type    geometry
+            default { "$HIP/geo/dressingbrush/stamps/stamp.bgeo.sc" }
+            menureplace {
+                [ "opmenu -l -a save_stamp file" ]
+            }
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "filechooser_mode" "write" }
+        }
+        parm {
+            name    "execute"
+            label   "Save to Disk"
+            type    button
+            default { "0" }
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+            parmtag { "takecontrol" "always" }
+        }
+    }
+
+    group {
+        name    "folder4_6"
+        label   "Groups"
+
+        parm {
+            name    "grouptype"
+            label   "Group Type"
+            type    ordinal
+            default { "1" }
+            menu {
+                "primitive" "Primitives"
+                "point"     "Points"
+                "edge"      "Edges"
+                "vertex"    "Vertices"
+            }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "ordered"
+            label   "Create Ordered"
+            type    toggle
+            invisible
+            default { "off" }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "maskgroup"
+            label   "Mask Group"
+            type    string
+            default { "" }
+            menutoggle {
+                [ "opmenu -l -a group_selection basegroup" ]
+            }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_action" "import soputils\nkwargs['geometrytype'] = kwargs['node'].parmTuple('grouptype')\nkwargs['inputindex'] = 0\nkwargs['ordered'] = kwargs['node'].parm('ordered').eval()\nsoputils.selectGroupParm(kwargs)" }
+            parmtag { "script_action_help" "Select geometry from an available viewport.\nShift-click to turn on Select Groups." }
+            parmtag { "script_action_icon" "BUTTONS_reselect" }
+        }
+        parm {
+            name    "selectAllModelInstances"
+            label   "Include All instances of selected model"
+            type    toggle
+            default { "0" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "selectAllInCollection"
+            label   "Include All instances in selected Collection"
+            type    toggle
+            default { "0" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "selectAllChildren"
+            label   "Include All children of selected"
+            type    toggle
+            default { "0" }
+            range   { 0! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "childSearchIters"
+            label   "Max Child Search Depth"
+            type    integer
+            default { "3" }
+            range   { 1 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "useInvertMask"
+            label   "Invert Mask"
+            type    toggle
+            default { "0" }
+            range   { 0! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "grp_single"
+            label   "Group Single Point"
+            type    string
+            default { "" }
+            parmtag { "script_callback_language" "python" }
+        }
+    }
+
+    group {
+        name    "folder4_7"
+        label   "Tool data"
+
+        parm {
+            name    "activeCollection"
+            label   "Collection"
+            type    integer
+            default { "0" }
+            menu {
+                [ "from itertools import chain" ]
+                [ "node = hou.pwd().node('unique_collections')" ]
+                [ "cols = node.geometry().stringListAttribValue('collections')" ]
+                [ "nums = range(0, len(cols))" ]
+                [ "#print cols" ]
+                [ "" ]
+                [ "#TODO This is updating too often! FIX!" ]
+                [ "return list(chain(*zip(nums, cols)))" ]
+                [ "" ]
+                [ "" ]
+                [ "# or [item for pair in zip(nums, cols) for item in pair]" ]
+                language python
+            }
+            range   { 0 10 }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "sepparm6"
+            label   "Separator"
+            type    separator
+            default { "" }
+        }
+        parm {
+            name    "modelcount"
+            label   "Model Variation Count "
+            type    integer
+            default { "4" }
+            range   { 0 10 }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "brush_model"
+            label   "model"
+            type    integer
+            default { "0" }
+            range   { 0 10 }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "sepparm28"
+            label   "Separator"
+            type    separator
+            default { "" }
+        }
+        parm {
+            name    "sepparm30"
+            label   "Separator"
+            type    separator
+            default { "" }
+        }
+        parm {
+            name    "toggle_add_points"
+            label   "Enable Add Points"
+            type    toggle
+            default { "1" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "sepparm23"
+            label   "Separator"
+            type    separator
+            default { "" }
+        }
+        parm {
+            name    "brush_op"
+            label   "brush Operation"
+            type    ordinal
+            default { "0" }
+            menu {
+                "0" "None"
+                "1" "Add"
+                "2" "Remove"
+                "3" "Relax"
+                "4" "Smudge"
+                "5" "Smudge Up"
+                "6" "Edit"
+                "7" "Blur"
+                "8" "Xform"
+            }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "sepparm15"
+            label   "Separator"
+            type    separator
+            default { "" }
+        }
+        parm {
+            name    "mouse_screenP"
+            label   "Mouse Screen Pos"
+            type    vector
+            size    3
+            default { "0" "0" "0" }
+            range   { 0 1000 }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "brush_screen_delta"
+            label   "Mouse Screen Delta"
+            type    vector
+            size    3
+            default { "0" "0" "0" }
+            range   { 0 1000 }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "mouse_pixelMult"
+            label   "mouse Pixel Multiplier"
+            type    float
+            default { "100" }
+            range   { 1 500 }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "sepparm17"
+            label   "Separator"
+            type    separator
+            default { "" }
+        }
+        parm {
+            name    "brush_position"
+            label   "Brush Position"
+            type    vector
+            size    3
+            default { "0" "0" "0" }
+            range   { -1 1 }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "brush_position_delta"
+            label   "Position Delta End"
+            type    vector
+            size    3
+            default { "0" "0" "0" }
+            range   { -1 1 }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "brush_surfaceN"
+            label   "surface Normal"
+            type    vector
+            size    3
+            default { "0" "0" "0" }
+            range   { -1 1 }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "brush_surfaceMix"
+            label   "surface N Mix"
+            type    float
+            default { "0" }
+            range   { 0 1 }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "brush_rot"
+            label   "rot"
+            type    float
+            default { "0" }
+            range   { 0 1 }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "brush_scale"
+            label   "scale"
+            type    float
+            default { "1" }
+            range   { 0 2 }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "sepparm14"
+            label   "Separator"
+            type    separator
+            default { "" }
+        }
+        parm {
+            name    "stampnumber"
+            label   "StampNumber"
+            type    integer
+            default { "0" }
+            range   { 0 1000 }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "pressCount"
+            label   "pressCount"
+            type    integer
+            default { "0" }
+            range   { 0 1000 }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "sepparm13"
+            label   "Separator"
+            type    separator
+            default { "" }
+        }
+        parm {
+            name    "isfirstpress"
+            label   "Is First Press"
+            type    toggle
+            default { "0" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "isMouseDown"
+            label   "Is Mouse Down"
+            type    toggle
+            default { "0" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "validPos"
+            label   "is Valid Pos"
+            type    toggle
+            default { "0" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "isSelectionEvent"
+            label   "is Selection Event"
+            type    toggle
+            default { "0" }
+            range   { 0! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "isBrushSubtract"
+            label   "is Brush Subtract"
+            type    toggle
+            default { "0" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "isKillSelected"
+            label   "is Kill Selected"
+            type    toggle
+            default { "0" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "isQuickClone"
+            label   "is Quick Clone"
+            type    toggle
+            default { "0" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "isCursorInViewport"
+            label   "is Cursor In Viewport"
+            type    toggle
+            default { "0" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "sepparm16"
+            label   "Separator"
+            type    separator
+            default { "" }
+        }
+        parm {
+            name    "brushscreenxform"
+            label   "brushscreenxform"
+            type    float
+            size    16
+            default { "0" "0" "0" "0" "0" "0" "0" "0" "0" "0" "0" "0" "0" "0" "0" "0" }
+            range   { 0 10 }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "testxf"
+            label   "testxf"
+            type    float
+            size    16
+            default { "0" "0" "0" "0" "0" "0" "0" "0" "0" "0" "0" "0" "0" "0" "0" "0" }
+            range   { 0 10 }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "cam_pivot"
+            label   "cam_pivot"
+            type    vector
+            size    3
+            default { "0" "0" "0" }
+            range   { -1 1 }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "cam_rot"
+            label   "cam_rot"
+            type    vector
+            size    3
+            default { "0" "0" "0" }
+            range   { -1 1 }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "screenRes"
+            label   "ScreenRes"
+            type    vector
+            size    3
+            default { "0" "0" "0" }
+            range   { 0 1000 }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "mouse_point"
+            label   "mouse_point"
+            type    vector
+            size    3
+            default { "0" "0" "0" }
+            range   { -1 1 }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "mouse_dir"
+            label   "mouse_dir"
+            type    vector
+            size    3
+            default { "0" "0" "0" }
+            range   { -1 1 }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "sepparm19"
+            label   "Separator"
+            type    separator
+            default { "" }
+        }
+        parm {
+            name    "sepparm20"
+            label   "Separator"
+            type    separator
+            default { "" }
+        }
+        parm {
+            name    "stash_all_points"
+            label   "Data all points"
+            type    data
+            default { "0" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "stash_stamp_points"
+            label   "Data stamp points"
+            type    data
+            default { "0" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "stash_ray_geo"
+            label   "Data ray geo"
+            type    data
+            default { "0" }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "stash_smart_ray_points"
+            label   "Data smart ray points"
+            type    data
+            default { "0" }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+    }
+
+}

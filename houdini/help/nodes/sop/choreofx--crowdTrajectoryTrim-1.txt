@@ -1,0 +1,56 @@
+= Crowd Trajectory Trim =
+#icon: /Icons/ChoreoFX.svg
+#tags: crowds, agents, ChoreoFX
+
+"""Documentation is Coming soon!"""
+
+This is placeholder documentation for Crowd Trajectory Trim
+
+@parameters
+
+Group:
+	#id: group
+	ToDo
+
+New Start Frame:
+	#id: newstartframe
+	ToDo
+
+New End Frame:
+	#id: newendframe
+	ToDo
+
+Start Attrib Name:
+	#id: start_frame_attrib
+	ToDo
+
+End Frame Attrib Name:
+	#id: end_frame_attrib
+	ToDo
+
+Put First to Start:
+	#id: put_first_to_start
+	ToDo
+
+Loop Out of Range:
+	#id: loop_out_of_range
+	ToDo
+
+Use Prim Attribs:
+	#id: use_prim_attribs
+	ToDo
+
+Output trim_del group instead of blasting:
+	#id: output_group
+	ToDo
+
+
+@inputs
+
+Placeholder:
+    Description of input
+
+@outputs
+
+Placeholder:
+    Description of output

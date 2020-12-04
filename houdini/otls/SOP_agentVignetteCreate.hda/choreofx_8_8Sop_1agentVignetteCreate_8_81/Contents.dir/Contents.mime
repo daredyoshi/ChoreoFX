@@ -1,0 +1,100 @@
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY"
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="node_type"
+Content-Type: text/plain
+
+Sop
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot.init"
+Content-Type: text/plain
+
+type = choreofx::agentVignetteCreate::1
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 1.91161 -1.02659
+connectornextid 0
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create -1
+  modify -1
+  author daredyoshi@_192.168.1.108
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot.inp"
+Content-Type: text/plain
+
+30
+0 0 6 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+1 3 6.5 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+2 6 7 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+3 9 7.5 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+4 12 8 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+5 15 8.5 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+6 18 9 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+7 21 9.5 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+8 24 10 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+9 27 10.5 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+10 30 11 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+11 33 11.5 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+12 36 12 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+13 39 12.5 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+14 42 13 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+15 45 13.5 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+16 48 14 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+17 51 14.5 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+18 54 15 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+19 57 15.5 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+20 60 16 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+21 63 16.5 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+22 66 17 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+23 69 17.5 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+24 72 18 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+25 75 18.5 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+26 78 19 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+27 81 19.5 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+28 84 20 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+29 87 20.5 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot.net"
+Content-Type: text/plain
+
+1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY--

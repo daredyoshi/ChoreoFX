@@ -1,0 +1,504 @@
+# Dialog script for choreofx::choreoAgentPrep::1.0 automatically generated
+
+{
+    name	choreofx::choreoAgentPrep::1.0
+    script	choreofx::choreoAgentPrep::1.0
+    label	"Choreo Agent Prep"
+
+    help {
+	""
+    }
+
+    inputlabel	1	"Sub-Network Input #1"
+    inputlabel	2	"Sub-Network Input #2"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+
+    parm {
+        name    "do_manualrefresh"
+        label   "Manual Refresh"
+        type    toggle
+        joinnext
+        default { "1" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "calculate"
+        label   "Calculate"
+        type    button
+        default { "0" }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    group {
+        name    "folder0"
+        label   "Agent"
+
+        parm {
+            name    "restclip"
+            label   "Rest Clip"
+            type    string
+            default { "rest" }
+            menureplace {
+                [ "opmenu -l -a agent_prep restclip" ]
+            }
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "sepparm"
+            label   "Separator"
+            type    separator
+            default { "" }
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        multiparm {
+            name    "upperlimbs"
+            label    "Upper Limbs"
+            default 0
+            parmtag { "autoscope" "0000000000000000" }
+
+            parm {
+                name    "upperarm#"
+                label   "Upper Arm"
+                type    string
+                default { "LeftArm_To_LeftForeArm" }
+                menureplace {
+                    [ "import crowdstoolutils" ]
+                    [ "return crowdstoolutils.buildTransformMenu(hou.pwd())" ]
+                    language python
+                }
+                range   { 0 1 }
+                parmtag { "script_action" "import crowdstoolutils\ncrowdstoolutils.selectJoint(kwargs['node'], kwargs['parmtuple'])" }
+                parmtag { "script_action_help" "Select a joint name from a tree view." }
+                parmtag { "script_action_icon" "BUTTONS_reselect" }
+            }
+            parm {
+                name    "lowerarm#"
+                label   "Lower Arm"
+                type    string
+                default { "LeftForeArm_To_LeftHand" }
+                menureplace {
+                    [ "import crowdstoolutils" ]
+                    [ "return crowdstoolutils.buildTransformMenu(hou.pwd())" ]
+                    language python
+                }
+                range   { 0 1 }
+                parmtag { "script_action" "import crowdstoolutils\ncrowdstoolutils.selectJoint(kwargs['node'], kwargs['parmtuple'])" }
+                parmtag { "script_action_help" "Select a joint name from a tree view." }
+                parmtag { "script_action_icon" "BUTTONS_reselect" }
+            }
+            parm {
+                name    "hand#"
+                label   "Hand"
+                type    string
+                default { "LeftFingerBase_To_LeftHandIndex1" }
+                menureplace {
+                    [ "import crowdstoolutils" ]
+                    [ "return crowdstoolutils.buildTransformMenu(hou.pwd())" ]
+                    language python
+                }
+                range   { 0 1 }
+                parmtag { "script_action" "import crowdstoolutils\ncrowdstoolutils.selectJoint(kwargs['node'], kwargs['parmtuple'])" }
+                parmtag { "script_action_help" "Select a joint name from a tree view." }
+                parmtag { "script_action_icon" "BUTTONS_reselect" }
+            }
+            parm {
+                name    "sepparm#_3"
+                label   "Separator"
+                type    separator
+                default { "" }
+                range   { 0 1 }
+            }
+        }
+
+        multiparm {
+            name    "torso"
+            label    "Torso"
+            default 0
+            parmtag { "autoscope" "0000000000000000" }
+
+            parm {
+                name    "hips#"
+                label   "Hips"
+                type    string
+                default { "Hips" }
+                menureplace {
+                    [ "import crowdstoolutils" ]
+                    [ "return crowdstoolutils.buildTransformMenu(hou.pwd())" ]
+                    language python
+                }
+                range   { 0 1 }
+                parmtag { "script_action" "import crowdstoolutils\ncrowdstoolutils.selectJoint(kwargs['node'], kwargs['parmtuple'])" }
+                parmtag { "script_action_help" "Select a joint name from a tree view." }
+                parmtag { "script_action_icon" "BUTTONS_reselect" }
+            }
+            parm {
+                name    "lowerback#"
+                label   "Lower Back"
+                type    string
+                default { "Hips_To_LowerBack" }
+                menureplace {
+                    [ "import crowdstoolutils" ]
+                    [ "return crowdstoolutils.buildTransformMenu(hou.pwd())" ]
+                    language python
+                }
+                range   { 0 1 }
+                parmtag { "script_action" "import crowdstoolutils\ncrowdstoolutils.selectJoint(kwargs['node'], kwargs['parmtuple'])" }
+                parmtag { "script_action_help" "Select a joint name from a tree view." }
+                parmtag { "script_action_icon" "BUTTONS_reselect" }
+            }
+            parm {
+                name    "head#"
+                label   "Head"
+                type    string
+                default { "Head_To_HeadEnd" }
+                menureplace {
+                    [ "import crowdstoolutils" ]
+                    [ "return crowdstoolutils.buildTransformMenu(hou.pwd())" ]
+                    language python
+                }
+                range   { 0 1 }
+                parmtag { "script_action" "import crowdstoolutils\ncrowdstoolutils.selectJoint(kwargs['node'], kwargs['parmtuple'])" }
+                parmtag { "script_action_help" "Select a joint name from a tree view." }
+                parmtag { "script_action_icon" "BUTTONS_reselect" }
+            }
+            parm {
+                name    "sepparm#_4"
+                label   "Separator"
+                type    separator
+                default { "" }
+                range   { 0 1 }
+            }
+        }
+
+        multiparm {
+            name    "lowerlimbs"
+            label    "Lower Limbs"
+            default 0
+            parmtag { "autoscope" "0000000000000000" }
+
+            parm {
+                name    "upperleg#"
+                label   "Upper Leg"
+                type    string
+                default { "LeftUpLeg_To_LeftLeg" }
+                menureplace {
+                    [ "import crowdstoolutils" ]
+                    [ "return crowdstoolutils.buildTransformMenu(hou.pwd())" ]
+                    language python
+                }
+                range   { 0 1 }
+                parmtag { "script_action" "import crowdstoolutils\ncrowdstoolutils.selectJoint(kwargs['node'], kwargs['parmtuple'])" }
+                parmtag { "script_action_help" "Select a joint name from a tree view." }
+                parmtag { "script_action_icon" "BUTTONS_reselect" }
+            }
+            parm {
+                name    "knee#"
+                label   "Knee"
+                type    string
+                default { "LeftLeg_To_LeftFoot" }
+                menureplace {
+                    [ "import crowdstoolutils" ]
+                    [ "return crowdstoolutils.buildTransformMenu(hou.pwd())" ]
+                    language python
+                }
+                range   { 0 1 }
+                parmtag { "script_action" "import crowdstoolutils\ncrowdstoolutils.selectJoint(kwargs['node'], kwargs['parmtuple'])" }
+                parmtag { "script_action_help" "Select a joint name from a tree view." }
+                parmtag { "script_action_icon" "BUTTONS_reselect" }
+            }
+            parm {
+                name    "ankle#"
+                label   "Ankle"
+                type    string
+                default { "LeftFoot_To_LeftToeBase" }
+                menureplace {
+                    [ "import crowdstoolutils" ]
+                    [ "return crowdstoolutils.buildTransformMenu(hou.pwd())" ]
+                    language python
+                }
+                range   { 0 1 }
+                parmtag { "script_action" "import crowdstoolutils\ncrowdstoolutils.selectJoint(kwargs['node'], kwargs['parmtuple'])" }
+                parmtag { "script_action_help" "Select a joint name from a tree view." }
+                parmtag { "script_action_icon" "BUTTONS_reselect" }
+            }
+            parm {
+                name    "toe#"
+                label   "Toe"
+                type    string
+                default { "LeftToeBase_To_LeftToeBaseEnd" }
+                menureplace {
+                    [ "import crowdstoolutils" ]
+                    [ "return crowdstoolutils.buildTransformMenu(hou.pwd())" ]
+                    language python
+                }
+                range   { 0 1 }
+                parmtag { "script_action" "import crowdstoolutils\ncrowdstoolutils.selectJoint(kwargs['node'], kwargs['parmtuple'])" }
+                parmtag { "script_action_help" "Select a joint name from a tree view." }
+                parmtag { "script_action_icon" "BUTTONS_reselect" }
+            }
+            parm {
+                name    "sepparm#_5"
+                label   "Separator"
+                type    separator
+                default { "" }
+                range   { 0 1 }
+            }
+            parm {
+                name    "ankledownchannel#"
+                label   "Ankle Plant Channel"
+                type    string
+                default { "" }
+                menureplace {
+                    [ "import crowdstoolutils" ]
+                    [ "return crowdstoolutils.buildClipChannelMenu(hou.node(\"create_attributes\"))" ]
+                    language python
+                }
+                range   { 0 1 }
+            }
+            parm {
+                name    "footdownchannel#"
+                label   "Toe Plant Channel"
+                type    string
+                default { "" }
+                menureplace {
+                    [ "import crowdstoolutils" ]
+                    [ "return crowdstoolutils.buildClipChannelMenu(hou.node(\"create_attributes\"))" ]
+                    language python
+                }
+                range   { 0 1 }
+            }
+            parm {
+                name    "sepparm#_2"
+                label   "Separator"
+                type    separator
+                default { "" }
+                range   { 0 1 }
+            }
+            parm {
+                name    "ankleoffset#"
+                label   "Ankle Offset"
+                type    vector
+                size    3
+                default { "0" "0" "0" }
+                range   { -1 1 }
+            }
+            parm {
+                name    "toeoffset#"
+                label   "Toe Offset"
+                type    vector
+                size    3
+                default { "0" "0" "0" }
+                range   { -1 1 }
+            }
+        }
+
+    }
+
+    group {
+        name    "folder0_1"
+        label   "Foot Planting"
+
+        parm {
+            name    "guidescale"
+            label   "Guide Scale"
+            type    float
+            default { "0.1" }
+            range   { 0! 1 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "set_locomotion_to_planted"
+            label   "Set Locomotion to Planted Foot"
+            type    toggle
+            default { "0" }
+            range   { 0! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        groupsimple {
+            name    "ankle_foot_plants"
+            label   "Ankle"
+
+            parm {
+                name    "ankle_method"
+                label   "Method"
+                type    ordinal
+                default { "speed" }
+                menu {
+                    "speed"     "Speed Threshold"
+                    "distance"  "Distance from Terrain"
+                }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "ankle_speedthreshold"
+                label   "Speed Threshold"
+                type    float
+                default { "0.3" }
+                hidewhen "{ ankle_method != speed }"
+                range   { 0 10 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "ankle_terrainsource"
+                label   "Terrain Source"
+                type    ordinal
+                default { "plane" }
+                hidewhen "{ ankle_method != distance }"
+                menu {
+                    "sop"   "SOP"
+                    "plane" "Plane"
+                }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "ankle_planeorigin"
+                label   "Plane Origin"
+                type    vector
+                size    3
+                default { "0" "0" "0" }
+                hidewhen "{ ankle_method != distance } { ankle_terrainsource != plane }"
+                range   { -1 1 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "ankle_planenormal"
+                label   "Plane Normal"
+                type    direction
+                size    3
+                default { "0" "1" "0" }
+                hidewhen "{ ankle_method != distance } { ankle_terrainsource != plane }"
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "ankle_distancethreshold"
+                label   "Distance Threshold"
+                type    float
+                default { "0.01" }
+                hidewhen "{ ankle_method != distance }"
+                range   { 0! 1 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "ankle_blendinframes"
+                label   "Blend In Frames"
+                type    integer
+                default { "1" }
+                range   { 1! 10 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "ankle_blendoutframes"
+                label   "Blend Out Frames"
+                type    integer
+                default { "3" }
+                range   { 1! 10 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+        }
+
+        groupsimple {
+            name    "ankle_foot_plants_1"
+            label   "Toe"
+
+            parm {
+                name    "toe_method"
+                label   "Method"
+                type    ordinal
+                default { "speed" }
+                menu {
+                    "speed"     "Speed Threshold"
+                    "distance"  "Distance from Terrain"
+                }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "toe_speedthreshold"
+                label   "Speed Threshold"
+                type    float
+                default { [ "ch(\"ankle_speedthreshold\")" hscript-expr ] }
+                hidewhen "{ toe_method != speed }"
+                range   { 0 10 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "toe_blendinframes"
+                label   "Blend In Frames"
+                type    integer
+                default { [ "ch(\"ankle_blendinframes\")" hscript-expr ] }
+                range   { 1! 10 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "toe_blendoutframes"
+                label   "Blend Out Frames"
+                type    integer
+                default { [ "ch(\"../ankle_blendoutframes\")" hscript-expr ] }
+                range   { 1! 10 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "toe_terrainsource"
+                label   "Terrain Source"
+                type    ordinal
+                default { [ "ch(\"../ankle_terrainsource\")" hscript-expr ] }
+                hidewhen "{ toe_method != distance }"
+                menu {
+                    "sop"   "SOP"
+                    "plane" "Plane"
+                }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "toe_planeorigin"
+                label   "Plane Origin"
+                type    vector
+                size    3
+                default { [ "ch(\"ankle_planeoriginx\")" hscript-expr ] [ "ch(\"ankle_planeoriginy\")" hscript-expr ] [ "ch(\"ankle_planeoriginz\")" hscript-expr ] }
+                hidewhen "{ toe_method != distance } { toe_terrainsource != plane }"
+                range   { -1 1 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "toe_planenormal"
+                label   "Plane Normal"
+                type    direction
+                size    3
+                default { [ "ch(\"ankle_planenormalx\")" hscript-expr ] [ "ch(\"ankle_planenormaly\")" hscript-expr ] [ "ch(\"ankle_planenormalz\")" hscript-expr ] }
+                hidewhen "{ toe_method != distance } { toe_terrainsource != plane }"
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "toe_distancethreshold"
+                label   "Distance Threshold"
+                type    float
+                default { [ "ch(\"ankle_distancethreshold\")" hscript-expr ] }
+                hidewhen "{ toe_method != distance }"
+                range   { 0! 1 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+        }
+
+    }
+
+}

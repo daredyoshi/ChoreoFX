@@ -1,0 +1,28 @@
+= Crowd Manual Edit =
+#icon: /Icons/ChoreoFX.svg
+#tags: crowds, agents, ChoreoFX
+
+"""Documentation is Coming soon!"""
+
+This is placeholder documentation for Crowd Manual Edit
+
+@parameters
+
+Vis Id:
+	#id: vis_id
+	ToDo
+
+Active Id:
+	#id: active_id
+	ToDo
+
+
+@inputs
+
+Placeholder:
+    Description of input
+
+@outputs
+
+Placeholder:
+    Description of output

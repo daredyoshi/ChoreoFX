@@ -1,0 +1,13 @@
+{
+	"values":["18.5.351"
+	],
+	"indexes":{
+		"hdaroot/timeshift1.userdata":0,
+		"hdaroot/attribpromote1.userdata":0,
+		"hdaroot/timeshift_end.userdata":0,
+		"hdaroot/output0.userdata":0,
+		"hdaroot/OUTPUT_AGENTS.userdata":0,
+		"hdaroot/trail_start_to_end.userdata":0,
+		"hdaroot/sort_vertex_order.userdata":0
+	}
+}

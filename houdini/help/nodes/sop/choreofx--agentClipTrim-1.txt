@@ -1,0 +1,85 @@
+= Agent Clip Trim =
+#icon: /Icons/ChoreoFX.svg
+#tags: crowds, agents, ChoreoFX
+
+"""Documentation is Coming soon!"""
+
+This is placeholder documentation for Agent Clip Trim
+
+@parameters
+
+Enable:
+	#id: enable
+	ToDo
+
+== Clip Trim ==
+Clip to Trim:
+	#id: clip
+	ToDo
+
+Output Clip Name:
+	#id: outClipName
+	ToDo
+
+Trim Type:
+	#id: trimType
+	ToDo
+
+Trim Range:
+	#id: trimRange
+	ToDo
+
+ :
+	#id: valueType
+	ToDo
+
+Start:
+	#id: start
+	ToDo
+
+End:
+	#id: end
+	ToDo
+
+Start:
+	#id: frStart
+	ToDo
+
+End:
+	#id: frEnd
+	ToDo
+
+Out-Of-Range:
+	#id: labelparm
+	ToDo
+
+Extrapolation:
+	#id: extrapolation
+	ToDo
+
+Always cycle-offset loco:
+	#id: cycleOffsetLoco
+	ToDo
+
+Set Output Clip:
+	#id: visOutClip
+	ToDo
+
+Apply Clip Locomotion:
+	#id: applylocomotion
+	ToDo
+
+Visualise Guides:
+	#id: vis
+	ToDo
+
+
+@inputs
+
+Placeholder:
+    Description of input
+
+@outputs
+
+Placeholder:
+    Description of output

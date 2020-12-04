@@ -1,0 +1,1667 @@
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY"
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename=".OPfallbacks"
+Content-Type: application/external-reference
+
+.OPfallbacks
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename=".OPdummydefs"
+Content-Type: application/external-reference
+
+.OPdummydefs
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="node_type"
+Content-Type: text/plain
+
+Sop
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot.init"
+Content-Type: text/plain
+
+type = choreofx::crowdAttributeRandomize::2
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 42.0695 -25.4098
+connectornextid 0
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on displaycomment on
+outputsNamed3
+{
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create -1
+  modify -1
+  author stephen@stephen-m2
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	},
+	"wirestyle":{
+		"type":"string",
+		"value":"rounded"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/__netbox16.netboxinit"
+Content-Type: text/plain
+
+2
+2
+{
+	autofit := 1;
+	color := "UT_Color RGB 0.302 0.525 0.114 ";
+	comment := "";
+	height := 2.9419599999999999;
+	minimized := 0;
+	width := 4.7895000029802324;
+	x_position := 1.5222999970197677;
+	y_position := 15.295999999999999;
+}
+{
+  create -1
+  modify -1
+  author stephen.bester@cpv-ws018.za.sunrise.productions
+  access 0777
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/__netbox17.netboxinit"
+Content-Type: text/plain
+
+2
+2
+{
+	autofit := 1;
+	color := "UT_Color RGB 0.384 0.184 0.329 ";
+	comment := "";
+	height := 2.71339;
+	minimized := 0;
+	width := 4.7895000029802324;
+	x_position := 1.5222999970197677;
+	y_position := 19.3262;
+}
+{
+  create -1
+  modify -1
+  author stephen.bester@cpv-ws018.za.sunrise.productions
+  access 0777
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/__netbox21.netboxinit"
+Content-Type: text/plain
+
+2
+2
+{
+	autofit := 1;
+	color := "UT_Color RGB 0.188 0.529 0.459 ";
+	comment := "";
+	height := 2.6195300000000001;
+	minimized := 0;
+	width := 4.7895000029802324;
+	x_position := 1.5222999970197677;
+	y_position := 22.923200000000001;
+}
+{
+  create -1
+  modify -1
+  author stephen.bester@cpv-ws018.za.sunrise.productions
+  access 0777
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/__netbox22.netboxinit"
+Content-Type: text/plain
+
+2
+2
+{
+	autofit := 1;
+	color := "UT_Color RGB 0.52 0.52 0.52 ";
+	comment := "";
+	height := 3.2519300029802309;
+	minimized := 0;
+	width := 3.9075199999999999;
+	x_position := 1.5298;
+	y_position := 26.621099997019769;
+}
+{
+  create -1
+  modify -1
+  author stephen.bester@cpv-ws018.za.sunrise.productions
+  access 0777
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/__netbox25.netboxinit"
+Content-Type: text/plain
+
+2
+2
+{
+	autofit := 1;
+	color := "UT_Color RGB 0.384 0.184 0.329 ";
+	comment := "";
+	height := 6.9230600000000004;
+	minimized := 0;
+	width := 8.8598199999999991;
+	x_position := 1.5298;
+	y_position := 6.6093400000000004;
+}
+{
+  create -1
+  modify -1
+  author stephen.bester@cpv-ws018.za.sunrise.productions
+  access 0777
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot.inp"
+Content-Type: text/plain
+
+1
+0 2.0436971436693381 32.601025724857351 2 0 __NO_OWNER_NETWORK_BOX__ "RGB 0.47499999403953552 0.81199997663497925 0.20399999618530273"
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/timeOffset_randomize.init"
+Content-Type: text/plain
+
+type = attribrandomize
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/timeOffset_randomize.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 2.59358 20.6829
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	switch_timeSpeed 0 1 "input1"
+}
+inputs
+{
+0 	switch_timeSpeed 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author stephen.bester@cpv-ws018.za.sunrise.productions
+  access 0777
+}
+color UT_Color RGB 0.839 0.839 0.839 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/timeOffset_randomize.chn"
+Content-Type: text/plain
+
+{
+    channel group {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      start = -2.125
+      segment { length = 0 expr = chs(\"../__clipplayergroup/groupname\") }
+    }
+    channel minx {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../offsetBase\") }
+    }
+    channel maxx {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 value = 2 2 expr = "ch(\"../offsetBase\") + ch(\"../offsetVar\")" }
+    }
+    channel seed {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 value = 485 485 expr = ch(\"../offsetSeed\") }
+    }
+    channel seedattrib {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = chs(\"../seedAttrib\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/timeOffset_randomize.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+group	[ 0	locks=0	autoscope=0 ]	(	[ group	"" ] 	)
+grouptype	[ 0	locks=0	autoscope=0 ]	(	"points"	)
+class	[ 0	locks=0	autoscope=0 ]	(	"point"	)
+name	[ 0	locks=0	autoscope=0 ]	(	timeOffset	)
+operation	[ 0	locks=0	autoscope=0 ]	(	set	)
+scale	[ 0	locks=0	autoscope=0 ]	(	1	)
+folder0	[ 0	locks=0	autoscope=0 ]	(	0	0	)
+distribution	[ 0	locks=0	autoscope=0 ]	(	uniform	)
+dimensions	[ 0	locks=0	autoscope=0 ]	(	1	)
+allsame	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+constvalue	[ 0	locks=0	autoscope=0 ]	(	0	0	0	0	)
+valuea	[ 0	locks=0	autoscope=0 ]	(	0	0	0	0	)
+valueb	[ 0	locks=0	autoscope=0 ]	(	1	1	1	1	)
+probvalueb	[ 0	locks=0	autoscope=0 ]	(	0.5	)
+min	[ 0	locks=0	autoscope=0 ]	(	[ minx	0 ] 	0	0	0	)
+max	[ 0	locks=0	autoscope=0 ]	(	[ maxx	1 ] 	1	1	1	)
+mindiscrete	[ 0	locks=0	autoscope=0 ]	(	0	0	0	0	)
+maxdiscrete	[ 0	locks=0	autoscope=0 ]	(	9	9	9	9	)
+stepsize	[ 0	locks=0	autoscope=0 ]	(	1	1	1	1	)
+median	[ 0	locks=0	autoscope=0 ]	(	0	0	0	0	)
+onesidedmedian	[ 0	locks=0	autoscope=0 ]	(	1	1	1	1	)
+medianattrib	[ 0	locks=0	autoscope=0 ]	(	""	)
+stddev	[ 0	locks=0	autoscope=0 ]	(	1	1	1	1	)
+onesidedstddev	[ 0	locks=0	autoscope=0 ]	(	0.20000000000000001	0.20000000000000001	0.20000000000000001	0.20000000000000001	)
+usefit0to	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fit0to	[ 0	locks=0	autoscope=0 ]	(	0	)
+usefit1to	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fit1to	[ 0	locks=0	autoscope=0 ]	(	1	)
+ramp	[ 0	locks=0	autoscope=0 ]	(	3	)
+useminlimit	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+minlimit	[ 0	locks=0	autoscope=0 ]	(	-100	-100	-100	-100	)
+useonesidedmin	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+onesidedmin	[ 0	locks=0	autoscope=0 ]	(	0.10000000000000001	0.10000000000000001	0.10000000000000001	0.10000000000000001	)
+usemaxlimit	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+maxlimit	[ 0	locks=0	autoscope=0 ]	(	100	100	100	100	)
+useconeangle	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+coneangle	[ 0	locks=0	autoscope=0 ]	(	30	)
+usepowerbias	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+powerbias	[ 0	locks=0	autoscope=0 ]	(	0	)
+direction	[ 0	locks=0	autoscope=0 ]	(	1	0	0	0	)
+directionattrib	[ 0	locks=0	autoscope=0 ]	(	""	)
+folder	[ 0	locks=0	autoscope=0 ]	(	0	)
+valuetype	[ 0	locks=0	autoscope=0 ]	(	"float"	)
+values	[ 0	locks=0	autoscope=0 ]	(	4	)
+normalize	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+visualize	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+nvisualizepts	[ 0	locks=0	autoscope=0 ]	(	10000	)
+usefractionattrib	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fractionattrib	[ 0	locks=0	autoscope=0 ]	(	fraction	)
+seed	[ 0	locks=0	autoscope=0 ]	(	[ seed	0 ] 	)
+useseedattrib	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+seedattrib	[ 0	locks=0	autoscope=0 ]	(	[ seedattrib	id ] 	)
+ramp1pos	[ 0	locks=0	autoscope=0 ]	(	0	)
+ramp1value	[ 0	locks=0	autoscope=0 ]	(	0	)
+ramp1interp	[ 0	locks=0	autoscope=0 ]	(	"monotonecubic"	)
+ramp2pos	[ 0	locks=0	autoscope=0 ]	(	0.5	)
+ramp2value	[ 0	locks=0	autoscope=0 ]	(	0.5	)
+ramp2interp	[ 0	locks=0	autoscope=0 ]	(	"monotonecubic"	)
+ramp3pos	[ 0	locks=0	autoscope=0 ]	(	1	)
+ramp3value	[ 0	locks=0	autoscope=0 ]	(	1	)
+ramp3interp	[ 0	locks=0	autoscope=0 ]	(	"monotonecubic"	)
+strvalue0	[ 0	locks=0	autoscope=0 ]	(	""	)
+value0	[ 0	locks=0	autoscope=0 ]	(	0	)
+weight0	[ 0	locks=0	autoscope=0 ]	(	1	)
+strvalue1	[ 0	locks=0	autoscope=0 ]	(	""	)
+value1	[ 0	locks=0	autoscope=0 ]	(	0	)
+weight1	[ 0	locks=0	autoscope=0 ]	(	1	)
+strvalue2	[ 0	locks=0	autoscope=0 ]	(	""	)
+value2	[ 0	locks=0	autoscope=0 ]	(	0	)
+weight2	[ 0	locks=0	autoscope=0 ]	(	1	)
+strvalue3	[ 0	locks=0	autoscope=0 ]	(	""	)
+value3	[ 0	locks=0	autoscope=0 ]	(	0	)
+weight3	[ 0	locks=0	autoscope=0 ]	(	1	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/timeOffset_randomize.netbox"
+Content-Type: text/plain
+
+__netbox17
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/timeOffset_randomize.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/timeAnchor_Randomize.init"
+Content-Type: text/plain
+
+type = attribrandomize
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/timeAnchor_Randomize.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 2.59358 16.7669
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	switch_timeOffset 0 1 "input1"
+}
+inputs
+{
+0 	switch_timeOffset 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author stephen.bester@cpv-ws018.za.sunrise.productions
+  access 0777
+}
+color UT_Color RGB 1 0.725 0 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/timeAnchor_Randomize.chn"
+Content-Type: text/plain
+
+{
+    channel group {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      start = -2.125
+      segment { length = 0 expr = chs(\"../__clipplayergroup/groupname\") }
+    }
+    channel mindiscretex {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      start = -2.125
+      segment { length = 0 expr = ch(\"../anchorBase\") }
+    }
+    channel maxdiscretex {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      start = -2.125
+      segment { length = 0 value = 9 9 expr = ch(\"../anchorBase\")+ch(\"../anchorVar\") }
+    }
+    channel seedattrib {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = chs(\"../seedAttrib\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/timeAnchor_Randomize.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+group	[ 0	locks=0	autoscope=0 ]	(	[ group	"" ] 	)
+grouptype	[ 0	locks=0	autoscope=0 ]	(	"points"	)
+class	[ 0	locks=0	autoscope=0 ]	(	"point"	)
+name	[ 0	locks=0	autoscope=0 ]	(	timeAnchor	)
+operation	[ 0	locks=0	autoscope=0 ]	(	set	)
+scale	[ 0	locks=0	autoscope=0 ]	(	1	)
+folder0	[ 0	locks=0	autoscope=0 ]	(	1	1	)
+distribution	[ 0	locks=0	autoscope=0 ]	(	uniformdiscrete	)
+dimensions	[ 0	locks=0	autoscope=0 ]	(	1	)
+allsame	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+constvalue	[ 0	locks=0	autoscope=0 ]	(	0	0	0	0	)
+valuea	[ 0	locks=0	autoscope=0 ]	(	0	0	0	0	)
+valueb	[ 0	locks=0	autoscope=0 ]	(	1	1	1	1	)
+probvalueb	[ 0	locks=0	autoscope=0 ]	(	0.5	)
+min	[ 0	locks=0	autoscope=0 ]	(	0	0	0	0	)
+max	[ 0	locks=0	autoscope=0 ]	(	1	1	1	1	)
+mindiscrete	[ 0	locks=0	autoscope=0 ]	(	[ mindiscretex	0 ] 	0	0	0	)
+maxdiscrete	[ 0	locks=0	autoscope=0 ]	(	[ maxdiscretex	9 ] 	9	9	9	)
+stepsize	[ 0	locks=0	autoscope=0 ]	(	1	1	1	1	)
+median	[ 0	locks=0	autoscope=0 ]	(	24	0	0	0	)
+onesidedmedian	[ 0	locks=0	autoscope=0 ]	(	1	1	1	1	)
+medianattrib	[ 0	locks=0	autoscope=0 ]	(	""	)
+stddev	[ 0	locks=0	autoscope=0 ]	(	4	1	1	1	)
+onesidedstddev	[ 0	locks=0	autoscope=0 ]	(	0.20000000000000001	0.20000000000000001	0.20000000000000001	0.20000000000000001	)
+usefit0to	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fit0to	[ 0	locks=0	autoscope=0 ]	(	0	)
+usefit1to	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fit1to	[ 0	locks=0	autoscope=0 ]	(	1	)
+ramp	[ 0	locks=0	autoscope=0 ]	(	3	)
+useminlimit	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+minlimit	[ 0	locks=0	autoscope=0 ]	(	-100	-100	-100	-100	)
+useonesidedmin	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+onesidedmin	[ 0	locks=0	autoscope=0 ]	(	0.10000000000000001	0.10000000000000001	0.10000000000000001	0.10000000000000001	)
+usemaxlimit	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+maxlimit	[ 0	locks=0	autoscope=0 ]	(	100	100	100	100	)
+useconeangle	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+coneangle	[ 0	locks=0	autoscope=0 ]	(	30	)
+usepowerbias	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+powerbias	[ 0	locks=0	autoscope=0 ]	(	0	)
+direction	[ 0	locks=0	autoscope=0 ]	(	1	0	0	0	)
+directionattrib	[ 0	locks=0	autoscope=0 ]	(	""	)
+folder	[ 0	locks=0	autoscope=0 ]	(	0	)
+valuetype	[ 0	locks=0	autoscope=0 ]	(	"float"	)
+values	[ 0	locks=0	autoscope=0 ]	(	4	)
+normalize	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+visualize	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+nvisualizepts	[ 0	locks=0	autoscope=0 ]	(	10000	)
+usefractionattrib	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fractionattrib	[ 0	locks=0	autoscope=0 ]	(	fraction	)
+seed	[ 0	locks=0	autoscope=0 ]	(	10	)
+useseedattrib	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+seedattrib	[ 0	locks=0	autoscope=0 ]	(	[ seedattrib	id ] 	)
+ramp1pos	[ 0	locks=0	autoscope=0 ]	(	0	)
+ramp1value	[ 0	locks=0	autoscope=0 ]	(	0	)
+ramp1interp	[ 0	locks=0	autoscope=0 ]	(	"monotonecubic"	)
+ramp2pos	[ 0	locks=0	autoscope=0 ]	(	0.5	)
+ramp2value	[ 0	locks=0	autoscope=0 ]	(	0.5	)
+ramp2interp	[ 0	locks=0	autoscope=0 ]	(	"monotonecubic"	)
+ramp3pos	[ 0	locks=0	autoscope=0 ]	(	1	)
+ramp3value	[ 0	locks=0	autoscope=0 ]	(	1	)
+ramp3interp	[ 0	locks=0	autoscope=0 ]	(	"monotonecubic"	)
+strvalue0	[ 0	locks=0	autoscope=0 ]	(	""	)
+value0	[ 0	locks=0	autoscope=0 ]	(	0	)
+weight0	[ 0	locks=0	autoscope=0 ]	(	1	)
+strvalue1	[ 0	locks=0	autoscope=0 ]	(	""	)
+value1	[ 0	locks=0	autoscope=0 ]	(	0	)
+weight1	[ 0	locks=0	autoscope=0 ]	(	1	)
+strvalue2	[ 0	locks=0	autoscope=0 ]	(	""	)
+value2	[ 0	locks=0	autoscope=0 ]	(	0	)
+weight2	[ 0	locks=0	autoscope=0 ]	(	1	)
+strvalue3	[ 0	locks=0	autoscope=0 ]	(	""	)
+value3	[ 0	locks=0	autoscope=0 ]	(	0	)
+weight3	[ 0	locks=0	autoscope=0 ]	(	1	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/timeAnchor_Randomize.netbox"
+Content-Type: text/plain
+
+__netbox16
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/timeAnchor_Randomize.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/has_seedAttrib.init"
+Content-Type: text/plain
+
+type = attribwrangle
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/has_seedAttrib.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 1.92968 27.8319
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	__clipplayergroup 0 1 "input1"
+}
+inputs
+{
+0 	__clipplayergroup 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author stephen.bester@cpv-ws018.za.sunrise.productions
+  access 0777
+}
+color UT_Color RGB 0.89 0.412 0.761 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/has_seedAttrib.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+folder0	[ 0	locks=0	autoscope=0 ]	(	0	0	)
+group	[ 0	locks=0	autoscope=0 ]	(	""	)
+grouptype	[ 0	locks=0	autoscope=0 ]	(	"guess"	)
+class	[ 0	locks=0	autoscope=0 ]	(	"point"	)
+vex_numcount	[ 0	locks=0	autoscope=0 ]	(	10	)
+vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
+snippet	[ 0	locks=0	autoscope=0 ]	(	"if (!haspointattrib(0, chs(\"../seedAttrib\"))){
+    i@`chs(\"../seedAttrib\")` = @ptnum;
+}"	)
+exportlist	[ 0	locks=0	autoscope=0 ]	(	*	)
+vex_strict	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+autobind	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+bindings	[ 0	locks=0	autoscope=0 ]	(	0	)
+groupautobind	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+groupbindings	[ 0	locks=0	autoscope=0 ]	(	0	)
+vex_cwdpath	[ 0	locks=0	autoscope=0 ]	(	.	)
+vex_outputmask	[ 0	locks=0	autoscope=0 ]	(	*	)
+vex_updatenmls	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+vex_matchattrib	[ 0	locks=0	autoscope=0 ]	(	id	)
+vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
+vex_precision	[ 0	locks=0	autoscope=0 ]	(	auto	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/has_seedAttrib.netbox"
+Content-Type: text/plain
+
+__netbox22
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/has_seedAttrib.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/timeSpeed_random.init"
+Content-Type: text/plain
+
+type = attribrandomize
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/timeSpeed_random.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 2.59358 24.233
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	has_pscale 0 1 "input1"
+}
+inputs
+{
+0 	has_pscale 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author stephen.bester@cpv-ws018.za.sunrise.productions
+  access 0777
+}
+color UT_Color RGB 0.616 0.871 0.769 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/timeSpeed_random.chn"
+Content-Type: text/plain
+
+{
+    channel group {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      start = -2.125
+      segment { length = 0 expr = chs(\"../__clipplayergroup/groupname\") }
+    }
+    channel minx {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../speedBase\") }
+    }
+    channel maxx {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 value = 5 5 expr = "ch(\"../speedBase\") + ch(\"../speedVar\")" }
+    }
+    channel medianx {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../speedbase\") }
+    }
+    channel stddevx {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 value = 1 1 expr = ch(\"../speedrand\") }
+    }
+    channel seed {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 value = 3139 3139 expr = ch(\"../speedSeed\") }
+    }
+    channel seedattrib {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      start = -2.125
+      segment { length = 0 expr = chs(\"../seedAttrib\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/timeSpeed_random.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+group	[ 0	locks=0	autoscope=0 ]	(	[ group	"" ] 	)
+grouptype	[ 0	locks=0	autoscope=0 ]	(	"guess"	)
+class	[ 0	locks=0	autoscope=0 ]	(	"point"	)
+name	[ 0	locks=0	autoscope=0 ]	(	timeSpeed	)
+operation	[ 0	locks=0	autoscope=0 ]	(	set	)
+scale	[ 0	locks=0	autoscope=0 ]	(	1	)
+folder0	[ 0	locks=0	autoscope=0 ]	(	0	0	)
+distribution	[ 0	locks=0	autoscope=0 ]	(	uniform	)
+dimensions	[ 0	locks=0	autoscope=0 ]	(	1	)
+allsame	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+constvalue	[ 0	locks=0	autoscope=0 ]	(	4.3099999999999996	0	0	0	)
+valuea	[ 0	locks=0	autoscope=0 ]	(	0	0	0	0	)
+valueb	[ 0	locks=0	autoscope=0 ]	(	1	1	1	1	)
+probvalueb	[ 0	locks=0	autoscope=0 ]	(	0.5	)
+min	[ 0	locks=0	autoscope=0 ]	(	[ minx	0 ] 	0	0	0	)
+max	[ 0	locks=0	autoscope=0 ]	(	[ maxx	1 ] 	1	1	1	)
+mindiscrete	[ 0	locks=0	autoscope=0 ]	(	0	0	0	0	)
+maxdiscrete	[ 0	locks=0	autoscope=0 ]	(	9	9	9	9	)
+stepsize	[ 0	locks=0	autoscope=0 ]	(	1	1	1	1	)
+median	[ 0	locks=0	autoscope=0 ]	(	[ medianx	0 ] 	0	0	0	)
+onesidedmedian	[ 0	locks=0	autoscope=0 ]	(	1	1	1	1	)
+medianattrib	[ 0	locks=0	autoscope=0 ]	(	""	)
+stddev	[ 0	locks=0	autoscope=0 ]	(	[ stddevx	1 ] 	1	1	1	)
+onesidedstddev	[ 0	locks=0	autoscope=0 ]	(	0.20000000000000001	0.20000000000000001	0.20000000000000001	0.20000000000000001	)
+usefit0to	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+fit0to	[ 0	locks=0	autoscope=0 ]	(	1	)
+usefit1to	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+fit1to	[ 0	locks=0	autoscope=0 ]	(	2	)
+ramp	[ 0	locks=0	autoscope=0 ]	(	4	)
+useminlimit	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+minlimit	[ 0	locks=0	autoscope=0 ]	(	-100	-100	-100	-100	)
+useonesidedmin	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+onesidedmin	[ 0	locks=0	autoscope=0 ]	(	0.10000000000000001	0.10000000000000001	0.10000000000000001	0.10000000000000001	)
+usemaxlimit	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+maxlimit	[ 0	locks=0	autoscope=0 ]	(	100	100	100	100	)
+useconeangle	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+coneangle	[ 0	locks=0	autoscope=0 ]	(	30	)
+usepowerbias	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+powerbias	[ 0	locks=0	autoscope=0 ]	(	0	)
+direction	[ 0	locks=0	autoscope=0 ]	(	1	0	0	0	)
+directionattrib	[ 0	locks=0	autoscope=0 ]	(	""	)
+folder	[ 0	locks=0	autoscope=0 ]	(	0	)
+valuetype	[ 0	locks=0	autoscope=0 ]	(	"float"	)
+values	[ 0	locks=0	autoscope=0 ]	(	4	)
+normalize	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+visualize	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+nvisualizepts	[ 0	locks=0	autoscope=0 ]	(	10000	)
+usefractionattrib	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+fractionattrib	[ 0	locks=0	autoscope=0 ]	(	fraction	)
+seed	[ 0	locks=0	autoscope=0 ]	(	[ seed	0 ] 	)
+useseedattrib	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+seedattrib	[ 0	locks=0	autoscope=0 ]	(	[ seedattrib	id ] 	)
+ramp1pos	[ 0	locks=0	autoscope=0 ]	(	0	)
+ramp1value	[ 0	locks=0	autoscope=0 ]	(	0	)
+ramp1interp	[ 0	locks=0	autoscope=0 ]	(	"bspline"	)
+ramp2pos	[ 0	locks=0	autoscope=0 ]	(	0.11719939112663269	)
+ramp2value	[ 0	locks=0	autoscope=0 ]	(	0.20779220759868622	)
+ramp2interp	[ 0	locks=0	autoscope=0 ]	(	"bspline"	)
+ramp3pos	[ 0	locks=0	autoscope=0 ]	(	0.86301368474960327	)
+ramp3value	[ 0	locks=0	autoscope=0 ]	(	0.32467532157897949	)
+ramp3interp	[ 0	locks=0	autoscope=0 ]	(	"bspline"	)
+strvalue0	[ 0	locks=0	autoscope=0 ]	(	""	)
+value0	[ 0	locks=0	autoscope=0 ]	(	0	)
+weight0	[ 0	locks=0	autoscope=0 ]	(	1	)
+strvalue1	[ 0	locks=0	autoscope=0 ]	(	""	)
+value1	[ 0	locks=0	autoscope=0 ]	(	0	)
+weight1	[ 0	locks=0	autoscope=0 ]	(	1	)
+strvalue2	[ 0	locks=0	autoscope=0 ]	(	""	)
+value2	[ 0	locks=0	autoscope=0 ]	(	0	)
+weight2	[ 0	locks=0	autoscope=0 ]	(	1	)
+strvalue3	[ 0	locks=0	autoscope=0 ]	(	""	)
+value3	[ 0	locks=0	autoscope=0 ]	(	0	)
+weight3	[ 0	locks=0	autoscope=0 ]	(	1	)
+ramp4pos	[ 0	locks=0	autoscope=0 ]	(	1	)
+ramp4value	[ 0	locks=0	autoscope=0 ]	(	1	)
+ramp4interp	[ 0	locks=0	autoscope=0 ]	(	"bspline"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/timeSpeed_random.netbox"
+Content-Type: text/plain
+
+__netbox21
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/timeSpeed_random.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	},
+	"___toolcount___":{
+		"type":"string",
+		"value":"1"
+	},
+	"___toolid___":{
+		"type":"string",
+		"value":"tool_1tmp"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/has_pscale.init"
+Content-Type: text/plain
+
+type = attribwrangle
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/has_pscale.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 1.92968 26.8211
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+0 "output1"
+}
+inputsNamed3
+{
+1 	has_seedAttrib 1 1 "input1"
+}
+inputs
+{
+0 	has_seedAttrib 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author stephen.bester@cpv-ws018.za.sunrise.productions
+  access 0777
+}
+color UT_Color RGB 0.89 0.412 0.761 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/has_pscale.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+folder0	[ 0	locks=0	autoscope=0 ]	(	0	0	)
+group	[ 0	locks=0	autoscope=0 ]	(	""	)
+grouptype	[ 0	locks=0	autoscope=0 ]	(	"guess"	)
+class	[ 0	locks=0	autoscope=0 ]	(	"point"	)
+vex_numcount	[ 0	locks=0	autoscope=0 ]	(	10	)
+vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
+snippet	[ 0	locks=0	autoscope=0 ]	(	"if (!haspointattrib(0,\"pscale\")){
+    @pscale = 1;
+}"	)
+exportlist	[ 0	locks=0	autoscope=0 ]	(	*	)
+vex_strict	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+autobind	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+bindings	[ 0	locks=0	autoscope=0 ]	(	0	)
+groupautobind	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+groupbindings	[ 0	locks=0	autoscope=0 ]	(	0	)
+vex_cwdpath	[ 0	locks=0	autoscope=0 ]	(	.	)
+vex_outputmask	[ 0	locks=0	autoscope=0 ]	(	*	)
+vex_updatenmls	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+vex_matchattrib	[ 0	locks=0	autoscope=0 ]	(	id	)
+vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
+vex_precision	[ 0	locks=0	autoscope=0 ]	(	auto	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/has_pscale.netbox"
+Content-Type: text/plain
+
+__netbox22
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/has_pscale.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/set_clip_manually1.init"
+Content-Type: text/plain
+
+type = attribwrangle
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/set_clip_manually1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 3.4197 10.561
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+0 "output1"
+}
+inputsNamed3
+{
+1 	switch_timeAnchor 0 1 "input1"
+}
+inputs
+{
+0 	switch_timeAnchor 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author stephen.bester@cpv-ws018.za.sunrise.productions
+  access 0777
+}
+color UT_Color RGB 0.89 0.412 0.761 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/set_clip_manually1.chn"
+Content-Type: text/plain
+
+{
+    channel group {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      start = -2.125
+      segment { length = 0 expr = chs(\"../__clipplayergroup/groupname\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/set_clip_manually1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+folder0	[ 0	locks=0	autoscope=0 ]	(	0	0	)
+group	[ 0	locks=0	autoscope=0 ]	(	[ group	"" ] 	)
+grouptype	[ 0	locks=0	autoscope=0 ]	(	"points"	)
+class	[ 0	locks=0	autoscope=0 ]	(	"point"	)
+vex_numcount	[ 0	locks=0	autoscope=0 ]	(	10	)
+vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
+snippet	[ 0	locks=0	autoscope=0 ]	(	"for (int i=1; i <= ch(\"../customAttribs\"); i++)
+{
+    int enable = chi(sprintf(\"../enable_%d\", i));
+    
+    if (!enable){
+        return;
+    }
+    string attribName = chs(sprintf(\"../attribName_%d\", i));
+    int randomMethod = chi(sprintf(\"../randomMethod_%d\", i));
+    float base = chf(sprintf(\"../valueBase_%d\", i));
+    float var = chf(sprintf(\"../valueVar_%d\", i));
+    float min = chf(sprintf(\"../valueMin_%d\", i));
+    float max = chf(sprintf(\"../valueMax_%d\", i));
+    float seed = chf(sprintf(\"../valueSeed_%d\", i));
+    float newValue = 0;
+    
+    int id = i@`chs(\"../seedAttrib\")`;
+    float rand = rand(id + 231 * seed);
+    
+    if (enable == 1)
+    {
+        if (randomMethod == 0){
+            newValue = base + (rand - 0.5) * var;     
+        }
+        if (randomMethod == 1){
+            newValue = fit01(rand, min, max);     
+        }
+        if (randomMethod == 2){
+            newValue = fit01( chramp( sprintf(\"../valueRamp_%d\", i), rand ), min, max);     
+        }
+    }
+    
+    setpointattrib(0, attribName, @ptnum, newValue);
+    //f@`chs(sprintf(\"../attribName_%d\", i))` = newValue;
+}"	)
+exportlist	[ 0	locks=0	autoscope=0 ]	(	*	)
+vex_strict	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+autobind	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+bindings	[ 0	locks=0	autoscope=0 ]	(	0	)
+groupautobind	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+groupbindings	[ 0	locks=0	autoscope=0 ]	(	0	)
+vex_cwdpath	[ 0	locks=0	autoscope=0 ]	(	.	)
+vex_outputmask	[ 0	locks=0	autoscope=0 ]	(	*	)
+vex_updatenmls	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+vex_matchattrib	[ 0	locks=0	autoscope=0 ]	(	id	)
+vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
+vex_precision	[ 0	locks=0	autoscope=0 ]	(	auto	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/set_clip_manually1.netbox"
+Content-Type: text/plain
+
+__netbox25
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/set_clip_manually1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/OUT.init"
+Content-Type: text/plain
+
+type = output
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/OUT.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 1.5298 2.17683
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault off exposed on
+outputsNamed3
+{
+}
+inputsNamed3
+{
+0 	set_node_comment 0 1 "input1"
+}
+inputs
+{
+0 	set_node_comment 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author stephen.bester@cpv-ws018.za.sunrise.productions
+  access 0777
+}
+color UT_Color RGB 0.475 0.812 0.204 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/OUT.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+outputidx	[ 0	locks=0	autoscope=0 ]	(	0	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/OUT.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch_useManualClipEdits.init"
+Content-Type: text/plain
+
+type = switch
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch_useManualClipEdits.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 2.21079 7.528
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+2 "output1"
+}
+inputsNamed3
+{
+0 	switch_timeAnchor 0 1 "input1"
+1 	set_clip_manually1 0 1 "input2"
+}
+inputs
+{
+0 	switch_timeAnchor 0 1
+1 	set_clip_manually1 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author stephen.bester@cpv-ws018.za.sunrise.productions
+  access 0777
+}
+color UT_Color RGB 0.8 1 0.7 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch_useManualClipEdits.chn"
+Content-Type: text/plain
+
+{
+    channel input {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      start = -2.125
+      segment { length = 0 expr = ch(\"../customAttribs\")>0 }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch_useManualClipEdits.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+input	[ 0	locks=0	autoscope=0 ]	(	[ input	0 ] 	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch_useManualClipEdits.netbox"
+Content-Type: text/plain
+
+__netbox25
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch_useManualClipEdits.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/__clipplayergroup.init"
+Content-Type: text/plain
+
+type = groupcreate
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/__clipplayergroup.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 1.93078 28.8924
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight on unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+0 "output1"
+}
+inputsNamed3
+{
+1 	(0) "" 1 "input1"
+}
+inputs
+{
+0 	(0) 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author stephen.bester@cpv-ws018.za.sunrise.productions
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/__clipplayergroup.chn"
+Content-Type: text/plain
+
+{
+    channel grouptype {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      start = -2.125
+      segment { length = 0 expr = ch(\"../grouptype\") }
+    }
+    channel basegroup {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      start = -2.125
+      segment { length = 0 expr = chs(\"../affectedGroup\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/__clipplayergroup.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+groupname	[ 0	locks=0	autoscope=0 ]	(	__affectedGroup	)
+grouptype	[ 0	locks=0	autoscope=0 ]	(	[ grouptype	1 ] 	)
+mergeop	[ 0	locks=0	autoscope=0 ]	(	"replace"	)
+folder0	[ 0	locks=0	autoscope=0 ]	(	0	)
+groupbase	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+basegroup	[ 0	locks=0	autoscope=0 ]	(	[ basegroup	"" ] 	)
+ordered	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+geotype	[ 0	locks=0	autoscope=0 ]	(	"all"	)
+switcher3	[ 0	locks=0	autoscope=0 ]	(	0	)
+groupbounding	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+boundtype	[ 0	locks=0	autoscope=0 ]	(	"usebbox"	)
+size	[ 0	locks=0	autoscope=0 ]	(	1	1	1	)
+t	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
+includenotwhollycontained	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+iso	[ 0	locks=0	autoscope=0 ]	(	0	)
+invertvolume	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+switcher4	[ 0	locks=0	autoscope=0 ]	(	0	)
+groupnormal	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+camerapath	[ 0	locks=0	autoscope=0 ]	(	""	)
+nonplanar	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+nonplanartol	[ 0	locks=0	autoscope=0 ]	(	0.001	)
+dir	[ 0	locks=0	autoscope=0 ]	(	0	0	1	)
+angle	[ 0	locks=0	autoscope=0 ]	(	180	)
+switcher5	[ 0	locks=0	autoscope=0 ]	(	0	)
+groupedges	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+dominedgeangle	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+minedgeangle	[ 0	locks=0	autoscope=0 ]	(	20	)
+domaxedgeangle	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+maxedgeangle	[ 0	locks=0	autoscope=0 ]	(	20	)
+edgeanglebetweenedges	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+dominedgelen	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+minedgelen	[ 0	locks=0	autoscope=0 ]	(	0	)
+domaxedgelen	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+maxedgelen	[ 0	locks=0	autoscope=0 ]	(	0	)
+dodepth	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+edgestep	[ 0	locks=0	autoscope=0 ]	(	0	)
+edgeptgrp	[ 0	locks=0	autoscope=0 ]	(	0	)
+unshared	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+boundarygroups	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/__clipplayergroup.netbox"
+Content-Type: text/plain
+
+__netbox22
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/__clipplayergroup.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch_timeAnchor.init"
+Content-Type: text/plain
+
+type = switch
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch_timeAnchor.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 1.7223 15.7605
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+0 "output1"
+}
+inputsNamed3
+{
+1 	switch_timeOffset 0 1 "input1"
+2 	timeAnchor_Randomize 1 1 "input2"
+}
+inputs
+{
+0 	switch_timeOffset 0 1
+1 	timeAnchor_Randomize 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author stephen.bester@cpv-ws018.za.sunrise.productions
+  access 0777
+}
+color UT_Color RGB 0.8 1 0.7 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch_timeAnchor.chn"
+Content-Type: text/plain
+
+{
+    channel input {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      start = -2.125
+      segment { length = 0 expr = ch(\"../enableTimeAnchor\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch_timeAnchor.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+input	[ 0	locks=0	autoscope=0 ]	(	[ input	0 ] 	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch_timeAnchor.netbox"
+Content-Type: text/plain
+
+__netbox16
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch_timeAnchor.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch_timeOffset.init"
+Content-Type: text/plain
+
+type = switch
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch_timeOffset.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 1.7223 19.656
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+0 "output1"
+}
+inputsNamed3
+{
+1 	switch_timeSpeed 0 1 "input1"
+2 	timeOffset_randomize 1 1 "input2"
+}
+inputs
+{
+0 	switch_timeSpeed 0 1
+1 	timeOffset_randomize 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author stephen.bester@cpv-ws018.za.sunrise.productions
+  access 0777
+}
+color UT_Color RGB 0.8 1 0.7 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch_timeOffset.chn"
+Content-Type: text/plain
+
+{
+    channel input {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      start = -2.125
+      segment { length = 0 expr = ch(\"../enableTimeOffset\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch_timeOffset.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+input	[ 0	locks=0	autoscope=0 ]	(	[ input	0 ] 	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch_timeOffset.netbox"
+Content-Type: text/plain
+
+__netbox17
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch_timeOffset.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch_timeSpeed.init"
+Content-Type: text/plain
+
+type = switch
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch_timeSpeed.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 1.7223 23.3273
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+0 "output1"
+}
+inputsNamed3
+{
+1 	has_pscale 0 1 "input1"
+2 	timeSpeed_random 1 1 "input2"
+}
+inputs
+{
+0 	has_pscale 0 1
+1 	timeSpeed_random 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author stephen.bester@cpv-ws018.za.sunrise.productions
+  access 0777
+}
+color UT_Color RGB 0.8 1 0.7 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch_timeSpeed.chn"
+Content-Type: text/plain
+
+{
+    channel input {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      start = -2.125
+      segment { length = 0 expr = ch(\"../enableTimeSpeed\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch_timeSpeed.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+input	[ 0	locks=0	autoscope=0 ]	(	[ input	0 ] 	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch_timeSpeed.netbox"
+Content-Type: text/plain
+
+__netbox21
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/switch_timeSpeed.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/set_node_comment.init"
+Content-Type: text/plain
+
+type = python
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/set_node_comment.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 1.7223 5.0918
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+0 "output1"
+}
+inputsNamed3
+{
+1 	switch_useManualClipEdits 2 1 "input1"
+}
+inputs
+{
+0 	switch_useManualClipEdits 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author stephen.bester@cpv-ws018.za.sunrise.productions
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/set_node_comment.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+python	[ 0	locks=0	autoscope=0 ]	(	"node = hou.pwd().parent()
+node.setGenericFlag(hou.nodeFlag.DisplayComment, 1)
+with hou.undos.disabler():
+    node.setComment(\"\")
+    if node.parm('enableTimeAnchor').eval() == 1:
+        node.appendComment(\"timeAnchor\\n\")
+    
+    if node.parm('enableTimeOffset').eval() == 1:
+        node.appendComment(\"timeOffset\\n\")  
+        
+    if node.parm('enableTimeSpeed').eval() == 1:
+        node.appendComment(\"timeSpeed\\n\")  
+        
+    for i in range(node.parm('customAttribs').eval()):
+        if (node.parm('enable_' + str(i+1)).eval()):
+            name = node.parm('attribName_' + str(i+1)).evalAsString()
+            node.appendComment(name+\"\\n\")
+    
+
+"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/set_node_comment.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot.order"
+Content-Type: text/plain
+
+13
+OUT
+timeOffset_randomize
+timeAnchor_Randomize
+has_seedAttrib
+timeSpeed_random
+has_pscale
+switch_useManualClipEdits
+__clipplayergroup
+switch_timeAnchor
+switch_timeOffset
+switch_timeSpeed
+set_node_comment
+set_clip_manually1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot.net"
+Content-Type: text/plain
+
+1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY--

@@ -1,0 +1,15 @@
+Operator:     choreofx::agentTrajectorySequence::1
+Label:        Agent Trajectory Sequence
+Path:         oplib:/choreofx::Sop/agentTrajectorySequence::1?choreofx::Sop/agentTrajectorySequence::1
+Icon:         ChoreoFX
+Table:        Sop
+License:      
+Extra:        
+User:         
+Inputs:       1 to 2
+Outputs:      2
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Thu Dec  3 10:21:52 2020
+

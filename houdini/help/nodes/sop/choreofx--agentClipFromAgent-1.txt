@@ -1,0 +1,98 @@
+= Agent Clip From Agent =
+#icon: /Icons/ChoreoFX.svg
+#tags: crowds, agents, ChoreoFX
+
+"""Documentation is Coming soon!"""
+
+This is placeholder documentation for Agent Clip From Agent
+
+@parameters
+
+Enable:
+	#id: enable
+	ToDo
+
+== Clip From Agent ==
+Output Clip Name:
+	#id: outClipName
+	ToDo
+
+Source Agent:
+	#id: sourcePrim
+	ToDo
+
+Start:
+	#id: frStart
+	ToDo
+
+End:
+	#id: frEnd
+	ToDo
+
+Try Get Range From Source Clip:
+	#id: tryGetRange
+	ToDo
+
+Sample Rate:
+	#id: samplerate
+	ToDo
+
+Move Start to Origin:
+	#id: moveorigin
+	ToDo
+
+Offset Translate:
+	#id: offset_t
+	ToDo
+
+Offset Rotate:
+	#id: offset_r
+	ToDo
+
+Convert to In-Place Animation:
+	#id: converttoinplace
+	ToDo
+
+== Locomotion Setings ==
+Projection Type:
+	#id: projectionType
+	ToDo
+
+Include Y axis Position in Locomotion:
+	#id: includePosY
+	ToDo
+
+Locomotion Node:
+	#id: locomotionnode
+	ToDo
+
+Locomotion Orient:
+	#id: locomotionlookat
+	ToDo
+
+Project Positions on Dominant Axis:
+	#id: projectaxis
+	ToDo
+
+Set Output Clip:
+	#id: visOutClip
+	ToDo
+
+Apply Clip Locomotion:
+	#id: applylocomotion
+	ToDo
+
+Visualise:
+	#id: vis
+	ToDo
+
+
+@inputs
+
+Placeholder:
+    Description of input
+
+@outputs
+
+Placeholder:
+    Description of output

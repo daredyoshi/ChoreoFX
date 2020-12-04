@@ -1,0 +1,14 @@
+Operator:     choreofx::crowdAgentAssign::3
+Label:        Crowd Agent Assign
+Path:         oplib:/choreofx::Sop/crowdAgentAssign::3?choreofx::Sop/crowdAgentAssign::3
+Icon:         ChoreoFX
+Table:        Sop
+License:      
+Extra:        
+User:         
+Inputs:       1 to 2
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Thu Dec  3 11:17:38 2020
+

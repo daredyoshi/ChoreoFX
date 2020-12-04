@@ -1,0 +1,36 @@
+= Crowd Trajectory Apply =
+#icon: /Icons/ChoreoFX.svg
+#tags: crowds, agents, ChoreoFX
+
+"""Documentation is Coming soon!"""
+
+This is placeholder documentation for Crowd Trajectory Apply
+
+@parameters
+
+Lookup Clip Time:
+	#id: lookupClipTime
+	ToDo
+
+Lookup Clip Names:
+	#id: lookupClipNames
+	ToDo
+
+Lookup Clip Weights:
+	#id: lookupClipWeights
+	ToDo
+
+Lookup Agent World Transforms:
+	#id: lookupAgentWorldTransforms
+	ToDo
+
+
+@inputs
+
+Placeholder:
+    Description of input
+
+@outputs
+
+Placeholder:
+    Description of output

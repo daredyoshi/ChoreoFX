@@ -1,0 +1,141 @@
+= Crowd Guide Brush =
+#icon: /Icons/ChoreoFX.svg
+#tags: crowds, agents, ChoreoFX
+
+"""Documentation is Coming soon!"""
+
+This is placeholder documentation for Crowd Guide Brush
+
+@parameters
+
+Clear All:
+	#id: clearAll
+	ToDo
+
+== Settings ==
+== State Options ==
+Select All Prim Points:
+	#id: selectAllPrimPoints
+	ToDo
+
+Use Falloff:
+	#id: useFalloff
+	ToDo
+
+Falloff Distance:
+	#id: falloffDist
+	ToDo
+
+Fallof Ramp:
+	#id: fallofRamp
+	ToDo
+
+== Output Paths ==
+Resample Length:
+	#id: resampleLength
+	ToDo
+
+Resample Method:
+	#id: resampleMethod
+	ToDo
+
+== Guides ==
+Handle Scale:
+	#id: handleScale
+	ToDo
+
+Vis Direction Arrows:
+	#id: visDirArrows
+	ToDo
+
+Direction Arrow Scale:
+	#id: dirArrowScale
+	ToDo
+
+Direction Arrow Interval:
+	#id: dirArrowInterval
+	ToDo
+
+== stateparms ==
+Selected Points Group:
+	#id: selectedPointsGroup
+	ToDo
+
+Active Is Handle:
+	#id: activeIsHandle
+	ToDo
+
+active Prim:
+	#id: activePrim
+	ToDo
+
+activePrimU:
+	#id: activePrimU
+	ToDo
+
+activeTipPoint:
+	#id: activeTipPoint
+	ToDo
+
+Brush Mode:
+	#id: brush_mode
+	ToDo
+
+Brush Op:
+	#id: brush_op
+	ToDo
+
+Brush Position:
+	#id: brush_position
+	ToDo
+
+Brush Start Position:
+	#id: brush_startPosition
+	ToDo
+
+Brush Rot:
+	#id: brush_rot
+	ToDo
+
+Brush Size:
+	#id: brush_size3
+	ToDo
+
+Brush Falloff:
+	#id: brush_falloff
+	ToDo
+
+Cursor Screen Position:
+	#id: cursorScreenPos
+	ToDo
+
+Cursor Screen Position Start:
+	#id: cursorScreenPosStart
+	ToDo
+
+is Mouse Down:
+	#id: isMouseDown
+	ToDo
+
+is Cursor In Viewport:
+	#id: isCursorInViewport
+	ToDo
+
+is Selection Event:
+	#id: isSelectionEvent
+	ToDo
+
+Geometry Stash:
+	#id: stash_all_points
+	ToDo
+
+
+@inputs
+
+Placeholder:
+    Description of input
+
+@outputs
+
+Placeholder:
+    Description of output

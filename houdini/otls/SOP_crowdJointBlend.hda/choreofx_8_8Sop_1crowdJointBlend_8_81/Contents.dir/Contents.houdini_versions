@@ -1,0 +1,22 @@
+{
+	"values":["17.5.327::00.01","18.5.351"
+	],
+	"indexes":{
+		"hdaroot/switch1.userdata":1,
+		"hdaroot/switch_blendpointP.userdata":1,
+		"hdaroot/blendshapes1.userdata":1,
+		"hdaroot/switch_blend_all_joints.userdata":1,
+		"hdaroot/switch_local.userdata":1,
+		"hdaroot/OUT.userdata":1,
+		"hdaroot/switch_use_deactivate.userdata":1,
+		"hdaroot/switch_use_activate.userdata":1,
+		"hdaroot/switch_rand_blend.userdata":1,
+		"hdaroot/switch_use_clip.userdata":1,
+		"hdaroot/repeat_begin1.userdata":1,
+		"hdaroot/repeat_end1.userdata":1,
+		"hdaroot/repeat_begin1_metadata1.userdata":1,
+		"hdaroot/repeat_begin3.userdata":1,
+		"hdaroot/switch_enable.userdata":1,
+		"hdaroot.userdata":0
+	}
+}

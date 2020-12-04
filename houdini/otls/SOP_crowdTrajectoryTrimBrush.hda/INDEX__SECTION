@@ -1,0 +1,15 @@
+Operator:     choreofx::crowdTrajectoryTrimBrush::1
+Label:        Crowd Trajectory Trim Brush
+Path:         oplib:/choreofx::Sop/crowdTrajectoryTrimBrush::1?choreofx::Sop/crowdTrajectoryTrimBrush::1
+Icon:         ChoreoFX
+Table:        Sop
+License:      
+Extra:        guide=HDA_GUIDE 
+User:         
+Inputs:       1 to 2
+Outputs:      3
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Thu Dec  3 10:18:48 2020
+

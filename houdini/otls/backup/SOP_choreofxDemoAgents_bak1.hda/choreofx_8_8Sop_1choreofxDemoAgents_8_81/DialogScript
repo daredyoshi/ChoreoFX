@@ -1,0 +1,58 @@
+# Dialog script for choreofx::choreofxDemoAgents::1 automatically generated
+
+{
+    name	choreofx::choreofxDemoAgents::1
+    script	choreofx::choreofxDemoAgents::1
+    label	"ChoreoFX Demo Agents"
+
+    help {
+	""
+    }
+
+    inputlabel	1	"Sub-Network Input #1"
+    inputlabel	2	"Sub-Network Input #2"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+
+    groupsimple {
+        name    "folder0"
+        label   "Demo Agents"
+
+        parm {
+            name    "demoAgent"
+            label   "Demo Agent"
+            type    integer
+            default { "0" }
+            menu {
+                "0" "All"
+                "1" "Otto"
+                "2" "Jack"
+                "3" "Zap"
+                "4" "Caaro"
+                "5" "Fern"
+                "6" "Wong"
+            }
+            range   { 0! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback" "hou.hscript(\"viewupdate -u now\")" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "sepparm"
+            label   "Separator"
+            type    separator
+            default { "" }
+        }
+        parm {
+            name    "attribution"
+            label   "Attribution"
+            type    string
+            default { "Our Test character Otto is derivative of:\n\"Biped robot\" by Willy Decarpentrie is licensed under CC Attribution 4.0 by David Reinhold and Stephen Bester\nhttps://sketchfab.com/3d-models/biped-robot-801d2a245e4a4405a0c2152b35b5e486\n\nOur Test characters Jack, Zap, Caaro, Fern, and Wong are kindly donated by:\nCarl-Christian Gehl and are licensed under CC Attribution 4.0 by David Reinhold and Stephen Bester\nhttps://www.artstation.com/charactercarl\nConcept art for characters by Rohan Yang.\nhttps://www.artstation.com/rohanyang\n\nAll animation clips are from https://www.mixamo.com/" }
+            parmtag { "editor" "1" }
+            parmtag { "editorlines" "10-20" }
+            parmtag { "export_disable" "1" }
+            parmtag { "script_callback_language" "python" }
+        }
+    }
+
+}

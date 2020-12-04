@@ -1,0 +1,308 @@
+# Dialog script for choreofx::crowdOrient::1 automatically generated
+
+{
+    name	choreofx::crowdOrient::1
+    script	choreofx::crowdOrient::1
+    label	"Crowd Orient"
+
+    help {
+	""
+    }
+    bindhandle lookatPositionx translate "LookAtTranslate" tx ""
+    bindhandle lookatPositiony translate "LookAtTranslate" ty ""
+    bindhandle lookatPositionz translate "LookAtTranslate" tz ""
+    bindhandle maskCenterx translate "MaskTranslate" tx ""
+    bindhandle maskCentery translate "MaskTranslate" ty ""
+    bindhandle maskCenterz translate "MaskTranslate" tz ""
+
+    inputlabel	1	"Crowd Agents"
+    inputlabel	2	"Geo for lookup"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+    outputlabel	1	"Crowd Agents"
+
+    parm {
+        name    "group"
+        label   "Agent Group"
+        type    string
+        default { "" }
+        menutoggle {
+            [ "opmenu -l -a set_dir group" ]
+        }
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_action" "import soputils\nkwargs['geometrytype'] = kwargs['node'].parmTuple('grouptype')\nkwargs['inputindex'] = 0\nkwargs['nodepath'] = kwargs['node'].path()\n#kwargs['nodepath'] = kwargs['node'].parent().displayNode().path()\nsoputils.selectGroupParm(kwargs)" }
+        parmtag { "script_action_help" "Select geometry from an available viewport." }
+        parmtag { "script_action_icon" "BUTTONS_reselect" }
+    }
+    parm {
+        name    "grouptype"
+        label   "Group Type"
+        type    ordinal
+        default { "points" }
+        menu {
+            "guess"     "Guess from Group"
+            "vertices"  "Vertices"
+            "edges"     "Edges"
+            "points"    "Points"
+            "prims"     "Primitives"
+        }
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    groupsimple {
+        name    "folder1"
+        label   "Set Heading"
+
+        parm {
+            name    "headingMethod"
+            label   "Heading Method"
+            type    integer
+            default { "0" }
+            menu {
+                "0" "Set Direction"
+                "1" "Look at Position"
+                "2" "Nearest Pos on Geo"
+                "3" "Attrib Transfer from Geo"
+                "4" "Lookup per agent on Geo"
+            }
+            range   { 0! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "setDir"
+            label   "Set Direction"
+            type    float
+            default { "0" }
+            hidewhen "{ headingMethod != 0 }"
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "lookatPosition"
+            label   "Look At Position"
+            type    vector
+            size    3
+            default { "0" "0" "0" }
+            hidewhen "{ headingMethod != 1 }"
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "transferAttrib"
+            label   "Transfer Attrib"
+            type    string
+            default { "N" }
+            hidewhen "{ headingMethod != 3 }"
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "matchAttrib"
+            label   "Attrib id to match"
+            type    string
+            default { "agent_id" }
+            hidewhen "{ headingMethod != 4 }"
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "lookupAttrib"
+            label   "Lookup Attrib"
+            type    string
+            default { "N" }
+            hidewhen "{ headingMethod != 4 }"
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+    }
+
+    groupsimple {
+        name    "folder2"
+        label   "Masking"
+
+        parm {
+            name    "blendStrength"
+            label   "Blend Strength"
+            type    float
+            default { "1" }
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "sepparm4"
+            label   "Separator"
+            type    separator
+            default { "" }
+        }
+        parm {
+            name    "maskMethod"
+            label   "Mask Method"
+            type    ordinal
+            default { "0" }
+            menu {
+                "0" "None"
+                "1" "Distance Falloff"
+                "2" "Attribute On Self"
+            }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "maskAttrib"
+            label   "Mask Attribute"
+            type    string
+            default { "_mask" }
+            hidewhen "{ maskMethod != 2 }"
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "maskCenter"
+            label   "mask Center"
+            type    vector
+            size    3
+            default { "0" "0" "0" }
+            hidewhen "{ maskMethod != 1 }"
+            range   { -1 1 }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "maskDist"
+            label   "Mask Distance"
+            type    float
+            default { "10" }
+            hidewhen "{ maskMethod != 1 }"
+            range   { 0 50 }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "falloffDist"
+            label   "Falloff Distance"
+            type    float
+            default { "5" }
+            hidewhen "{ maskMethod != 1 }"
+            range   { 0 50 }
+            parmtag { "script_callback_language" "python" }
+        }
+    }
+
+    groupsimple {
+        name    "folder0"
+        label   "Tweak Heading"
+
+        parm {
+            name    "blurHeading"
+            label   "Blur Heading with Neighbours"
+            type    toggle
+            default { "0" }
+            range   { 0! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "blurIters"
+            label   "Blur Iterations"
+            type    integer
+            default { "2" }
+            disablewhen "{ blurHeading == 0 }"
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "proxRad"
+            label   "Proximity Radius"
+            type    float
+            default { "3" }
+            disablewhen "{ blurHeading == 0 }"
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "maxneigh"
+            label   "Max Neighbors"
+            type    integer
+            default { "10" }
+            disablewhen "{ blurHeading == 0 }"
+            range   { 0 50 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "sepparm"
+            label   "Separator"
+            type    separator
+            default { "" }
+        }
+        parm {
+            name    "postRotAmp"
+            label   "Post Rotate Amount"
+            type    float
+            default { "0" }
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "parmvop" "1" }
+            parmtag { "shaderparmcontexts" "cvex" }
+        }
+        parm {
+            name    "randRotAmp"
+            label   "Random Rotate Amount"
+            type    float
+            default { "0" }
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "parmvop" "1" }
+            parmtag { "shaderparmcontexts" "cvex" }
+        }
+        parm {
+            name    "randRotSeed"
+            label   "Random Seed"
+            type    integer
+            default { "67" }
+            range   { 1 100 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "parmvop" "1" }
+            parmtag { "shaderparmcontexts" "cvex" }
+        }
+        parm {
+            name    "sepparm2"
+            label   "Separator"
+            type    separator
+            default { "" }
+        }
+        parm {
+            name    "flattenHeading"
+            label   "Flatten Heading to xz Plane"
+            type    toggle
+            default { "1" }
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+    }
+
+    groupsimple {
+        name    "folder3"
+        label   "Guide"
+
+        parm {
+            name    "visTargetLines"
+            label   "Vis Target Lines"
+            type    toggle
+            default { "1" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "visAgentDir"
+            label   "Vis Agent Direction"
+            type    toggle
+            default { "1" }
+            parmtag { "script_callback_language" "python" }
+        }
+    }
+
+}

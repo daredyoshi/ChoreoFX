@@ -1,0 +1,15 @@
+Operator:     choreofx::agentVignetteCreate::1
+Label:        Agent Vignette Create
+Path:         oplib:/choreofx::Sop/agentVignetteCreate::1?choreofx::Sop/agentVignetteCreate::1
+Icon:         ChoreoFX
+Table:        Sop
+License:      
+Extra:        
+User:         
+Inputs:       1 to 30
+Outputs:      2
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Mon Nov 23 20:13:21 2020
+

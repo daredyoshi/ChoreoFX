@@ -1,0 +1,212 @@
+# Dialog script for choreofx::crowdTrajectoryApply::2 automatically generated
+
+{
+    name	choreofx::crowdTrajectoryApply::2
+    script	choreofx::crowdTrajectoryApply::2
+    label	"Crowd Trajectory Apply"
+
+    help {
+	""
+    }
+
+    inputlabel	1	Trajectories
+    inputlabel	2	"Crowd Agents"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+    outputlabel	1	"Crowd Agents on Trajectories"
+
+    groupsimple {
+        name    "folder0"
+        label   "Agents"
+
+        parm {
+            name    "agentMethod"
+            label   "Agent Method"
+            type    ordinal
+            default { "0" }
+            menu {
+                "0" "Use input2 Agents"
+                "1" "Create Agent Per Path"
+            }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "agentSource"
+            label   "Agent Source"
+            type    oppath
+            default { "" }
+            disablewhen "{ agentMethod == 0 }"
+            parmtag { "oprelative" "." }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "freezeInputAgents"
+            label   "Freeze Input Agents"
+            type    toggle
+            default { "0" }
+            parmtag { "script_callback_language" "python" }
+        }
+    }
+
+    groupsimple {
+        name    "folder1"
+        label   "Traj Apply Settings"
+
+        parm {
+            name    "matchAttrib"
+            label   "Match Attribute"
+            type    string
+            default { "agent_id" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "restClip"
+            label   "Rest Clip"
+            type    string
+            default { "rest" }
+            menureplace {
+                [ "import crowdstoolutils" ]
+                [ "return crowdstoolutils.buildClipMenu(hou.pwd().node('agents'))" ]
+                language python
+            }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "sepparm4"
+            label   "Separator"
+            type    separator
+            default { "" }
+        }
+        parm {
+            name    "lookupClipTime"
+            label   "Lookup Clip Time"
+            type    toggle
+            default { "1" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "lookupClipNames"
+            label   "Lookup Clip Names"
+            type    toggle
+            default { "1" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "lookupClipWeights"
+            label   "Lookup Clip Weights"
+            type    toggle
+            default { "1" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "lookupAgentWorldTransforms"
+            label   "Lookup Agent World Transforms"
+            type    toggle
+            default { "1" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "sepparm"
+            label   "Separator"
+            type    separator
+            default { "" }
+        }
+        parm {
+            name    "removeOutOfRange"
+            label   "Remove Agents Out of FrameRange"
+            type    toggle
+            default { "1" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "sepparm5"
+            label   "Separator"
+            type    separator
+            default { "" }
+        }
+        parm {
+            name    "ptdel"
+            label   "Delete Point Attribs"
+            type    string
+            default { "Cd" }
+            menutoggle {
+                [ "opmenu -l -a remove_attribs ptdel" ]
+            }
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+        }
+        parm {
+            name    "sepparm3"
+            label   "Separator"
+            type    separator
+            default { "" }
+        }
+    }
+
+    groupsimple {
+        name    "folder2"
+        label   "Guides"
+
+        parm {
+            name    "colorAgentsOnTraj"
+            label   "color Agents on Trajectories"
+            type    toggle
+            invisible
+            default { "0" }
+            range   { 0! 1! }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "visTimingPaths"
+            label   "vis Trajectory Timing Paths"
+            type    toggle
+            default { "1" }
+            parmtag { "script_callback_language" "python" }
+        }
+        groupcollapsible {
+            name    "folder3"
+            label   "TimingPaths"
+            disablewhentab "{ visTimingPaths==0 == \"\" }"
+
+            parm {
+                name    "majorFrameInverval"
+                label   "MajorFrameInterval"
+                type    integer
+                default { [ "$FPS" hscript-expr ] }
+                range   { 0 60 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "minorFrameInverval"
+                label   "MinorFrameInterval"
+                type    integer
+                default { "12" }
+                range   { 0 60 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "majorFrameScale"
+                label   "majorFrameScale"
+                type    float
+                default { "0.3" }
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "minorFrameScaleMult"
+                label   "minorFrameScaleMult"
+                type    float
+                default { "0.25" }
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+        }
+
+    }
+
+}

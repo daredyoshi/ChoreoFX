@@ -1,0 +1,15 @@
+Operator:     choreofx::agentClipTrajectoryVariationCreate::1
+Label:        Agent Clip Trajectory Variation Create
+Path:         oplib:/choreofx::Sop/agentClipTrajectoryVariationCreate::1?choreofx::Sop/agentClipTrajectoryVariationCreate::1
+Icon:         ChoreoFX
+Table:        Sop
+License:      
+Extra:        
+User:         
+Inputs:       1 to 2
+Outputs:      2
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Tue Dec  1 17:53:49 2020
+

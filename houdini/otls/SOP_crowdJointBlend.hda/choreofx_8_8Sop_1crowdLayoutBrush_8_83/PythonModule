@@ -1,0 +1,11 @@
+def stashFixedRayGeo(node):
+    print('trystash')
+    parm = node.parm('stash_ray_geo')
+    outgeo = node.node('OUT_FixedRayGeo')
+    parm.set(outgeo.geometry())
+    print('stashed')
+    
+def test(kwargs):
+    print ""
+    for kwarg in kwargs:
+        print kwarg, kwargs[kwarg]

@@ -1,0 +1,196 @@
+# Dialog script for choreofx::crowdCostumeAssign::1 automatically generated
+
+{
+    name	choreofx::crowdCostumeAssign::1
+    script	agentClipFromAgent::00.01
+    label	"Crowd Costume Assign"
+
+    help {
+	""
+    }
+
+    inputlabel	1	"Crowd Agent Points"
+    inputlabel	2	"Costume Source"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+    outputlabel	1	"Agents in Costume"
+
+    parm {
+        name    "agentgroup"
+        label   "Agent Group"
+        type    string
+        default { "" }
+        menutoggle {
+            [ "opmenu -l -a set_single_costume group" ]
+        }
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_action" "import soputils\nkwargs['geometrytype'] = kwargs['node'].parmTuple('grouptype')\nkwargs['inputindex'] = 0\nsoputils.selectGroupParm(kwargs)" }
+        parmtag { "script_action_help" "Select geometry from an available viewport." }
+        parmtag { "script_action_icon" "BUTTONS_reselect" }
+    }
+    parm {
+        name    "grouptype"
+        label   "Group Type"
+        type    ordinal
+        default { "points" }
+        menu {
+            "guess"     "Guess from Group"
+            "vertices"  "Vertices"
+            "edges"     "Edges"
+            "points"    "Points"
+            "prims"     "Primitives"
+        }
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "sepparm15"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
+        name    "setSingleCostume"
+        label   "Set Costume"
+        type    string
+        default { "default" }
+        disablewhen "{ randomizeCostumes == 1 }"
+        menureplace {
+            [ "import crowdstoolutils" ]
+            [ "return crowdstoolutils.buildLayerMenu(hou.pwd())" ]
+            language python
+        }
+    }
+    parm {
+        name    "sepparm14"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
+        name    "randomizeCostumes"
+        label   "Randomize Costumes"
+        type    toggle
+        default { "0" }
+    }
+    parm {
+        name    "randomCostumeSeed"
+        label   "Random Seed"
+        type    integer
+        default { "100" }
+        disablewhen "{ randomizeCostumes == 0 }"
+        range   { 0 1000 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "seedAttrib"
+        label   "Seed Attribute"
+        type    string
+        default { "agent_id" }
+        disablewhen "{ randomizeCostumes == 0 }"
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    groupsimple {
+        name    "folder5"
+        label   "Costumes List"
+        disablewhentab "{ randomizeCostumes == 0 }"
+
+        multiparm {
+            name    "numCostumePatterns"
+            label    "Costume Groups"
+            default 1
+
+            parm {
+                name    "costumePattern_#"
+                label   "Costume Pattern"
+                type    string
+                default { "" }
+                menutoggle {
+                    [ "import crowdstoolutils" ]
+                    [ "return crowdstoolutils.buildLayerMenu(hou.pwd())" ]
+                    language python
+                }
+            }
+            parm {
+                name    "costumeWeight_#"
+                label   "Weight"
+                type    float
+                default { "1" }
+                range   { 0! 10 }
+            }
+        }
+
+    }
+
+    parm {
+        name    "sepparm2"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    multiparm {
+        name    "manualCostumeEdits"
+        label    "Manual Costume Edits"
+        default 0
+
+        parm {
+            name    "manualEnable_#"
+            label   "Enable"
+            type    toggle
+            default { "1" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "manualGroup_#"
+            label   "Affected Group"
+            type    string
+            default { "" }
+            menutoggle {
+                [ "opmenu -l __manualgroup basegroup" ]
+            }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_action" "import soputils\nkwargs['geometrytype'] = hou.geometryType.Points\nkwargs['inputindex'] = 0\n#kwargs['ordered'] = kwargs['node'].parm('ordered').eval()\nsoputils.selectGroupParm(kwargs)" }
+            parmtag { "script_action_help" "Select geometry from an available viewport.\nShift-click to turn on Select Groups." }
+            parmtag { "script_action_icon" "BUTTONS_reselect" }
+        }
+        parm {
+            name    "manualCostumeName_#"
+            label   "Costume"
+            type    string
+            default { "default" }
+            menureplace {
+                [ "import crowdstoolutils" ]
+                [ "return crowdstoolutils.buildLayerMenu(hou.pwd())" ]
+                language python
+            }
+        }
+    }
+
+    groupsimple {
+        name    "folder0"
+        label   "Advanced"
+
+        parm {
+            name    "doStaticFrame"
+            label   "Calculate on Static Frame"
+            type    toggle
+            default { "1" }
+            range   { 0! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "staticFrame"
+            label   "Static Frame"
+            type    float
+            default { [ "$FSTART" hscript-expr ] }
+            hidewhen "{ doStaticFrame == 0 }"
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+    }
+
+}

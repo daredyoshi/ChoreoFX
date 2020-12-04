@@ -1,0 +1,205 @@
+= Crowd Guide Generator =
+#icon: /Icons/ChoreoFX.svg
+#tags: crowds, agents, ChoreoFX
+
+"""Documentation is Coming soon!"""
+
+This is placeholder documentation for Crowd Guide Generator
+
+@parameters
+
+Affected Group:
+	#id: basegroup
+	ToDo
+
+Group Type:
+	#id: grouptype
+	ToDo
+
+Global Seed Attribute:
+	#id: seedattrib
+	ToDo
+
+== Path Generation ==
+Show Movement Paths:
+	#id: showmovepaths
+	ToDo
+
+== Input Paths ==
+Use Delta Agent Position (Input4):
+	#id: usedeltapaths
+	ToDo
+
+Copy Input Path Per Agent:
+	#id: copy_path_per_agent
+	ToDo
+
+Reverse Input Paths:
+	#id: revinpaths
+	ToDo
+
+Reverse Group:
+	#id: reversepathgroup
+	ToDo
+
+Reverse Output Paths:
+	#id: revoutpaths
+	ToDo
+
+Reverse Output Group:
+	#id: reverseoutputgroup
+	ToDo
+
+Resample:
+	#id: inputpathresample
+	ToDo
+
+Resample Method:
+	#id: resample_method
+	ToDo
+
+Resample input paths:
+	#id: resample_input_paths
+	ToDo
+
+Smooth:
+	#id: inputpathsmooth
+	ToDo
+
+== Lean Around Bends ==
+Use Curvature:
+	#id: usecurvature
+	ToDo
+
+== Curvature Settings ==
+Lean in Curve Amount:
+	#id: leanamount
+	ToDo
+
+Foresight Distance:
+	#id: foresightdistance
+	ToDo
+
+Curve Sensitivity:
+	#id: curvesensitivity
+	ToDo
+
+Curvature blur:
+	#id: curvature_blur
+	ToDo
+
+== Path Start Align ==
+Start Align Mix:
+	#id: start_align_mix
+	ToDo
+
+Align Distance:
+	#id: align_dist
+	ToDo
+
+Bias distance by angle difference:
+	#id: biasdist
+	ToDo
+
+ramp start align:
+	#id: ramp_start_align
+	ToDo
+
+== Path noise ==
+Enable Path Noise:
+	#id: dopathnoise
+	ToDo
+
+== path noise ==
+Random Per Path:
+	#id: randpath
+	ToDo
+
+Seed:
+	#id: seed
+	ToDo
+
+Path Resample Length:
+	#id: pnoiseresamplelength
+	ToDo
+
+Noise Type:
+	#id: pathnoisetype
+	ToDo
+
+Frequency:
+	#id: freq
+	ToDo
+
+Offset:
+	#id: pathnoiseoffset
+	ToDo
+
+Amplitude:
+	#id: pathnoiseamp
+	ToDo
+
+Roughness:
+	#id: pathnoiserough
+	ToDo
+
+Turbulence:
+	#id: pathnoiseturb
+	ToDo
+
+== Vector Field ==
+Use Vector Field:
+	#id: usevectorfield
+	ToDo
+
+==   ==
+Show Field Arrows:
+	#id: visfield
+	ToDo
+
+Grid Cell Size:
+	#id: cellsize
+	ToDo
+
+Grid Bounds Padding:
+	#id: grid_bounds_padding
+	ToDo
+
+Blur Field:
+	#id: fieldbluriterations
+	ToDo
+
+Use Flow Surface (Input 5):
+	#id: useflowsurface
+	ToDo
+
+Path to Surface Max Distance:
+	#id: thresholddist
+	ToDo
+
+Snap to Surface:
+	#id: snapflowsurface
+	ToDo
+
+Volume Trail Length:
+	#id: traillen
+	ToDo
+
+Extend Curves:
+	#id: extendcurves
+	ToDo
+
+Extend Distance:
+	#id: extenddist
+	ToDo
+
+
+@inputs
+
+Placeholder:
+    Description of input
+
+@outputs
+
+Placeholder:
+    Description of output

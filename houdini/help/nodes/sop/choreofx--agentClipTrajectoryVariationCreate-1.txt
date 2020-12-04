@@ -1,0 +1,53 @@
+= Agent Clip Trajectory Variation Create =
+#icon: /Icons/ChoreoFX.svg
+#tags: crowds, agents, ChoreoFX
+
+"""Documentation is Coming soon!"""
+
+This is placeholder documentation for Agent Clip Trajectory Variation Create
+
+@parameters
+
+Layout in X:
+	#id: layout_in_x
+	ToDo
+
+== Trajectories ==
+Enable:
+	#id: enable#
+	ToDo
+
+Traj Name:
+	#id: trajname_#
+	ToDo
+
+Loopable:
+	#id: loopable_#
+	ToDo
+
+Trim Beginning:
+	#id: trim_beginning_#
+	ToDo
+
+Trim End:
+	#id: trim_end_#
+	ToDo
+
+Min Segment Length:
+	#id: minseglength_#
+	ToDo
+
+Sample Size:
+	#id: samplesize_#
+	ToDo
+
+
+@inputs
+
+Placeholder:
+    Description of input
+
+@outputs
+
+Placeholder:
+    Description of output

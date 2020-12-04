@@ -1,0 +1,24 @@
+{
+	"values":["18.0.499"
+	],
+	"indexes":{
+		"hdaroot/Path_Deform_FxJ2/switch1.userdata":0,
+		"hdaroot/Path_Deform_FxJ2/switch2.userdata":0,
+		"hdaroot/Path_Deform_FxJ2/switch.userdata":0,
+		"hdaroot/Path_Deform_FxJ2/transform_attributes.userdata":0,
+		"hdaroot/Path_Deform_FxJ2/axis_align.userdata":0,
+		"hdaroot/Path_Deform_FxJ2/curve_length.userdata":0,
+		"hdaroot/Path_Deform_FxJ2/attribpromote1.userdata":0,
+		"hdaroot/Path_Deform_FxJ2/timeshift1.userdata":0,
+		"hdaroot/trajectories.userdata":0,
+		"hdaroot/Path_Deform_FxJ2/OUT.userdata":0,
+		"hdaroot/Path_Deform_FxJ2/CURVE.userdata":0,
+		"hdaroot/paths.userdata":0,
+		"hdaroot/output0.userdata":0,
+		"hdaroot/switch_Enable.userdata":0,
+		"hdaroot/Path_Deform_FxJ2/copy2.userdata":0,
+		"hdaroot/Path_Deform_FxJ2/subdivide.userdata":0,
+		"hdaroot/Path_Deform_FxJ2/switch_same_mesh.userdata":0,
+		"hdaroot/Path_Deform_FxJ2.userdata":0
+	}
+}

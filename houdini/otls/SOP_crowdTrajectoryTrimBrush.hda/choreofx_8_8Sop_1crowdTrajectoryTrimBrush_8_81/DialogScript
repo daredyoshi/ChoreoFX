@@ -1,0 +1,414 @@
+# Dialog script for choreofx::crowdTrajectoryTrimBrush::1 automatically generated
+
+{
+    name	choreofx::crowdTrajectoryTrimBrush::1
+    script	choreofx::crowdTrajectoryTrimBrush::1
+    label	"Crowd Trajectory Trim Brush"
+
+    help {
+	""
+    }
+
+    inputlabel	1	Trajectories
+    inputlabel	2	"Crowd Agents"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+    outputlabel	1	"python state output (ignore)"
+    outputlabel	2	Trajectories
+    outputlabel	3	"Crowd Agents"
+
+    group {
+        name    "folder0"
+        label   "Settings"
+
+        parm {
+            name    "clearAllChanges"
+            label   "Clear All Changes"
+            type    button
+            default { "0" }
+            parmtag { "script_callback" "hou.pwd().parm(\"stash_traj_points\").revertToDefaults()" }
+            parmtag { "script_callback_language" "python" }
+        }
+        groupsimple {
+            name    "folder1"
+            label   "Handle Settings"
+
+            parm {
+                name    "useLiveUpdate"
+                label   "Use Live Update"
+                type    toggle
+                default { "1" }
+                parmtag { "script_callback_language" "python" }
+            }
+        }
+
+        groupcollapsible {
+            name    "folder2"
+            label   "Guide Settings"
+
+            parm {
+                name    "guideDisplay"
+                label   "Guide Display"
+                type    ordinal
+                default { "1" }
+                menu {
+                    "0" "HDA Guides"
+                    "1" "Pystate Drawables"
+                }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "sepparm5"
+                label   "Separator"
+                type    separator
+                default { "" }
+            }
+            parm {
+                name    "timingHandleSize"
+                label   "Handle Size"
+                type    float
+                default { "0.25" }
+                range   { 0 2 }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "sepparm7"
+                label   "Separator"
+                type    separator
+                default { "" }
+            }
+            parm {
+                name    "textSize"
+                label   "Text Size"
+                type    float
+                default { "0.5" }
+                range   { 0 2 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "visTextOnHandles"
+                label   "Show Frame Text on Handles"
+                type    toggle
+                default { "1" }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "intervalMeasureMethod"
+                label   "Interval Measure Method"
+                type    integer
+                default { "1" }
+                menu {
+                    "0" "From First Point"
+                    "1" "By Global Frame"
+                }
+                range   { 0 10 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "sepparm8"
+                label   "Separator"
+                type    separator
+                default { "" }
+            }
+            parm {
+                name    "visMajorFrames"
+                label   "Show Major Frames"
+                type    toggle
+                default { "1" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "visTextOnMajorFrames"
+                label   "Show Text on Major Frames"
+                type    toggle
+                default { "0" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "majorFrameInverval"
+                label   "Major Frame Interval"
+                type    integer
+                default { "$FPS" }
+                range   { 0 50 }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "majorFrameScale"
+                label   "Major Frame Scale"
+                type    float
+                default { "0.5" }
+                range   { 0 2 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "visDir"
+                label   "Vis Dir"
+                type    integer
+                default { "0" }
+                menu {
+                    "0" "Agent Orient"
+                    "1" "Path Direction"
+                }
+                range   { 0! 1! }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "sepparm4"
+                label   "Separator"
+                type    separator
+                default { "" }
+            }
+            parm {
+                name    "visMinorFrames"
+                label   "Show Minor Frames"
+                type    toggle
+                default { "1" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "minorFrameInverval"
+                label   "Minor Frame Interval"
+                type    integer
+                default { "6" }
+                range   { 0 50 }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "minorFrameScaleMult"
+                label   "Minor Frame Scale Mult"
+                type    float
+                default { "0.25" }
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "sepparm"
+                label   "Separator"
+                type    separator
+                default { "" }
+            }
+            parm {
+                name    "visAnchors"
+                label   "Vis Anchors Frames"
+                type    toggle
+                default { "1" }
+                range   { 0! 1! }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "visFrameOffset"
+                label   "Vis Frame Offset"
+                type    toggle
+                default { "1" }
+                range   { 0! 10 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "frameOffsetPosition"
+                label   "Offset Position"
+                type    integer
+                default { "1" }
+                disablewhen "{ visFrameOffset == 0 }"
+                menu {
+                    "0" "Frame Anchor"
+                    "1" "Center of Traj"
+                }
+                range   { 0! 1! }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "textcolor"
+                label   "Offset Text Color"
+                type    color
+                size    3
+                default { "1" "0" "1" }
+                range   { 0 1 }
+                parmtag { "autoscope" "0000000000000000" }
+            }
+            parm {
+                name    "sepparm3"
+                label   "Separator"
+                type    separator
+                default { "" }
+            }
+        }
+
+    }
+
+    group {
+        name    "folder0_1"
+        label   "state parms"
+
+        parm {
+            name    "brush_op"
+            label   "Brush Op"
+            type    buttonstrip
+            default { "0" }
+            menu {
+                "slideframe"        "Slide Frame "
+                "resetframe"        "Reset Frame"
+                "startframe"        "Start Frame"
+                "endframe"          "End Frame"
+                "offsetframe"       "Offset Frame"
+                "resetoffsetframe"  "Reset Offset Frame"
+            }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "selectedPointsGroup"
+            label   "Selected Points Group"
+            type    string
+            default { "" }
+            menutoggle {
+                [ "opmenu -l -a selectedPoints basegroup" ]
+            }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_action" "import soputils\nkwargs['geometrytype'] = hou.geometryType.Points\nkwargs['inputindex'] = 0\nkwargs['ordered'] = 0\nkwargs['nodepath'] = kwargs['node'].path()\nsoputils.selectGroupParm(kwargs)" }
+            parmtag { "script_action_help" "Select geometry from an available viewport.\nShift-click to turn on Select Groups." }
+            parmtag { "script_action_icon" "BUTTONS_reselect" }
+        }
+        parm {
+            name    "brush_position"
+            label   "Brush Position"
+            type    vector
+            size    3
+            default { "0" "0" "0" }
+            range   { -1 1 }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "brush_positionEnd"
+            label   "Brush Position End"
+            type    vector
+            size    3
+            default { "0" "0" "0" }
+            range   { -1 1 }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "cursorScreenPos"
+            label   "Cursor Screen Position"
+            type    vector2
+            size    2
+            default { "0" "0" }
+            range   { -1 1 }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "cursorScreenPosEnd"
+            label   "Cursor Screen Position End"
+            type    vector2
+            size    2
+            default { "0" "0" }
+            range   { -1 1 }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "sepparm2"
+            label   "Separator"
+            type    separator
+            default { "" }
+        }
+        parm {
+            name    "currentGlobalFrame"
+            label   "Current Global Frame"
+            type    integer
+            default { "0" }
+            range   { 0 10 }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "activePoint"
+            label   "active Handle Point"
+            type    integer
+            default { "0" }
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "activePrim"
+            label   "active Prim"
+            type    integer
+            default { "0" }
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "isCtrl"
+            label   "CTRL Is Down"
+            type    toggle
+            default { "0" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "isShift"
+            label   "SHIFT Is Down"
+            type    toggle
+            default { "0" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "isMouseDown"
+            label   "is Mouse Down"
+            type    toggle
+            default { "0" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "isMouseUp"
+            label   "is Mouse Up Event"
+            type    toggle
+            default { "0" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "isCursorInViewport"
+            label   "is Cursor In Viewport"
+            type    toggle
+            default { "0" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "isSelectionEvent"
+            label   "is Selection Event"
+            type    toggle
+            default { "0" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "isReadOnlyOp"
+            label   "isReadOnlyOp"
+            type    toggle
+            default { "0" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "stash_traj_points"
+            label   "Geometry TrajPoint Stash"
+            type    geometrydata
+            default { "0" }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "out2_dataid"
+            label   "Output2 Data Id"
+            type    integer
+            default { "0" }
+            range   { 0 10 }
+            parmtag { "script_callback_language" "python" }
+        }
+    }
+
+}

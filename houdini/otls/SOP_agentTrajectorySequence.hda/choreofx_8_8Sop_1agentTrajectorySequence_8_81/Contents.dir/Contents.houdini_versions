@@ -1,0 +1,25 @@
+{
+	"values":["18.5.351"
+	],
+	"indexes":{
+		"hdaroot/not_selected_agentname1.userdata":0,
+		"hdaroot/add1.userdata":0,
+		"hdaroot/not_selected_agentname.userdata":0,
+		"hdaroot/detail_info_metadata1.userdata":0,
+		"hdaroot/switch1.userdata":0,
+		"hdaroot/null5.userdata":0,
+		"hdaroot/detail_info.userdata":0,
+		"hdaroot/no_transition_first_iteration.userdata":0,
+		"hdaroot/null1.userdata":0,
+		"hdaroot/foreach_count1.userdata":0,
+		"hdaroot/null3.userdata":0,
+		"hdaroot/CLIP_TRAJECTORIES.userdata":0,
+		"hdaroot/output0.userdata":0,
+		"hdaroot/keep_selected_traj.userdata":0,
+		"hdaroot/foreach_count1_metadata1.userdata":0,
+		"hdaroot/detail_geo.userdata":0,
+		"hdaroot/foreach_begin1.userdata":0,
+		"hdaroot/output1.userdata":0,
+		"hdaroot/foreach_end1.userdata":0
+	}
+}

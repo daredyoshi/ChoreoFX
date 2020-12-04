@@ -1,0 +1,210 @@
+# Dialog script for choreofx::agentPropCreate::1 automatically generated
+
+{
+    name	choreofx::agentPropCreate::1
+    script	agentClipFromAgent::00.01
+    label	"Agent Prop Create"
+
+    help {
+	""
+    }
+    bindhandle offsetRx xform "Offset Xform" rx ""
+    bindhandle offsetRy xform "Offset Xform" ry ""
+    bindhandle offsetRz xform "Offset Xform" rz ""
+    bindhandle offsetTx xform "Offset Xform" tx ""
+    bindhandle offsetTy xform "Offset Xform" ty ""
+    bindhandle offsetTz xform "Offset Xform" tz ""
+    bindhandle offsetScale xform "Offset Xform" uniform_scale ""
+
+    inputlabel	1	"Crowd Agents"
+    inputlabel	2	"Source Props"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+    outputlabel	1	"Agents & Props"
+    outputlabel	2	Props
+
+    parm {
+        name    "sourceGeoPath"
+        label   "Source Geo by Path"
+        type    toggle
+        default { "0" }
+        range   { 0! 10 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "geoPath"
+        label   "Geo Path"
+        type    oppath
+        default { "" }
+        disablewhen "{ sourceGeoPath == 0 }"
+        parmtag { "oprelative" "." }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "pack"
+        label   "Pack"
+        type    toggle
+        default { "0" }
+        range   { 0! 10 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "sepparm2"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
+        name    "propName"
+        label   "Prop Name"
+        type    string
+        default { "prop" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "category"
+        label   "Category"
+        type    string
+        default { "" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "sepparm3"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
+        name    "transformname"
+        label   "Transform Name"
+        type    string
+        default { "" }
+        disablewhen "{ enable# == 0 }"
+        menureplace {
+            [ "import crowdstoolutils" ]
+            [ "return crowdstoolutils.buildTransformMenu(hou.pwd())" ]
+            language python
+        }
+        range   { 0 1 }
+        parmtag { "script_action" "import crowdstoolutils\ncrowdstoolutils.selectJoint(kwargs['node'], kwargs['parmtuple'])" }
+        parmtag { "script_action_help" "Select a joint name from a tree view." }
+        parmtag { "script_action_icon" "BUTTONS_reselect" }
+    }
+    parm {
+        name    "sepparm"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    groupsimple {
+        name    "folder0"
+        label   "Local Offset From Joint"
+
+        parm {
+            name    "offsetT"
+            label   "Offset Translate"
+            type    vector
+            size    3
+            default { "0" "0" "0" }
+            range   { -1 1 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "offsetR"
+            label   "Offset Rotate"
+            type    vector
+            size    3
+            default { "0" "0" "0" }
+            range   { 0 360 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "offsetScale"
+            label   "Offset Scale"
+            type    float
+            default { "1" }
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+    }
+
+    parm {
+        name    "visOnAgent"
+        label   "Visualize on Agent"
+        type    toggle
+        default { "0" }
+        parmtag { "script_callback_language" "python" }
+    }
+    groupsimple {
+        name    "folder1"
+        label   "Visualize on Agent"
+        hidewhentab "{ visOnAgent == 0 }"
+
+        parm {
+            name    "applyAgentScale"
+            label   "Apply Agent Scale"
+            type    toggle
+            default { "0" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "agentPscale"
+            label   "Agent pscale"
+            type    float
+            default { "1" }
+            range   { 0 2 }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "enablecurrentclip"
+            label   "Set Current Clip"
+            type    toggle
+            nolabel
+            joinnext
+            default { "on" }
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "currentclip"
+            label   "Set Current Clip"
+            type    string
+            default { "rest" }
+            disablewhen "{ enablecurrentclip == 0 }"
+            menureplace {
+                [ "opmenu -l -a agentedit1 currentclip" ]
+            }
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "enablecliptime"
+            label   "Set Clip Time"
+            type    toggle
+            nolabel
+            joinnext
+            default { "on" }
+            range   { 0 1 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "cliptime"
+            label   "Clip Time"
+            type    float
+            default { [ "$T" hscript-expr ] }
+            disablewhen "{ enablecliptime == 0 }"
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+    }
+
+}

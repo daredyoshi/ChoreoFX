@@ -1,0 +1,90 @@
+# Dialog script for choreofx::agentVignetteImport::1 automatically generated
+
+{
+    name	choreofx::agentVignetteImport::1
+    script	choreofx::agentVignetteImport::1
+    label	"Agent Vignette Import"
+
+    help {
+	""
+    }
+
+    inputlabel	1	"Vignette Prims"
+    outputlabel	1	"Vignette Prims"
+
+    parm {
+        name    "importMethod"
+        label   "Import Method"
+        type    integer
+        default { "0" }
+        menu {
+            "0" "Input1"
+            "1" "Object Merge"
+            "2" "File Load"
+        }
+        range   { 0! 10 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "agentOppath"
+        label   "OpPath"
+        type    oppath
+        default { "" }
+        hidewhen "{ importMethod != 1 }"
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "opfilter" "!!SOP!!" }
+        parmtag { "oprelative" "." }
+    }
+    parm {
+        name    "agentFile"
+        label   "Geo File"
+        type    geometry
+        default { "default.bgeo" }
+        hidewhen "{ importMethod != 2 }"
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "filechooser_mode" "read_and_write" }
+    }
+    parm {
+        name    "sepparm"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
+        name    "agentfilter"
+        label   "Filter"
+        type    integer
+        default { "0" }
+        menu {
+            "0" "Keep Unique"
+            "1" "Single Definition"
+            "2" "Unfiltered"
+        }
+        range   { 0! 10 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "singleVignette"
+        label   "Single Vignette"
+        type    string
+        default { "" }
+        disablewhen "{ agentfilter != 1 }"
+        menureplace {
+            [ "import crowdstoolutils" ]
+            [ "" ]
+            [ "input_agents = hou.node(\"./IN_VIGNETTE_SOURCES\")" ]
+            [ "geo = input_agents.geometry()" ]
+            [ "vignames = geo.findPointAttrib(\"vignetteName\") if geo else None" ]
+            [ "" ]
+            [ "names = []" ]
+            [ "if vignames:" ]
+            [ "    names = crowdstoolutils.buildMenuStringList(vignames.strings())" ]
+            [ "" ]
+            [ "return names" ]
+            language python
+        }
+        parmtag { "script_callback_language" "python" }
+    }
+}

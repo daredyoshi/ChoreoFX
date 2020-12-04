@@ -1,0 +1,31 @@
+{
+	"values":["18.5.351"
+	],
+	"indexes":{
+		"hdaroot/copytopoints2.userdata":0,
+		"hdaroot/compile_begin1.userdata":0,
+		"hdaroot/compile_end1.userdata":0,
+		"hdaroot/compile_begin2.userdata":0,
+		"hdaroot/foreach_end1.userdata":0,
+		"hdaroot/merge1.userdata":0,
+		"hdaroot/unpack_vignettes.userdata":0,
+		"hdaroot/keep_agents1.userdata":0,
+		"hdaroot/copytopoints1.userdata":0,
+		"hdaroot/null1.userdata":0,
+		"hdaroot/repeat_begin1_metadata1.userdata":0,
+		"hdaroot/repeat_end1.userdata":0,
+		"hdaroot/switch_randomize_Agents.userdata":0,
+		"hdaroot/OUT.userdata":0,
+		"hdaroot/foreach_begin1_metadata1.userdata":0,
+		"hdaroot/free_agents.userdata":0,
+		"hdaroot/repeat_begin1.userdata":0,
+		"hdaroot/INPUT_AGENTS.userdata":0,
+		"hdaroot/TRAJ.userdata":0,
+		"hdaroot/merge3.userdata":0,
+		"hdaroot/merge_vignettes.userdata":0,
+		"hdaroot/blast1.userdata":0,
+		"hdaroot/switch_useManualClipEdits.userdata":0,
+		"hdaroot/foreach_begin1.userdata":0,
+		"hdaroot/vignette_agents.userdata":0
+	}
+}

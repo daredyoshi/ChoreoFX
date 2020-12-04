@@ -1,0 +1,20 @@
+{
+	"hdaroot/del_jointlookup_string1.def":1602060795,
+	"hdaroot/keep_points.def":1602060796,
+	"hdaroot/switch_animated.def":1602060790,
+	"hdaroot/clone_points1.def":1606405001,
+	"hdaroot/attribmenu.def":1602060798,
+	"hdaroot/static.def":1602060812,
+	"hdaroot/lookup_joint_transforms.def":1602060837,
+	"hdaroot/orient_type.def":1602060833,
+	"hdaroot/make_points.def":1606405012,
+	"hdaroot/_agentprims.def":1602060864,
+	"hdaroot/hash_joint_lookup_integer.def":1602060835,
+	"hdaroot/build_bone_list.def":1606404026,
+	"hdaroot/__netbox8.netboxinit":1606404860,
+	"hdaroot/del_jointlookup_string.def":1602060795,
+	"hdaroot/in.def":1602060788,
+	"hdaroot/out.def":1606404990,
+	"hdaroot/switch_clonepoints.def":1602060790,
+	"hdaroot.def":1606404865
+}

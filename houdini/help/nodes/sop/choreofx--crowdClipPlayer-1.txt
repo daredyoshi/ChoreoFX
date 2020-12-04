@@ -1,0 +1,107 @@
+= Crowd Clip Player =
+#icon: /Icons/ChoreoFX.svg
+#tags: crowds, agents, ChoreoFX
+
+"""Documentation is Coming soon!"""
+
+This is placeholder documentation for Crowd Clip Player
+
+@parameters
+
+== Clip Player ==
+Source:
+	#id: source
+	ToDo
+
+Loop Method:
+	#id: loopMethod
+	ToDo
+
+Loop Range:
+	#id: loopRange
+	ToDo
+
+Start:
+	#id: start
+	ToDo
+
+End:
+	#id: end
+	ToDo
+
+Start:
+	#id: frStart
+	ToDo
+
+End:
+	#id: frEnd
+	ToDo
+
+Play at Origin:
+	#id: playAtOrigin
+	ToDo
+
+Loop Transition Type:
+	#id: loopTransitionType
+	ToDo
+
+== Locomotion Settings ==
+Advance Locomotion:
+	#id: advanceLoco
+	ToDo
+
+Scale Compensation:
+	#id: applyScale
+	ToDo
+
+Time Offset Locomotion:
+	#id: timeOffsetLoco
+	ToDo
+
+Remove Loco Start Xform:
+	#id: removeLocoStart
+	ToDo
+
+Locomotion Type:
+	#id: locoType
+	ToDo
+
+Locomotion Joint:
+	#id: locoJoint
+	ToDo
+
+vis Anchor Frame:
+	#id: visAnchorFrame
+	ToDo
+
+== Time Defaults ==
+Time:
+	#id: time
+	ToDo
+
+ :
+	#id: labelparm
+	ToDo
+
+Time Speed:
+	#id: timeSpeed
+	ToDo
+
+Time Anchor (Frame):
+	#id: timeAnchor
+	ToDo
+
+Time Offset (sec):
+	#id: timeOffset
+	ToDo
+
+
+@inputs
+
+Placeholder:
+    Description of input
+
+@outputs
+
+Placeholder:
+    Description of output

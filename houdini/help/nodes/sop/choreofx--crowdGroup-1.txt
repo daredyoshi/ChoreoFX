@@ -1,0 +1,115 @@
+= Crowd Group =
+#icon: /Icons/ChoreoFX.svg
+#tags: crowds, agents, ChoreoFX
+
+"""Documentation is Coming soon!"""
+
+This is placeholder documentation for Crowd Group
+
+@parameters
+
+== Crowd Group ==
+Agent Group:
+	#id: agentgroup
+	ToDo
+
+Group Type:
+	#id: grouptype
+	ToDo
+
+Output Group Name:
+	#id: outGroup
+	ToDo
+
+Merge With Existing:
+	#id: groupmergeop
+	ToDo
+
+Invert Filter Selection:
+	#id: invertSelection
+	ToDo
+
+Seed Attribute:
+	#id: seedAttrib
+	ToDo
+
+== Data Filters ==
+#:
+	#id: dataEnable_#
+	ToDo
+
+Filter Type:
+	#id: filterType_#
+	ToDo
+
+Merge Op:
+	#id: mergeop_#
+	ToDo
+
+Agent Def:
+	#id: agentDef_#
+	ToDo
+
+Costume:
+	#id: costume_#
+	ToDo
+
+Clip:
+	#id: clip_#
+	ToDo
+
+Group:
+	#id: groupFilter_#
+	ToDo
+
+Group Type:
+	#id: groupFilterType#
+	ToDo
+
+Chance:
+	#id: chance_#
+	ToDo
+
+Seed:
+	#id: seed_#
+	ToDo
+
+== Custom ==
+Name:
+	#id: dataName_#
+	ToDo
+
+Op:
+	#id: op_#
+	ToDo
+
+Type:
+	#id: dataType_#
+	ToDo
+
+Int:
+	#id: dataInt_#
+	ToDo
+
+Float:
+	#id: dataFloat_#
+	ToDo
+
+Vector:
+	#id: dataVector_#
+	ToDo
+
+String:
+	#id: dataString_#
+	ToDo
+
+
+@inputs
+
+Placeholder:
+    Description of input
+
+@outputs
+
+Placeholder:
+    Description of output

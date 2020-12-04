@@ -1,0 +1,95 @@
+= Crowd Manual Edit =
+#icon: /Icons/ChoreoFX.svg
+#tags: crowds, agents, ChoreoFX
+
+"""Documentation is Coming soon!"""
+
+This is placeholder documentation for Crowd Manual Edit
+
+@parameters
+
+Enable:
+	#id: enable
+	ToDo
+
+== Edits ==
+Launch Viewport Controls:
+	#id: newparameter
+	ToDo
+
+== Agent Edits ==
+Agent ID:
+	#id: agentid_#
+	ToDo
+
+enablePosition_#:
+	#id: enablePosition_#
+	ToDo
+
+Position:
+	#id: posOffset_#
+	ToDo
+
+enableHeadingDir_#:
+	#id: enableHeadingDir_#
+	ToDo
+
+Heading Dir:
+	#id: headingDir_#
+	ToDo
+
+Rotation Offset:
+	#id: rotOffset_#
+	ToDo
+
+enableClipName_#:
+	#id: enableClipName_#
+	ToDo
+
+Clip Name:
+	#id: clipName_#
+	ToDo
+
+enableTimeAnchor_#:
+	#id: enableTimeAnchor_#
+	ToDo
+
+Time Anchor:
+	#id: timeAnchor_#
+	ToDo
+
+enableTimeOffset_#:
+	#id: enableTimeOffset_#
+	ToDo
+
+Time Offset:
+	#id: timeOffset_#
+	ToDo
+
+enableTimeSpeed_#:
+	#id: enableTimeSpeed_#
+	ToDo
+
+Time Speed:
+	#id: timeSpeed_#
+	ToDo
+
+== data ==
+Vis Id:
+	#id: vis_id
+	ToDo
+
+Active Id:
+	#id: active_id
+	ToDo
+
+
+@inputs
+
+Placeholder:
+    Description of input
+
+@outputs
+
+Placeholder:
+    Description of output

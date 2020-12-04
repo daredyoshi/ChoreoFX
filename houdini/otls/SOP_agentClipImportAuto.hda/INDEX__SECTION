@@ -1,0 +1,15 @@
+Operator:     choreofx::agentClipImportAuto::1
+Label:        Agent Clip Import Auto
+Path:         oplib:/choreofx::Sop/agentClipImportAuto::1?choreofx::Sop/agentClipImportAuto::1
+Icon:         ChoreoFX
+Table:        Sop
+License:      
+Extra:        
+User:         
+Inputs:       0 to 1
+Outputs:      3
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Thu Dec  3 11:16:49 2020
+

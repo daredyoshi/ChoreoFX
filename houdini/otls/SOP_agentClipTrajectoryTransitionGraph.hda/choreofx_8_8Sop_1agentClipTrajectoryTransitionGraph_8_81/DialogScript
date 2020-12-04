@@ -1,0 +1,237 @@
+# Dialog script for choreofx::agentClipTrajectoryTransitionGraph::1 automatically generated
+
+{
+    name	choreofx::agentClipTrajectoryTransitionGraph::1
+    script	choreofx::agentClipTrajectoryTransitionGraph::1
+    label	"Agent Clip Trajectory Transition Graph"
+
+    help {
+	""
+    }
+
+    inputlabel	1	"Clip Trajectories"
+    inputlabel	2	"Agent Primitive"
+    parmtag { inputisref2 1 }
+    inputlabel	3	"Existing Clip Graph"
+    parmtag { inputisref3 1 }
+    inputlabel	4	"Sub-Network Input #4"
+    outputlabel	1	"Clip Graph"
+
+    group {
+        name    "folder0"
+        label   "Transitions"
+
+        parm {
+            name    "units"
+            label   "Units"
+            type    ordinal
+            default { "0" }
+            menu {
+                "frames"    "Frames"
+                "samples"   "Samples"
+            }
+        }
+        parm {
+            name    "separator_units"
+            label   "Separator"
+            type    separator
+            default { "" }
+        }
+        parm {
+            name    "computetransitiongraph"
+            label   "Compute Transition Graph"
+            type    toggle
+            default { "1" }
+        }
+        parm {
+            name    "posetolerance"
+            label   "Tolerance"
+            type    float
+            default { "0.3" }
+            disablewhen "{ computetransitiongraph == 0 }"
+            range   { 0 10 }
+        }
+        parm {
+            name    "blendframes"
+            label   "Blend Frames"
+            type    integer
+            default { "5" }
+            disablewhen "{ computetransitiongraph == 0 }"
+            range   { 0 10 }
+        }
+        parm {
+            name    "transformgroup"
+            label   "Transform Group"
+            type    string
+            default { "" }
+            disablewhen "{ computetransitiongraph == 0 }"
+            menureplace {
+                [ "import crowdstoolutils" ]
+                [ "return crowdstoolutils.buildTransformGroupMenu(hou.pwd())" ]
+                language python
+            }
+        }
+        multiparm {
+            name    "numtransitionfilters"
+            label    "Filters"
+
+            parm {
+                name    "filterclipa_#"
+                label   "Clip A"
+                type    string
+                joinnext
+                default { "" }
+                disablewhen "{ computetransitiongraph == 0 }"
+                menureplace {
+                    [ "import crowdstoolutils" ]
+                    [ "return crowdstoolutils.buildClipMenu(hou.pwd(), clip_properties_input = 2)" ]
+                    language python
+                }
+            }
+            parm {
+                name    "filterclipb_#"
+                label   "Clip B"
+                type    string
+                default { "*" }
+                disablewhen "{ computetransitiongraph == 0 }"
+                menureplace {
+                    [ "import crowdstoolutils" ]
+                    [ "return crowdstoolutils.buildClipMenu(hou.pwd(), clip_properties_input = 2)" ]
+                    language python
+                }
+            }
+        }
+
+        parm {
+            name    "separator_extratransitions"
+            label   "Separator"
+            type    separator
+            default { "" }
+        }
+        multiparm {
+            name    "transitions"
+            label    "Extra Transitions"
+
+            parm {
+                name    "clip_a_#"
+                label   "Clip A"
+                type    string
+                default { "" }
+                menureplace {
+                    [ "import crowdstoolutils" ]
+                    [ "return crowdstoolutils.buildClipMenu(hou.pwd(), clip_properties_input = 2)" ]
+                    language python
+                }
+                range   { 0 1 }
+            }
+            parm {
+                name    "clip_b_#"
+                label   "Clip B"
+                type    string
+                default { "" }
+                menureplace {
+                    [ "import crowdstoolutils" ]
+                    [ "return crowdstoolutils.buildClipMenu(hou.pwd(), clip_properties_input = 2)" ]
+                    language python
+                }
+                range   { 0 1 }
+            }
+            parm {
+                name    "initfromcomputedgraph_#"
+                label   "Initialize from Computed Transition Regions"
+                type    button
+                default { "0" }
+                disablewhen "{ computetransitiongraph == 0 }"
+                hidewhen "{ computetransitiongraph == 0 }"
+                parmtag { "script_callback" "kwargs['node'].hdaModule().initFromComputedGraph(kwargs)" }
+                parmtag { "script_callback_language" "python" }
+            }
+            multiswitcher {
+                name    "transition_regions_#"
+                label    "Transition Regions"
+                default 1
+
+                parm {
+                    name    "sync_frame_a_#_#"
+                    label   "Sync Frame A"
+                    type    integer
+                    default { "1" }
+                    range   { 0 240 }
+                }
+                parm {
+                    name    "transition_region_#_#_"
+                    label   "Transition Region"
+                    type    integer
+                    size    2
+                    default { "1" "24" }
+                    range   { 0 240 }
+                }
+                parm {
+                    name    "sync_frame_b_#_#"
+                    label   "Sync Frame B"
+                    type    integer
+                    default { "1" }
+                    range   { 0 240 }
+                }
+                parm {
+                    name    "blend_frames_#_#"
+                    label   "Blend Frames"
+                    type    integer
+                    default { "3" }
+                    range   { 0! 10 }
+                }
+                parm {
+                    name    "visualize_transition_#_#"
+                    label   "Show Guide Geometry"
+                    type    toggle
+                    default { "0" }
+                    disablewhen "{ visualize_sync_frames == 0 }"
+                }
+            }
+
+            parm {
+                name    "sepparm#"
+                label   "Separator"
+                type    separator
+                invisible
+                default { "" }
+                range   { 0 1 }
+            }
+        }
+
+    }
+
+    group {
+        name    "folder0_1"
+        label   "Guides"
+
+        parm {
+            name    "visualize_pointradius"
+            label   "Point Separation"
+            type    float
+            default { "1" }
+            range   { 0 10 }
+        }
+        parm {
+            name    "visualize_clipname"
+            label   "Visualize Clip Name"
+            type    toggle
+            default { "1" }
+        }
+        parm {
+            name    "visualize_sync_frames"
+            label   "Visualize Sync Frames"
+            type    toggle
+            default { "1" }
+        }
+        parm {
+            name    "sync_frame_spacing"
+            label   "Agent Separation"
+            type    float
+            default { "1.5" }
+            disablewhen "{ visualize_sync_frames == 0 }"
+            range   { 0 10 }
+        }
+    }
+
+}

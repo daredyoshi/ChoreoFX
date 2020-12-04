@@ -1,0 +1,14 @@
+Operator:     choreofx::crowdGroup::1
+Label:        Crowd Group
+Path:         oplib:/choreofx::Sop/crowdGroup::1?choreofx::Sop/crowdGroup::1
+Icon:         ChoreoFX
+Table:        Sop
+License:      
+Extra:        
+User:         
+Inputs:       1 to 1
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Thu Dec  3 11:27:32 2020
+

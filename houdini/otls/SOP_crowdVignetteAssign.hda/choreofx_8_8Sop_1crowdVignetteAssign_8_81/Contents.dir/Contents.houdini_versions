@@ -1,0 +1,17 @@
+{
+	"values":["18.0.499"
+	],
+	"indexes":{
+		"hdaroot/OUT_AGENTS.userdata":0,
+		"hdaroot/copy_VIGNETTES.userdata":0,
+		"hdaroot/INPUT_VIGNETTES.userdata":0,
+		"hdaroot/INPUT_AGENTS.userdata":0,
+		"hdaroot/repeat_begin1.userdata":0,
+		"hdaroot/switch_randomize_Actors.userdata":0,
+		"hdaroot/OUT_VIGNETTES.userdata":0,
+		"hdaroot/merge1.userdata":0,
+		"hdaroot/repeat_end1.userdata":0,
+		"hdaroot/repeat_begin1_metadata1.userdata":0,
+		"hdaroot/switch_useManualClipEdits.userdata":0
+	}
+}

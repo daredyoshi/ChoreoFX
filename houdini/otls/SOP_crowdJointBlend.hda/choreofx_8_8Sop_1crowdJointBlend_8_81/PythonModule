@@ -1,0 +1,72 @@
+# INIT ALIENS
+
+def init_aliens(node): 
+    node.parm('adjusttransforms').set(3)
+    
+    node.parm('jointname1').set('EyeEndLf_DefJnt_RT')
+    node.parm('jointblend1').set(1)
+    
+    node.parm('jointname2').set('EyeEndRt_DefJnt_RT')
+    node.parm('jointblend2').set(1)
+    
+    node.parm('jointname3').set('Head_Jnt_RT')
+    node.parm('jointblend3').set(0.2) 
+    
+def init_wildebeest(node):
+    node.parm('adjusttransforms').set(28)
+    
+    node.parm('jointname1').set('L_bckleg_clav_Jnt_RT')
+    
+    node.parm('jointname2').set('L_bckleg_upper_lo_Jnt_RT')
+    
+    node.parm('jointname3').set('L_bckleg_lower_Jnt_RT')
+    
+    node.parm('jointname4').set('L_bckleg_mid_lo_Jnt_RT')
+    
+    node.parm('jointname5').set('L_bckleg_ankle_Jnt_RT')
+    
+    node.parm('jointname6').set('L_bckleg_bal_Jnt_RT')
+    
+    node.parm('jointname7').set('L_bckleg_toe_Jnt_RT')
+    
+    node.parm('jointname8').set('R_bckleg_clav_Jnt_RT')
+    
+    node.parm('jointname9').set('R_bckleg_upper_lo_Jnt_RT')
+    
+    node.parm('jointname10').set('R_bckleg_lower_Jnt_RT')
+    
+    node.parm('jointname11').set('R_bckleg_mid_lo_Jnt_RT')
+    
+    node.parm('jointname12').set('R_bckleg_ankle_Jnt_RT')
+    
+    node.parm('jointname13').set('R_bckleg_bal_Jnt_RT')
+    
+    node.parm('jointname14').set('R_bckleg_toe_Jnt_RT')
+    
+    node.parm('jointname15').set('L_frntleg_clav_Jnt_RT')
+    
+    node.parm('jointname16').set('L_frntleg_upper_lo_Jnt_RT')
+    
+    node.parm('jointname17').set('L_frntleg_mid_lo_Jnt_RT')
+    
+    node.parm('jointname18').set('L_frntleg_lower_Jnt_RT')
+    
+    node.parm('jointname19').set('L_frntleg_ankle_Jnt_RT')
+    
+    node.parm('jointname20').set('L_frntleg_bal_Jnt_RT')
+    
+    node.parm('jointname21').set('L_frntleg_toe_Jnt_RT')
+    
+    node.parm('jointname22').set('R_frntleg_clav_Jnt_RT')
+    
+    node.parm('jointname23').set('R_frntleg_upper_lo_Jnt_RT')
+    
+    node.parm('jointname24').set('R_frntleg_mid_lo_Jnt_RT')
+    
+    node.parm('jointname25').set('R_frntleg_lower_Jnt_RT')
+    
+    node.parm('jointname26').set('R_frntleg_ankle_Jnt_RT')
+    
+    node.parm('jointname27').set('R_frntleg_bal_Jnt_RT')
+    
+    node.parm('jointname28').set('R_frntleg_toe_Jnt_RT')    

@@ -1,0 +1,14 @@
+Sop/agentproxy /opt/hfs18.5/houdini/otls/OPlibSop.hda
+Sop/agentproxy otls/OPlibSop.hda
+Sop/attribdelete /opt/hfs18.5/houdini/otls/OPlibSop.hda
+Sop/attribdelete otls/OPlibSop.hda
+Sop/attribwrangle /opt/hfs18.5/houdini/otls/OPlibSop.hda
+Sop/attribwrangle otls/OPlibSop.hda
+choreofx::Sop/crowdClipPlayer::1 /mnt/ruin/Work/choreofx_dev/tickets/CROWD-49-Example-Scenes/ChoreoFX/houdini/otls/SOP_crowdClipPlayer.hda
+choreofx::Sop/crowdClipPlayer::1 otls/SOP_crowdClipPlayer.hda
+Sop/clean /opt/hfs18.5/houdini/otls/OPlibSop.hda
+Sop/clean otls/OPlibSop.hda
+Sop/color /opt/hfs18.5/houdini/otls/OPlibSop.hda
+Sop/color otls/OPlibSop.hda
+Sop/groupexpression /opt/hfs18.5/houdini/otls/OPlibSop.hda
+Sop/groupexpression otls/OPlibSop.hda

@@ -1,0 +1,24 @@
+{
+	"values":["18.5.351"
+	],
+	"indexes":{
+		"hdaroot/null2.userdata":0,
+		"hdaroot/uniform_spline_clips.userdata":0,
+		"hdaroot/null1.userdata":0,
+		"hdaroot/find_clip_in_target_clips_or_skip.userdata":0,
+		"hdaroot/OUT_Agent_templates.userdata":0,
+		"hdaroot/remove_time_dependency.userdata":0,
+		"hdaroot/metadata.userdata":0,
+		"hdaroot/remove_time_dependency1.userdata":0,
+		"hdaroot/foreach_begin2.userdata":0,
+		"hdaroot/GUIDE.userdata":0,
+		"hdaroot/assert_single_prim.userdata":0,
+		"hdaroot/foreach_end2.userdata":0,
+		"hdaroot/attribpromote1.userdata":0,
+		"hdaroot/agentunpack1.userdata":0,
+		"hdaroot/OUT_Trajectories.userdata":0,
+		"hdaroot/AGENT_TEMPLATE.userdata":0,
+		"hdaroot/foreach_begin1.userdata":0,
+		"hdaroot/foreach_end1.userdata":0
+	}
+}

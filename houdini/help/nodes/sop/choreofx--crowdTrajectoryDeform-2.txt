@@ -1,0 +1,82 @@
+= Crowd Trajectory Deform =
+#icon: /Icons/ChoreoFX.svg
+#tags: crowds, agents, ChoreoFX
+
+"""Documentation is Coming soon!"""
+
+This is placeholder documentation for Crowd Trajectory Deform
+
+@parameters
+
+== Crowd Trajectory Deform ==
+== Deform ==
+Prim ID Attribute:
+	#id: primIdAttrib
+	ToDo
+
+Deform Method:
+	#id: deformMethod
+	ToDo
+
+Ignore Handles Under Offset Threshold:
+	#id: ignoreStatic
+	ToDo
+
+Minimum Offset Distance Threshold:
+	#id: ignoreThreshold
+	ToDo
+
+== Sliding ==
+Auto Slide Existing Points:
+	#id: autoSlideExisting
+	ToDo
+
+==   ==
+Constrain Loco Length:
+	#id: constrainLocoLength
+	ToDo
+
+== Path Deform ==
+Rest Paths Method:
+	#id: restPathsMethod
+	ToDo
+
+Treat Polygons As:
+	#id: treatpolysas
+	ToDo
+
+Resample Length:
+	#id: resampleLength
+	ToDo
+
+Resample Segments:
+	#id: segsamples
+	ToDo
+
+== Rest Detail Extraction ==
+Strength:
+	#id: strength
+	ToDo
+
+Filter Quality:
+	#id: filterquality
+	ToDo
+
+Smooth Iterations:
+	#id: smoothiterations
+	ToDo
+
+Max smooth dist per iter:
+	#id: smoothmaxdist
+	ToDo
+
+
+@inputs
+
+Placeholder:
+    Description of input
+
+@outputs
+
+Placeholder:
+    Description of output

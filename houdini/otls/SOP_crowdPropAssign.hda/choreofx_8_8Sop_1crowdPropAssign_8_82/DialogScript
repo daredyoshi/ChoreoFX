@@ -1,0 +1,405 @@
+# Dialog script for choreofx::crowdPropAssign::2 automatically generated
+
+{
+    name	choreofx::crowdPropAssign::2
+    script	agentClipFromAgent::00.01
+    label	"Crowd Prop Assign"
+
+    help {
+	""
+    }
+
+    inputlabel	1	"Crowd Agents"
+    inputlabel	2	"Existing Crowd Props"
+    inputlabel	3	"Source Props"
+    inputlabel	4	"Sub-Network Input #4"
+    outputlabel	1	"Crowd Agents"
+    outputlabel	2	"Crowd Props"
+    outputlabel	3	"Crowd Agents & Props"
+
+    parm {
+        name    "agentgroup"
+        label   "Agent Group"
+        type    string
+        default { "" }
+        menutoggle {
+            [ "kwargs['node'].generateInputGroupMenu(0)" ]
+            language python
+        }
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_action" "import soputils\nkwargs['geometrytype'] = kwargs['node'].parmTuple('grouptype')\nkwargs['inputindex'] = 0\nsoputils.selectGroupParm(kwargs)" }
+        parmtag { "script_action_help" "Select geometry from an available viewport." }
+        parmtag { "script_action_icon" "BUTTONS_reselect" }
+    }
+    parm {
+        name    "grouptype"
+        label   "Group Type"
+        type    ordinal
+        default { "points" }
+        menu {
+            "guess"     "Guess from Group"
+            "vertices"  "Vertices"
+            "edges"     "Edges"
+            "points"    "Points"
+            "prims"     "Primitives"
+        }
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "sepparm4"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
+        name    "sepparm3"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
+        name    "sourceByPath"
+        label   "Source Props by Path"
+        type    toggle
+        default { "0" }
+        range   { 0! 10 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "propsPath"
+        label   "Props Path"
+        type    oppath
+        default { "" }
+        disablewhen "{ sourceByPath == 0 }"
+        parmtag { "oprelative" "." }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "doInstanceStatic"
+        label   "Instance on Static Frame"
+        type    toggle
+        default { "1" }
+        range   { 0! 10 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "staticframe"
+        label   "Static Frame"
+        type    integer
+        default { "$FSTART" }
+        hidewhen "{ doInstanceStatic == 0 }"
+        range   { 0 100 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "sepparm"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
+        name    "useOverrideJoint"
+        label   "Override Joint"
+        type    toggle
+        default { "0" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "overrideJoint"
+        label   "Joint"
+        type    string
+        default { "" }
+        hidewhen "{ useOverrideJoint == 0 }"
+        menureplace {
+            [ "import crowdstoolutils" ]
+            [ "return crowdstoolutils.buildTransformMenu(hou.pwd())" ]
+            language python
+        }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "sepparm16"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
+        name    "applyAgentScale"
+        label   "Apply Agent Scale"
+        type    toggle
+        default { "0" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "applyPropClip"
+        label   "Apply Prop Clip"
+        type    toggle
+        default { "0" }
+        range   { 0! 10 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "useOutputGroup"
+        label   "Group Output"
+        type    toggle
+        default { "0" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "outputGroupName"
+        label   "Group Name"
+        type    string
+        default { "propgroup" }
+        hidewhen "{ useOutputGroup == 0 }"
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "sepparm15"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
+        name    "seedAttrib"
+        label   "Seed Attribute"
+        type    string
+        default { "agent_id" }
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "sepparm14"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
+        name    "randomPropSeed"
+        label   "Random Prop Seed"
+        type    integer
+        default { "100" }
+        disablewhen "{ randomizeActors == 0 }"
+        range   { 0 1000 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "randomXformSeed"
+        label   "Random Xform Seed"
+        type    integer
+        default { "100" }
+        disablewhen "{ randomizeActors == 0 }"
+        range   { 0 1000 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    groupsimple {
+        name    "folder5"
+        label   "Prop List"
+        disablewhentab "{ randomizeActors == 0 }"
+
+        multiparm {
+            name    "numPropPatterns"
+            label    "Prop Groups"
+            default 0
+
+            parm {
+                name    "propPattern_#"
+                label   "Prop Pattern"
+                type    string
+                default { "" }
+                menutoggle {
+                    [ "import crowdstoolutils" ]
+                    [ "" ]
+                    [ "input_agents = hou.node(\"./INPUT_PROPS\")" ]
+                    [ "geo = input_agents.geometry()" ]
+                    [ "propnames = geo.findPointAttrib(\"propName\") if geo else None" ]
+                    [ "" ]
+                    [ "names = []" ]
+                    [ "if propnames:" ]
+                    [ "    names = crowdstoolutils.buildMenuStringList(propnames.strings())" ]
+                    [ "" ]
+                    [ "return names" ]
+                    language python
+                }
+            }
+            parm {
+                name    "propWeight_#"
+                label   "Weight"
+                type    float
+                default { "1" }
+                range   { 0! 10 }
+            }
+            parm {
+                name    "randomizeXform_#"
+                label   "Randomize Local Offset"
+                type    toggle
+                default { "0" }
+                parmtag { "script_callback_language" "python" }
+            }
+            groupsimple {
+                name    "folder0_#"
+                label   "Randomize Xform"
+                hidewhen "{ randomizeXform_# == 0 }"
+
+                parm {
+                    name    "tmin_#"
+                    label   "Translate Min"
+                    type    vector
+                    size    3
+                    default { "0" "0" "0" }
+                    range   { -1 1 }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "tmax_#"
+                    label   "Translate Max"
+                    type    vector
+                    size    3
+                    default { "0" "0" "0" }
+                    range   { -1 1 }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "rmin_#"
+                    label   "Rotate Min"
+                    type    vector
+                    size    3
+                    default { "0" "0" "0" }
+                    range   { 0 360 }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "rmax_#"
+                    label   "Rotate Max"
+                    type    vector
+                    size    3
+                    default { "0" "0" "0" }
+                    range   { 0 360 }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "smin_#"
+                    label   "Scale Min"
+                    type    float
+                    default { "1" }
+                    range   { 0.5 1.5 }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "smax_#"
+                    label   "Scale Max"
+                    type    float
+                    default { "1" }
+                    range   { 0.5 1.5 }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "script_callback_language" "python" }
+                }
+            }
+
+        }
+
+    }
+
+    parm {
+        name    "sepparm2"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    multiparm {
+        name    "manualPropEdits"
+        label    "Manual Prop Edits"
+        default 0
+
+        parm {
+            name    "manualEnable_#"
+            label   "Enable"
+            type    toggle
+            default { "1" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "manualGroup_#"
+            label   "Affected Group"
+            type    string
+            default { "" }
+            menutoggle {
+                [ "opmenu -l __manualgroup basegroup" ]
+            }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_action" "import soputils\nkwargs['geometrytype'] = hou.geometryType.Points\nkwargs['inputindex'] = 0\n#kwargs['ordered'] = kwargs['node'].parm('ordered').eval()\nsoputils.selectGroupParm(kwargs)" }
+            parmtag { "script_action_help" "Select geometry from an available viewport.\nShift-click to turn on Select Groups." }
+            parmtag { "script_action_icon" "BUTTONS_reselect" }
+        }
+        parm {
+            name    "manualPropName_#"
+            label   "Prop"
+            type    string
+            default { "" }
+            menureplace {
+                [ "import crowdstoolutils" ]
+                [ "" ]
+                [ "input_agents = hou.node(\"./INPUT_PROPS\")" ]
+                [ "geo = input_agents.geometry()" ]
+                [ "propnames = geo.findPointAttrib(\"propName\") if geo else None" ]
+                [ "" ]
+                [ "names = []" ]
+                [ "if propnames:" ]
+                [ "    names = crowdstoolutils.buildMenuStringList(propnames.strings())" ]
+                [ "" ]
+                [ "return names" ]
+                language python
+            }
+        }
+        parm {
+            name    "doManualLocalOffset_#"
+            label   "Set Local Offset"
+            type    toggle
+            default { "0" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "tManual_#"
+            label   "Translate"
+            type    vector
+            size    3
+            default { "0" "0" "0" }
+            hidewhen "{ doManualLocalOffset_# == 0 }"
+            range   { -1 1 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "rManual_#"
+            label   "Rotate"
+            type    vector
+            size    3
+            default { "0" "0" "0" }
+            hidewhen "{ doManualLocalOffset_# == 0 }"
+            range   { 0 360 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "sManual_#"
+            label   "Scale"
+            type    float
+            default { "1" }
+            hidewhen "{ doManualLocalOffset_# == 0 }"
+            range   { 0.5 1.5 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+    }
+
+}

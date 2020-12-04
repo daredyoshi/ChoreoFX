@@ -1,0 +1,15 @@
+node = kwargs['node']
+oldversion_str = kwargs['old_version']
+oldversion = int(oldversion_str) if oldversion_str != '' else 0
+
+# Version 2: Added unit options.
+if oldversion < 2:
+    node.parm("units").set("samples")
+
+# Version 3: Add point radius control.
+if oldversion < 3:
+    node.parm("visualize_pointradius").set(0.9)
+
+# Version 4: Add option to compute transition graph.
+if oldversion < 4:
+    node.parm("computetransitiongraph").set(False)

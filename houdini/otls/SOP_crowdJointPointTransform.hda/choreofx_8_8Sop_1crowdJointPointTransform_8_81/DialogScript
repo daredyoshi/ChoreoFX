@@ -1,0 +1,292 @@
+# Dialog script for choreofx::crowdJointPointTransform::1 automatically generated
+
+{
+    name	choreofx::crowdJointPointTransform::1
+    script	choreofx::crowdJointPointTransform::1
+    label	"Crowd Joint Point Transform"
+
+    help {
+	""
+    }
+    bindhandle group xform "Transformer" input "movetool_candidate(1) ownerop('transform1') owneropgroup('group')"
+    bindhandle prexform_rx xform "Transformer" pivot_comp_rx "movetool_candidate(1) ownerop('transform1') owneropgroup('group')"
+    bindhandle prexform_ry xform "Transformer" pivot_comp_ry "movetool_candidate(1) ownerop('transform1') owneropgroup('group')"
+    bindhandle prexform_rz xform "Transformer" pivot_comp_rz "movetool_candidate(1) ownerop('transform1') owneropgroup('group')"
+    bindhandle prexform_shear1 xform "Transformer" pivot_comp_shear_xy "movetool_candidate(1) ownerop('transform1') owneropgroup('group')"
+    bindhandle prexform_shear2 xform "Transformer" pivot_comp_shear_xz "movetool_candidate(1) ownerop('transform1') owneropgroup('group')"
+    bindhandle prexform_shear3 xform "Transformer" pivot_comp_shear_yz "movetool_candidate(1) ownerop('transform1') owneropgroup('group')"
+    bindhandle prexform_sx xform "Transformer" pivot_comp_sx "movetool_candidate(1) ownerop('transform1') owneropgroup('group')"
+    bindhandle prexform_sy xform "Transformer" pivot_comp_sy "movetool_candidate(1) ownerop('transform1') owneropgroup('group')"
+    bindhandle prexform_sz xform "Transformer" pivot_comp_sz "movetool_candidate(1) ownerop('transform1') owneropgroup('group')"
+    bindhandle prexform_xOrd xform "Transformer" pivot_comp_trs_order "movetool_candidate(1) ownerop('transform1') owneropgroup('group')"
+    bindhandle prexform_tx xform "Transformer" pivot_comp_tx "movetool_candidate(1) ownerop('transform1') owneropgroup('group')"
+    bindhandle prexform_ty xform "Transformer" pivot_comp_ty "movetool_candidate(1) ownerop('transform1') owneropgroup('group')"
+    bindhandle prexform_tz xform "Transformer" pivot_comp_tz "movetool_candidate(1) ownerop('transform1') owneropgroup('group')"
+    bindhandle prexform_rOrd xform "Transformer" pivot_comp_xyz_order "movetool_candidate(1) ownerop('transform1') owneropgroup('group')"
+    bindhandle prx xform "Transformer" pivot_rx "movetool_candidate(1) ownerop('transform1') owneropgroup('group')"
+    bindhandle pry xform "Transformer" pivot_ry "movetool_candidate(1) ownerop('transform1') owneropgroup('group')"
+    bindhandle prz xform "Transformer" pivot_rz "movetool_candidate(1) ownerop('transform1') owneropgroup('group')"
+    bindhandle px xform "Transformer" px "movetool_candidate(1) ownerop('transform1') owneropgroup('group')"
+    bindhandle py xform "Transformer" py "movetool_candidate(1) ownerop('transform1') owneropgroup('group')"
+    bindhandle pz xform "Transformer" pz "movetool_candidate(1) ownerop('transform1') owneropgroup('group')"
+    bindhandle rx xform "Transformer" rx "movetool_candidate(1) ownerop('transform1') owneropgroup('group')"
+    bindhandle ry xform "Transformer" ry "movetool_candidate(1) ownerop('transform1') owneropgroup('group')"
+    bindhandle rz xform "Transformer" rz "movetool_candidate(1) ownerop('transform1') owneropgroup('group')"
+    bindhandle shear1 xform "Transformer" shear_xy "movetool_candidate(1) ownerop('transform1') owneropgroup('group')"
+    bindhandle shear2 xform "Transformer" shear_xz "movetool_candidate(1) ownerop('transform1') owneropgroup('group')"
+    bindhandle shear3 xform "Transformer" shear_yz "movetool_candidate(1) ownerop('transform1') owneropgroup('group')"
+    bindhandle sx xform "Transformer" sx "movetool_candidate(1) ownerop('transform1') owneropgroup('group')"
+    bindhandle sy xform "Transformer" sy "movetool_candidate(1) ownerop('transform1') owneropgroup('group')"
+    bindhandle sz xform "Transformer" sz "movetool_candidate(1) ownerop('transform1') owneropgroup('group')"
+    bindhandle xOrd xform "Transformer" trs_order "movetool_candidate(1) ownerop('transform1') owneropgroup('group')"
+    bindhandle tx xform "Transformer" tx "movetool_candidate(1) ownerop('transform1') owneropgroup('group')"
+    bindhandle ty xform "Transformer" ty "movetool_candidate(1) ownerop('transform1') owneropgroup('group')"
+    bindhandle tz xform "Transformer" tz "movetool_candidate(1) ownerop('transform1') owneropgroup('group')"
+    bindhandle scale xform "Transformer" uniform_scale "movetool_candidate(1) ownerop('transform1') owneropgroup('group')"
+    bindhandle rOrd xform "Transformer" xyz_order "movetool_candidate(1) ownerop('transform1') owneropgroup('group')"
+
+    inputlabel	1	"Joint Points"
+    inputlabel	2	"Agent Primitives??"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+    outputlabel	1	"Agent Primitives"
+
+    parm {
+        name    "group"
+        label   "Group"
+        type    string
+        default { "" }
+        menutoggle {
+            [ "kwargs['node'].generateInputGroupMenu(0)" ]
+            language python
+        }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_action" "import soputils\nkwargs['geometrytype'] = kwargs['node'].parmTuple('grouptype')\nkwargs['inputindex'] = 0\nsoputils.selectGroupParm(kwargs)" }
+        parmtag { "script_action_help" "Select geometry from an available viewport.\nShift-click to turn on Select Groups." }
+        parmtag { "script_action_icon" "BUTTONS_reselect" }
+    }
+    parm {
+        name    "sepparm"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
+        name    "xformspace"
+        label   "Xform Space"
+        type    integer
+        default { "2" }
+        menu {
+            "0" "2nd input match"
+            "1" "agent space"
+            "2" "joint local (self)"
+            "3" "chosen joint"
+            "4" "World"
+        }
+        range   { 0! 10 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "sepparm2"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
+        name    "save_offset_xform"
+        label   "Save Offset Xform"
+        type    toggle
+        default { "0" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "sepparm3"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    group {
+        name    "folder0"
+        label   "Handle"
+
+        parm {
+            name    "t"
+            label   "Translate"
+            type    vector
+            size    3
+            default { "0" "0" "0" }
+            range   { -1 1 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "r"
+            label   "Rotate"
+            type    vector
+            size    3
+            default { "0" "0" "0" }
+            range   { 0 360 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "s"
+            label   "Scale"
+            type    vector
+            size    3
+            default { "1" "1" "1" }
+            range   { -1 1 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "shear"
+            label   "Shear"
+            type    float
+            size    3
+            default { "0" "0" "0" }
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "p"
+            label   "Pivot Translate"
+            type    vector
+            size    3
+            default { "0" "0" "0" }
+            range   { -1 1 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "pr"
+            label   "Pivot Rotate"
+            type    vector
+            size    3
+            default { "0" "0" "0" }
+            range   { 0 360 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "scale"
+            label   "Uniform Scale"
+            type    float
+            default { "1" }
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "xOrd"
+            label   "Transform Order"
+            type    ordinal
+            joinnext
+            default { "srt" }
+            menu {
+                "srt"   "Scale Rot Trans"
+                "str"   "Scale Trans Rot"
+                "rst"   "Rot Scale Trans"
+                "rts"   "Rot Trans Scale"
+                "tsr"   "Trans Scale Rot"
+                "trs"   "Trans Rot Scale"
+            }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "rOrd"
+            label   "Rotate Order"
+            type    ordinal
+            nolabel
+            default { "xyz" }
+            menu {
+                "xyz"   "Rx Ry Rz"
+                "xzy"   "Rx Rz Ry"
+                "yxz"   "Ry Rx Rz"
+                "yzx"   "Ry Rz Rx"
+                "zxy"   "Rz Rx Ry"
+                "zyx"   "Rz Ry Rx"
+            }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "prexform_t"
+            label   "Pre-Translate"
+            type    vector
+            size    3
+            default { [ "point(\"./pt0\", 0, \"P\", 0)" hscript-expr ] [ "point(\"./pt0\", 0, \"P\", 1)" hscript-expr ] [ "point(\"./pt0\", 0, \"P\", 2)" hscript-expr ] }
+            range   { -1 1 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "prexform_r"
+            label   "Pre-Rotate"
+            type    vector
+            size    3
+            default { [ "point(\"./pt0\", 0, \"r\", 0)" hscript-expr ] [ "point(\"./pt0\", 0, \"r\", 1)" hscript-expr ] [ "point(\"./pt0\", 0, \"r\", 2)" hscript-expr ] }
+            range   { -1 1 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "prexform_s"
+            label   "Pre-Scale"
+            type    vector
+            size    3
+            default { "1" "1" "1" }
+            range   { -1 1 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "prexform_shear"
+            label   "Pre-Shear"
+            type    float
+            size    3
+            default { "0" "0" "0" }
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "prexform_xOrd"
+            label   "Pre-Transform Order"
+            type    ordinal
+            joinnext
+            default { "srt" }
+            menu {
+                "srt"   "Scale Rot Trans"
+                "str"   "Scale Trans Rot"
+                "rst"   "Rot Scale Trans"
+                "rts"   "Rot Trans Scale"
+                "tsr"   "Trans Scale Rot"
+                "trs"   "Trans Rot Scale"
+            }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "prexform_rOrd"
+            label   "Pre-Rotate Order"
+            type    ordinal
+            nolabel
+            default { "xyz" }
+            menu {
+                "xyz"   "Rx Ry Rz"
+                "xzy"   "Rx Rz Ry"
+                "yxz"   "Ry Rx Rz"
+                "yzx"   "Ry Rz Rx"
+                "zxy"   "Rz Rx Ry"
+                "zyx"   "Rz Ry Rx"
+            }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+    }
+
+}

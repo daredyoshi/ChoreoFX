@@ -1,0 +1,155 @@
+# Dialog script for choreofx::crowdGuideAgentAssign::1 automatically generated
+
+{
+    name	choreofx::crowdGuideAgentAssign::1
+    script	choreofx::crowdGuideAgentAssign::1
+    label	"Crowd Guide Agent Assign"
+
+    help {
+	""
+    }
+
+    inputlabel	1	Trajectories
+    inputlabel	2	"Crowd Agents"
+    inputlabel	3	"Source Agent Prims"
+    inputlabel	4	"Sub-Network Input #4"
+    outputlabel	1	Trajectories
+    outputlabel	2	"Crowd Agents"
+
+    parm {
+        name    "importMethod"
+        label   "Source Agents"
+        type    integer
+        default { "0" }
+        menu {
+            "0" "Input2"
+            "1" "Object Merge"
+            "2" "File Load"
+        }
+        range   { 0! 10 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "agentOppath"
+        label   "OpPath"
+        type    oppath
+        default { "" }
+        hidewhen "{ importMethod != 1 }"
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "opfilter" "!!SOP!!" }
+        parmtag { "oprelative" "." }
+    }
+    parm {
+        name    "agentFile"
+        label   "Geo File"
+        type    geometry
+        default { "default.bgeo" }
+        hidewhen "{ importMethod != 2 }"
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "filechooser_mode" "read_and_write" }
+    }
+    parm {
+        name    "sepparm"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
+        name    "sepparm2"
+        label   "Separator"
+        type    separator
+        default { "" }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "setSingleAgent"
+        label   "Set Agent"
+        type    string
+        default { "" }
+        disablewhen "{ randomizeAgents == 1 }"
+        menureplace {
+            [ "opmenu -l -a crowdAgentAssign1 setSingleAgent" ]
+        }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "sepparm3"
+        label   "Separator"
+        type    separator
+        default { "" }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "randomizeAgents"
+        label   "Randomize Agents"
+        type    toggle
+        default { "on" }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "randomAgentSeed"
+        label   "Random Seed"
+        type    integer
+        default { "100" }
+        disablewhen "{ randomizeAgents == 0 }"
+        range   { 0 1000 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "seedAttrib"
+        label   "Seed Attribute"
+        type    string
+        default { "agent_id" }
+        menureplace {
+            "vignette_id"   "vignette_id"
+            "agent_id"      "agent_id"
+        }
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    groupsimple {
+        name    "folder5"
+        label   "Agent List"
+        disablewhentab "{ randomizeAgents == 0 }"
+
+        multiparm {
+            name    "numAgentPatterns"
+            label    "Agent Groups"
+            default 1
+            parmtag { "autoscope" "0000000000000000" }
+
+            parm {
+                name    "agentPattern_#"
+                label   "Agent Pattern"
+                type    string
+                default { "*" }
+                menutoggle {
+                    [ "import crowdstoolutils" ]
+                    [ "" ]
+                    [ "input_agents = hou.node(\"./INPUT_AGENTS\")" ]
+                    [ "geo = input_agents.geometry()" ]
+                    [ "agentnames = geo.findPointAttrib(\"agentname\") if geo else None" ]
+                    [ "" ]
+                    [ "names = []" ]
+                    [ "if agentnames:" ]
+                    [ "    names = crowdstoolutils.buildMenuStringList(agentnames.strings())" ]
+                    [ "" ]
+                    [ "return names" ]
+                    language python
+                }
+            }
+            parm {
+                name    "agentWeight_#"
+                label   "Weight"
+                type    float
+                default { "1" }
+                range   { 0! 10 }
+            }
+        }
+
+    }
+
+}

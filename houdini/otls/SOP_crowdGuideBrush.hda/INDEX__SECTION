@@ -1,0 +1,15 @@
+Operator:     choreofx::crowdGuideBrush::3
+Label:        Crowd Guide Brush
+Path:         oplib:/choreofx::Sop/crowdGuideBrush::3?choreofx::Sop/crowdGuideBrush::3
+Icon:         ChoreoFX
+Table:        Sop
+License:      
+Extra:        guide=HDA_GUIDE 
+User:         
+Inputs:       0 to 2
+Outputs:      3
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Thu Dec  3 10:18:49 2020
+

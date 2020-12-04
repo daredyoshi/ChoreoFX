@@ -1,0 +1,28 @@
+{
+	"values":["18.5.351"
+	],
+	"indexes":{
+		"hdaroot/switch_propanim.userdata":0,
+		"hdaroot/agentclip_prop.userdata":0,
+		"hdaroot/propagent_file.userdata":0,
+		"hdaroot/IN_REF_AGENT_SOURCES.userdata":0,
+		"hdaroot/agentclip_ref.userdata":0,
+		"hdaroot/refagent_file.userdata":0,
+		"hdaroot/switch_refagent_source.userdata":0,
+		"hdaroot/switch_vis_on_agent.userdata":0,
+		"hdaroot/merge_agent_and_prop.userdata":0,
+		"hdaroot/blast1.userdata":0,
+		"hdaroot/apply_PropXform.userdata":0,
+		"hdaroot/IN_REF_AGENT.userdata":0,
+		"hdaroot/freeze.userdata":0,
+		"hdaroot/refagent_input1.userdata":0,
+		"hdaroot/OUT_PROP.userdata":0,
+		"hdaroot/propagent_om.userdata":0,
+		"hdaroot/switch_clipsource.userdata":0,
+		"hdaroot/OUT_vis.userdata":0,
+		"hdaroot/refagent_om.userdata":0,
+		"hdaroot/propagent_input2.userdata":0,
+		"hdaroot/IN_PROP_AGENT.userdata":0,
+		"hdaroot/switch_propagent_source.userdata":0
+	}
+}

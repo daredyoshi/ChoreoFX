@@ -1,0 +1,159 @@
+= Choreo Agent Prep =
+#icon: /Icons/ChoreoFX.svg
+#tags: crowds, agents, ChoreoFX
+
+"""Documentation is Coming soon!"""
+
+This is placeholder documentation for Choreo Agent Prep
+
+@parameters
+
+== Agent ==
+Rest Clip:
+	#id: restclip
+	ToDo
+
+== Upper Limbs ==
+Upper Arm:
+	#id: upperarm#
+	ToDo
+
+Lower Arm:
+	#id: lowerarm#
+	ToDo
+
+Hand:
+	#id: hand#
+	ToDo
+
+== Torso ==
+Hips:
+	#id: hips#
+	ToDo
+
+Lower Back:
+	#id: lowerback#
+	ToDo
+
+Head:
+	#id: head#
+	ToDo
+
+== Lower Limbs ==
+Upper Leg:
+	#id: upperleg#
+	ToDo
+
+Knee:
+	#id: knee#
+	ToDo
+
+Ankle:
+	#id: ankle#
+	ToDo
+
+Toe:
+	#id: toe#
+	ToDo
+
+Ankle Plant Channel:
+	#id: ankledownchannel#
+	ToDo
+
+Toe Plant Channel:
+	#id: footdownchannel#
+	ToDo
+
+Ankle Offset:
+	#id: ankleoffset#
+	ToDo
+
+Toe Offset:
+	#id: toeoffset#
+	ToDo
+
+== Foot Planting ==
+Guide Scale:
+	#id: guidescale
+	ToDo
+
+Set Locomotion to Planted Foot:
+	#id: set_locomotion_to_planted
+	ToDo
+
+== Ankle ==
+Method:
+	#id: ankle_method
+	ToDo
+
+Speed Threshold:
+	#id: ankle_speedthreshold
+	ToDo
+
+Terrain Source:
+	#id: ankle_terrainsource
+	ToDo
+
+Plane Origin:
+	#id: ankle_planeorigin
+	ToDo
+
+Plane Normal:
+	#id: ankle_planenormal
+	ToDo
+
+Distance Threshold:
+	#id: ankle_distancethreshold
+	ToDo
+
+Blend In Frames:
+	#id: ankle_blendinframes
+	ToDo
+
+Blend Out Frames:
+	#id: ankle_blendoutframes
+	ToDo
+
+== Toe ==
+Method:
+	#id: toe_method
+	ToDo
+
+Speed Threshold:
+	#id: toe_speedthreshold
+	ToDo
+
+Blend In Frames:
+	#id: toe_blendinframes
+	ToDo
+
+Blend Out Frames:
+	#id: toe_blendoutframes
+	ToDo
+
+Terrain Source:
+	#id: toe_terrainsource
+	ToDo
+
+Plane Origin:
+	#id: toe_planeorigin
+	ToDo
+
+Plane Normal:
+	#id: toe_planenormal
+	ToDo
+
+Distance Threshold:
+	#id: toe_distancethreshold
+	ToDo
+
+
+@inputs
+
+Placeholder:
+    Description of input
+
+@outputs
+
+Placeholder:
+    Description of output

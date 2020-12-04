@@ -1,0 +1,69 @@
+= Crowd Trajectory Solver =
+#icon: /Icons/ChoreoFX.svg
+#tags: crowds, agents, ChoreoFX
+
+"""Documentation is Coming soon!"""
+
+This is placeholder documentation for Crowd Trajectory Solver
+
+@parameters
+
+== Weights ==
+Position:
+	#id: path_location_weight
+	ToDo
+
+Transition Graph:
+	#id: transition_graph_weight
+	ToDo
+
+Random Weight:
+	#id: rand_weight
+	ToDo
+
+Deform to Path:
+	#id: deform_to_path
+	ToDo
+
+Use only Transition Graph Transitions:
+	#id: only_transition_graph
+	ToDo
+
+Use Transition Region (if Transition Graph):
+	#id: use_transition_region
+	ToDo
+
+Minimum Seg len (to match motion graph):
+	#id: minlen
+	ToDo
+
+Transition Type:
+	#id: transitionType
+	ToDo
+
+Len:
+	#id: transitionlen
+	ToDo
+
+Flatten Pos:
+	#id: flatten_pos
+	ToDo
+
+Max Iterations:
+	#id: maxiterations
+	ToDo
+
+Label:
+	#id: use_transition_graph
+	ToDo
+
+
+@inputs
+
+Placeholder:
+    Description of input
+
+@outputs
+
+Placeholder:
+    Description of output

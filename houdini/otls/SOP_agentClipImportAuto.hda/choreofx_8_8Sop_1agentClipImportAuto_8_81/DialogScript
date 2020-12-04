@@ -1,0 +1,502 @@
+# Dialog script for choreofx::agentClipImportAuto::1 automatically generated
+
+{
+    name	choreofx::agentClipImportAuto::1
+    script	choreofx::agentClipImportAuto::1
+    label	"Agent Clip Import Auto"
+
+    help {
+	""
+    }
+
+    inputlabel	1	"Agent Def"
+    inputlabel	2	"Sub-Network Input #2"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+    outputlabel	1	"Agent Def with clips"
+    outputlabel	2	"Motion Clips"
+    outputlabel	3	"Vis Skeleton"
+
+    parm {
+        name    "maxclips"
+        label   "Max Clips"
+        type    integer
+        default { "100" }
+        range   { 0 200 }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "outPointsOnly"
+        label   "Only Output Points for Vis"
+        type    toggle
+        default { "0" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "sepparm3"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
+        name    "path"
+        label   "Clips Folder Path"
+        type    directory
+        default { "" }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "filenamerule"
+        label   "Filename Filter"
+        type    string
+        default { "*.fbx" }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "sepparm"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
+        name    "replaceA"
+        label   "Clipname Find-Replace"
+        type    string
+        size    2
+        default { ".fbx" "" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "noSpaces"
+        label   "Replace Spaces with Underscores"
+        type    toggle
+        default { "1" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "sepparm2"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
+        name    "extractLoco"
+        label   "Extract Locomotion"
+        type    toggle
+        default { "1" }
+        parmtag { "script_callback_language" "python" }
+    }
+    groupsimple {
+        name    "folder1"
+        label   "Locomotion"
+        disablewhentab "{ extractLoco == 0 }"
+
+        parm {
+            name    "locomotionjoint"
+            label   "Locomotion Joint"
+            type    string
+            default { "mixamorig:Hips" }
+            menureplace {
+                [ "opmenu -l -a extractlocomotion locomotionjoint" ]
+            }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "editor" "0" }
+            parmtag { "script_action" "import soputils\nkwargs['geometrytype'] = hou.geometryType.Points\nkwargs['inputindex'] = 0\nparm = kwargs[\"parmtuple\"]\nsoputils.selectGroupParm(kwargs)\n\nselection = parm.eval()\ngeo = kwargs['node'].node('IN').geometry()\nsel = hou.Selection(geo, hou.geometryType.Points, selection[0])\npt = sel.points(geo)[0]\nselection_name = pt.attribValue(\"name\")\nparm[0].set(selection_name)" }
+            parmtag { "script_action_help" "Select Locomotion Joint." }
+            parmtag { "script_action_icon" "BUTTONS_reselect" }
+            parmtag { "script_callback_language" "python" }
+        }
+        groupsimple {
+            name    "folder2"
+            label   "Translation"
+
+            parm {
+                name    "translationmethod"
+                label   "Method"
+                type    ordinal
+                joinnext
+                default { "0" }
+                menu {
+                    "0" "Project on Ground Plane"
+                    "1" "Use Joint Position"
+                }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "groundplane"
+                label   "Ground Plane"
+                type    ordinal
+                default { "2" }
+                menu {
+                    "0" "XY"
+                    "1" "YZ"
+                    "2" "ZX"
+                }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "toorigin"
+                label   "Shift To Origin"
+                type    toggle
+                nolabel
+                joinnext
+                default { "on" }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "originaxis"
+                label   "Shift to Origin"
+                type    buttonstrip
+                default { "7" }
+                disablewhen "{ toorigin == 0 }"
+                menutoggle {
+                    [ "opmenu -l -a extractlocomotion originaxis" ]
+                }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "inplace"
+                label   "Convert to In-Place"
+                type    toggle
+                nolabel
+                joinnext
+                default { "on" }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "inplaceaxis"
+                label   "Convert to In-Place"
+                type    buttonstrip
+                default { "5" }
+                disablewhen "{ inplace == 0 }"
+                menutoggle {
+                    [ "opmenu -l -a extractlocomotion inplaceaxis" ]
+                }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+        }
+
+        groupsimple {
+            name    "folder3"
+            label   "Orientation"
+
+            parm {
+                name    "orientationmethod"
+                label   "Method"
+                type    ordinal
+                default { "1" }
+                menu {
+                    "0" "None"
+                    "1" "Around Up Axis"
+                    "2" "Around All Axes"
+                    "3" "Custom"
+                }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "rotationorderauto"
+                label   "Rotation Order Auto"
+                type    ordinal
+                default { "2" }
+                hidewhen "{ orientationmethod != -1 }"
+                menu {
+                    "0" "XYZ"
+                    "1" "XZY"
+                    "2" "YXZ"
+                    "3" "YZX"
+                    "4" "ZXY"
+                    "5" "ZYX"
+                }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "uporientationmethod"
+                label   "Up Axis"
+                type    ordinal
+                default { "0" }
+                hidewhen "{ orientationmethod != 1 }"
+                menu {
+                    "0" "Use Joint Orientation"
+                    "1" "Direction Vector Between Joints"
+                }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "updirvector"
+                label   "Look At Joint"
+                type    string
+                default { "" }
+                hidewhen "{ uporientationmethod != 1 } { orientationmethod != 1 }"
+                menureplace {
+                    [ "opmenu -l -a extractlocomotion updirvector" ]
+                }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "editor" "0" }
+                parmtag { "script_action" "import soputils\nkwargs['geometrytype'] = hou.geometryType.Points\nkwargs['inputindex'] = 0\nparm = kwargs[\"parmtuple\"]\nsoputils.selectGroupParm(kwargs)\n\nselection = parm.eval()\ngeo = kwargs['node'].node('IN').geometry()\nsel = hou.Selection(geo, hou.geometryType.Points, selection[0])\npt = sel.points(geo)[0]\nselection_name = pt.attribValue(\"name\")\nparm[0].set(selection_name)" }
+                parmtag { "script_action_help" "Select Joint to Draw Direction Vector to." }
+                parmtag { "script_action_icon" "BUTTONS_reselect" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "rotationorder"
+                label   "Rotation Order"
+                type    ordinal
+                default { "2" }
+                hidewhen "{ orientationmethod != 3 }"
+                menu {
+                    "0" "XYZ"
+                    "1" "XZY"
+                    "2" "YXZ"
+                    "3" "YZX"
+                    "4" "ZXY"
+                    "5" "ZYX"
+                }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "xextract"
+                label   "X Axis"
+                type    toggle
+                nolabel
+                joinnext
+                default { "off" }
+                hidewhen "{ orientationmethod != 3 }"
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "xorientationmethod"
+                label   "X Axis"
+                type    ordinal
+                default { "0" }
+                disablewhen "{ xextract == 0 }"
+                hidewhen "{ orientationmethod != 3 }"
+                menu {
+                    "0" "Use Joint Orientation"
+                    "1" "Direction Vector Between Joints"
+                }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "xdirvector"
+                label   "Look At Joint"
+                type    string
+                default { "" }
+                disablewhen "{ xextract == 0 }"
+                hidewhen "{ orientationmethod != 3 } { xorientationmethod == 0 }"
+                menureplace {
+                    [ "opmenu -l -a extractlocomotion xdirvector" ]
+                }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "editor" "0" }
+                parmtag { "script_action" "import soputils\nkwargs['geometrytype'] = hou.geometryType.Points\nkwargs['inputindex'] = 0\nparm = kwargs[\"parmtuple\"]\nsoputils.selectGroupParm(kwargs)\n\nselection = parm.eval()\ngeo = kwargs['node'].node('IN').geometry()\nsel = hou.Selection(geo, hou.geometryType.Points, selection[0])\npt = sel.points(geo)[0]\nselection_name = pt.attribValue(\"name\")\nparm[0].set(selection_name)" }
+                parmtag { "script_action_help" "Select Joint to Draw Direction Vector to." }
+                parmtag { "script_action_icon" "BUTTONS_reselect" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "yextract"
+                label   "Y Axis"
+                type    toggle
+                nolabel
+                joinnext
+                default { "off" }
+                hidewhen "{ orientationmethod != 3 }"
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "yorientationmethod"
+                label   "Y Axis"
+                type    ordinal
+                default { "0" }
+                disablewhen "{ yextract == 0 }"
+                hidewhen "{ orientationmethod != 3 }"
+                menu {
+                    "0" "Use Joint Orientation"
+                    "1" "Direction Vector Between Joints"
+                }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "ydirvector"
+                label   "Look At Joint"
+                type    string
+                default { "" }
+                disablewhen "{ yextract == 0 }"
+                hidewhen "{ orientationmethod != 3 } { yorientationmethod == 0 }"
+                menureplace {
+                    [ "opmenu -l -a extractlocomotion ydirvector" ]
+                }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_action" "import soputils\nkwargs['geometrytype'] = hou.geometryType.Points\nkwargs['inputindex'] = 0\nparm = kwargs[\"parmtuple\"]\nsoputils.selectGroupParm(kwargs)\n\nselection = parm.eval()\ngeo = kwargs['node'].node('IN').geometry()\nsel = hou.Selection(geo, hou.geometryType.Points, selection[0])\npt = sel.points(geo)[0]\nselection_name = pt.attribValue(\"name\")\nparm[0].set(selection_name)" }
+                parmtag { "script_action_help" "Select Joint to Draw Direction Vector to." }
+                parmtag { "script_action_icon" "BUTTONS_reselect" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "zextract"
+                label   "Z Axis"
+                type    toggle
+                nolabel
+                joinnext
+                default { "off" }
+                hidewhen "{ orientationmethod != 3 }"
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "zorientationmethod"
+                label   "Z Axis"
+                type    ordinal
+                default { "0" }
+                disablewhen "{ zextract == 0 }"
+                hidewhen "{ orientationmethod != 3 }"
+                menu {
+                    "0" "Use Joint Orientation"
+                    "1" "Direction Vector Between Joints"
+                }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "zdirvector"
+                label   "Look At Joint"
+                type    string
+                default { "" }
+                disablewhen "{ zextract == 0 }"
+                hidewhen "{ orientationmethod != 3 } { zorientationmethod == 0 }"
+                menureplace {
+                    [ "opmenu -l -a extractlocomotion zdirvector" ]
+                }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_action" "import soputils\nkwargs['geometrytype'] = hou.geometryType.Points\nkwargs['inputindex'] = 0\nparm = kwargs[\"parmtuple\"]\nsoputils.selectGroupParm(kwargs)\n\nselection = parm.eval()\ngeo = kwargs['node'].node('IN').geometry()\nsel = hou.Selection(geo, hou.geometryType.Points, selection[0])\npt = sel.points(geo)[0]\nselection_name = pt.attribValue(\"name\")\nparm[0].set(selection_name)" }
+                parmtag { "script_action_help" "Select Joint to Draw Direction Vector to." }
+                parmtag { "script_action_icon" "BUTTONS_reselect" }
+                parmtag { "script_callback_language" "python" }
+            }
+        }
+
+    }
+
+    parm {
+        name    "sepparm4"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
+        name    "jointFilter"
+        label   "Joint Filter"
+        type    integer
+        default { "1" }
+        menu {
+            "0" "None"
+            "1" "Match Input Agent Skel"
+            "2" "Match External FBX Deform Joints"
+        }
+        range   { 0 10 }
+        parmtag { "script_callback_language" "python" }
+    }
+    groupsimple {
+        name    "folder0"
+        label   "Non-Deformers"
+        hidewhentab "{ jointFilter != 2 }"
+
+        parm {
+            name    "skinpath"
+            label   "FBX Rig with Skin"
+            type    file
+            default { "" }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        multiparm {
+            name    "keepjoints"
+            label    "Non-deformers To Keep"
+
+            parm {
+                name    "jointName#"
+                label   "Joint Name"
+                type    string
+                default { "" }
+                menureplace {
+                    [ "menu = []" ]
+                    [ "" ]
+                    [ "names = hou.pwd().node('read').geometry().pointStringAttribValues('name')" ]
+                    [ "" ]
+                    [ "for name in names:" ]
+                    [ "    menu.append(name)" ]
+                    [ "    menu.append(name)" ]
+                    [ "    " ]
+                    [ "return menu" ]
+                    language python
+                }
+                parmtag { "script_callback_language" "python" }
+            }
+        }
+
+    }
+
+    parm {
+        name    "sepparm5"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
+        name    "removebones"
+        label   "Manually Remove Bones"
+        type    toggle
+        default { "0" }
+        parmtag { "script_callback_language" "python" }
+    }
+    groupsimple {
+        name    "folder4"
+        label   "Remove Bones"
+        disablewhentab "{ removebones == 0 }"
+
+        multiparm {
+            name    "killjoints"
+            label    "Bones To Remove"
+            default 1
+            parmtag { "autoscope" "0000000000000000" }
+
+            parm {
+                name    "jointNameKill#"
+                label   "Joint Name"
+                type    string
+                default { "" }
+                menureplace {
+                    [ "menu = []" ]
+                    [ "" ]
+                    [ "names = hou.pwd().node('remove_joints').inputGeometry(0).pointStringAttribValues('name')" ]
+                    [ "" ]
+                    [ "for name in names:" ]
+                    [ "    menu.append(name)" ]
+                    [ "    menu.append(name)" ]
+                    [ "    " ]
+                    [ "return menu" ]
+                    language python
+                }
+                parmtag { "script_callback_language" "python" }
+            }
+        }
+
+    }
+
+}

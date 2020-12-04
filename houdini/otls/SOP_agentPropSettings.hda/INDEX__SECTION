@@ -1,0 +1,15 @@
+Operator:     choreofx::agentPropSettings::2
+Label:        Agent Prop Settings
+Path:         oplib:/choreofx::Sop/agentPropSettings::2?choreofx::Sop/agentPropSettings::2
+Icon:         ChoreoFX
+Table:        Sop
+License:      
+Extra:        
+User:         
+Inputs:       0 to 2
+Outputs:      2
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Thu Dec  3 11:17:02 2020
+

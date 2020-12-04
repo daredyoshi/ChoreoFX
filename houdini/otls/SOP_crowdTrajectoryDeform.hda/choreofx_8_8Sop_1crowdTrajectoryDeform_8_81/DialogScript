@@ -1,0 +1,32 @@
+# Dialog script for choreofx::crowdTrajectoryDeform::1 automatically generated
+
+{
+    name	choreofx::crowdTrajectoryDeform::1
+    script	crowdTrajectoryApply::00.01
+    label	"Crowd Trajectory Deform"
+
+    help {
+	""
+    }
+
+    inputlabel	1	"Agent Trajectories"
+    inputlabel	2	"Deform Paths"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+    outputlabel	1	"Deformed Trajectories"
+
+    parm {
+        name    "enable"
+        label   "Enable"
+        type    toggle
+        default { "1" }
+        parmtag { "script_callback_language" "python" }
+    }
+    groupsimple {
+        name    "folder0"
+        label   "Crowd Trajectory Deform"
+        disablewhentab "{ enable == 0 }"
+
+    }
+
+}

@@ -1,0 +1,14 @@
+Operator:     choreofx::crowdOrient::1
+Label:        Crowd Orient
+Path:         oplib:/choreofx::Sop/crowdOrient::1?choreofx::Sop/crowdOrient::1
+Icon:         ChoreoFX
+Table:        Sop
+License:      
+Extra:        guide=OUT_GUIDE 
+User:         
+Inputs:       1 to 2
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Thu Dec  3 10:33:57 2020
+

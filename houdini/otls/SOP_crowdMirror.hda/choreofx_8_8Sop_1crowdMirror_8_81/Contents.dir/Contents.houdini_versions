@@ -1,0 +1,32 @@
+{
+	"values":["18.5.351"
+	],
+	"indexes":{
+		"hdaroot/z_plane.userdata":0,
+		"hdaroot/arrow.userdata":0,
+		"hdaroot/line2.userdata":0,
+		"hdaroot/arrow1.userdata":0,
+		"hdaroot/switch1.userdata":0,
+		"hdaroot/rotate.userdata":0,
+		"hdaroot/mirror_plane2.userdata":0,
+		"hdaroot/line1.userdata":0,
+		"hdaroot/GUIDE.userdata":0,
+		"hdaroot/custom_plane.userdata":0,
+		"hdaroot/mirror_plane1.userdata":0,
+		"hdaroot/static_anim.userdata":0,
+		"hdaroot/merge1.userdata":0,
+		"hdaroot/unpack_joints4.userdata":0,
+		"hdaroot/null1.userdata":0,
+		"hdaroot/unpack_joints3.userdata":0,
+		"hdaroot/arrays_to_detail1.userdata":0,
+		"hdaroot/copy_to_agents.userdata":0,
+		"hdaroot/output0.userdata":0,
+		"hdaroot/merge2.userdata":0,
+		"hdaroot/move_up1.userdata":0,
+		"hdaroot/unpack_joints2.userdata":0,
+		"hdaroot/x_plane.userdata":0,
+		"hdaroot/static.userdata":0,
+		"hdaroot/array_init4.userdata":0,
+		"hdaroot/move_up.userdata":0
+	}
+}

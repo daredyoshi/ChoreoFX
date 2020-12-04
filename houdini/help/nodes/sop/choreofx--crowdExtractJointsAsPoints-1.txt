@@ -1,0 +1,61 @@
+= Crowd Extract Joints as Points =
+#icon: /Icons/ChoreoFX.svg
+#tags: crowds, agents, ChoreoFX
+
+"""Documentation is Coming soon!"""
+
+This is placeholder documentation for Crowd Extract Joints as Points
+
+@parameters
+
+Agent Group:
+	#id: group
+	ToDo
+
+Group Type:
+	#id: grouptype
+	ToDo
+
+Agent ID attrib:
+	#id: agent_id_attrib
+	ToDo
+
+== Agent Skeleton to match Joint Names ==
+Skel Prim:
+	#id: skel_search_prim
+	ToDo
+
+Find prim with agentname:
+	#id: useagentname
+	ToDo
+
+agentname:
+	#id: agentname
+	ToDo
+
+Transform Name:
+	#id: transformname
+	ToDo
+
+Extract Method:
+	#id: extractmethod
+	ToDo
+
+Extract Frame:
+	#id: extractframe
+	ToDo
+
+Animated:
+	#id: animated
+	ToDo
+
+
+@inputs
+
+Placeholder:
+    Description of input
+
+@outputs
+
+Placeholder:
+    Description of output

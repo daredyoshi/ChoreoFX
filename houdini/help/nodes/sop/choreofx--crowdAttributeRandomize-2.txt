@@ -1,0 +1,155 @@
+= Crowd Attribute Randomize =
+#icon: /Icons/ChoreoFX.svg
+#tags: crowds, agents, ChoreoFX
+
+"""Documentation is Coming soon!"""
+
+This is placeholder documentation for Crowd Attribute Randomize
+
+@parameters
+
+== Crowd Attribute Randomize ==
+Source:
+	#id: source
+	ToDo
+
+Loop Method:
+	#id: loopMethod
+	ToDo
+
+Loop Range:
+	#id: loopRange
+	ToDo
+
+Start:
+	#id: start
+	ToDo
+
+End:
+	#id: end
+	ToDo
+
+Start:
+	#id: frStart
+	ToDo
+
+End:
+	#id: frEnd
+	ToDo
+
+Affected Group:
+	#id: affectedGroup
+	ToDo
+
+Group Type:
+	#id: grouptype
+	ToDo
+
+Seed Attribute:
+	#id: seedAttrib
+	ToDo
+
+== Common ==
+Enable Time Anchor:
+	#id: enableTimeAnchor
+	ToDo
+
+== Time Anchor (Frames) ==
+Anchor Base:
+	#id: anchorBase
+	ToDo
+
+Anchor Var Add:
+	#id: anchorVar
+	ToDo
+
+Seed:
+	#id: anchorSeed
+	ToDo
+
+Enable Time Offset:
+	#id: enableTimeOffset
+	ToDo
+
+== Time Offset (Seconds) ==
+Offset Base:
+	#id: offsetBase
+	ToDo
+
+Offset Var Add:
+	#id: offsetVar
+	ToDo
+
+Seed:
+	#id: offsetSeed
+	ToDo
+
+Enable Time Speed:
+	#id: enableTimeSpeed
+	ToDo
+
+== Time Speed (Multiplier) ==
+Speed Base:
+	#id: speedBase
+	ToDo
+
+Speed Var Add:
+	#id: speedVar
+	ToDo
+
+Seed:
+	#id: speedSeed
+	ToDo
+
+== Custom ==
+== Custom Attribs ==
+Enable:
+	#id: enable_#
+	ToDo
+
+Attrib Name:
+	#id: attribName_#
+	ToDo
+
+Action:
+	#id: action#
+	ToDo
+
+Random Method:
+	#id: randomMethod_#
+	ToDo
+
+Seed:
+	#id: valueSeed_#
+	ToDo
+
+Value Base:
+	#id: valueBase_#
+	ToDo
+
+Value Var:
+	#id: valueVar_#
+	ToDo
+
+Value Min:
+	#id: valueMin_#
+	ToDo
+
+Value Max:
+	#id: valueMax_#
+	ToDo
+
+Value Ramp:
+	#id: valueRamp_#
+	ToDo
+
+
+@inputs
+
+Placeholder:
+    Description of input
+
+@outputs
+
+Placeholder:
+    Description of output

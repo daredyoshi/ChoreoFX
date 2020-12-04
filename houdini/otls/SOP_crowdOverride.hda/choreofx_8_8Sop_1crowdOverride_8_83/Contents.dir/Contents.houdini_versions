@@ -1,0 +1,25 @@
+{
+	"values":["18.5.351"
+	],
+	"indexes":{
+		"hdaroot/read_agents.userdata":0,
+		"hdaroot/blast1.userdata":0,
+		"hdaroot/error_sourceagents.userdata":0,
+		"hdaroot/merge1.userdata":0,
+		"hdaroot/switch_doActor.userdata":0,
+		"hdaroot/copytopoints1.userdata":0,
+		"hdaroot/refresh_group.userdata":0,
+		"hdaroot/groupdelete1.userdata":0,
+		"hdaroot/switch1.userdata":0,
+		"hdaroot/error_agentdefs.userdata":0,
+		"hdaroot/newpoint.userdata":0,
+		"hdaroot/output0.userdata":0,
+		"hdaroot/group_edit.userdata":0,
+		"hdaroot/INPUT_AGENTS.userdata":0,
+		"hdaroot/OUT_Pivot.userdata":0,
+		"hdaroot/OUT.userdata":0,
+		"hdaroot/switch_has_xformedits.userdata":0,
+		"hdaroot/keep_points.userdata":0,
+		"hdaroot/null1.userdata":0
+	}
+}

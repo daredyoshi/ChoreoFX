@@ -1,0 +1,44 @@
+# Dialog script for choreofx::crowdTrajectoryCreate::2 automatically generated
+
+{
+    name	choreofx::crowdTrajectoryCreate::2
+    script	choreofx::crowdTrajectoryCreate::2
+    label	"Crowd Trajectory Create"
+
+    help {
+	""
+    }
+
+    inputlabel	1	"Crowd Agents"
+    inputlabel	2	"Sub-Network Input #2"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+    outputlabel	1	Trajectories
+    outputlabel	2	"Crowd Agents"
+
+    groupsimple {
+        name    "folder0"
+        label   "Crowd Trajectory Create"
+        disablewhentab "{ enable == 0 }"
+
+        parm {
+            name    "startFrame"
+            label   "Start Frame"
+            type    integer
+            default { [ "$FSTART" hscript-expr ] }
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "endFrame"
+            label   "End Frame"
+            type    integer
+            default { [ "$FEND" hscript-expr ] }
+            range   { 0 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+    }
+
+}

@@ -1,0 +1,19 @@
+{
+	"values":["18.5.351"
+	],
+	"indexes":{
+		"hdaroot/attribcopy1.userdata":0,
+		"hdaroot/_preview_match_frame.userdata":0,
+		"hdaroot/switch1.userdata":0,
+		"hdaroot/timeshift1.userdata":0,
+		"hdaroot/null1.userdata":0,
+		"hdaroot/switch_no_points_in_A.userdata":0,
+		"hdaroot/switch_no_points_in_B.userdata":0,
+		"hdaroot/TRAJECTORY_B.userdata":0,
+		"hdaroot/move_to_start.userdata":0,
+		"hdaroot/TRAJECTORY_A.userdata":0,
+		"hdaroot/timeshift2.userdata":0,
+		"hdaroot/merge2.userdata":0,
+		"hdaroot/output0.userdata":0
+	}
+}

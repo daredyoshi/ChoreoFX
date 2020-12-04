@@ -1,0 +1,21 @@
+{
+	"hdaroot/switch_vis_anchorFrame.def":1601993723,
+	"hdaroot/switch_at_origin.def":1601993723,
+	"hdaroot/attribdelete1.def":1601993723,
+	"hdaroot/switch_do_locomotion.def":1601993723,
+	"hdaroot/remove_instrinsic_transform.def":1602856020,
+	"hdaroot/init_pscale.def":1601993723,
+	"hdaroot/reset_P_orient.def":1601993723,
+	"hdaroot/pscale_compensation.def":1601993723,
+	"hdaroot/time_Init.def":1601993723,
+	"hdaroot/clip_player_locomotion1.def":1601993723,
+	"hdaroot/OUT.def":1601993723,
+	"hdaroot/color1.def":1601993723,
+	"hdaroot/vis_anchor.def":1601993723,
+	"hdaroot/timeOffset_back_transform.def":1601993723,
+	"hdaroot/timeAnchor_back_transform1.def":1601993723,
+	"hdaroot/clip_player_locomotion.def":1601993723,
+	"hdaroot/clip_player_inplace.def":1601993723,
+	"hdaroot.def":1606979431,
+	"hdaroot/init_orient.def":1601993723
+}

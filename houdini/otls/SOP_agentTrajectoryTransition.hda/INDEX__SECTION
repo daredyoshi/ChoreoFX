@@ -1,0 +1,14 @@
+Operator:     choreofx::agentTrajectoryTransition::1
+Label:        Agent Trajectory Transition
+Path:         oplib:/choreofx::Sop/agentTrajectoryTransition::1?choreofx::Sop/agentTrajectoryTransition::1
+Icon:         ChoreoFX
+Table:        Sop
+License:      
+Extra:        
+User:         
+Inputs:       2 to 3
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Thu Dec  3 10:21:44 2020
+

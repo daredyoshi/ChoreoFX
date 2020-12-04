@@ -1,0 +1,101 @@
+= Agent Clip Trajectory Transition Graph =
+#icon: /Icons/ChoreoFX.svg
+#tags: crowds, agents, ChoreoFX
+
+"""Documentation is Coming soon!"""
+
+This is placeholder documentation for Agent Clip Trajectory Transition Graph
+
+@parameters
+
+== Transitions ==
+Units:
+	#id: units
+	ToDo
+
+Compute Transition Graph:
+	#id: computetransitiongraph
+	ToDo
+
+Tolerance:
+	#id: posetolerance
+	ToDo
+
+Blend Frames:
+	#id: blendframes
+	ToDo
+
+Transform Group:
+	#id: transformgroup
+	ToDo
+
+== Filters ==
+Clip A:
+	#id: filterclipa_#
+	ToDo
+
+Clip B:
+	#id: filterclipb_#
+	ToDo
+
+== Extra Transitions ==
+Clip A:
+	#id: clip_a_#
+	ToDo
+
+Clip B:
+	#id: clip_b_#
+	ToDo
+
+Initialize from Computed Transition Regions:
+	#id: initfromcomputedgraph_#
+	ToDo
+
+== Transition Regions ==
+Sync Frame A:
+	#id: sync_frame_a_#_#
+	ToDo
+
+Transition Region:
+	#id: transition_region_#_#_
+	ToDo
+
+Sync Frame B:
+	#id: sync_frame_b_#_#
+	ToDo
+
+Blend Frames:
+	#id: blend_frames_#_#
+	ToDo
+
+Show Guide Geometry:
+	#id: visualize_transition_#_#
+	ToDo
+
+== Guides ==
+Point Separation:
+	#id: visualize_pointradius
+	ToDo
+
+Visualize Clip Name:
+	#id: visualize_clipname
+	ToDo
+
+Visualize Sync Frames:
+	#id: visualize_sync_frames
+	ToDo
+
+Agent Separation:
+	#id: sync_frame_spacing
+	ToDo
+
+
+@inputs
+
+Placeholder:
+    Description of input
+
+@outputs
+
+Placeholder:
+    Description of output

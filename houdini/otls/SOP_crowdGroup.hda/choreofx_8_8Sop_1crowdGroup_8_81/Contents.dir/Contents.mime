@@ -1,0 +1,402 @@
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY"
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename=".OPfallbacks"
+Content-Type: application/external-reference
+
+.OPfallbacks
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename=".OPdummydefs"
+Content-Type: application/external-reference
+
+.OPdummydefs
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="node_type"
+Content-Type: text/plain
+
+Sop
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot.init"
+Content-Type: text/plain
+
+type = choreofx::crowdGroup::1
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 36.1669 -21.2277
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+0 "output1"
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create -1
+  modify -1
+  author stephen@stephen-m2
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	},
+	"wirestyle":{
+		"type":"string",
+		"value":"rounded"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot.inp"
+Content-Type: text/plain
+
+1
+0 9.9005076600460704 1.8022104148680231 2 0 __NO_OWNER_NETWORK_BOX__ "RGB 0.47499999403953552 0.81199997663497925 0.20399999618530273"
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/grouping.init"
+Content-Type: text/plain
+
+type = attribwrangle
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/grouping.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 9.89941 -1.28026
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+0 "output1"
+}
+inputsNamed3
+{
+1 	(0) "" 1 "input1"
+}
+inputs
+{
+0 	(0) 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author choreofx@choreofx.com
+  access 0777
+}
+color UT_Color RGB 0.89 0.412 0.761 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/grouping.chn"
+Content-Type: text/plain
+
+{
+    channel group {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = chs(\"../agentgroup\") }
+    }
+    channel grouptype {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../grouptype\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/grouping.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+folder0	[ 0	locks=0	autoscope=0 ]	(	0	0	)
+group	[ 0	locks=0	autoscope=0 ]	(	[ group	"" ] 	)
+grouptype	[ 0	locks=0	autoscope=0 ]	(	[ grouptype	3 ] 	)
+class	[ 0	locks=0	autoscope=0 ]	(	"point"	)
+vex_numcount	[ 0	locks=0	autoscope=0 ]	(	10	)
+vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
+snippet	[ 0	locks=0	autoscope=0 ]	(	"int select = 0;
+int filtercount = chi(\"../userdata\");
+for (int i=1; i <= filtercount; i++)
+{
+    float enable = chf(sprintf(\"../dataEnable_%d\", i));
+    if (enable == 1)
+    {
+        int isTrue = 0;
+        string filterType = chs(sprintf(\"../filterType_%d\", i));
+        s@filter = filterType;
+        string dataName = chs(sprintf(\"../dataName_%d\", i));
+       
+        if (filterType == \"agentdef\") //agentdef
+        {
+            string agentdefs = chs(sprintf(\"../agentDef_%d\", i));
+            if (match(agentdefs, s@agentname))
+                isTrue = 1;
+        }
+        
+        else if (filterType == \"costume\")  //costume
+        {
+            string costumes = chs(sprintf(\"../costume_%d\", i));
+            //if (s@costume == costume)
+            if (match(costumes, agentcurrentlayer(0, @primnum)))
+                isTrue = 1;
+        }
+        
+        else if (filterType == \"clip\") //clip
+        {
+            string clips = chs(sprintf(\"../clip_%d\", i));
+            //if (s@clipName == clip)
+            if (match(clips, agentclipnames(0, @primnum)[0]))
+                isTrue = 1;
+        }
+        
+        else if (filterType == \"ingroup\") //ingroup
+        {
+            int grouptype = chi(sprintf(\"../groupFilterType_%d\", i));
+            string group = chs(sprintf(\"../groupFilter_%d\", i));
+            if (grouptype == 0)
+                isTrue = inpointgroup(0, group, @ptnum); 
+            else
+                isTrue == inprimgroup(0, group, @primnum); 
+        }
+        else if (filterType == \"randthreshold\") //random threshold
+        {
+            float threshold = chf(sprintf(\"../chance_%d\", i));
+            int seed = chi(sprintf(\"../seed_%d\", i));
+            int seedid = i@`chs(\"../seedAttrib\")`;
+            float u = rand(set(seedid, seed));
+            if (threshold >= rand(u))
+                isTrue = 1;
+        }
+        
+        else if (filterType == \"custom\") //custom
+        {
+            string dataType = chs(sprintf(\"../dataType_%d\", i));
+            string op = chs(sprintf(\"../op_%d\", i));
+            if (haspointattrib(0, dataName))
+            {
+                if (dataType == \"int\"){
+                    int currentValue = point(0, dataName, @ptnum);
+                    int intValue = chi(sprintf(\"../dataInt_%d\", i));
+                    if (op == \"==\")
+                        isTrue = currentValue == intValue;
+                    else if (op == \"!=\")
+                        isTrue = currentValue != intValue;
+                    else if (op == \">\")
+                        isTrue = currentValue > intValue;
+                    else if (op == \"<\")
+                        isTrue = currentValue < intValue;
+                } 
+                else if (dataType == \"float\"){
+                    float currentValue = point(0, dataName, @ptnum);
+                    float floatValue = chf(sprintf(\"../dataFloat_%d\", i));
+                    if (op == \"==\")
+                        isTrue = currentValue == floatValue;
+                    else if (op == \"!=\")
+                        isTrue = currentValue != floatValue;
+                    else if (op == \">\")
+                        isTrue = currentValue > floatValue;
+                    else if (op == \"<\")
+                        isTrue = currentValue < floatValue;
+                }
+                else if (dataType == \"vector\"){
+                    vector currentValue = point(0, dataName, @ptnum);
+                    vector vectorValue = chv(sprintf(\"../dataVector_%d\", i));
+                    if (op == \"==\")
+                        isTrue = currentValue == vectorValue;
+                    else if (op == \"!=\")
+                        isTrue = currentValue != vectorValue;
+                }
+                else if (dataType == \"string\"){
+                    string currentValue = point(0, dataName, @ptnum);
+                    string stringValue = chs(sprintf(\"../dataString_%d\", i));
+                    if (currentValue == stringValue){
+                        isTrue = 1;    
+                    }
+                }
+            }
+        }
+        
+        // Merge with existing
+        int mergemode = chi(sprintf(\"../mergeop_%d\", i));
+        if (mergemode == 0){ // add
+            if (isTrue)
+                select = 1;  
+        }
+        else if (mergemode == 1){ // intersect
+            if (isTrue && select)
+                select = 1;
+            else
+                select = 0;
+        }
+        else if (mergemode == 2){ // subtract
+            if (isTrue == 1 && select == 1)
+                select = 0;
+        }
+    }        
+}
+if (chi(\"../invertSelection\"))
+    select = 1 - select; 
+
+if (filtercount > 0){
+    // Merge with existing group
+    int ingroup = inpointgroup(0, chs(\"../outGroup\"), @ptnum);
+    int groupMergeMode = chi(\"../groupmergeop\");
+    if (groupMergeMode == 0){ // replace
+        //if (select)
+            //select = 1;  
+    }
+    else if (groupMergeMode == 1){ // add
+        if (ingroup)
+            select = 1;  
+    }
+    else if (groupMergeMode == 2){ // intersect
+        if (ingroup && select)
+            select = 1;
+        else
+            select = 0;
+    }
+    else if (groupMergeMode == 3){ // subtract
+        if (ingroup == 1 && select == 1)
+            select = 0;
+        else
+            select = ingroup;
+    }
+    
+    setpointgroup(0, chs(\"../outGroup\"), @ptnum, select, \"set\");
+}"	)
+exportlist	[ 0	locks=0	autoscope=0 ]	(	*	)
+vex_strict	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+autobind	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+bindings	[ 0	locks=0	autoscope=0 ]	(	0	)
+groupautobind	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+groupbindings	[ 0	locks=0	autoscope=0 ]	(	0	)
+vex_cwdpath	[ 0	locks=0	autoscope=0 ]	(	.	)
+vex_outputmask	[ 0	locks=0	autoscope=0 ]	(	*	)
+vex_updatenmls	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+vex_matchattrib	[ 0	locks=0	autoscope=0 ]	(	id	)
+vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	selected	)
+vex_precision	[ 0	locks=0	autoscope=0 ]	(	auto	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/grouping.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/OUT.init"
+Content-Type: text/plain
+
+type = output
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/OUT.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 9.90051 -3.85052
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault off exposed on
+outputsNamed3
+{
+}
+inputsNamed3
+{
+0 	grouping 0 1 "input1"
+}
+inputs
+{
+0 	grouping 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author choreofx@choreofx.com
+  access 0777
+}
+color UT_Color RGB 0.475 0.812 0.204 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/OUT.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+outputidx	[ 0	locks=0	autoscope=0 ]	(	0	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/OUT.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot.order"
+Content-Type: text/plain
+
+2
+OUT
+grouping
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot.net"
+Content-Type: text/plain
+
+1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY--

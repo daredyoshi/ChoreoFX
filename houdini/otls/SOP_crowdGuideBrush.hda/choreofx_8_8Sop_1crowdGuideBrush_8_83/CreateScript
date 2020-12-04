@@ -1,0 +1,17 @@
+# Automatically generated script
+\set noalias = 1
+#
+#  Creation script for choreofx::crowdGuideBrush::3 operator
+#
+
+if ( "$arg1" == "" ) then
+    echo This script is intended as a creation script
+    exit
+endif
+
+# Node $arg1 (choreofx::Sop/crowdGuideBrush::3)
+opexprlanguage -s hscript $arg1
+opuserdata -n '___Version___' -v '' $arg1
+opuserdata -n '___toolcount___' -v '13' $arg1
+opuserdata -n '___toolid___' -v 'choreofx_tool_basictrajcreate_01' $arg1
+opuserdata -n 'wirestyle' -v 'rounded' $arg1

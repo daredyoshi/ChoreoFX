@@ -1,0 +1,206 @@
+# Dialog script for choreofx::agentClipContactSheet::1 automatically generated
+
+{
+    name	choreofx::agentClipContactSheet::1
+    script	choreofx::agentClipContactSheet::1
+    label	"Agent Clip Contact Sheet"
+
+    help {
+	""
+    }
+
+    inputlabel	1	"Agent Prim"
+    inputlabel	2	"Sub-Network Input #2"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+    outputlabel	1	"Vis All Agent Clips"
+
+    parm {
+        name    "restclip"
+        label   "Rest Clip Name"
+        type    string
+        default { "rest" }
+        menureplace {
+            [ "opmenu -l -a rest currentclip" ]
+        }
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "sepparm"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
+        name    "loopTransitionType"
+        label   "Loop Transition Type"
+        type    integer
+        default { "1" }
+        help    "Locomotive - The locomotion channel will be preserved. For when agent should move in a direction.        In-Place - Locomotion channel loops around to start. For when agent should loop on the spot"
+        menu {
+            "0" "In-Place"
+            "1" "Locomotive"
+        }
+        range   { 0 10 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "advanceLoco"
+        label   "Advance Locomotion"
+        type    toggle
+        default { "on" }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "sepparm3"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
+        name    "separation"
+        label   "Separation"
+        type    float
+        default { "1" }
+        range   { 0 5 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "use_bbox"
+        label   "Use Bounding Box in separation"
+        type    toggle
+        default { "1" }
+        range   { 0 10 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "sepparm8"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
+        name    "labelparm"
+        label   "labelparm"
+        type    label
+        nolabel
+        default { "TimeAnchor Delay by ptnum" }
+    }
+    parm {
+        name    "timeAnchor_delay"
+        label   "Delay"
+        type    float
+        default { "0" }
+        range   { 0 50 }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "sepparm5"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
+        name    "offsetaxis"
+        label   "Offset Axis"
+        type    integer
+        default { "0" }
+        menu {
+            "0" "X"
+            "1" "Z"
+        }
+        range   { 0 10 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "sepparm6"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
+        name    "showSkel"
+        label   "Show Skeletons"
+        type    toggle
+        default { "0" }
+        range   { 0! 1! }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "sepparm7"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
+        name    "showname"
+        label   "Show Clip Name"
+        type    toggle
+        default { "1" }
+        range   { 0! 1! }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    groupsimple {
+        name    "folder0"
+        label   "Font"
+        disablewhentab "{ showname == 0 }"
+
+        parm {
+            name    "file"
+            label   "Font"
+            type    file
+            default { "Helvetica" }
+            menureplace {
+                [ "opmenu -l -a font1 file" ]
+            }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "filechooser_mode" "read" }
+            parmtag { "filechooser_pattern" "*.ttf, *.otf, *.ttc, *.otc, *.pfa, *.pfb" }
+        }
+        parm {
+            name    "fontsize"
+            label   "Font Size"
+            type    float
+            default { "0.4" }
+            range   { 0! 1 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "fontT"
+            label   "Font Offset"
+            type    vector
+            size    3
+            default { "0" "0" "2" }
+            range   { -1 1 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "fontR"
+            label   "Font Rotate"
+            type    vector
+            size    3
+            default { "-90" "90" "0" }
+            range   { 0 360 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+    }
+
+    parm {
+        name    "sepparm4"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+}

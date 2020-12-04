@@ -1,0 +1,40 @@
+= Agent Import =
+#icon: /Icons/ChoreoFX.svg
+#tags: crowds, agents, ChoreoFX
+
+"""Documentation is Coming soon!"""
+
+This is placeholder documentation for Agent Import
+
+@parameters
+
+Import Method:
+	#id: importMethod
+	ToDo
+
+OpPath:
+	#id: agentOppath
+	ToDo
+
+Geo File:
+	#id: agentFile
+	ToDo
+
+Filter:
+	#id: agentfilter
+	ToDo
+
+Single Agent:
+	#id: singleAgentDef
+	ToDo
+
+
+@inputs
+
+Placeholder:
+    Description of input
+
+@outputs
+
+Placeholder:
+    Description of output

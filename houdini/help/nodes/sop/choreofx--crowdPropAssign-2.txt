@@ -1,0 +1,149 @@
+= Crowd Prop Assign =
+#icon: /Icons/ChoreoFX.svg
+#tags: crowds, agents, ChoreoFX
+
+"""Documentation is Coming soon!"""
+
+This is placeholder documentation for Crowd Prop Assign
+
+@parameters
+
+== Prop Assign ==
+Agent Group:
+	#id: agentgroup
+	ToDo
+
+Group Type:
+	#id: grouptype
+	ToDo
+
+Source Props by Path:
+	#id: sourceByPath
+	ToDo
+
+Props Path:
+	#id: propsPath
+	ToDo
+
+Instance on Static Frame:
+	#id: doInstanceStatic
+	ToDo
+
+Static Frame:
+	#id: staticframe
+	ToDo
+
+Override Joint:
+	#id: useOverrideJoint
+	ToDo
+
+Joint:
+	#id: overrideJoint
+	ToDo
+
+Apply Agent Scale:
+	#id: applyAgentScale
+	ToDo
+
+Apply Prop Clip:
+	#id: applyPropClip
+	ToDo
+
+Group Output:
+	#id: useOutputGroup
+	ToDo
+
+Group Name:
+	#id: outputGroupName
+	ToDo
+
+Seed Attribute:
+	#id: seedAttrib
+	ToDo
+
+Random Prop Seed:
+	#id: randomPropSeed
+	ToDo
+
+Random Xform Seed:
+	#id: randomXformSeed
+	ToDo
+
+== Prop List ==
+== Prop Groups ==
+Prop Pattern:
+	#id: propPattern_#
+	ToDo
+
+Weight:
+	#id: propWeight_#
+	ToDo
+
+Randomize Local Offset:
+	#id: randomizeXform_#
+	ToDo
+
+== Randomize Xform ==
+Translate Min:
+	#id: tmin_#
+	ToDo
+
+Translate Max:
+	#id: tmax_#
+	ToDo
+
+Rotate Min:
+	#id: rmin_#
+	ToDo
+
+Rotate Max:
+	#id: rmax_#
+	ToDo
+
+Scale Min:
+	#id: smin_#
+	ToDo
+
+Scale Max:
+	#id: smax_#
+	ToDo
+
+== Manual Prop Edits ==
+Enable:
+	#id: manualEnable_#
+	ToDo
+
+Affected Group:
+	#id: manualGroup_#
+	ToDo
+
+Prop:
+	#id: manualPropName_#
+	ToDo
+
+Set Local Offset:
+	#id: doManualLocalOffset_#
+	ToDo
+
+Translate:
+	#id: tManual_#
+	ToDo
+
+Rotate:
+	#id: rManual_#
+	ToDo
+
+Scale:
+	#id: sManual_#
+	ToDo
+
+
+@inputs
+
+Placeholder:
+    Description of input
+
+@outputs
+
+Placeholder:
+    Description of output

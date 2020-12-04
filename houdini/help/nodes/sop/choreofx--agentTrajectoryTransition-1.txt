@@ -1,0 +1,60 @@
+= Agent Trajectory Transition =
+#icon: /Icons/ChoreoFX.svg
+#tags: crowds, agents, ChoreoFX
+
+"""Documentation is Coming soon!"""
+
+This is placeholder documentation for Agent Trajectory Transition
+
+@parameters
+
+Type:
+	#id: transitionType
+	ToDo
+
+Length:
+	#id: transition_len
+	ToDo
+
+Move To Start:
+	#id: movetostart
+	ToDo
+
+Auto:
+	#id: auto_planted
+	ToDo
+
+auto_first_planted:
+	#id: auto_first_planted
+	ToDo
+
+Planted Channel:
+	#id: planted_idx
+	ToDo
+
+Flatten Orient:
+	#id: flatten_orient
+	ToDo
+
+Flatten Pos:
+	#id: flatten_pos
+	ToDo
+
+Max Frames to Search Planted:
+	#id: max_frames_to_check
+	ToDo
+
+Debug Colors:
+	#id: debug
+	ToDo
+
+
+@inputs
+
+Placeholder:
+    Description of input
+
+@outputs
+
+Placeholder:
+    Description of output

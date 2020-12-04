@@ -1,0 +1,36 @@
+def initFromComputedGraph(kwargs):
+    node = kwargs["node"]
+    instance = int(kwargs["script_multiparm_index"])
+
+    graph_index_geo = hou.node("GRAPH_INDEX").geometry()
+    graph_geo = hou.node("GRAPH_FOR_CALLBACK").geometry()
+
+    graph_index_pt = graph_index_geo.iterPoints()[instance - 1]
+    graph_prim_idx = graph_index_pt.intAttribValue("transition_prim")
+    if graph_prim_idx < 0:
+        raise hou.Error("No edge found in computed transition graph")
+
+    graph_prim = graph_geo.iterPrims()[graph_prim_idx]
+
+    blend_durations = graph_prim.floatListAttribValue("blend_durations")
+    sync_points = graph_prim.floatListAttribValue("sync_points")
+    transition_regions = graph_prim.floatListAttribValue("transition_regions")
+
+    num_regions = len(blend_durations)
+    multiparm = node.parm("transition_regions_{0}".format(instance))
+    multiparm.set(num_regions)
+
+    for i in range(0, num_regions):
+        child = i + 1;
+
+        frame_a = node.parm("sync_frame_a_{0}_{1}".format(instance, child))
+        frame_a.set(sync_points[i * 2])
+
+        frame_b = node.parm("sync_frame_b_{0}_{1}".format(instance, child))
+        frame_b.set(sync_points[i * 2 + 1])
+
+        blend_frames = node.parm("blend_frames_{0}_{1}".format(instance, child))
+        blend_frames.set(blend_durations[i])
+
+        transition_region = node.parmTuple("transition_region_{0}_{1}_".format(instance, child))
+        transition_region.set((transition_regions[i * 2], transition_regions[i * 2 + 1], ))

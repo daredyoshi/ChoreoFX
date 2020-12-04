@@ -1,0 +1,107 @@
+= Crowd Stash Edit =
+#icon: /Icons/ChoreoFX.svg
+#tags: crowds, agents, ChoreoFX
+
+"""Documentation is Coming soon!"""
+
+This is placeholder documentation for Crowd Stash Edit
+
+@parameters
+
+Enable:
+	#id: enable
+	ToDo
+
+== Edits ==
+Launch Viewport Controls:
+	#id: newparameter
+	ToDo
+
+Vis Id:
+	#id: vis_id
+	ToDo
+
+Active Id:
+	#id: active_id
+	ToDo
+
+Selected Agents:
+	#id: selectedAgents
+	ToDo
+
+Group Type:
+	#id: grouptype
+	ToDo
+
+Stash Index:
+	#id: index
+	ToDo
+
+== Agent Edit ==
+enablePosition_#:
+	#id: enablePosition
+	ToDo
+
+Position:
+	#id: posOffset
+	ToDo
+
+enableHeadingDir_#:
+	#id: enableHeadingDir
+	ToDo
+
+Heading Dir:
+	#id: headingDir
+	ToDo
+
+Rotation Offset:
+	#id: rotOffset__
+	ToDo
+
+enableClipName_#:
+	#id: enableClipName
+	ToDo
+
+Clip Name:
+	#id: clipName
+	ToDo
+
+enableTimeAnchor_#:
+	#id: enableTimeAnchor
+	ToDo
+
+Time Anchor:
+	#id: timeAnchor
+	ToDo
+
+enableTimeOffset_#:
+	#id: enableTimeOffset
+	ToDo
+
+Time Offset:
+	#id: timeOffset
+	ToDo
+
+enableTimeSpeed_#:
+	#id: enableTimeSpeed
+	ToDo
+
+Time Speed:
+	#id: timeSpeed
+	ToDo
+
+== data ==
+StashedData:
+	#id: stash
+	ToDo
+
+
+@inputs
+
+Placeholder:
+    Description of input
+
+@outputs
+
+Placeholder:
+    Description of output

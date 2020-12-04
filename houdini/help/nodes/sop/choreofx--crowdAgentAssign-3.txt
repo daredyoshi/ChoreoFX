@@ -1,0 +1,117 @@
+= Crowd Agent Assign =
+#icon: /Icons/ChoreoFX.svg
+#tags: crowds, agents, ChoreoFX
+
+"""Documentation is Coming soon!"""
+
+This is placeholder documentation for Crowd Agent Assign
+
+@parameters
+
+Source:
+	#id: source
+	ToDo
+
+Loop Method:
+	#id: loopMethod
+	ToDo
+
+Loop Range:
+	#id: loopRange
+	ToDo
+
+Start:
+	#id: start
+	ToDo
+
+End:
+	#id: end
+	ToDo
+
+Start:
+	#id: frStart
+	ToDo
+
+End:
+	#id: frEnd
+	ToDo
+
+== Actor Assign ==
+Agent Group:
+	#id: agentgroup
+	ToDo
+
+Group Type:
+	#id: grouptype
+	ToDo
+
+Source Agents:
+	#id: importMethod
+	ToDo
+
+OpPath:
+	#id: agentOppath
+	ToDo
+
+Geo File:
+	#id: agentFile
+	ToDo
+
+Seed Attribute:
+	#id: seedAttrib
+	ToDo
+
+Set Actor:
+	#id: setSingleActor
+	ToDo
+
+Randomize Actors:
+	#id: randomizeActors
+	ToDo
+
+Random Seed:
+	#id: randomActorSeed
+	ToDo
+
+== Actor List ==
+== Actor Groups ==
+Actor Pattern:
+	#id: actorPattern_#
+	ToDo
+
+Weight:
+	#id: actorWeight_#
+	ToDo
+
+== Manual Actor Edits ==
+Enable:
+	#id: manualEnable_#
+	ToDo
+
+Affected Group:
+	#id: manualGroup_#
+	ToDo
+
+Actor:
+	#id: manualActorName_#
+	ToDo
+
+== Vignettes ==
+Randomize Vignette Agents:
+	#id: randomizeVignetteAgents
+	ToDo
+
+Apply Scale to Agent Positions:
+	#id: applyScaleToPositions
+	ToDo
+
+
+@inputs
+
+Placeholder:
+    Description of input
+
+@outputs
+
+Placeholder:
+    Description of output

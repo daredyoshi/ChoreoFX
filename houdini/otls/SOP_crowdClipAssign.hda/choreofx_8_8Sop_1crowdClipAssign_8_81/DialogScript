@@ -1,0 +1,172 @@
+# Dialog script for choreofx::crowdClipAssign::1 automatically generated
+
+{
+    name	choreofx::crowdClipAssign::1
+    script	agentClipFromAgent::00.01
+    label	"Crowd Clip Assign"
+
+    help {
+	""
+    }
+
+    inputlabel	1	"Crowd Agents"
+    inputlabel	2	"Sub-Network Input #2"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+    outputlabel	1	"Crowd Agents"
+
+    parm {
+        name    "agentgroup"
+        label   "Agent Group"
+        type    string
+        default { "" }
+        menutoggle {
+            [ "kwargs['node'].generateInputGroupMenu(0)" ]
+            language python
+        }
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_action" "import soputils\nkwargs['geometrytype'] = kwargs['node'].parmTuple('grouptype')\nkwargs['inputindex'] = 0\nsoputils.selectGroupParm(kwargs)" }
+        parmtag { "script_action_help" "Select geometry from an available viewport." }
+        parmtag { "script_action_icon" "BUTTONS_reselect" }
+    }
+    parm {
+        name    "grouptype"
+        label   "Group Type"
+        type    ordinal
+        default { "points" }
+        menu {
+            "guess"     "Guess from Group"
+            "vertices"  "Vertices"
+            "edges"     "Edges"
+            "points"    "Points"
+            "prims"     "Primitives"
+        }
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "sepparm16"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
+        name    "setSingleClip"
+        label   "Set Current Clip"
+        type    string
+        default { "rest" }
+        disablewhen "{ randomizeClips == 1 }"
+        menureplace {
+            [ "import crowdstoolutils" ]
+            [ "return crowdstoolutils.buildClipMenu(hou.pwd())" ]
+            language python
+        }
+    }
+    parm {
+        name    "sepparm14"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
+        name    "randomizeClips"
+        label   "Randomize Clips"
+        type    toggle
+        default { "0" }
+    }
+    parm {
+        name    "randomClipSeed"
+        label   "Random Seed"
+        type    integer
+        default { "100" }
+        disablewhen "{ randomizeClips == 0 }"
+        range   { 0 1000 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    parm {
+        name    "seedAttrib"
+        label   "Seed Attribute"
+        type    string
+        default { "agent_id" }
+        disablewhen "{ randomizeClips == 0 }"
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+    }
+    groupsimple {
+        name    "folder5"
+        label   "Clip List"
+        disablewhentab "{ randomizeClips == 0 }"
+
+        multiparm {
+            name    "numClipPatterns"
+            label    "Clip Groups"
+            default 1
+
+            parm {
+                name    "clipPattern_#"
+                label   "Clip Pattern"
+                type    string
+                default { "* ^rest" }
+                menutoggle {
+                    [ "import crowdstoolutils" ]
+                    [ "return crowdstoolutils.buildClipMenu(hou.pwd())" ]
+                    language python
+                }
+            }
+            parm {
+                name    "clipWeight_#"
+                label   "Weight"
+                type    float
+                default { "1" }
+                range   { 0! 10 }
+            }
+        }
+
+    }
+
+    parm {
+        name    "sepparm2"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    multiparm {
+        name    "manualClipEdits"
+        label    "Manual Clip Edits"
+        default 0
+
+        parm {
+            name    "manualEnable_#"
+            label   "Enable"
+            type    toggle
+            default { "1" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "manualGroup_#"
+            label   "Affected Group"
+            type    string
+            default { "" }
+            menutoggle {
+                [ "opmenu -l __manualgroup basegroup" ]
+            }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_action" "import soputils\nkwargs['geometrytype'] = hou.geometryType.Points\nkwargs['inputindex'] = 0\n#kwargs['ordered'] = kwargs['node'].parm('ordered').eval()\nsoputils.selectGroupParm(kwargs)" }
+            parmtag { "script_action_help" "Select geometry from an available viewport.\nShift-click to turn on Select Groups." }
+            parmtag { "script_action_icon" "BUTTONS_reselect" }
+        }
+        parm {
+            name    "manualClipName_#"
+            label   "Clip"
+            type    string
+            default { "rest" }
+            menureplace {
+                [ "import crowdstoolutils" ]
+                [ "return crowdstoolutils.buildClipMenu(hou.pwd())" ]
+                language python
+            }
+        }
+    }
+
+}

@@ -1,0 +1,8 @@
+Sop/attribdelete /opt/hfs18.5/houdini/otls/OPlibSop.hda
+Sop/attribdelete otls/OPlibSop.hda
+Sop/attribwrangle /opt/hfs18.5/houdini/otls/OPlibSop.hda
+Sop/attribwrangle otls/OPlibSop.hda
+choreofx::Sop/crowdTrajectoryTrim::1 otls/SOP_crowdTrajectoryTrim.hda
+choreofx::Sop/crowdTrajectoryTrim::1 otls/SOP_crowdTrajectoryTrim.hda
+Sop/split /opt/hfs18.5/houdini/otls/OPlibSop.hda
+Sop/split otls/OPlibSop.hda

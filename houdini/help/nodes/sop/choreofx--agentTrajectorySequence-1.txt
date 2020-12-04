@@ -1,0 +1,86 @@
+= Agent Trajectory Sequence =
+#icon: /Icons/ChoreoFX.svg
+#tags: crowds, agents, ChoreoFX
+
+"""Documentation is Coming soon!"""
+
+This is placeholder documentation for Agent Trajectory Sequence
+
+@parameters
+
+== Sequence ==
+Traj Name #:
+	#id: trajname_#
+	ToDo
+
+Begin:
+	#id: traj_begin_#
+	ToDo
+
+End:
+	#id: traj_end_#
+	ToDo
+
+Idx:
+	#id: hiddenidx_#
+	ToDo
+
+Transition Type:
+	#id: transition_type_#
+	ToDo
+
+Transition time to Next Clip:
+	#id: transition_time_#
+	ToDo
+
+Use Detail Attribs instead of UI:
+	#id: use_detail_attribs
+	ToDo
+
+Debug Color per Seg:
+	#id: debugcolors
+	ToDo
+
+Geo with Detail Attribs:
+	#id: detail_attrib_geo
+	ToDo
+
+== Attrib Names ==
+Label:
+	#id: labelparm
+	ToDo
+
+Sequence Len:
+	#id: detail_sequence_len_attrib_name
+	ToDo
+
+Clipname Prefix:
+	#id: detail_name_attrib_name
+	ToDo
+
+Begin Prefix:
+	#id: detail_begin_attrib_name
+	ToDo
+
+End Prefix:
+	#id: detail_end_attrib_name
+	ToDo
+
+Transition Type Prefix:
+	#id: detail_transition_type_attrib_name
+	ToDo
+
+Transition Len Prefix:
+	#id: detail_transition_len_attrib_name
+	ToDo
+
+
+@inputs
+
+Placeholder:
+    Description of input
+
+@outputs
+
+Placeholder:
+    Description of output

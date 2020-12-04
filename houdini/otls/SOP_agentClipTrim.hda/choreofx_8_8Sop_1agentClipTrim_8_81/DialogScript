@@ -1,0 +1,206 @@
+# Dialog script for choreofx::agentClipTrim::1 automatically generated
+
+{
+    name	choreofx::agentClipTrim::1
+    script	agentClipMakeLoopable::00.01
+    label	"Agent Clip Trim"
+
+    help {
+	""
+    }
+
+    inputlabel	1	"Agent Prim"
+    inputlabel	2	"Sub-Network Input #2"
+    inputlabel	3	"Sub-Network Input #3"
+    inputlabel	4	"Sub-Network Input #4"
+    outputlabel	1	"Agent Prim with Trimmed clip"
+    outputlabel	2	Guide
+
+    parm {
+        name    "clip"
+        label   "Clip to Trim"
+        type    string
+        default { "walk_test" }
+        menureplace {
+            [ "import crowdstoolutils" ]
+            [ "return crowdstoolutils.buildClipMenu(hou.pwd())" ]
+            language python
+        }
+        range   { 0 1 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "outClipName"
+        label   "Output Clip Name"
+        type    string
+        default { [ "chs(\"clip\")+_trimmed" hscript-expr ] }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "sepparm"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
+        name    "trimType"
+        label   "Trim Type"
+        type    ordinal
+        default { "trimExt" }
+        menu {
+            "trimExt"   "Trim Ends"
+            "trimInt"   "Trim Internal Section"
+        }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "sepparm2"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
+        name    "trimRange"
+        label   "Trim Range"
+        type    ordinal
+        joinnext
+        default { "rel" }
+        menu {
+            "abs"   "Absolute Time"
+            "rel"   "Relative to Start/End"
+        }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "valueType"
+        label   " "
+        type    ordinal
+        default { "1" }
+        menu {
+            "0" "Time"
+            "1" "Frames"
+        }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "start"
+        label   "Start"
+        type    float
+        default { "0" }
+        hidewhen "{ valueType != 0 }"
+        range   { 0 10 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "end"
+        label   "End"
+        type    float
+        default { "0" }
+        hidewhen "{ valueType != 0 }"
+        range   { -10 10 }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "frStart"
+        label   "Start"
+        type    integer
+        default { "0" }
+        hidewhen "{ valueType != 1 }"
+        range   { 0 100 }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "frEnd"
+        label   "End"
+        type    integer
+        default { "0" }
+        hidewhen "{ valueType != 1 }"
+        range   { -100 100 }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "sepparm5"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
+        name    "labelparm"
+        label   "Out-Of-Range"
+        type    label
+        default { "" }
+    }
+    parm {
+        name    "extrapolation"
+        label   "Extrapolation"
+        type    ordinal
+        joinnext
+        default { "cycle" }
+        menu {
+            "asis"      "No Change"
+            "hold"      "Hold"
+            "slope"     "Slope"
+            "cycle"     "Cycle"
+            "mirror"    "Mirror"
+            "default"   "Default Value"
+            "cyclestep" "Cycle with Offset"
+        }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "cycleOffsetLoco"
+        label   "Always cycle-offset loco"
+        type    toggle
+        default { "1" }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "sepparm4"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
+        name    "visOutClip"
+        label   "Set Output Clip"
+        type    integer
+        default { "2" }
+        menu {
+            "0" "None"
+            "1" "Input Clip"
+            "2" "Trimmed Clip"
+        }
+        range   { 0 10 }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "applylocomotion"
+        label   "Apply Clip Locomotion"
+        type    toggle
+        default { "off" }
+        disablewhen "{ visOutClip == 0 }"
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "sepparm6"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
+        name    "vis"
+        label   "Visualise Guides"
+        type    toggle
+        default { "1" }
+        disablewhen "{ visOutClip < 2 }"
+        parmtag { "script_callback_language" "python" }
+    }
+}

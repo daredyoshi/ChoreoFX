@@ -1,0 +1,15 @@
+Operator:     choreofx::crowdGuideGenerator::1
+Label:        Crowd Guide Generator
+Path:         oplib:/choreofx::Sop/crowdGuideGenerator::1?choreofx::Sop/crowdGuideGenerator::1
+Icon:         ChoreoFX
+Table:        Sop
+License:      
+Extra:        guide=OUT_GUIDE 
+User:         
+Inputs:       1 to 5
+Outputs:      3
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Mon Nov 23 20:09:44 2020
+

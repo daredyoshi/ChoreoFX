@@ -1,0 +1,164 @@
+= Crowd Trajectory Trim Brush =
+#icon: /Icons/ChoreoFX.svg
+#tags: crowds, agents, ChoreoFX
+
+"""Documentation is Coming soon!"""
+
+This is placeholder documentation for Crowd Trajectory Trim Brush
+
+@parameters
+
+== Settings ==
+Clear All Changes:
+	#id: clearAllChanges
+	ToDo
+
+== Handle Settings ==
+Hide InActive Prims on Change:
+	#id: hideInactive
+	ToDo
+
+Use Live Update:
+	#id: useLiveUpdate
+	ToDo
+
+== Guide Settings ==
+Guide Display:
+	#id: guideDisplay
+	ToDo
+
+Handle Size:
+	#id: timingHandleSize
+	ToDo
+
+Text Size:
+	#id: textSize
+	ToDo
+
+Show Frame Text on Handles:
+	#id: visTextOnHandles
+	ToDo
+
+Interval Measure Method:
+	#id: intervalMeasureMethod
+	ToDo
+
+Show Major Frames:
+	#id: visMajorFrames
+	ToDo
+
+Show Text on Major Frames:
+	#id: visTextOnMajorFrames
+	ToDo
+
+Major Frame Interval:
+	#id: majorFrameInverval
+	ToDo
+
+Major Frame Scale:
+	#id: majorFrameScale
+	ToDo
+
+Show Minor Frames:
+	#id: visMinorFrames
+	ToDo
+
+Minor Frame Interval:
+	#id: minorFrameInverval
+	ToDo
+
+Minor Frame Scale Mult:
+	#id: minorFrameScaleMult
+	ToDo
+
+Vis Anchors Frames:
+	#id: visAnchors
+	ToDo
+
+Vis Frame Offset:
+	#id: visFrameOffset
+	ToDo
+
+== state parms ==
+Brush Op:
+	#id: brush_op
+	ToDo
+
+Selected Points Group:
+	#id: selectedPointsGroup
+	ToDo
+
+Brush Position:
+	#id: brush_position
+	ToDo
+
+Brush Position End:
+	#id: brush_positionEnd
+	ToDo
+
+Cursor Screen Position:
+	#id: cursorScreenPos
+	ToDo
+
+Cursor Screen Position End:
+	#id: cursorScreenPosEnd
+	ToDo
+
+Current Global Frame:
+	#id: currentGlobalFrame
+	ToDo
+
+active Handle Point:
+	#id: activePoint
+	ToDo
+
+active Prim:
+	#id: activePrim
+	ToDo
+
+CTRL Is Down:
+	#id: isCtrl
+	ToDo
+
+SHIFT Is Down:
+	#id: isShift
+	ToDo
+
+is Mouse Down:
+	#id: isMouseDown
+	ToDo
+
+is Mouse Up Event:
+	#id: isMouseUp
+	ToDo
+
+is Cursor In Viewport:
+	#id: isCursorInViewport
+	ToDo
+
+is Selection Event:
+	#id: isSelectionEvent
+	ToDo
+
+isReadOnlyOp:
+	#id: isReadOnlyOp
+	ToDo
+
+Geometry TrajPoint Stash:
+	#id: stash_traj_points
+	ToDo
+
+Output2 Data Id:
+	#id: out2_dataid
+	ToDo
+
+
+@inputs
+
+Placeholder:
+    Description of input
+
+@outputs
+
+Placeholder:
+    Description of output
