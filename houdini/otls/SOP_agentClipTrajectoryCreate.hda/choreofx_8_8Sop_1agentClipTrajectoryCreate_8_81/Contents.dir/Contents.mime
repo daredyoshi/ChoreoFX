@@ -32,23 +32,27 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 21.6512 -28.4683
-connectornextid 0
+position -10.2654 -20.4246
+connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
+1 "output1"
+2 "output2"
 }
 inputsNamed3
 {
+0 	(__dot2) "" 1 "input1"
 }
 inputs
 {
+0 	(__dot2) 0 1
 }
 stat
 {
   create -1
   modify -1
-  author stephen@stephen-m2
+  author daredyoshi@_192.168.1.108
   access 0777
 }
 color UT_Color RGB 0.8 0.8 0.8 
@@ -72,7 +76,7 @@ Content-Disposition: attachment; filename="hdaroot.inp"
 Content-Type: text/plain
 
 1
-0 3.8568120917648887 7.0730646758276494 2 0 __NO_OWNER_NETWORK_BOX__ "RGB 0.47499999403953552 0.81199997663497925 0.20399999618530273"
+0 3.8568120917648887 7.0730646758276494 2 0 __NO_OWNER_NETWORK_BOX__ "RGB 0.30199998617172241 0.52499997615814209 0.11400000005960464"
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/crowdClipAssign.init"
@@ -259,7 +263,7 @@ version 0.8
 agentgroup	[ 0	locks=0 ]	(	""	)
 grouptype	[ 0	locks=0 ]	(	"points"	)
 sepparm16	[ 0	locks=0 ]	(	)
-setSingleClip	[ 8	locks=0	autoscope=0 ]	(	[ setSingleClip	"" ] 	)
+setSingleClip	[ 8	locks=0	autoscope=0 ]	(	[ setSingleClip	Catwalk_Walk_Turn_180_Wide_R ] 	)
 sepparm14	[ 0	locks=0 ]	(	)
 randomizeClips	[ 0	locks=0 ]	(	"off"	)
 randomClipSeed	[ 0	locks=0 ]	(	100	)
@@ -363,7 +367,7 @@ removeLocoStart	[ 0	locks=0 ]	(	"on"	)
 locoType	[ 0	locks=0 ]	(	"0"	)
 locoJoint	[ 0	locks=0 ]	(	Hips	)
 visAnchorFrame	[ 0	locks=0 ]	(	"off"	)
-time	[ 0	locks=0 ]	(	[ time	0 ] 	)
+time	[ 0	locks=0 ]	(	[ time	4.163336342344337e-17 ] 	)
 sepparm6	[ 0	locks=0 ]	(	)
 labelparm	[ 0	locks=0 ]	(	"*To use if no existing attribs are found*"	""	""	""	)
 sepparm3	[ 0	locks=0 ]	(	)
@@ -433,17 +437,17 @@ Content-Disposition: attachment; filename="hdaroot/crowdTrajectoryCreate.chn"
 Content-Type: text/plain
 
 {
-    channel endFrame {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 value = 250 250 expr = "pwd().inputGeometry(0).prims()[0].clips()[0].length() * hou.fps() - hou.playbar.frameRange()[0] + 1" language = python }
-    }
     channel startFrame {
       lefttype = extend
       righttype = extend
       flags = 0
       segment { length = 0 expr = $FSTART }
+    }
+    channel endFrame {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 value = 250 250 expr = "pwd().inputGeometry(0).prims()[0].clips()[0].length() * hou.fps() - hou.playbar.frameRange()[0] + 1" language = python }
     }
   }
 
@@ -454,8 +458,8 @@ Content-Type: text/plain
 {
 version 0.8
 folder0	[ 0	locks=0 ]	(	0	)
-startFrame	[ 0	locks=0 ]	(	[ startFrame	0 ] 	)
-endFrame	[ 0	locks=0	autoscope=0 ]	(	[ endFrame	0 ] 	)
+startFrame	[ 0	locks=0 ]	(	[ startFrame	1 ] 	)
+endFrame	[ 0	locks=0	autoscope=0 ]	(	[ endFrame	119 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -504,7 +508,7 @@ stat
   author daredyoshi@_192.168.1.108
   access 0777
 }
-color UT_Color RGB 0.89 0.412 0.761 
+color UT_Color RGB 0.8 0.8 0.8 
 delscript ""
 exprlanguage hscript
 end
@@ -584,7 +588,7 @@ stat
   author daredyoshi@_192.168.1.108
   access 0777
 }
-color UT_Color RGB 0.89 0.412 0.761 
+color UT_Color RGB 0.8 0.8 0.8 
 delscript ""
 exprlanguage hscript
 end
@@ -680,7 +684,7 @@ stat
   author daredyoshi@_192.168.1.108
   access 0777
 }
-color UT_Color RGB 0.89 0.412 0.761 
+color UT_Color RGB 0.8 0.8 0.8 
 delscript ""
 exprlanguage hscript
 end
@@ -1061,7 +1065,7 @@ stat
   author daredyoshi@_192.168.1.108
   access 0777
 }
-color UT_Color RGB 0.8 0.016 0.016 
+color UT_Color RGB 0.6 0.7 0.77 
 delscript ""
 exprlanguage hscript
 end
@@ -1217,7 +1221,7 @@ Content-Type: text/plain
 version 0.8
 itermethod	[ 0	locks=0 ]	(	"count"	)
 method	[ 0	locks=0 ]	(	"merge"	)
-iterations	[ 0	locks=0 ]	(	[ iterations	54 ] 	)
+iterations	[ 0	locks=0 ]	(	[ iterations	35 ] 	)
 startvalue	[ 0	locks=0 ]	(	1	)
 increment	[ 0	locks=0 ]	(	1	)
 class	[ 0	locks=0 ]	(	"point"	)
@@ -1405,7 +1409,7 @@ stat
   author daredyoshi@_192.168.1.108
   access 0777
 }
-color UT_Color RGB 0 0 0 
+color UT_Color RGB 0.8 0.8 0.8 
 delscript ""
 exprlanguage hscript
 end
@@ -1690,7 +1694,7 @@ stat
   author daredyoshi@_192.168.1.108
   access 0777
 }
-color UT_Color RGB 0.475 0.812 0.204 
+color UT_Color RGB 0.302 0.525 0.114 
 delscript ""
 exprlanguage hscript
 end
@@ -1749,7 +1753,7 @@ stat
   author daredyoshi@_192.168.1.108
   access 0777
 }
-color UT_Color RGB 0.8 0.016 0.016 
+color UT_Color RGB 0.6 0.7 0.77 
 delscript ""
 exprlanguage hscript
 end
@@ -1966,7 +1970,7 @@ stat
   author daredyoshi@_192.168.1.108
   access 0777
 }
-color UT_Color RGB 0.8 0.016 0.016 
+color UT_Color RGB 0.6 0.7 0.77 
 delscript ""
 exprlanguage hscript
 end
@@ -2096,7 +2100,7 @@ stat
   author stephen@stephen-m2
   access 0777
 }
-color UT_Color RGB 0.8 0.016 0.016 
+color UT_Color RGB 0.6 0.7 0.77 
 delscript ""
 exprlanguage hscript
 end

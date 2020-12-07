@@ -32,7 +32,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -6.17888 -17.0115
+position -7.25014 -21.7371
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -239,7 +239,7 @@ Content-Type: text/plain
 
 3
 0 -15.648962370734662 19.171717155637126 2 0 __NO_OWNER_NETWORK_BOX__ "RGB 0.57599997520446777 0.20800000429153442 0.47499999403953552"
-1 -12.854299992290512 16.583799989330767 2 0 __NO_OWNER_NETWORK_BOX__ "RGB 0.47499999403953552 0.81199997663497925 0.20399999618530273"
+1 -12.854299992290512 16.583799989330767 2 0 __NO_OWNER_NETWORK_BOX__ "RGB 0.30199998617172241 0.52499997615814209 0.11400000005960464"
 2 -14.441183946431158 2.4338967825407494 2 0 __NO_OWNER_NETWORK_BOX__ "RGB 0.093999996781349182 0.36899998784065247 0.68999999761581421"
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -654,7 +654,7 @@ vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
-fps	[ 8	locks=0 ]	(	[ fps	30 ] 	)
+fps	[ 8	locks=0 ]	(	[ fps	24 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1386,7 +1386,7 @@ vex_inplace	[ 0	locks=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
-fps	[ 0	locks=0 ]	(	[ fps	30 ] 	)
+fps	[ 0	locks=0 ]	(	[ fps	24 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1979,8 +1979,8 @@ vex_inplace	[ 0	locks=0 ]	(	"on"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
-blendframes	[ 0	locks=0 ]	(	[ blendframes	5 ] 	)
-fps	[ 0	locks=0 ]	(	[ fps	30 ] 	)
+blendframes	[ 0	locks=0 ]	(	[ blendframes	4 ] 	)
+fps	[ 0	locks=0 ]	(	[ fps	24 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -2442,7 +2442,7 @@ vex_inplace	[ 0	locks=0 ]	(	"on"	)
 vex_selectiongroup	[ 0	locks=0 ]	(	""	)
 vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
-tolerance	[ 0	locks=0 ]	(	[ tolerance	0.29999999999999999 ] 	)
+tolerance	[ 0	locks=0 ]	(	[ tolerance	0.40000000000000002 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -2926,7 +2926,7 @@ vex_precision	[ 0	locks=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 fps	[ 8	locks=0 ]	(	[ fps	25 ] 	)
 units	[ 0	locks=0 ]	(	[ units	0 ] 	)
-blend_duration	[ 0	locks=0 ]	(	[ blend_duration	5 ] 	)
+blend_duration	[ 0	locks=0 ]	(	[ blend_duration	4 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -8697,7 +8697,7 @@ version 0.8
 group	[ 0	locks=0 ]	(	""	)
 keep	[ 0	locks=0 ]	(	"off"	)
 ptsperpt	[ 0	locks=0 ]	(	"off"	)
-npts	[ 0	locks=0 ]	(	[ npts	13924 ] 	)
+npts	[ 0	locks=0 ]	(	[ npts	35344 ] 	)
 nptsperpt	[ 0	locks=0 ]	(	10	)
 doattrib	[ 0	locks=0 ]	(	"off"	)
 attrib	[ 0	locks=0 ]	(	""	)
@@ -11767,7 +11767,7 @@ Content-Type: text/plain
         name    "type"
         baseparm
         label   "Primitive Type"
-        export  dialog
+        export  all
     }
     parm {
         name    "file"

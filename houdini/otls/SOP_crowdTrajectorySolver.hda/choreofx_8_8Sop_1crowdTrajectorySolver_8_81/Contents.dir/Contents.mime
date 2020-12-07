@@ -245,7 +245,7 @@ Content-Type: text/plain
 
 4
 0 -1.7232569664933082 14.291344223756351 2 0 __NO_OWNER_NETWORK_BOX__ "RGB 0.38400000333786011 0.18400000035762787 0.32899999618530273"
-1 16.918400011175869 14.291344223756351 2 0 __NO_OWNER_NETWORK_BOX__ "RGB 0.47499999403953552 0.81199997663497925 0.20399999618530273"
+1 16.918400011175869 14.291344223756351 2 0 __NO_OWNER_NETWORK_BOX__ "RGB 0.30199998617172241 0.52499997615814209 0.11400000005960464"
 2 3.4137000011202874 14.291344223756351 2 0 __NO_OWNER_NETWORK_BOX__ "RGB 0.88999998569488525 0.41200000047683716 0.76099997758865356"
 3 9.1059209656612907 14.291344223756351 2 0 __NO_OWNER_NETWORK_BOX__ "RGB 0.093999996781349182 0.36899998784065247 0.68999999761581421"
 
@@ -1312,7 +1312,7 @@ Content-Type: text/plain
             baseparm
             label   "Group"
             export  none
-            bindselector points "Modify Points"
+            bindselector uvselect "Modify Points"
                 "Select the points to affect and press Enter to complete."
                 0 1 0xffffffff 0 grouptype 0
         }
@@ -4861,7 +4861,7 @@ templatepath	[ 0	locks=0 ]	(	""	)
 resetcookpass	[ 0	locks=0 ]	(	0	)
 dosinglepass	[ 0	locks=0 ]	(	"off"	)
 singlepass	[ 0	locks=0 ]	(	15	)
-stopcondition	[ 8	locks=0 ]	(	[ stopcondition	1 ] 	)
+stopcondition	[ 8	locks=0 ]	(	[ stopcondition	0 ] 	)
 multithread	[ 0	locks=0 ]	(	"off"	)
 spare_input0	[ 0	locks=0 ]	(	../foreach_begin2	)
 }
@@ -6701,7 +6701,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
 spare_input0	[ 0	locks=0 ]	(	../foreach_seg_metadata	)
 spare_input1	[ 0	locks=0 ]	(	""	)
 }
