@@ -2,7 +2,12 @@
 
 Community Driven tools for Houdini's Crowd System
 
-See some videos here!
+## Latest Release 
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/Z2sMXyhyOPQ/0.jpg)](https://youtu.be/Z2sMXyhyOPQ)
+
+[Tutorial for getting started](https://github.com/SunriseProductions/ChoreoFX/wiki/Creating-a-Procedural-Crowd)
+
+[Known Issues](https://github.com/SunriseProductions/ChoreoFX/wiki/Known-Issues)
 
 We have one example file showing some of our workflow in houdini/help/choreofx/examples.hip
 
