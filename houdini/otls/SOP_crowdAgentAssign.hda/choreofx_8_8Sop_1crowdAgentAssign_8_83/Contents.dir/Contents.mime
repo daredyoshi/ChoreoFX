@@ -32,19 +32,22 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 25.7638 -11.3937
-connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+position -2.38271 -26.553
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
+1 "output1"
 }
 inputsNamed3
 {
-0 	crowd_layout_brush 2 1 "input1"
+0 	crowdAttributeRandomize_Brush 1 1 "input1"
+2 	(__dot9) "" 1 "input2"
 }
 inputs
 {
-0 	crowd_layout_brush 0 1
+0 	crowdAttributeRandomize_Brush 0 1
+1 	(__dot9) 0 1
 }
 stat
 {
@@ -90,7 +93,7 @@ Content-Type: text/plain
 	height := 4.6192200000000003;
 	minimized := 0;
 	width := 9.432805795776428;
-	x_position := 1.2840342042235731;
+	x_position := 1.2840299970197677;
 	y_position := -4.7668900000000001;
 }
 {
@@ -446,7 +449,7 @@ snippet	[ 0	locks=0	autoscope=0 ]	(	"if (chi(\"../overrideExisting\") == 0){
     }
 }
 
-if (chi(\"../randomizeVignetteAgents\") == 0 && @group_vignette_agents == 1){
+if (chi(\"../overrideVignetteAgents\") == 0 && @group_vignette_agents == 1){
     return;
 }
 
@@ -1608,7 +1611,7 @@ snippet	[ 0	locks=0	autoscope=0 ]	(	"if (chi(\"../overrideExisting\") == 0){
         return;
     }
 }
-if (chi(\"../randomizeVignetteAgents\") == 0 && @group_vignette_agents == 1){
+if (chi(\"../overrideVignetteAgents\") == 0 && @group_vignette_agents == 1){
     return;
 }
 
@@ -1965,7 +1968,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0	autoscope=0 ]	(	[ input	1 ] 	)
+input	[ 0	locks=0	autoscope=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -3979,7 +3982,7 @@ testinput	[ 0	locks=0 ]	(	"first"	)
 tests	[ 0	locks=0 ]	(	1	)
 enable1	[ 0	locks=0 ]	(	"on"	)
 type1	[ 0	locks=0 ]	(	"expr"	)
-expr1	[ 0	locks=0 ]	(	[ expr1	1 ] 	)
+expr1	[ 0	locks=0 ]	(	[ expr1	0 ] 	)
 attribtype1	[ 0	locks=0 ]	(	"all"	)
 attribowner1	[ 0	locks=0 ]	(	"point"	)
 attributes1	[ 0	locks=0 ]	(	""	)
@@ -4522,7 +4525,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 8	locks=0 ]	(	[ input	1 ] 	)
+input	[ 8	locks=0 ]	(	[ input	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -4920,7 +4923,7 @@ grouptype	[ 0	locks=0 ]	(	"point"	)
 mergeop	[ 0	locks=0 ]	(	"replace"	)
 folder0	[ 0	locks=0 ]	(	0	)
 groupbase	[ 0	locks=0 ]	(	"on"	)
-basegroup	[ 8	locks=0 ]	(	[ basegroup	"75-78 118-120 127-131 137 140-141 155 159-166 170 172-180" ] 	)
+basegroup	[ 8	locks=0 ]	(	[ basegroup	"" ] 	)
 ordered	[ 0	locks=0 ]	(	"off"	)
 geotype	[ 0	locks=0 ]	(	"all"	)
 switcher3	[ 0	locks=0 ]	(	0	)

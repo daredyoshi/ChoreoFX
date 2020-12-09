@@ -33,8 +33,10 @@ Content-Type: text/plain
 sopflags sopflags = 
 comment "timeAnchor
 timeOffset
+timeSpeed
+pscale
 "
-position 3.56704 -34.0318
+position -1.30995 -26.0084
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on displaycomment on
 outputsNamed3
@@ -43,11 +45,11 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	crowdCostumeAssign3 1 1 "input1"
+0 	switch_do_vigs 1 1 "input1"
 }
 inputs
 {
-0 	crowdCostumeAssign3 0 1
+0 	switch_do_vigs 0 1
 }
 stat
 {
@@ -293,7 +295,7 @@ group	[ 0	locks=0	autoscope=0 ]	(	[ group	test ] 	)
 grouptype	[ 0	locks=0	autoscope=0 ]	(	"points"	)
 class	[ 0	locks=0	autoscope=0 ]	(	"point"	)
 name	[ 0	locks=0	autoscope=0 ]	(	timeOffset	)
-operation	[ 0	locks=0	autoscope=0 ]	(	[ operation	add ] 	)
+operation	[ 0	locks=0	autoscope=0 ]	(	[ operation	set ] 	)
 scale	[ 0	locks=0	autoscope=0 ]	(	1	)
 folder0	[ 0	locks=0	autoscope=0 ]	(	0	0	)
 distribution	[ 0	locks=0	autoscope=0 ]	(	uniform	)
@@ -304,7 +306,7 @@ valuea	[ 0	locks=0	autoscope=0 ]	(	0	0	0	0	)
 valueb	[ 0	locks=0	autoscope=0 ]	(	1	1	1	1	)
 probvalueb	[ 0	locks=0	autoscope=0 ]	(	0.5	)
 min	[ 0	locks=0	autoscope=0 ]	(	[ minx	0 ] 	0	0	0	)
-max	[ 0	locks=0	autoscope=0 ]	(	[ maxx	2.9100000000000001 ] 	1	1	1	)
+max	[ 0	locks=0	autoscope=0 ]	(	[ maxx	5 ] 	1	1	1	)
 mindiscrete	[ 0	locks=0	autoscope=0 ]	(	0	0	0	0	)
 maxdiscrete	[ 0	locks=0	autoscope=0 ]	(	9	9	9	9	)
 stepsize	[ 0	locks=0	autoscope=0 ]	(	1	1	1	1	)
@@ -338,7 +340,7 @@ visualize	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 nvisualizepts	[ 0	locks=0	autoscope=0 ]	(	10000	)
 usefractionattrib	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 fractionattrib	[ 0	locks=0	autoscope=0 ]	(	fraction	)
-seed	[ 0	locks=0	autoscope=0 ]	(	[ seed	100 ] 	)
+seed	[ 0	locks=0	autoscope=0 ]	(	[ seed	103 ] 	)
 useseedattrib	[ 0	locks=0	autoscope=0 ]	(	"on"	)
 seedattrib	[ 0	locks=0	autoscope=0 ]	(	[ seedattrib	agent_id ] 	)
 ramp1pos	[ 0	locks=0	autoscope=0 ]	(	0	)
@@ -472,7 +474,7 @@ group	[ 0	locks=0	autoscope=0 ]	(	[ group	test ] 	)
 grouptype	[ 0	locks=0	autoscope=0 ]	(	"points"	)
 class	[ 0	locks=0	autoscope=0 ]	(	"point"	)
 name	[ 0	locks=0	autoscope=0 ]	(	timeAnchor	)
-operation	[ 0	locks=0	autoscope=0 ]	(	[ operation	add ] 	)
+operation	[ 0	locks=0	autoscope=0 ]	(	[ operation	set ] 	)
 scale	[ 0	locks=0	autoscope=0 ]	(	1	)
 folder0	[ 0	locks=0	autoscope=0 ]	(	1	1	)
 distribution	[ 0	locks=0	autoscope=0 ]	(	uniformdiscrete	)
@@ -800,7 +802,7 @@ visualize	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 nvisualizepts	[ 0	locks=0	autoscope=0 ]	(	10000	)
 usefractionattrib	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 fractionattrib	[ 0	locks=0	autoscope=0 ]	(	fraction	)
-seed	[ 0	locks=0	autoscope=0 ]	(	[ seed	100 ] 	)
+seed	[ 0	locks=0	autoscope=0 ]	(	[ seed	103 ] 	)
 useseedattrib	[ 0	locks=0	autoscope=0 ]	(	"on"	)
 seedattrib	[ 0	locks=0	autoscope=0 ]	(	[ seedattrib	agent_id ] 	)
 ramp1pos	[ 0	locks=0	autoscope=0 ]	(	0	)
@@ -1002,7 +1004,7 @@ Content-Type: text/plain
 {
 version 0.8
 folder0	[ 0	locks=0	autoscope=0 ]	(	0	0	)
-group	[ 0	locks=0	autoscope=0 ]	(	[ group	test ] 	)
+group	[ 0	locks=0	autoscope=0 ]	(	[ group	"" ] 	)
 grouptype	[ 0	locks=0	autoscope=0 ]	(	"points"	)
 class	[ 0	locks=0	autoscope=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0	autoscope=0 ]	(	10	)
@@ -1195,7 +1197,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0	autoscope=0 ]	(	[ input	0 ] 	)
+input	[ 0	locks=0	autoscope=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1441,7 +1443,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0	autoscope=0 ]	(	[ input	0 ] 	)
+input	[ 0	locks=0	autoscope=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1476,7 +1478,7 @@ sopflags sopflags =
 comment ""
 position 1.7223 5.0918
 connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass on display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 0 "output1"

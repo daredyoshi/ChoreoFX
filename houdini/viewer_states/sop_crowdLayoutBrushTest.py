@@ -6,7 +6,11 @@ from choreofx.states import sun_state_utils as ssu
 
 class CrowdLayoutBrushTest(object):
 
-    LAYOUTMODES = ("add", "modify")
+    LAYOUTMODES = ("addremove", "modify", "xform")
+
+    ADDREMOVEOPS = ("add", "remove")
+
+    XFORMOPS = ("move", "rotate", "scale")
 
     MSG = "LMB to Insert Agent"
 
@@ -19,7 +23,12 @@ class CrowdLayoutBrushTest(object):
         self._pressed = False
         self._isSelectionEvent = False
 
+        self._currentXformOp = 'move'
+        self._currentAddRemoveOp = 'add'
+        self._currentLayoutMode = 'addremove'
+
         self._brushPosition = hou.Vector3(0, 0, 0)
+        self._brushSize = 1
         self._lastMouseX = 0
         self._lastMouseY = 0
 
@@ -46,6 +55,8 @@ class CrowdLayoutBrushTest(object):
 
         self.showGuides(True)
         self._scene_viewer.setPromptMessage(self.MSG)
+
+        self.updateVarsFromNodeParms()
 
 
     def onExit(self, kwargs):
@@ -74,9 +85,11 @@ class CrowdLayoutBrushTest(object):
 
 
     def updateGuideTransform(self):
-        xform = hou.hmath.buildTranslate(self._brushPosition)
-        self._guideBrush.setTransform(xform)
-        self._scene_viewer.curViewport().draw()
+        pass
+
+        #xform = hou.hmath.buildTranslate(self._brushPosition)
+        #self._guideBrush.setTransform(xform)
+        #self._scene_viewer.curViewport().draw()
         #sself._scene_viewer.curViewport().draw()
 
     def showGuides(self, visible):
@@ -86,8 +99,12 @@ class CrowdLayoutBrushTest(object):
 
     def updateVarsFromNodeParms(self):
         ### Update the internal variables from the node parameters
-        pass
-        #self.handlePosMethod = self.node.parm("posMethod").evalAsInt()
+
+        self._brushSize = pu.evalNodeParm(self._node, "brush_size")
+        self._currentAddRemoveOp = self.ADDREMOVEOPS[pu.evalNodeParm(self._node, "addremove_op")]
+        self._currentXformOp = self.XFORMOPS[pu.evalNodeParm(self._node, "xform_op")]
+        self._currentLayoutMode = self.LAYOUTMODES[pu.evalNodeParm(self._node, "layout_mode")]
+
 
     def onSelection(self, kwargs):
         selection = kwargs["selection"]
@@ -101,6 +118,8 @@ class CrowdLayoutBrushTest(object):
             selectionString = str(-1)
         pu.setNodeParm(self._node, 'selectedPointsGroup', selectionString, True, 'brush: Change Selection')
 
+
+        #self.setLayoutMode("xform")
         # Must return True to accept the selection?
         return False
 
@@ -133,24 +152,56 @@ class CrowdLayoutBrushTest(object):
         (rayOrigin, rayDir) = ui_event.ray()
         self._brushPosition = ci.intersectOriginPlane(rayOrigin, rayDir)
 
-        self._lastMouseX, self._lastMouseY = MOUSEX, MOUSEY
 
+
+        BRUSHACTIVE = self._currentLayoutMode == 'addremove'
+
+        if not self._sustainedAction and SHIFT and BRUSHACTIVE:
+            if LEFT_BUTTON:
+                self.scaleBrushSize(MOUSEX)
+            elif MIDDLE_BUTTON:
+                self.incMouseBrushFalloff(MOUSEX)
+            else:
+                self.rotateBrush(MOUSEX)
+
+            self._lastMouseX, self._lastMouseY = MOUSEX, MOUSEY
+            return
+
+        self._lastMouseX, self._lastMouseY = MOUSEX, MOUSEY
 
         if not self._sustainedAction:
 
             self.setBrushPosition(self._brushPosition)
             self.updateGuideTransform()
 
-
             ### Update NodeParm to drive sops
-            self.setIsMouseDown((MOUSEDOWN or PICKED))
+            #self.setIsMouseDown((MOUSEDOWN or PICKED))
             pu.setNodeParm(self._node, "isShift", SHIFT)
             pu.setNodeParm(self._node, "isCtrl", CTRL)
 
-
             if SINGLECLICK:
                 if LEFT_BUTTON:
-                    self.opAddPoints()
+                    if self._currentLayoutMode == 'addremove':
+
+                        if CTRL:
+                            self.opRemovePoints()
+                        else:
+                            self.opAddPoints()
+
+                    elif self._currentLayoutMode == 'xform':
+
+                        if self._currentXformOp == 'move':
+                            self.opMovePoints()
+
+                        elif self._currentXformOp == 'rotate':
+                            self.opRotatePoints()
+
+                        elif self._currentXformOp == 'scale':
+                            self.opScalePoints()
+
+                elif MIDDLE_BUTTON:
+                    if not CTRL and not SHIFT:
+                        self.incrementPressCount()
 
 
         ### If active action update position offsets or end action on mouseup
@@ -183,6 +234,7 @@ class CrowdLayoutBrushTest(object):
         self.stashEditedPoints()
         self.setIsMouseDown(False)
         self._sustainedAction = False
+        self.incrementPressCount()
         self.finishPress()
 
     def stampBrushOp(self, undoname):
@@ -191,6 +243,7 @@ class CrowdLayoutBrushTest(object):
             self.setIsMouseDown(True)
             self.stashEditedPoints()
             self.setIsMouseDown(False)
+            self.incrementPressCount()
 
     def startPress(self, undoname):
         if not self._pressed:
@@ -207,14 +260,6 @@ class CrowdLayoutBrushTest(object):
         pu.setNodeParm(self._node, 'isReadOnlyOp', state)
 
 
-    ###################################### OPERATIONS #################################################################
-
-    def opAddPoints(self):
-        self.setLayoutMode('add')
-        self.startSustainedAction('add')
-
-    ###################################### BRUSH #################################################################
-
     def stashEditedPoints(self):
         stashPoints = self._stasherLayoutPoints.geometry().freeze(True, True)
         pu.setNodeParm(self._node, 'stash_layout_points', stashPoints, True)
@@ -222,13 +267,65 @@ class CrowdLayoutBrushTest(object):
 
         if self._isSelectionEvent:
             self.setIsSelectionEvent(False)
-            pu.setNodeParm(self._node, 'selectedPointsGroup', "")
+            #pu.setNodeParm(self._node, 'selectedPointsGroup', "")
+
+
+    ###################################### OPERATIONS #################################################################
+
+    def opAddPoints(self):
+        self.setAddRemoveOp('add')
+        self.startSustainedAction('add')
+
+    def opRemovePoints(self):
+        #self.setLayoutMode('addremove')
+        self.setAddRemoveOp('remove')
+        self.stampBrushOp('remove')
+
+    def opMovePoints(self):
+        self.setXformOp('move')
+        self.startSustainedAction('move')
+
+    def opRotatePoints(self):
+        self.setXformOp('rotate')
+        self.startSustainedAction('rotate')
+
+    def opScalePoints(self):
+        self.setXformOp('scale')
+        self.startSustainedAction('scale')
+
+
+
+    ###################################### BRUSH #################################################################
+
 
     def setBrushPosition(self, position):
         pu.setNodeParmTuple(self._node, 'brush_position', position)
 
     def setBrushPositionEnd(self, position):
         pu.setNodeParmTuple(self._node, 'brush_positionEnd', position)
+
+
+    def scaleBrushSize(self, mouseX):
+        # self.log("_scaleBrush")
+        newscale = self._brushSize * (1 + self.getMouseDeltaX(mouseX) * 0.01)
+        self._brushSize = newscale
+        self.setBrushSize(newscale)
+
+    def setBrushSize(self, size):
+        size = hou.hmath.clamp(size, 0.05, 10000000)
+        self._brushSize = size
+        pu.setNodeParm(self._node, 'brush_size', size)
+
+    def incMouseBrushFalloff(self, mouseX):
+        value = pu.evalNodeParm(self._node, 'brush_falloff')
+        value += self.getMouseDeltaX(mouseX) * -0.01
+        value = hou.hmath.clamp(value, 0, 1)
+        pu.setNodeParm(self._node, 'brush_falloff', value)
+
+    def rotateBrush(self, mouseX):
+        value = pu.evalNodeParm(self._node, 'brush_rot')
+        newrot = value + self.getMouseDeltaX(mouseX) * 0.002
+        pu.setNodeParm(self._node, 'brush_rot', newrot)
 
 
     ###################################### MOUSE AND OTHER #################################################################
@@ -249,11 +346,32 @@ class CrowdLayoutBrushTest(object):
 
     def setLayoutMode(self, opname):
         value = self.LAYOUTMODES.index(opname)
+        self._currentLayoutMode = opname
         pu.setNodeParm(self._node, 'layout_mode', value)
+
+    def setAddRemoveOp(self, opname):
+        value = self.ADDREMOVEOPS.index(opname)
+        self._currentAddRemoveOp = opname
+        pu.setNodeParm(self._node, 'addremove_op', value)
+
+    def setXformOp(self, opname):
+        # self.log(opname)
+        value = self.XFORMOPS.index(opname)
+        self._currentXformOp = opname
+        pu.setNodeParm(self._node, 'xform_op', value)
+
+
+
+    def incrementPressCount(self):
+        self.incrementNodeParm('pressCount', 1)
+
+    def incrementNodeParm(self, parmname, increment):
+        value = pu.evalNodeParm(self._node, parmname)
+        pu.setNodeParm(self._node,parmname, value+ increment)
 
     def setIsSelectionEvent(self, state):
         self._isSelectionEvent = state
-        pu.setNodeParm(self._node, 'isSelectionEvent', state)
+        pu.setNodeParm(self._node, 'isSelectionEvent', state, True)
 
 
     def onMenuPreOpen(self, kwargs):

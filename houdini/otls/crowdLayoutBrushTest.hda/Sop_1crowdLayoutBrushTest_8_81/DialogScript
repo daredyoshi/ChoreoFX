@@ -1,0 +1,1896 @@
+# Dialog script for crowdLayoutBrushTest::1 automatically generated
+
+{
+    name	crowdLayoutBrushTest::1
+    script	crowdLayoutBrushTest::1
+    label	CrowdLayoutBrushTest
+
+    help {
+	""
+    }
+
+    inputlabel	1	"Agent Prims"
+    inputlabel	2	"Vignette Prims"
+    outputlabel	1	"Crowd Agents"
+
+    parm {
+        name    "clearAll"
+        label   "Clear All"
+        type    button
+        joinnext
+        default { "0" }
+        parmtag { "script_callback" "hou.pwd().parm(\"stash_layout_points\").revertToDefaults()" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "btnRemoveSelected"
+        label   "Remove Selected"
+        type    button
+        default { "0" }
+        parmtag { "script_callback" "hou.phm().removeSelected()" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "sepparm26"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    group {
+        name    "layoutTab"
+        label   "Brush"
+
+        parm {
+            name    "visBrush"
+            label   "Visualize Brush at Origin"
+            type    toggle
+            joinnext
+            default { "0" }
+            range   { 0! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "btnRandomizeBrushAll"
+            label   "Randomize Brush All"
+            type    button
+            nolabel
+            default { "0" }
+            parmtag { "button_icon" "Dice.svg" }
+            parmtag { "script_callback" "hou.phm().incrementPressCount()" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "sepparm15"
+            label   "Separator"
+            type    separator
+            default { "" }
+        }
+        group {
+            name    "brushtabs"
+            label   "Shape"
+
+            parm {
+                name    "btnRandomizeShape"
+                label   "Randomize"
+                type    button
+                invisible
+                default { "0" }
+                parmtag { "button_icon" "" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "useSinglePoint"
+                label   "Use Single Point"
+                type    toggle
+                default { "1" }
+                range   { 0! 10 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "sepparm7"
+                label   "Separator"
+                type    separator
+                default { "" }
+            }
+            groupsimple {
+                name    "folder9"
+                label   "Brush Mode"
+                disablewhentab "{ useSinglePoint == 1 }"
+
+                parm {
+                    name    "doScatter"
+                    label   "Do Scatter"
+                    type    toggle
+                    default { "on" }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "shape"
+                    label   "Shape"
+                    type    ordinal
+                    default { "1" }
+                    menu {
+                        "0" "Grid"
+                        "1" "Circle"
+                        "2" "Line"
+                    }
+                    range   { 0! 10 }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "script_callback_language" "python" }
+                }
+                groupsimple {
+                    name    "folder3"
+                    label   "Formation Grid"
+                    disablewhentab "{ doScatter != 0 }"
+
+                    parm {
+                        name    "formationspacingz"
+                        label   "Spacing Forward"
+                        type    float
+                        default { "2.5" }
+                        range   { 0.3! 10 }
+                        parmtag { "autoscope" "0000000000000000" }
+                        parmtag { "script_callback_language" "python" }
+                    }
+                    parm {
+                        name    "formationspacingx"
+                        label   "Spacing Side"
+                        type    float
+                        default { "ch('formationspacingz')" }
+                        range   { 0.3! 10 }
+                        parmtag { "autoscope" "0000000000000000" }
+                        parmtag { "script_callback_language" "python" }
+                    }
+                }
+
+                groupsimple {
+                    name    "folder4"
+                    label   "Scatter"
+                    disablewhentab "{ doScatter == 0 }"
+
+                    parm {
+                        name    "npts"
+                        label   "Force Total Count"
+                        type    integer
+                        default { "20" }
+                        range   { 1 100 }
+                        parmtag { "autoscope" "0000000000000000" }
+                        parmtag { "script_callback_language" "python" }
+                    }
+                    parm {
+                        name    "relaxiterations"
+                        label   "Relax Iterations"
+                        type    integer
+                        default { "17" }
+                        range   { 0! 100 }
+                        parmtag { "autoscope" "0000000000000000" }
+                        parmtag { "script_callback_language" "python" }
+                    }
+                }
+
+                groupsimple {
+                    name    "folder7"
+                    label   "Jitter Position"
+
+                    parm {
+                        name    "jitterSide"
+                        label   "Jitter Side"
+                        type    float
+                        default { "0" }
+                        range   { 0 2 }
+                        parmtag { "autoscope" "0000000000000000" }
+                        parmtag { "script_callback_language" "python" }
+                    }
+                    parm {
+                        name    "jitterForward"
+                        label   "Jitter Forward"
+                        type    float
+                        default { "0" }
+                        range   { 0 2 }
+                        parmtag { "autoscope" "0000000000000000" }
+                        parmtag { "script_callback_language" "python" }
+                    }
+                }
+
+                groupsimple {
+                    name    "folder8"
+                    label   "Rotate Forward"
+
+                    parm {
+                        name    "rotAmp"
+                        label   "Rotate Amount"
+                        type    float
+                        default { "0" }
+                        range   { -1 1 }
+                        parmtag { "autoscope" "0000000000000000" }
+                        parmtag { "parmvop" "1" }
+                        parmtag { "shaderparmcontexts" "cvex" }
+                    }
+                    parm {
+                        name    "rotRandAmp"
+                        label   "Rotate rand"
+                        type    float
+                        default { "0" }
+                        range   { 0 1 }
+                        parmtag { "autoscope" "0000000000000000" }
+                        parmtag { "parmvop" "1" }
+                        parmtag { "shaderparmcontexts" "cvex" }
+                    }
+                }
+
+            }
+
+        }
+
+        group {
+            name    "brushtabs_1"
+            label   "Vignettes & Agents"
+
+            parm {
+                name    "btnRandomizeAgents"
+                label   "Randomize"
+                type    button
+                invisible
+                default { "0" }
+                parmtag { "script_callback" "" }
+                parmtag { "script_callback_language" "python" }
+            }
+            groupsimple {
+                name    "folder12"
+                label   "BRUSH VIGNETTES"
+
+                parm {
+                    name    "brushVignetteMode"
+                    label   "Mode"
+                    type    ordinal
+                    default { "0" }
+                    menu {
+                        "0" "No Vignettes"
+                        "1" "Set All"
+                        "2" "Random Chance"
+                    }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "vigChanceBrush"
+                    label   "Vignette Chance"
+                    type    float
+                    default { "0.5" }
+                    disablewhen "{ brushVignetteMode != 2 }"
+                    range   { 0 1 }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "sepparm25"
+                    label   "Separator"
+                    type    separator
+                    default { "" }
+                }
+                groupsimple {
+                    name    "folder2"
+                    label   "Settings"
+                    disablewhentab "{ brushVignetteMode == 0 }"
+
+                    parm {
+                        name    "setSingleVignetteBrush"
+                        label   "Set Vignette"
+                        type    string
+                        default { "" }
+                        disablewhen "{ randomizeVignetteBrush == 1 }"
+                        menu {
+                            [ "import crowdstoolutils" ]
+                            [ "" ]
+                            [ "input_agents = hou.node(\"./vignette_prims\")" ]
+                            [ "geo = input_agents.geometry()" ]
+                            [ "agentnames = geo.findPointAttrib(\"vignetteName\") if geo else None" ]
+                            [ "" ]
+                            [ "names = []" ]
+                            [ "if agentnames:" ]
+                            [ "    names.extend(crowdstoolutils.buildMenuStringList(agentnames.strings()))" ]
+                            [ "" ]
+                            [ "return names" ]
+                            language python
+                        }
+                        parmtag { "autoscope" "0000000000000000" }
+                        parmtag { "script_callback_language" "python" }
+                    }
+                    parm {
+                        name    "sepparm8"
+                        label   "Separator"
+                        type    separator
+                        default { "" }
+                        parmtag { "autoscope" "0000000000000000" }
+                    }
+                    parm {
+                        name    "randomizeVignetteBrush"
+                        label   "Randomize Vignette"
+                        type    toggle
+                        default { "on" }
+                        parmtag { "autoscope" "0000000000000000" }
+                        parmtag { "script_callback_language" "python" }
+                    }
+                    groupsimple {
+                        name    "folder11"
+                        label   "Vignette List"
+                        disablewhentab "{ randomizeVignetteBrush == 0 }"
+
+                        multiparm {
+                            name    "numVignettePatternsBrush"
+                            label    "Vignette Groups"
+                            default 1
+                            parmtag { "autoscope" "0000000000000000" }
+
+                            parm {
+                                name    "vignettePatternBrush_#"
+                                label   "Vignette Pattern"
+                                type    string
+                                default { "*" }
+                                menutoggle {
+                                    [ "import crowdstoolutils" ]
+                                    [ "" ]
+                                    [ "input_agents = hou.node(\"./vignette_prims\")" ]
+                                    [ "geo = input_agents.geometry()" ]
+                                    [ "agentnames = geo.findPointAttrib(\"vignetteName\") if geo else None" ]
+                                    [ "" ]
+                                    [ "names = []" ]
+                                    [ "if agentnames:" ]
+                                    [ "    names.extend(crowdstoolutils.buildMenuStringList(agentnames.strings()))" ]
+                                    [ "" ]
+                                    [ "return names" ]
+                                    language python
+                                }
+                            }
+                            parm {
+                                name    "vignetteWeightBrush_#"
+                                label   "Weight"
+                                type    float
+                                default { "1" }
+                                range   { 0! 10 }
+                            }
+                        }
+
+                    }
+
+                }
+
+            }
+
+            groupsimple {
+                name    "folder15"
+                label   "BRUSH AGENTS"
+
+                parm {
+                    name    "setSingleAgentBrush"
+                    label   "Set Agent"
+                    type    string
+                    default { "" }
+                    disablewhen "{ randomizeAgentsBrush == 1 }"
+                    menu {
+                        [ "import crowdstoolutils" ]
+                        [ "" ]
+                        [ "input_agents = hou.node(\"./agent_prims\")" ]
+                        [ "geo = input_agents.geometry()" ]
+                        [ "agentnames = geo.findPointAttrib(\"agentname\") if geo else None" ]
+                        [ "" ]
+                        [ "names = []" ]
+                        [ "if agentnames:" ]
+                        [ "    names.extend(crowdstoolutils.buildMenuStringList(agentnames.strings()))" ]
+                        [ "" ]
+                        [ "return names" ]
+                        language python
+                    }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "sepparm18"
+                    label   "Separator"
+                    type    separator
+                    default { "" }
+                    parmtag { "autoscope" "0000000000000000" }
+                }
+                parm {
+                    name    "overrideVignetteAgents"
+                    label   "Override Vignette Agents"
+                    type    toggle
+                    default { "off" }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "randomizeAgentsBrush"
+                    label   "Randomize Agents"
+                    type    toggle
+                    default { "on" }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "script_callback_language" "python" }
+                }
+                groupsimple {
+                    name    "folder35"
+                    label   "Agent List"
+                    disablewhentab "{ randomizeAgentsBrush == 0 }"
+
+                    multiparm {
+                        name    "numAgentPatternsBrush"
+                        label    "Agent Groups"
+                        default 1
+                        parmtag { "autoscope" "0000000000000000" }
+
+                        parm {
+                            name    "agentPatternBrush_#"
+                            label   "Agent Pattern"
+                            type    string
+                            default { "*" }
+                            menutoggle {
+                                [ "import crowdstoolutils" ]
+                                [ "" ]
+                                [ "input_agents = hou.node(\"./agent_prims\")" ]
+                                [ "geo = input_agents.geometry()" ]
+                                [ "agentnames = geo.findPointAttrib(\"agentname\") if geo else None" ]
+                                [ "" ]
+                                [ "names = []" ]
+                                [ "if agentnames:" ]
+                                [ "    names.extend(crowdstoolutils.buildMenuStringList(agentnames.strings()))" ]
+                                [ "" ]
+                                [ "return names" ]
+                                language python
+                            }
+                        }
+                        parm {
+                            name    "agentWeightBrush_#"
+                            label   "Weight"
+                            type    float
+                            default { "1" }
+                            range   { 0! 10 }
+                        }
+                    }
+
+                }
+
+            }
+
+        }
+
+        group {
+            name    "brushtabs_2"
+            label   "Clips & Costumes"
+
+            parm {
+                name    "btnRandomizeClipsCostumes"
+                label   "Randomize "
+                type    button
+                invisible
+                default { "0" }
+                parmtag { "script_callback_language" "python" }
+            }
+            groupsimple {
+                name    "folder16"
+                label   "BRUSH CLIPS"
+
+                parm {
+                    name    "setSingleClip"
+                    label   "Set Current Clip"
+                    type    string
+                    default { "rest" }
+                    disablewhen "{ randomizeClips == 1 }"
+                    menureplace {
+                        [ "import crowdstoolutils" ]
+                        [ "menu = ['-', '-']" ]
+                        [ "menu.extend(crowdstoolutils.buildClipMenu(hou.pwd().node('agent_prims')))" ]
+                        [ "" ]
+                        [ "return menu" ]
+                        language python
+                    }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "sepparm9"
+                    label   "Separator"
+                    type    separator
+                    default { "" }
+                    parmtag { "autoscope" "0000000000000000" }
+                }
+                parm {
+                    name    "randomizeClips"
+                    label   "Randomize Clips"
+                    type    toggle
+                    default { "off" }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "randomClipSeed"
+                    label   "Random Seed"
+                    type    integer
+                    default { "100" }
+                    disablewhen "{ randomizeClips == 0 }"
+                    range   { 0 1000 }
+                    parmtag { "autoscope" "0000000000000000" }
+                }
+                groupsimple {
+                    name    "folder18"
+                    label   "Clip List"
+                    disablewhentab "{ randomizeClips == 0 }"
+
+                    multiparm {
+                        name    "numClipPatterns"
+                        label    "Clip Groups"
+                        default 1
+                        parmtag { "autoscope" "0000000000000000" }
+
+                        parm {
+                            name    "clipPattern_#"
+                            label   "Clip Pattern"
+                            type    string
+                            default { "* ^rest" }
+                            menutoggle {
+                                [ "import crowdstoolutils" ]
+                                [ "return crowdstoolutils.buildClipMenu(hou.pwd().node('agent_prims'))" ]
+                                language python
+                            }
+                        }
+                        parm {
+                            name    "clipWeight_#"
+                            label   "Weight"
+                            type    float
+                            default { "1" }
+                            range   { 0! 10 }
+                        }
+                    }
+
+                }
+
+            }
+
+            parm {
+                name    "sepparm11"
+                label   "Separator"
+                type    separator
+                default { "" }
+            }
+            parm {
+                name    "sepparm12"
+                label   "Separator"
+                type    separator
+                default { "" }
+            }
+            groupsimple {
+                name    "folder17"
+                label   "BRUSH COSTUMES"
+
+                parm {
+                    name    "setSingleCostume"
+                    label   "Set Costume"
+                    type    string
+                    default { "default" }
+                    disablewhen "{ randomizeCostumes == 1 }"
+                    menureplace {
+                        [ "import crowdstoolutils" ]
+                        [ "menu = ['-', '-']" ]
+                        [ "menu2 = crowdstoolutils.buildLayerMenu(hou.pwd().node('agent_prims'))" ]
+                        [ "" ]
+                        [ "if 'collision' in menu2:" ]
+                        [ "    menu2.remove('collision')" ]
+                        [ "    menu2.remove('collision')" ]
+                        [ "    " ]
+                        [ "menu.extend(menu2)" ]
+                        [ "" ]
+                        [ "    " ]
+                        [ "return menu" ]
+                        language python
+                    }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "sepparm10"
+                    label   "Separator"
+                    type    separator
+                    default { "" }
+                    parmtag { "autoscope" "0000000000000000" }
+                }
+                parm {
+                    name    "randomizeCostumes"
+                    label   "Randomize Costumes"
+                    type    toggle
+                    default { "off" }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "randomCostumeSeed"
+                    label   "Random Seed"
+                    type    integer
+                    default { "100" }
+                    disablewhen "{ randomizeCostumes == 0 }"
+                    range   { 0 1000 }
+                    parmtag { "autoscope" "0000000000000000" }
+                }
+                groupsimple {
+                    name    "folder19"
+                    label   "Costumes List"
+                    disablewhentab "{ randomizeCostumes == 0 }"
+
+                    multiparm {
+                        name    "numCostumePatterns"
+                        label    "Costume Groups"
+                        default 1
+                        parmtag { "autoscope" "0000000000000000" }
+
+                        parm {
+                            name    "costumePattern_#"
+                            label   "Costume Pattern"
+                            type    string
+                            default { "*" }
+                            menutoggle {
+                                [ "import crowdstoolutils as ctu" ]
+                                [ "#return crowdstoolutils.buildLayerMenu(hou.pwd().node('read_selected_agent_prims'))" ]
+                                [ "" ]
+                                [ "defns = ctu.findInputAgentDefinitions(hou.pwd().node('agent_prims'))" ]
+                                [ "" ]
+                                [ "layer_names = set()" ]
+                                [ "for defn in defns:" ]
+                                [ "    layer_names.update([layer.name() for layer in defn.layers() if layer.name() != 'collision'])" ]
+                                [ "        " ]
+                                [ "return ctu.buildMenuStringList(sorted(layer_names))" ]
+                                language python
+                            }
+                        }
+                        parm {
+                            name    "costumeWeight_#"
+                            label   "Weight"
+                            type    float
+                            default { "1" }
+                            range   { 0! 10 }
+                        }
+                    }
+
+                }
+
+            }
+
+        }
+
+        group {
+            name    "brushtabs_3"
+            label   "Agent Attribs"
+
+            parm {
+                name    "btnRandomizeAgentAttribs"
+                label   "Randomize "
+                type    button
+                invisible
+                default { "0" }
+                parmtag { "script_callback_language" "python" }
+            }
+            groupsimple {
+                name    "folder5"
+                label   "Time Anchor"
+
+                parm {
+                    name    "anchorBase"
+                    label   "Anchor Base"
+                    type    integer
+                    default { "1" }
+                    range   { -100 500 }
+                    parmtag { "autoscope" "0000000000000000" }
+                }
+                parm {
+                    name    "anchorVar"
+                    label   "Anchor Var Add"
+                    type    integer
+                    default { "0" }
+                    range   { 0 200 }
+                    parmtag { "autoscope" "0000000000000000" }
+                }
+                parm {
+                    name    "anchorSeed"
+                    label   "Seed"
+                    type    integer
+                    default { "100" }
+                    range   { 0 200 }
+                    parmtag { "autoscope" "0000000000000000" }
+                }
+            }
+
+            groupsimple {
+                name    "folder6"
+                label   "Time Offet"
+
+                parm {
+                    name    "offsetBase"
+                    label   "Offset Base"
+                    type    float
+                    default { "0" }
+                    range   { -10 10 }
+                    parmtag { "autoscope" "0000000000000000" }
+                }
+                parm {
+                    name    "offsetVar"
+                    label   "Offset Var Add"
+                    type    float
+                    default { "5" }
+                    range   { -10 10 }
+                    parmtag { "autoscope" "0000000000000000" }
+                }
+                parm {
+                    name    "offsetSeed"
+                    label   "Seed"
+                    type    integer
+                    default { "100" }
+                    range   { 0 200 }
+                    parmtag { "autoscope" "0000000000000000" }
+                }
+            }
+
+            groupsimple {
+                name    "folder10"
+                label   "Time Speed"
+
+                parm {
+                    name    "speedBase"
+                    label   "Speed Base"
+                    type    float
+                    default { "1" }
+                    range   { 0 5 }
+                    parmtag { "autoscope" "0000000000000000" }
+                }
+                parm {
+                    name    "speedVar"
+                    label   "Speed Var Add"
+                    type    float
+                    default { "0" }
+                    range   { 0 5 }
+                    parmtag { "autoscope" "0000000000000000" }
+                }
+                parm {
+                    name    "speedSeed"
+                    label   "Seed"
+                    type    integer
+                    default { "100" }
+                    range   { 0 200 }
+                    parmtag { "autoscope" "0000000000000000" }
+                }
+            }
+
+            groupsimple {
+                name    "folder13"
+                label   "Agent Scale"
+
+                parm {
+                    name    "pscaleBase"
+                    label   "Scale Base"
+                    type    float
+                    default { "1" }
+                    range   { 0 2 }
+                    parmtag { "autoscope" "0000000000000000" }
+                }
+                parm {
+                    name    "pscaleVar"
+                    label   "Scale Var"
+                    type    float
+                    default { "0.08" }
+                    range   { 0 2 }
+                    parmtag { "autoscope" "0000000000000000" }
+                }
+                parm {
+                    name    "pscaleSeed"
+                    label   "Seed"
+                    type    integer
+                    default { "100" }
+                    range   { 0 200 }
+                    parmtag { "autoscope" "0000000000000000" }
+                }
+            }
+
+        }
+
+    }
+
+    group {
+        name    "folder1_1"
+        label   "Agent Modify"
+
+        parm {
+            name    "sepparm14"
+            label   "Separator"
+            type    separator
+            default { "" }
+        }
+        parm {
+            name    "applyModify"
+            label   "APPLY CHANGES"
+            type    button
+            invisible
+            joinnext
+            default { "0" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "btnResetModify"
+            label   "RESET PARAMETERS"
+            type    button
+            invisible
+            joinnext
+            default { "0" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "lblChangeDetectedModify"
+            label   "lblChangeDetectedModify"
+            type    label
+            invisible
+            nolabel
+            default { "UNSAVED CHANGES DETECTED" }
+            hidewhen "{ changeDetectedModify == 0 }"
+        }
+        parm {
+            name    "changeDetectedModify"
+            label   "Has Changed"
+            type    integer
+            invisible
+            default { "0" }
+            range   { 0 10 }
+            parmtag { "script_callback_language" "python" }
+        }
+        group {
+            name    "folder29"
+            label   "Agents & Vignettes"
+
+            groupsimple {
+                name    "folder32"
+                label   "AGENTS"
+
+                parm {
+                    name    "setSingleAgentModify"
+                    label   "Set Agent"
+                    type    string
+                    joinnext
+                    default { "" }
+                    menu {
+                        [ "import crowdstoolutils" ]
+                        [ "" ]
+                        [ "input_agents = hou.node(\"./agent_prims\")" ]
+                        [ "geo = input_agents.geometry()" ]
+                        [ "agentnames = geo.findPointAttrib(\"agentname\") if geo else None" ]
+                        [ "" ]
+                        [ "names = ['-', '-']" ]
+                        [ "if agentnames:" ]
+                        [ "    names.extend(crowdstoolutils.buildMenuStringList(agentnames.strings()))" ]
+                        [ "" ]
+                        [ "return names" ]
+                        language python
+                    }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "script_callback" "hou.phm().stampAgents(kwargs['parm'], False)" }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "btnRandomizeAgentsModify"
+                    label   "Randomize Agents"
+                    type    button
+                    joinnext
+                    default { "0" }
+                    parmtag { "script_callback" "hou.phm().stampAgents(kwargs['parm'], True)" }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "overrideVignetteAgentsModify"
+                    label   "Override Vignette Agents"
+                    type    toggle
+                    default { "off" }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "sepparm19"
+                    label   "Separator"
+                    type    separator
+                    default { "" }
+                    parmtag { "autoscope" "0000000000000000" }
+                }
+                groupcollapsible {
+                    name    "folder31"
+                    label   "Agent Random Settings"
+
+                    groupsimple {
+                        name    "folder30"
+                        label   "Agent List"
+
+                        multiparm {
+                            name    "numAgentPatternsModify"
+                            label    "Agent Groups"
+                            default 1
+                            parmtag { "autoscope" "0000000000000000" }
+
+                            parm {
+                                name    "agentPatternModify_#"
+                                label   "Agent Pattern"
+                                type    string
+                                default { "*" }
+                                menutoggle {
+                                    [ "import crowdstoolutils" ]
+                                    [ "" ]
+                                    [ "input_agents = hou.node(\"./INPUT_AGENTS\")" ]
+                                    [ "geo = input_agents.geometry()" ]
+                                    [ "agentnames = geo.findPointAttrib(\"agentname\") if geo else None" ]
+                                    [ "" ]
+                                    [ "names = []" ]
+                                    [ "if agentnames:" ]
+                                    [ "    names = crowdstoolutils.buildMenuStringList(agentnames.strings())" ]
+                                    [ "" ]
+                                    [ "return names" ]
+                                    language python
+                                }
+                            }
+                            parm {
+                                name    "agentWeightModify_#"
+                                label   "Weight"
+                                type    float
+                                default { "1" }
+                                range   { 0! 10 }
+                            }
+                        }
+
+                    }
+
+                }
+
+            }
+
+            parm {
+                name    "sepparm21"
+                label   "Separator"
+                type    separator
+                default { "" }
+            }
+            groupsimple {
+                name    "folder33"
+                label   "VIGNETTES"
+
+                parm {
+                    name    "setSingleVignetteModify"
+                    label   "Set Vignette"
+                    type    string
+                    joinnext
+                    default { "" }
+                    menu {
+                        [ "import crowdstoolutils" ]
+                        [ "" ]
+                        [ "input_agents = hou.node(\"./vignette_prims\")" ]
+                        [ "geo = input_agents.geometry()" ]
+                        [ "agentnames = geo.findPointAttrib(\"vignetteName\") if geo else None" ]
+                        [ "" ]
+                        [ "names = ['-', '-']" ]
+                        [ "if agentnames:" ]
+                        [ "    names.extend(crowdstoolutils.buildMenuStringList(agentnames.strings()))" ]
+                        [ "" ]
+                        [ "return names" ]
+                        language python
+                    }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "script_callback" "hou.phm().stampVignettes(kwargs['parm'], False)" }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "btnRandomizeVignettesModify"
+                    label   "Randomize Vignettes"
+                    type    button
+                    joinnext
+                    default { "0" }
+                    parmtag { "script_callback" "hou.phm().stampVignettes(kwargs['parm'], True)" }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "btnMergeVignettesModify"
+                    label   "Merge Vignettes"
+                    type    button
+                    default { "0" }
+                    parmtag { "script_callback" "hou.phm().stampMergeVignettes(kwargs['parm'])" }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "sepparm20"
+                    label   "Separator"
+                    type    separator
+                    default { "" }
+                }
+                groupcollapsible {
+                    name    "folder14"
+                    label   "Vignette Random Settings"
+
+                    multiparm {
+                        name    "numVignettePatternsModify"
+                        label    "Vignette Groups"
+                        default 1
+                        parmtag { "autoscope" "0000000000000000" }
+
+                        parm {
+                            name    "vignettePatternModify_#"
+                            label   "Vignette Pattern"
+                            type    string
+                            default { "*" }
+                            menutoggle {
+                                [ "import crowdstoolutils" ]
+                                [ "" ]
+                                [ "input_agents = hou.node(\"./INPUT_VIGNETTES\")" ]
+                                [ "geo = input_agents.geometry()" ]
+                                [ "vignames = geo.findPointAttrib(\"vignetteName\") if geo else None" ]
+                                [ "" ]
+                                [ "names = []" ]
+                                [ "if vignames:" ]
+                                [ "    names = crowdstoolutils.buildMenuStringList(vignames.strings())" ]
+                                [ "" ]
+                                [ "return names" ]
+                                language python
+                            }
+                        }
+                        parm {
+                            name    "vignetteWeightModify_#"
+                            label   "Weight"
+                            type    float
+                            default { "1" }
+                            range   { 0! 10 }
+                        }
+                    }
+
+                }
+
+            }
+
+        }
+
+        group {
+            name    "folder29_1"
+            label   "Clips & Costumes"
+
+            groupsimple {
+                name    "folder20"
+                label   "CLIPS"
+
+                parm {
+                    name    "setSingleClipModify"
+                    label   "Set Current Clip"
+                    type    string
+                    joinnext
+                    default { "" }
+                    menu {
+                        [ "import crowdstoolutils" ]
+                        [ "menu = ['-', '-']" ]
+                        [ "menu.extend(crowdstoolutils.buildClipMenu(hou.pwd().node('read_selected_agent_prims')))" ]
+                        [ "" ]
+                        [ "return menu" ]
+                        language python
+                    }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "script_callback" "hou.phm().stampClips(kwargs['parm'], False)" }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "btnRandomizeClipsModify"
+                    label   "Randomize Clips"
+                    type    button
+                    default { "0" }
+                    parmtag { "script_callback" "hou.phm().stampClips(kwargs['parm'], True)" }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "sepparm13"
+                    label   "Separator"
+                    type    separator
+                    default { "" }
+                }
+                groupcollapsible {
+                    name    "folder27"
+                    label   "Clip Random Settings"
+
+                    groupsimple {
+                        name    "folder25"
+                        label   "Clip List"
+
+                        multiparm {
+                            name    "numClipPatterns2"
+                            label    "Clip Groups"
+                            default 0
+                            parmtag { "autoscope" "0000000000000000" }
+
+                            parm {
+                                name    "clipPatternModify_#"
+                                label   "Clip Pattern"
+                                type    string
+                                default { "* ^rest" }
+                                menutoggle {
+                                    [ "import crowdstoolutils" ]
+                                    [ "return crowdstoolutils.buildClipMenu(hou.pwd().node('read_selected_agent_prims'))" ]
+                                    language python
+                                }
+                                parmtag { "script_callback" "" }
+                            }
+                            parm {
+                                name    "clipWeightModify_#"
+                                label   "Weight"
+                                type    float
+                                default { "1" }
+                                range   { 0! 10 }
+                            }
+                        }
+
+                    }
+
+                }
+
+            }
+
+            parm {
+                name    "sepparm17"
+                label   "Separator"
+                type    separator
+                default { "" }
+            }
+            groupsimple {
+                name    "folder34"
+                label   "COSTUME"
+
+                parm {
+                    name    "setSingleCostumeModify"
+                    label   "Set Costume"
+                    type    string
+                    joinnext
+                    default { "default" }
+                    menu {
+                        [ "import crowdstoolutils" ]
+                        [ "menu = ['-', '-']" ]
+                        [ "menu2 = crowdstoolutils.buildLayerMenu(hou.pwd().node('read_selected_agent_prims'))" ]
+                        [ "" ]
+                        [ "if 'collision' in menu2:" ]
+                        [ "    menu2.remove('collision')" ]
+                        [ "    menu2.remove('collision')" ]
+                        [ "    " ]
+                        [ "menu.extend(menu2)" ]
+                        [ "" ]
+                        [ "    " ]
+                        [ "return menu" ]
+                        language python
+                    }
+                    parmtag { "autoscope" "0000000000000000" }
+                    parmtag { "script_callback" "hou.phm().stampCostumes(kwargs['parm'], False)" }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "btnRandomizeCostumesModify"
+                    label   "Randomize Costumes"
+                    type    button
+                    default { "0" }
+                    parmtag { "script_callback" "hou.phm().stampCostumes(kwargs['parm'], True)" }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "sepparm16"
+                    label   "Separator"
+                    type    separator
+                    default { "" }
+                    parmtag { "autoscope" "0000000000000000" }
+                }
+                groupcollapsible {
+                    name    "folder28"
+                    label   "Costume Random Settings"
+
+                    groupsimple {
+                        name    "folder26"
+                        label   "Costumes List"
+
+                        multiparm {
+                            name    "numCostumePatterns2"
+                            label    "Costume Groups"
+                            default 1
+                            parmtag { "autoscope" "0000000000000000" }
+
+                            parm {
+                                name    "costumePatternModify_#"
+                                label   "Costume Pattern"
+                                type    string
+                                default { "*" }
+                                menutoggle {
+                                    [ "import crowdstoolutils as ctu" ]
+                                    [ "#return crowdstoolutils.buildLayerMenu(hou.pwd().node('read_selected_agent_prims'))" ]
+                                    [ "" ]
+                                    [ "defns = ctu.findInputAgentDefinitions(hou.pwd().node('read_selected_agent_prims'))" ]
+                                    [ "" ]
+                                    [ "layer_names = set()" ]
+                                    [ "for defn in defns:" ]
+                                    [ "    layer_names.update([layer.name() for layer in defn.layers() if layer.name() != 'collision'])" ]
+                                    [ "        " ]
+                                    [ "return ctu.buildMenuStringList(sorted(layer_names))" ]
+                                    language python
+                                }
+                                parmtag { "script_callback" "" }
+                            }
+                            parm {
+                                name    "costumeWeightModify_#"
+                                label   "Weight"
+                                type    float
+                                default { "1" }
+                                range   { 0! 10 }
+                            }
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+
+        group {
+            name    "folder29_2"
+            label   "Attributes"
+
+            groupsimple {
+                name    "folder21"
+                label   "Time Anchor (Frame)"
+
+                parm {
+                    name    "modifyTimeAnchorValue"
+                    label   "Value"
+                    type    integer
+                    joinnext
+                    default { "1" }
+                    range   { 0 100 }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "modifyTimeAnchorAdd"
+                    label   "+"
+                    type    button
+                    joinnext
+                    default { "0" }
+                    parmtag { "script_callback" "hou.phm().stampAttribModify('timeAnchor', 0)" }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "modifyTimeAnchorSubtract"
+                    label   "-"
+                    type    button
+                    joinnext
+                    default { "0" }
+                    parmtag { "script_callback" "hou.phm().stampAttribModify('timeAnchor', 0)" }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "modifyTimeAnchorSet"
+                    label   "Set"
+                    type    button
+                    default { "0" }
+                    parmtag { "script_callback" "hou.phm().stampAttribModify('timeAnchor', 1)" }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "modifyTimeAnchorMin"
+                    label   "Min"
+                    type    integer
+                    joinnext
+                    default { "1" }
+                    range   { 0 100 }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "modifyTimeAnchorMax"
+                    label   "Max"
+                    type    integer
+                    joinnext
+                    default { "10" }
+                    range   { 0 100 }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "modifyTimeAnchorRand"
+                    label   "Randomize"
+                    type    button
+                    default { "0" }
+                    parmtag { "script_callback" "hou.phm().stampAttribModify('timeAnchor', 2)" }
+                    parmtag { "script_callback_language" "python" }
+                }
+            }
+
+            parm {
+                name    "sepparm23"
+                label   "Separator"
+                type    separator
+                default { "" }
+            }
+            groupsimple {
+                name    "folder22"
+                label   "Time Offset (Seconds)"
+
+                parm {
+                    name    "modifyTimeOffsetValue"
+                    label   "Value"
+                    type    float
+                    joinnext
+                    default { "0" }
+                    range   { 0 5 }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "modifyTimeOffsetAdd"
+                    label   "Add"
+                    type    button
+                    joinnext
+                    default { "0" }
+                    parmtag { "script_callback" "hou.phm().stampAttribModify('timeOffset', 0)" }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "modifyTimeOffsetSet"
+                    label   "Set"
+                    type    button
+                    default { "0" }
+                    parmtag { "script_callback" "hou.phm().stampAttribModify('timeOffset', 1)" }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "modifyTimeOffsetMin"
+                    label   "Min"
+                    type    float
+                    joinnext
+                    default { "1" }
+                    range   { 0 10 }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "modifyTimeOffsetMax"
+                    label   "Max"
+                    type    float
+                    joinnext
+                    default { "10" }
+                    range   { 0 10 }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "modifyTimeOffsetRand"
+                    label   "Randomize"
+                    type    button
+                    default { "0" }
+                    parmtag { "script_callback" "hou.phm().stampAttribModify('timeOffset', 2)" }
+                    parmtag { "script_callback_language" "python" }
+                }
+            }
+
+            parm {
+                name    "sepparm22"
+                label   "Separator"
+                type    separator
+                default { "" }
+            }
+            groupsimple {
+                name    "folder23"
+                label   "Time Speed (Multiplier)"
+
+                parm {
+                    name    "modifyTimeSpeedValue"
+                    label   "Value"
+                    type    float
+                    joinnext
+                    default { "1" }
+                    range   { 0 2 }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "modifyTimeSpeedAdd"
+                    label   "Add"
+                    type    button
+                    joinnext
+                    default { "0" }
+                    parmtag { "script_callback" "hou.phm().stampAttribModify('timeSpeed', 0)" }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "modifyTimeSpeedSet"
+                    label   "Set"
+                    type    button
+                    default { "0" }
+                    parmtag { "script_callback" "hou.phm().stampAttribModify('timeSpeed', 1)" }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "modifyTimeSpeedMin"
+                    label   "Min"
+                    type    float
+                    joinnext
+                    default { "1" }
+                    range   { 0 10 }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "modifyTimeSpeedMax"
+                    label   "Max"
+                    type    float
+                    joinnext
+                    default { "2" }
+                    range   { 0 2 }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "modifyTimeSpeedRand"
+                    label   "Randomize"
+                    type    button
+                    default { "0" }
+                    parmtag { "script_callback" "hou.phm().stampAttribModify('timeSpeed', 2)" }
+                    parmtag { "script_callback_language" "python" }
+                }
+            }
+
+            parm {
+                name    "sepparm24"
+                label   "Separator"
+                type    separator
+                default { "" }
+            }
+            groupsimple {
+                name    "folder24"
+                label   "Agent Scale"
+
+                parm {
+                    name    "modifyScaleValue"
+                    label   "Value"
+                    type    float
+                    joinnext
+                    default { "1" }
+                    range   { 0 2 }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "modifyScaleAdd"
+                    label   "Add"
+                    type    button
+                    joinnext
+                    default { "0" }
+                    parmtag { "script_callback" "hou.phm().stampAttribModify('pscale', 0)" }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "modifyScaleSet"
+                    label   "Set"
+                    type    button
+                    default { "0" }
+                    parmtag { "script_callback" "hou.phm().stampAttribModify('pscale', 1)" }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "modifyScaleMin"
+                    label   "Min"
+                    type    float
+                    joinnext
+                    default { "0.9" }
+                    range   { 0 2 }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "modifyScaleMax"
+                    label   "Max"
+                    type    float
+                    joinnext
+                    default { "1.1" }
+                    range   { 0 2 }
+                    parmtag { "script_callback_language" "python" }
+                }
+                parm {
+                    name    "modifyScaleRand"
+                    label   "Randomize"
+                    type    button
+                    default { "0" }
+                    parmtag { "script_callback" "hou.phm().stampAttribModify('pscale', 2)" }
+                    parmtag { "script_callback_language" "python" }
+                }
+            }
+
+        }
+
+    }
+
+    group {
+        name    "folder1_2"
+        label   "Settings"
+
+        parm {
+            name    "sepparm29"
+            label   "Separator"
+            type    separator
+            default { "" }
+        }
+        parm {
+            name    "enableBrushSelect"
+            label   "Enable Brush Select"
+            type    toggle
+            default { "0" }
+            range   { 0! 1! }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "selectVignette"
+            label   "Select Connected Vignette Agents"
+            type    toggle
+            default { "1" }
+            range   { 0! 1! }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "sepparm27"
+            label   "Separator"
+            type    separator
+            default { "" }
+        }
+        parm {
+            name    "outDisplay"
+            label   "Final Display"
+            type    integer
+            default { "1" }
+            menu {
+                "0" "proxy agents"
+                "2" "instanced agents"
+            }
+            range   { 0! 10 }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "sepparm6"
+            label   "Separator"
+            type    separator
+            default { "" }
+        }
+        parm {
+            name    "enableClipPlayer"
+            label   "Enable Clip Player"
+            type    toggle
+            default { "1" }
+            range   { 0! 1! }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+        groupsimple {
+            name    "folder0"
+            label   "Clip Player"
+            disablewhentab "{ enableClipPlayer == 0 }"
+
+            parm {
+                name    "loopTransitionType"
+                label   "Loop Transition Type"
+                type    integer
+                default { "1" }
+                help    "Locomotive - The locomotion channel will be preserved. For when agent should move in a direction.        In-Place - Locomotion channel loops around to start. For when agent should loop on the spot"
+                menu {
+                    "0" "In-Place"
+                    "1" "Locomotive"
+                }
+                range   { 0 10 }
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+            parm {
+                name    "advanceLoco"
+                label   "Advance Locomotion"
+                type    toggle
+                default { "on" }
+                disablewhen "{ loopTransitionType == 0 }"
+                parmtag { "autoscope" "0000000000000000" }
+                parmtag { "script_callback_language" "python" }
+            }
+        }
+
+    }
+
+    group {
+        name    "folder1_3"
+        label   "(stateparms)"
+
+        parm {
+            name    "selectedPointsGroup"
+            label   "Selected Points Group"
+            type    string
+            default { "-1" }
+            menutoggle {
+                [ "opmenu -l -a selectedPoints basegroup" ]
+            }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_action" "import soputils\nkwargs['geometrytype'] = hou.geometryType.Points\nkwargs['inputindex'] = 0\nkwargs['ordered'] = 0\nkwargs['nodepath'] = kwargs['node'].path()\nsoputils.selectGroupParm(kwargs)" }
+            parmtag { "script_action_help" "Select geometry from an available viewport.\nShift-click to turn on Select Groups." }
+            parmtag { "script_action_icon" "BUTTONS_reselect" }
+        }
+        parm {
+            name    "sepparm3"
+            label   "Separator"
+            type    separator
+            default { "" }
+        }
+        parm {
+            name    "layout_mode"
+            label   "MODE:"
+            type    buttonstrip
+            joinnext
+            default { "0" }
+            menu {
+                "add"       "   Add   "
+                "modify"    " Modify "
+                "xform"     "  Xform  "
+            }
+            export  all
+            parmtag { "script_callback" "hou.phm().switchLayoutMode()" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "modify_op"
+            label   "MODIFY:"
+            type    buttonstrip
+            default { "0" }
+            hidewhen "{ layout_mode != 1 }"
+            menu {
+                "vignettes" "Vignettes"
+                "agents"    "Agents"
+                "clips"     "Clips"
+                "costumes"  "Costumes"
+                "attribs"   "Attribs"
+                "mergevigs" "Merge Vigs"
+            }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "addremove_op"
+            label   "ADD:"
+            type    buttonstrip
+            default { "0" }
+            hidewhen "{ layout_mode != 0 }"
+            menu {
+                "add"       "   Add   "
+                "remove"    "  Remove  "
+            }
+            export  all
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "xform_op"
+            label   "XFORM:"
+            type    buttonstrip
+            default { "0" }
+            hidewhen "{ layout_mode != 2 }"
+            menu {
+                "move"      "   Move   "
+                "rotate"    "  Rotate  "
+                "scale"     "  Scale  "
+            }
+            export  all
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "dirOnly"
+            label   "Agent Direction Only"
+            type    toggle
+            default { "0" }
+            hidewhen "{ layout_mode != 2 }"
+            export  all
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "button_op"
+            label   "Button Op"
+            type    ordinal
+            default { "0" }
+            menu {
+                "pass"      "Pass"
+                "remove"    "Remove"
+            }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "modifyAttribSelect"
+            label   "Modify Attrib Select"
+            type    ordinal
+            default { "timeAnchor" }
+            menu {
+                "timeAnchor"    "timeAnchor"
+                "timeOffset"    "timeOffset"
+                "timeSpeed"     "timeSpeed"
+                "pscale"        "pscale"
+            }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "modifyAttribOp"
+            label   "Modify Attrib Op"
+            type    ordinal
+            default { "timeAnchor" }
+            menu {
+                "0" "set"
+                "1" "add"
+                "2" "randomize"
+            }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "sepparm4"
+            label   "Separator"
+            type    separator
+            default { "" }
+        }
+        parm {
+            name    "brush_position"
+            label   "Brush Position"
+            type    vector
+            size    3
+            default { "0" "0" "0" }
+            range   { -1 1 }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "brush_positionEnd"
+            label   "Brush Position End"
+            type    vector
+            size    3
+            default { "0" "0" "0" }
+            range   { -1 1 }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "brush_rot"
+            label   "Brush Rot"
+            type    float
+            default { "0" }
+            range   { 0 1 }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "brush_size"
+            label   "Brush Size"
+            type    float
+            default { "5" }
+            range   { 0 20 }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "brush_falloff"
+            label   "Brush Falloff"
+            type    float
+            default { "0" }
+            range   { 0 0.95 }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "sepparm5"
+            label   "Separator"
+            type    separator
+            default { "" }
+        }
+        parm {
+            name    "cursorScreenPos"
+            label   "Cursor Screen Position"
+            type    vector2
+            size    2
+            default { "0" "0" }
+            range   { -1 1 }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "cursorScreenPosEnd"
+            label   "Cursor Screen Position End"
+            type    vector2
+            size    2
+            default { "0" "0" }
+            range   { -1 1 }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "pressCount"
+            label   "pressCount"
+            type    integer
+            default { "1" }
+            range   { 0 10 }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "sepparm"
+            label   "Separator"
+            type    separator
+            default { "" }
+        }
+        parm {
+            name    "lock_op"
+            label   "Lock Op"
+            type    ordinal
+            default { "0" }
+            disablewhen "{ brush_mode != 1 }"
+            hidewhen "{ path_mode != position }"
+            menu {
+                "lock"      "Lock"
+                "unlock"    "Unlock"
+            }
+            export  all
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "isLockMode"
+            label   "is Lock Mode"
+            type    toggle
+            default { "0" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "isMouseDown"
+            label   "is Mouse Down"
+            type    toggle
+            default { "0" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "isCursorInViewport"
+            label   "is Cursor In Viewport"
+            type    toggle
+            default { "0" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "isSelectionEvent"
+            label   "is Selection Event"
+            type    toggle
+            default { "0" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "isCtrl"
+            label   "is Ctrl"
+            type    toggle
+            default { "0" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "isShift"
+            label   "is Shift"
+            type    toggle
+            default { "0" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "modifyActive"
+            label   "modifyActive"
+            type    toggle
+            default { "0" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "isRandomized"
+            label   "is Randomized"
+            type    toggle
+            default { "0" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "isReadOnlyOp"
+            label   "is ReadOnly Op"
+            type    toggle
+            default { "0" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "sepparm2"
+            label   "Separator"
+            type    separator
+            default { "" }
+        }
+        parm {
+            name    "stash_layout_points"
+            label   "stash layout points"
+            type    geometrydata
+            default { "0" }
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "script_callback_language" "python" }
+        }
+    }
+
+}

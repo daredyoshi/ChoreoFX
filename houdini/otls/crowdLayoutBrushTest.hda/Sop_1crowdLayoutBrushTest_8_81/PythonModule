@@ -1,0 +1,185 @@
+from choreofx.states import node_parm_utils as pu
+
+MODIFYOPS = ("vignettes", "agents", "clips", "costumes", "attribs", "mergevigs")
+
+def stashEditedPoints():
+    _node = hou.pwd()
+    _stasher = _node.node("OUT_LAYOUT_POINTS_EDITED")
+    stashPoints = _stasher.geometry().freeze(True, True)
+    pu.setNodeParm(_node, 'stash_layout_points', stashPoints, True)
+
+def setIsSelectionEvent(state):
+    _node = hou.pwd()
+    pu.setNodeParm(_node, 'isSelectionEvent', state, True)
+    
+def incrementPressCount():
+    _node = hou.pwd()
+    count = pu.evalNodeParm(_node, 'pressCount')
+    pu.setNodeParm(_node, 'pressCount', count + 1)
+    
+def setModifyActive(state):
+    _node = hou.pwd()
+    pu.setNodeParm(_node, 'modifyActive', state)
+
+def setIsRandomized(state):
+    _node = hou.pwd()
+    pu.setNodeParm(_node, 'isRandomized', state)
+    
+def stampModifyOp(undoname):
+    _node = hou.pwd()
+    pu.setNodeParm(_node, 'layout_mode', 1)
+    with hou.undos.group('layoutbrush: ' + undoname):
+        setModifyActive(True)
+        stashEditedPoints()
+        setModifyActive(False)
+    incrementPressCount()
+        
+def setModifyOp(opname):
+    _node = hou.pwd()
+    value = MODIFYOPS.index(opname)
+    pu.setNodeParm(_node, 'modify_op', value)
+    
+def stampVignettes(parm, isRandom=False):
+    opname = 'set vignette'
+    if isRandom == True:
+        opname = 'randomize vignettes'
+    elif parm.eval() == '-':
+        # the menu was set to '-'. Do nothing
+        return
+        
+    with hou.undos.group('layoutbrush: ' + opname):
+        _node = hou.pwd()
+        setModifyOp('vignettes')
+        setIsRandomized(isRandom)
+        stampModifyOp(opname)
+        setIsSelectionEvent(False)
+        
+    if isRandom == True:
+        resetVignetteParmToNone()
+        
+    resetAgentParmToNone()
+        
+def stampMergeVignettes(parm, isRandom=False):
+    opname = 'merge vignettes'
+    with hou.undos.group('layoutbrush: ' + opname):
+        _node = hou.pwd()
+        setModifyOp('mergevigs')
+        stampModifyOp(opname)
+        setIsSelectionEvent(False)
+        
+    resetAgentParmToNone()
+    resetVignetteParmToNone()
+        
+def stampAgents(parm, isRandom=False):
+    opname = 'set agent'
+    
+    if isRandom == True:
+        opname = 'randomize agents'
+        
+    elif parm.eval() == '-':
+        # the menu was set to '-'. Do nothing
+        return
+        
+    with hou.undos.group('layoutbrush: ' + opname):
+        _node = hou.pwd()
+        setModifyOp('agents')
+        setIsRandomized(isRandom)
+        stampModifyOp(opname)
+        setIsSelectionEvent(False)
+        
+    if isRandom == True:
+        resetAgentParmToNone()
+        
+    resetVignetteParmToNone()
+    
+    
+def resetAgentParmToNone():
+    pu.setNodeParm(hou.pwd(), 'setSingleAgentModify', '-')
+    
+def resetVignetteParmToNone():
+    pu.setNodeParm(hou.pwd(), 'setSingleVignetteModify', '-')
+    
+def resetClipParmToNone():
+    pu.setNodeParm(hou.pwd(), 'setSingleClipModify', '-')
+    
+def resetCostumeParmToNone():
+    pu.setNodeParm(hou.pwd(), 'setSingleCostumeModify', '-')
+    
+    
+def stampClips(parm, isRandom=False):
+    print ("stampClips")
+    opname = 'set clip'
+    if isRandom == True:
+        opname = 'randomize clips'
+        
+    elif parm.eval() == '-':
+        # the menu was set to '-'. Do nothing
+        return
+        
+    with hou.undos.group('layoutbrush: ' + opname):
+        _node = hou.pwd()
+        setModifyOp('clips')
+        setIsRandomized(isRandom)
+        stampModifyOp(opname)
+        setIsSelectionEvent(False)
+        
+    if isRandom == True:
+        resetClipParmToNone()
+    resetCostumeParmToNone()
+    
+def stampCostumes(parm, isRandom=False):
+    print ("stampCostumes")
+    opname = 'set costume'
+    if isRandom == True:
+        opname = 'randomize costumes'
+        
+    elif parm.eval() == '-':
+        # the menu was set to '-'. Do nothing
+        return
+        
+    with hou.undos.group('layoutbrush: ' + opname):
+        _node = hou.pwd()
+        setModifyOp('costumes')
+        setIsRandomized(isRandom)
+        stampModifyOp(opname)
+        setIsSelectionEvent(False)
+        
+    if isRandom == True:
+        resetCostumeParmToNone()
+    resetClipParmToNone()
+    
+
+def removeSelected():
+    _node = hou.pwd()
+    with hou.undos.group('layoutbrush: remove selected'):
+        pu.setNodeParm(_node, 'button_op', 1)
+        stashEditedPoints()
+        pu.setNodeParm(_node, 'button_op', 0)
+        setIsSelectionEvent(False)
+    
+
+def stampAttribModify(parmname, op):
+    _node = hou.pwd()
+    pu.setNodeParm(_node, 'modifyAttribSelect', parmname)
+    pu.setNodeParm(_node, 'modifyAttribOp', op)
+    
+    with hou.undos.group('layoutbrush: modify ' + parmname):
+        setModifyOp('attribs')
+        stampModifyOp('modify ' + parmname)
+        setIsSelectionEvent(False)
+        print 'test'
+    
+        
+def switchLayoutMode():
+    _node = hou.pwd()
+    layoutmode = pu.evalNodeParm(_node, 'layout_mode')
+    layoutTabParm = _node.parm('layoutTab1')
+    print layoutTabParm
+    if layoutmode == 0:
+        layoutTabParm.set(0)
+    elif layoutmode == 1:
+        layoutTabParm.set(1)
+    elif layoutmode == 2:
+        layoutTabParm.set(0)
+    
+    

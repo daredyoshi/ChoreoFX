@@ -1,0 +1,15 @@
+Operator:     crowdLayoutBrushTest::1
+Label:        CrowdLayoutBrushTest
+Path:         oplib:/Sop/crowdLayoutBrushTest::1?Sop/crowdLayoutBrushTest::1
+Icon:         ChoreoFX
+Table:        Sop
+License:      
+Extra:        guide=OUT_HDA_GUIDE 
+User:         
+Inputs:       0 to 4
+Outputs:      2
+Subnet:       true
+Python:       false
+Empty:        false
+Modified:     Wed Dec  9 16:25:25 2020
+

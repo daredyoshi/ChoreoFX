@@ -32,7 +32,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 13.3187 -54.1958
+position 0.143817 -23.3805
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -41,13 +41,13 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	unmake_vignettes 1 1 "input1"
-2 	(__dot2) "" 1 "input2"
+0 	_brushvigs 1 1 "input1"
+2 	(__dot10) "" 1 "input2"
 }
 inputs
 {
-0 	unmake_vignettes 0 1
-1 	(__dot2) 0 1
+0 	_brushvigs 0 1
+1 	(__dot10) 0 1
 }
 stat
 {
@@ -473,7 +473,7 @@ sopflags sopflags =
 comment ""
 position 2.2521 -10.2022
 connectornextid 3
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress off colordefault off exposed on
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress off colordefault off exposed on
 outputsNamed3
 {
 0 "output1"
@@ -700,7 +700,7 @@ Content-Type: text/plain
 {
 version 0.8
 folder0	[ 0	locks=0	autoscope=0 ]	(	0	0	)
-group	[ 0	locks=0	autoscope=0 ]	(	[ group	__selectedPoints ] 	)
+group	[ 0	locks=0	autoscope=0 ]	(	[ group	__brushvigs ] 	)
 grouptype	[ 0	locks=0	autoscope=0 ]	(	"guess"	)
 class	[ 0	locks=0	autoscope=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0	autoscope=0 ]	(	10	)
@@ -838,7 +838,7 @@ Content-Type: text/plain
 {
 version 0.8
 folder0	[ 0	locks=0	autoscope=0 ]	(	0	0	)
-group	[ 0	locks=0	autoscope=0 ]	(	[ group	__selectedPoints ] 	)
+group	[ 8	locks=0	autoscope=0 ]	(	[ group	__brushvigs ] 	)
 grouptype	[ 0	locks=0	autoscope=0 ]	(	"guess"	)
 class	[ 0	locks=0	autoscope=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0	autoscope=0 ]	(	10	)
@@ -848,7 +848,15 @@ snippet	[ 0	locks=0	autoscope=0 ]	(	"if (chi(\"../overrideExisting\") == 0){
         return;
     }
 }
-s@vignetteName = chs(\"../setSingleVignette\");
+
+string vigName = chs(\"../setSingleVignette\");
+
+if (vigName == ''){
+    setpointgroup(0, chs(\"../agentgroup\"), @ptnum, 0);
+    return;   
+}
+    
+s@vignetteName = vigName;
 "	)
 exportlist	[ 0	locks=0	autoscope=0 ]	(	*	)
 vex_strict	[ 0	locks=0	autoscope=0 ]	(	"off"	)
@@ -1352,7 +1360,7 @@ Content-Type: text/plain
 {
 version 0.8
 folder0	[ 0	locks=0	autoscope=0 ]	(	0	0	)
-group	[ 0	locks=0	autoscope=0 ]	(	[ group	__selectedPoints ] 	)
+group	[ 0	locks=0	autoscope=0 ]	(	[ group	"" ] 	)
 grouptype	[ 0	locks=0	autoscope=0 ]	(	"guess"	)
 class	[ 0	locks=0	autoscope=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0	autoscope=0 ]	(	10	)
@@ -2134,7 +2142,7 @@ sopflags sopflags =
 comment ""
 position 3.24208 -22.4837
 connectornextid 3
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
 0 "output1"
@@ -2179,7 +2187,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-group	[ 0	locks=0	autoscope=0 ]	(	[ group	__selectedPoints ] 	)
+group	[ 0	locks=0	autoscope=0 ]	(	[ group	__brushvigs ] 	)
 grouptype	[ 0	locks=0	autoscope=0 ]	(	"guess"	)
 negate	[ 0	locks=0	autoscope=0 ]	(	"on"	)
 removegrp	[ 0	locks=0	autoscope=0 ]	(	"off"	)

@@ -297,11 +297,10 @@
             parmtag { "script_action_icon" "BUTTONS_reselect" }
         }
         parm {
-            name    "randomizeVignetteAgents"
-            label   "Randomize Vignette Agents"
+            name    "overrideVignetteAgents"
+            label   "Override Vignette Agents"
             type    toggle
-            invisible
-            default { "1" }
+            default { "0" }
             parmtag { "script_callback_language" "python" }
         }
         parm {
