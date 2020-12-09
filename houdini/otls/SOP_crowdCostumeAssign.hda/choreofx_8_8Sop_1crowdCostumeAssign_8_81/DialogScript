@@ -45,6 +45,42 @@
         parmtag { "autoscope" "0000000000000000" }
     }
     parm {
+        name    "sepparm16"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
+        name    "lookupExternal"
+        label   "Lookup Costumes From External AgentPrims"
+        type    toggle
+        default { "0" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "agentPrims"
+        label   "Agent Prims"
+        type    oppath
+        default { "../agent_prims" }
+        disablewhen "{ lookupExternal == 0 }"
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "opfilter" "!!SOP!!" }
+        parmtag { "oprelative" "." }
+    }
+    parm {
+        name    "sepparm"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
+        name    "overrideExisting"
+        label   "Override Existing CostumeName"
+        type    toggle
+        default { "0" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
         name    "sepparm15"
         label   "Separator"
         type    separator
@@ -106,7 +142,7 @@
                 name    "costumePattern_#"
                 label   "Costume Pattern"
                 type    string
-                default { "" }
+                default { "*" }
                 menutoggle {
                     [ "import crowdstoolutils" ]
                     [ "return crowdstoolutils.buildLayerMenu(hou.pwd())" ]

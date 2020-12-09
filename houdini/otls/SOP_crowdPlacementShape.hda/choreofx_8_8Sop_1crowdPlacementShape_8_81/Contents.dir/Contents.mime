@@ -32,17 +32,24 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 41.0852 -14.9695
-connectornextid 0
+position -0.566015 1.00037
+connectornextid 4
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
+1 "output1"
 }
 inputsNamed3
 {
+0 	"" "" 1 "input1"
+2 	"" "" 1 "input2"
+3 	circle1 0 1 "input3"
 }
 inputs
 {
+0 	"" 0 1
+1 	"" 0 1
+2 	circle1 0 1
 }
 stat
 {
@@ -7402,18 +7409,18 @@ areaattrib	[ 0	locks=0	autoscope=0 ]	(	area	)
 indepvoxel	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 useareaforvolumes	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 forcetotal	[ 0	locks=0	autoscope=0 ]	(	"on"	)
-npts	[ 0	locks=0	autoscope=0 ]	(	[ npts	1000 ] 	)
+npts	[ 0	locks=0	autoscope=0 ]	(	[ npts	8 ] 	)
 usedensitytexture	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 densitytexture	[ 0	locks=0	autoscope=0 ]	(	default.pic	)
 primcountattrib	[ 0	locks=0	autoscope=0 ]	(	count	)
 useemergencylimit	[ 0	locks=0	autoscope=0 ]	(	"on"	)
 emergencylimit	[ 0	locks=0	autoscope=0 ]	(	1000000	)
-seed	[ 0	locks=0	autoscope=0 ]	(	[ seed	0 ] 	)
+seed	[ 0	locks=0	autoscope=0 ]	(	[ seed	48 ] 	)
 overrideprimseed	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 primseedattrib	[ 0	locks=0	autoscope=0 ]	(	primid	)
 randomizeorder	[ 0	locks=0	autoscope=0 ]	(	"on"	)
 relaxpoints	[ 0	locks=0	autoscope=0 ]	(	"on"	)
-relaxiterations	[ 0	locks=0	autoscope=0 ]	(	[ relaxiterations	10 ] 	)
+relaxiterations	[ 0	locks=0	autoscope=0 ]	(	[ relaxiterations	22 ] 	)
 scaleradiiby	[ 0	locks=0	autoscope=0 ]	(	1	)
 usemaxradius	[ 0	locks=0	autoscope=0 ]	(	"on"	)
 maxradius	[ 0	locks=0	autoscope=0 ]	(	10	)
@@ -8624,7 +8631,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0	autoscope=0 ]	(	[ input	0 ] 	)
+input	[ 0	locks=0	autoscope=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -9667,11 +9674,11 @@ version 0.8
 type	[ 0	locks=0	autoscope=0 ]	(	"poly"	)
 surftype	[ 0	locks=0	autoscope=0 ]	(	"quads"	)
 orient	[ 0	locks=0	autoscope=0 ]	(	"zx"	)
-size	[ 0	locks=0	autoscope=0 ]	(	[ sizex	10 ] 	[ sizey	10 ] 	)
-t	[ 0	locks=0	autoscope=0 ]	(	[ tx	0 ] 	[ ty	0 ] 	[ tz	0 ] 	)
+size	[ 0	locks=0	autoscope=0 ]	(	[ sizex	12 ] 	[ sizey	12 ] 	)
+t	[ 0	locks=0	autoscope=0 ]	(	[ tx	0.023655891418457031 ] 	[ ty	0 ] 	[ tz	0 ] 	)
 r	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
-rows	[ 0	locks=0	autoscope=0 ]	(	[ rows	10 ] 	)
-cols	[ 0	locks=0	autoscope=0 ]	(	[ cols	10 ] 	)
+rows	[ 0	locks=0	autoscope=0 ]	(	[ rows	21.05263157894737 ] 	)
+cols	[ 0	locks=0	autoscope=0 ]	(	[ cols	21.05263157894737 ] 	)
 orderu	[ 0	locks=0	autoscope=0 ]	(	4	)
 orderv	[ 0	locks=0	autoscope=0 ]	(	4	)
 interpu	[ 0	locks=0	autoscope=0 ]	(	"on"	)
@@ -9776,11 +9783,11 @@ version 0.8
 type	[ 0	locks=0	autoscope=0 ]	(	"poly"	)
 surftype	[ 0	locks=0	autoscope=0 ]	(	"quads"	)
 orient	[ 0	locks=0	autoscope=0 ]	(	"zx"	)
-size	[ 0	locks=0	autoscope=0 ]	(	[ sizex	9 ] 	[ sizey	9 ] 	)
+size	[ 0	locks=0	autoscope=0 ]	(	[ sizex	0 ] 	[ sizey	0 ] 	)
 t	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
 r	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
-rows	[ 0	locks=0	autoscope=0 ]	(	[ rows	10 ] 	)
-cols	[ 0	locks=0	autoscope=0 ]	(	[ cols	10 ] 	)
+rows	[ 0	locks=0	autoscope=0 ]	(	[ rows	1 ] 	)
+cols	[ 0	locks=0	autoscope=0 ]	(	[ cols	1 ] 	)
 orderu	[ 0	locks=0	autoscope=0 ]	(	4	)
 orderv	[ 0	locks=0	autoscope=0 ]	(	4	)
 interpu	[ 0	locks=0	autoscope=0 ]	(	"on"	)
@@ -10617,7 +10624,7 @@ testinput	[ 0	locks=0	autoscope=0 ]	(	"first"	)
 tests	[ 0	locks=0	autoscope=0 ]	(	1	)
 enable1	[ 0	locks=0	autoscope=0 ]	(	"on"	)
 type1	[ 0	locks=0	autoscope=0 ]	(	"expr"	)
-expr1	[ 0	locks=0	autoscope=0 ]	(	[ expr1	1 ] 	)
+expr1	[ 0	locks=0	autoscope=0 ]	(	[ expr1	0 ] 	)
 attribtype1	[ 0	locks=0	autoscope=0 ]	(	"all"	)
 attribowner1	[ 0	locks=0	autoscope=0 ]	(	"point"	)
 attributes1	[ 0	locks=0	autoscope=0 ]	(	""	)
@@ -11236,7 +11243,7 @@ version 0.8
 type	[ 0	locks=0	autoscope=0 ]	(	"poly"	)
 surftype	[ 0	locks=0	autoscope=0 ]	(	"quads"	)
 orient	[ 0	locks=0	autoscope=0 ]	(	"zx"	)
-size	[ 0	locks=0	autoscope=0 ]	(	[ sizex	10 ] 	[ sizey	10 ] 	)
+size	[ 0	locks=0	autoscope=0 ]	(	[ sizex	3.7999999999999998 ] 	[ sizey	3.7999999999999998 ] 	)
 t	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
 r	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
 rows	[ 0	locks=0	autoscope=0 ]	(	10	)
@@ -11325,7 +11332,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0	autoscope=0 ]	(	[ input	0 ] 	)
+input	[ 0	locks=0	autoscope=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -11752,7 +11759,7 @@ pivot	[ 0	locks=0	autoscope=0 ]	(	"centroid"	)
 viewportlod	[ 0	locks=0	autoscope=0 ]	(	"full"	)
 xOrd	[ 0	locks=0	autoscope=0 ]	(	"srt"	)
 rOrd	[ 0	locks=0	autoscope=0 ]	(	"xyz"	)
-t	[ 0	locks=0	autoscope=0 ]	(	[ tx	12 ] 	0	0	)
+t	[ 0	locks=0	autoscope=0 ]	(	[ tx	3 ] 	0	0	)
 r	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
 s	[ 0	locks=0	autoscope=0 ]	(	1	1	1	)
 shear	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
@@ -11856,7 +11863,7 @@ pivot	[ 0	locks=0	autoscope=0 ]	(	"centroid"	)
 viewportlod	[ 0	locks=0	autoscope=0 ]	(	"full"	)
 xOrd	[ 0	locks=0	autoscope=0 ]	(	"srt"	)
 rOrd	[ 0	locks=0	autoscope=0 ]	(	"xyz"	)
-t	[ 0	locks=0	autoscope=0 ]	(	0	0	[ tz	-12 ] 	)
+t	[ 0	locks=0	autoscope=0 ]	(	0	0	[ tz	-3 ] 	)
 r	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
 s	[ 0	locks=0	autoscope=0 ]	(	1	1	1	)
 shear	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)

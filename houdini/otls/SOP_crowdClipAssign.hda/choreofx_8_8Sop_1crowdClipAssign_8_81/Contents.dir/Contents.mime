@@ -32,17 +32,20 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 42.0695 -23.084
-connectornextid 0
+position 20.6149 -59.5732
+connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
+1 "output1"
 }
 inputsNamed3
 {
+0 	(__dot7) "" 1 "input1"
 }
 inputs
 {
+0 	(__dot7) 0 1
 }
 stat
 {
@@ -83,7 +86,7 @@ Content-Type: text/plain
 	comment := "";
 	height := 4.6655199999999999;
 	minimized := 0;
-	width := 9.0453652830585831;
+	width := 9.5716148280976086;
 	x_position := -1.5284531470395888;
 	y_position := -3.7203537139401703;
 }
@@ -107,8 +110,8 @@ Content-Type: text/plain
 	height := 6.5360199999999997;
 	minimized := 0;
 	width := 8.8523899999999998;
-	x_position := -1.3354878639810051;
-	y_position := -11.534753713940169;
+	x_position := -1.3354847199216484;
+	y_position := -13.573530430263588;
 }
 {
   create -1
@@ -124,14 +127,14 @@ Content-Type: text/plain
 2
 2
 {
-	autofit := 1;
+	autofit := 0;
 	color := "UT_Color RGB 0.52 0.52 0.52 ";
 	comment := "";
-	height := 2.2169300000000001;
+	height := 1.8072632327494973;
 	minimized := 0;
 	width := 3.9075199999999999;
-	x_position := -1.4999578639810056;
-	y_position := 1.9079462860598309;
+	x_position := -1.5284531470395888;
+	y_position := 4.7226721053532881;
 }
 {
   create -1
@@ -145,7 +148,7 @@ Content-Disposition: attachment; filename="hdaroot.inp"
 Content-Type: text/plain
 
 1
-0 0 6 2 0 __NO_OWNER_NETWORK_BOX__ "RGB 0.47499999403953552 0.81199997663497925 0.20399999618530273"
+0 -0.92945797951090336 8.2008559249827027 2 0 __NO_OWNER_NETWORK_BOX__ "RGB 0.47499999403953552 0.81199997663497925 0.20399999618530273"
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/__stickynote1.postitinit"
@@ -161,7 +164,7 @@ Content-Type: text/plain
 text "Warning messages  are annoying. They can print thousands od duplicates and also don't get cleared if you flip the switch.
 
 A better way might be to save codes to detail and print them once with an Error Node"
-position 7.8714 -2.90365
+position 9.00765 -3.05235
 size 4.02893 2.5
 textcolor UT_Color RGB 1 1 1 
 flags = minimize off
@@ -188,8 +191,8 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -1.32845 -1.61975
-connectornextid 2
+position -1.32845 -1.27311
+connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress off colordefault off exposed on
 outputsNamed3
 {
@@ -198,10 +201,12 @@ outputsNamed3
 inputsNamed3
 {
 1 	has_seedAttrib 1 1 "input1"
+2 	AgentPrims_read 1 1 "input2"
 }
 inputs
 {
 0 	has_seedAttrib 0 1
+1 	AgentPrims_read 0 1
 }
 stat
 {
@@ -387,6 +392,13 @@ Content-Type: text/plain
         default { "0" }
         range   { 0 10 }
     }
+    parm {
+        name    "useExternalAgents"
+        label   "Useexternalagents"
+        type    integer
+        default { "0" }
+        range   { 0 10 }
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/set_single_clips.chn"
@@ -399,6 +411,12 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = chs(\"../agentgroup\") }
     }
+    channel useExternalAgents {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../lookupExternal\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -408,28 +426,46 @@ Content-Type: text/plain
 {
 version 0.8
 folder0	[ 0	locks=0	autoscope=0 ]	(	0	0	)
-group	[ 0	locks=0	autoscope=0 ]	(	[ group	"" ] 	)
+group	[ 0	locks=0	autoscope=0 ]	(	[ group	__selectedPoints ] 	)
 grouptype	[ 0	locks=0	autoscope=0 ]	(	"guess"	)
 class	[ 0	locks=0	autoscope=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0	autoscope=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
 snippet	[ 0	locks=0	autoscope=0 ]	(	"string clipname = chs(\"../setSingleClip\");
 
-if (s@clipName != \"\"){
-    clipname = s@clipName;
+if (chi(\"../overrideExisting\") == 0){
+    if (s@clipName != \"\"){
+        clipname = s@clipName;
+    }
 }
 
-if (chi(\"verify\") == 1){
-    int found = find(agentclipcatalog(0, @primnum), clipname);
+if (chi(\"verify\") == 1)
+{
+    int agentprim = @primnum;
+    int inputidx = 0;
+    
+    if (chi(\"useExternalAgents\")){
+    //if (agentprim < 0){
+        agentprim = findattribval(1, \"point\", \"agentname\", s@agentname, 0);
+        inputidx = 1;
+        
+        if (agentprim < 0){
+            warning(\"No agent prim found to lookup clips from for '%s'\", s@agentname);
+            return;
+        }
+    }
+
+    int found = find(agentclipcatalog(inputidx, agentprim), clipname);
     if (found > -1){
-        setagentclipnames(0, @primnum, array(clipname));
+        s@clipName = clipname;
     }
     else{
         warning(\"Clip '%s' does not match any clips for '%s'\", clipname, s@agentname);
     }
 }
-else{
-    setagentclipnames(0, @primnum, array(clipname));    
+else
+{
+    s@clipName = clipname;
 }"	)
 exportlist	[ 0	locks=0	autoscope=0 ]	(	*	)
 vex_strict	[ 0	locks=0	autoscope=0 ]	(	"off"	)
@@ -444,8 +480,9 @@ vex_matchattrib	[ 0	locks=0	autoscope=0 ]	(	id	)
 vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"on"	)
 vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
 vex_precision	[ 0	locks=0	autoscope=0 ]	(	auto	)
-folder1	[ 0	locks=0	autoscope=0 ]	(	0	0	)
+folder1	[ 0	locks=0 ]	(	0	0	)
 verify	[ 0	locks=0	autoscope=0 ]	(	1	)
+useExternalAgents	[ 0	locks=0 ]	(	[ useExternalAgents	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -478,7 +515,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.930558 -12.5407
+position 0.190874 -5.67943
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -487,11 +524,11 @@ outputsNamed3
 }
 inputsNamed3
 {
-1 	switch_useManualClipEdits 2 1 "input1"
+1 	switch_randomize_clips 2 1 "input1"
 }
 inputs
 {
-0 	switch_useManualClipEdits 0 1
+0 	switch_randomize_clips 0 1
 }
 stat
 {
@@ -506,18 +543,34 @@ exprlanguage hscript
 end
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/set_clips.chn"
+Content-Type: text/plain
+
+{
+    channel group {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = chs(\"../agentgroup\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/set_clips.parm"
 Content-Type: text/plain
 
 {
 version 0.8
 folder0	[ 0	locks=0	autoscope=0 ]	(	0	0	)
-group	[ 0	locks=0	autoscope=0 ]	(	""	)
+group	[ 0	locks=0	autoscope=0 ]	(	[ group	__selectedPoints ] 	)
 grouptype	[ 0	locks=0	autoscope=0 ]	(	"guess"	)
 class	[ 0	locks=0	autoscope=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0	autoscope=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
-snippet	[ 0	locks=0	autoscope=0 ]	(	"setagentclipnames(0, @primnum, array(s@clipName));"	)
+snippet	[ 0	locks=0	autoscope=0 ]	(	"if (@primnum > -1){
+    setagentclipnames(0, @primnum, array(s@clipName));
+}
+"	)
 exportlist	[ 0	locks=0	autoscope=0 ]	(	*	)
 vex_strict	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 autobind	[ 0	locks=0	autoscope=0 ]	(	"on"	)
@@ -557,7 +610,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.603688 2.80825
+position -0.658444 5.69913
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -632,296 +685,6 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/randomize_clips.init"
-Content-Type: text/plain
-
-type = attribwrangle
-matchesdef = 1
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/randomize_clips.def"
-Content-Type: text/plain
-
-sopflags sopflags = 
-comment ""
-position 1.87468 -0.577654
-connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass on display off render off highlight off unload off savedata off compress off colordefault off exposed on
-outputsNamed3
-{
-1 "output1"
-}
-inputsNamed3
-{
-0 	has_seedAttrib 1 1 "input1"
-}
-inputs
-{
-0 	has_seedAttrib 0 1
-}
-stat
-{
-  create -1
-  modify -1
-  author choreofx@choreofx.com
-  access 0777
-}
-color UT_Color RGB 0.8 0.8 0.8 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/randomize_clips.spareparmdef"
-Content-Type: text/plain
-
-    group {
-        name    "folder1"
-        label   "Code"
-
-        parm {
-            name    "group"
-            baseparm
-            label   "Group"
-            export  none
-            bindselector points "Modify Points"
-                "Select the points to affect and press Enter to complete."
-                0 1 0xffffffff 0 grouptype 0
-        }
-        parm {
-            name    "grouptype"
-            baseparm
-            label   "Group Type"
-            export  none
-        }
-        parm {
-            name    "class"
-            baseparm
-            label   "Run Over"
-            export  none
-        }
-        parm {
-            name    "vex_numcount"
-            baseparm
-            label   "Number Count"
-            export  none
-        }
-        parm {
-            name    "vex_threadjobsize"
-            baseparm
-            label   "Thread Job Size"
-            export  none
-        }
-        parm {
-            name    "snippet"
-            baseparm
-            label   "VEXpression"
-            export  all
-        }
-        parm {
-            name    "exportlist"
-            baseparm
-            label   "Attributes to Create"
-            export  none
-        }
-        parm {
-            name    "vex_strict"
-            baseparm
-            label   "Enforce Prototypes"
-            export  none
-        }
-    }
-
-    group {
-        name    "folder1_1"
-        label   "Bindings"
-
-        parm {
-            name    "autobind"
-            baseparm
-            label   "Autobind by Name"
-            export  none
-        }
-        multiparm {
-            name    "bindings"
-            label    "Number of Bindings"
-            baseparm
-            default 0
-            parmtag { "autoscope" "0000000000000000" }
-            parmtag { "multistartoffset" "1" }
-
-            parm {
-                name    "bindname#"
-                baseparm
-                label   "Attribute Name"
-                export  none
-            }
-            parm {
-                name    "bindparm#"
-                baseparm
-                label   "VEX Parameter"
-                export  none
-            }
-        }
-
-        parm {
-            name    "groupautobind"
-            baseparm
-            label   "Autobind Groups by Name"
-            export  none
-        }
-        multiparm {
-            name    "groupbindings"
-            label    "Group Bindings"
-            baseparm
-            default 0
-            parmtag { "autoscope" "0000000000000000" }
-            parmtag { "multistartoffset" "1" }
-
-            parm {
-                name    "bindgroupname#"
-                baseparm
-                label   "Group Name"
-                export  none
-            }
-            parm {
-                name    "bindgroupparm#"
-                baseparm
-                label   "VEX Parameter"
-                export  none
-            }
-        }
-
-        parm {
-            name    "vex_cwdpath"
-            baseparm
-            label   "Evaluation Node Path"
-            export  none
-        }
-        parm {
-            name    "vex_outputmask"
-            baseparm
-            label   "Export Parameters"
-            export  none
-        }
-        parm {
-            name    "vex_updatenmls"
-            baseparm
-            label   "Update Normals If Displaced"
-            export  none
-        }
-        parm {
-            name    "vex_matchattrib"
-            baseparm
-            label   "Attribute to Match"
-            export  none
-        }
-        parm {
-            name    "vex_inplace"
-            baseparm
-            label   "Compute Results In Place"
-            export  none
-        }
-        parm {
-            name    "vex_selectiongroup"
-            baseparm
-            label   "Output Selection Group"
-            export  none
-        }
-    }
-
-    parm {
-        name    "seedAttrib"
-        label   "Seed Attrib"
-        type    string
-        default { "" }
-    }
-    parm {
-        name    "vex_precision"
-        baseparm
-        label   "VEX Precision"
-        export  none
-    }
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/randomize_clips.chn"
-Content-Type: text/plain
-
-{
-    channel seedAttrib {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      segment { length = 0 expr = chs(\"../seedAttrib\") }
-    }
-  }
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/randomize_clips.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-folder0	[ 0	locks=0	autoscope=0 ]	(	0	0	)
-group	[ 0	locks=0	autoscope=0 ]	(	""	)
-grouptype	[ 0	locks=0	autoscope=0 ]	(	"guess"	)
-class	[ 0	locks=0	autoscope=0 ]	(	"point"	)
-vex_numcount	[ 0	locks=0	autoscope=0 ]	(	10	)
-vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
-snippet	[ 0	locks=0	autoscope=0 ]	(	"int num_clips = chi(\"../numClips\");
-float seed = chf(\"../randomizeClipsSeed\");
-
-string clips[];
-float weights[];
-
-for (int i = 1; i <= num_clips; ++i)
-{
-    string clip = chs(sprintf(\"../clipName_%d\", i));
-    float weight = chf(sprintf(\"../clipWeight_%d\", i));
-    
-    append(clips, clip);
-    append(weights, weight);
-}
-
-float u = rand(set(@`chs(\"seedAttrib\")`, seed));
-s@clipName = clips[sample_discrete(weights, u)];
-
-setagentclipnames(0, @primnum, array(s@clipName));"	)
-exportlist	[ 0	locks=0	autoscope=0 ]	(	*	)
-vex_strict	[ 0	locks=0	autoscope=0 ]	(	"off"	)
-autobind	[ 0	locks=0	autoscope=0 ]	(	"on"	)
-bindings	[ 0	locks=0	autoscope=0 ]	(	0	)
-groupautobind	[ 0	locks=0	autoscope=0 ]	(	"on"	)
-groupbindings	[ 0	locks=0	autoscope=0 ]	(	0	)
-vex_cwdpath	[ 0	locks=0	autoscope=0 ]	(	.	)
-vex_outputmask	[ 0	locks=0	autoscope=0 ]	(	*	)
-vex_updatenmls	[ 0	locks=0	autoscope=0 ]	(	"off"	)
-vex_matchattrib	[ 0	locks=0	autoscope=0 ]	(	id	)
-vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
-vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
-vex_precision	[ 0	locks=0	autoscope=0 ]	(	auto	)
-folder1	[ 0	locks=0	autoscope=0 ]	(	0	0	)
-seedAttrib	[ 0	locks=0	autoscope=0 ]	(	[ seedAttrib	agent_id ] 	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/randomize_clips.netbox"
-Content-Type: text/plain
-
-__netbox2
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/randomize_clips.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":""
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/set_clip_manually.init"
 Content-Type: text/plain
 
@@ -934,7 +697,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 1.87468 -8.07682
+position 1.87468 -10.1156
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -1217,8 +980,8 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 1.87468 -1.61975
-connectornextid 2
+position 4.03436 -1.0923
+connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress off colordefault off exposed on
 outputsNamed3
 {
@@ -1226,11 +989,13 @@ outputsNamed3
 }
 inputsNamed3
 {
-1 	randomize_clips 1 1 "input1"
+1 	has_seedAttrib 1 1 "input1"
+2 	AgentPrims_read 1 1 "input2"
 }
 inputs
 {
-0 	randomize_clips 0 1
+0 	has_seedAttrib 0 1
+1 	AgentPrims_read 0 1
 }
 stat
 {
@@ -1416,6 +1181,13 @@ Content-Type: text/plain
         default { "" }
         parmtag { "script_callback_language" "python" }
     }
+    parm {
+        name    "useExternalAgents"
+        label   "Useexternalagents"
+        type    integer
+        default { "0" }
+        range   { 0 10 }
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/randomize_clip_patterns.chn"
@@ -1435,6 +1207,12 @@ Content-Type: text/plain
       start = -2.125
       segment { length = 0 expr = chs(\"../seedAttrib\") }
     }
+    channel useExternalAgents {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../lookupExternal\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1444,13 +1222,15 @@ Content-Type: text/plain
 {
 version 0.8
 folder0	[ 0	locks=0	autoscope=0 ]	(	0	0	)
-group	[ 0	locks=0	autoscope=0 ]	(	[ group	"" ] 	)
+group	[ 0	locks=0	autoscope=0 ]	(	[ group	__selectedPoints ] 	)
 grouptype	[ 0	locks=0	autoscope=0 ]	(	"guess"	)
 class	[ 0	locks=0	autoscope=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0	autoscope=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
-snippet	[ 0	locks=0	autoscope=0 ]	(	"if (s@clipName != \"random\" && s@clipName != \"\"){
-    return;
+snippet	[ 0	locks=0	autoscope=0 ]	(	"if (chi(\"../overrideExisting\") == 0){
+    if (s@clipName != \"random\" && s@clipName != \"\"){
+        return;
+    }
 }
 
 int num_patterns = chi(\"../numClipPatterns\");
@@ -1459,7 +1239,23 @@ float seed = chf(\"../randomClipSeed\");
 string clips[];
 float weights[];
 
-string clip_catalog[] = agentclipcatalog(0, @primnum);
+// If we did not copy agent prims to points, 
+// we can lookup clips by agentname from an external source
+int agentprim = @primnum;
+int inputidx = 0;
+
+if (chi(\"useExternalAgents\")){
+//if (agentprim < 0){
+    agentprim = findattribval(1, \"point\", \"agentname\", s@agentname, 0);
+    inputidx = 1;
+    
+    if (agentprim < 0){
+        warning(\"No agent prim found to lookup clips from for '%s'\", s@agentname);
+        return;
+    }
+}
+
+string clip_catalog[] = agentclipcatalog(inputidx, agentprim);
 
 for (int i = 1; i <= num_patterns; ++i)
 {
@@ -1511,6 +1307,7 @@ vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
 vex_precision	[ 0	locks=0	autoscope=0 ]	(	auto	)
 folder1	[ 0	locks=0 ]	(	0	0	)
 seedAttrib	[ 0	locks=0	autoscope=0 ]	(	[ seedAttrib	agent_id ] 	)
+useExternalAgents	[ 0	locks=0 ]	(	[ useExternalAgents	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1543,7 +1340,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 5.35768 -8.72031
+position 5.35768 -10.7591
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass on display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -1625,6 +1422,505 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/randomize_clip_patterns1.init"
+Content-Type: text/plain
+
+type = attribwrangle
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/randomize_clip_patterns1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 0.190874 -0.143044
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass on display off render off highlight off unload off savedata off compress off colordefault off exposed on
+outputsNamed3
+{
+0 "output1"
+}
+inputsNamed3
+{
+1 	has_seedAttrib 1 1 "input1"
+}
+inputs
+{
+0 	has_seedAttrib 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author choreofx@choreofx.com
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/randomize_clip_patterns1.spareparmdef"
+Content-Type: text/plain
+
+    group {
+        name    "folder1"
+        label   "Code"
+
+        parm {
+            name    "group"
+            baseparm
+            label   "Group"
+            export  none
+            bindselector points "Modify Points"
+                "Select the points to affect and press Enter to complete."
+                0 1 0xffffffff 0 grouptype 0
+        }
+        parm {
+            name    "grouptype"
+            baseparm
+            label   "Group Type"
+            export  none
+        }
+        parm {
+            name    "class"
+            baseparm
+            label   "Run Over"
+            export  none
+        }
+        parm {
+            name    "vex_numcount"
+            baseparm
+            label   "Number Count"
+            export  none
+        }
+        parm {
+            name    "vex_threadjobsize"
+            baseparm
+            label   "Thread Job Size"
+            export  none
+        }
+        parm {
+            name    "snippet"
+            baseparm
+            label   "VEXpression"
+            export  all
+        }
+        parm {
+            name    "exportlist"
+            baseparm
+            label   "Attributes to Create"
+            export  none
+        }
+        parm {
+            name    "vex_strict"
+            baseparm
+            label   "Enforce Prototypes"
+            export  none
+        }
+    }
+
+    group {
+        name    "folder1_1"
+        label   "Bindings"
+
+        parm {
+            name    "autobind"
+            baseparm
+            label   "Autobind by Name"
+            export  none
+        }
+        multiparm {
+            name    "bindings"
+            label    "Number of Bindings"
+            baseparm
+            default 0
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "multistartoffset" "1" }
+
+            parm {
+                name    "bindname#"
+                baseparm
+                label   "Attribute Name"
+                export  none
+            }
+            parm {
+                name    "bindparm#"
+                baseparm
+                label   "VEX Parameter"
+                export  none
+            }
+        }
+
+        parm {
+            name    "groupautobind"
+            baseparm
+            label   "Autobind Groups by Name"
+            export  none
+        }
+        multiparm {
+            name    "groupbindings"
+            label    "Group Bindings"
+            baseparm
+            default 0
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "multistartoffset" "1" }
+
+            parm {
+                name    "bindgroupname#"
+                baseparm
+                label   "Group Name"
+                export  none
+            }
+            parm {
+                name    "bindgroupparm#"
+                baseparm
+                label   "VEX Parameter"
+                export  none
+            }
+        }
+
+        parm {
+            name    "vex_cwdpath"
+            baseparm
+            label   "Evaluation Node Path"
+            export  none
+        }
+        parm {
+            name    "vex_outputmask"
+            baseparm
+            label   "Export Parameters"
+            export  none
+        }
+        parm {
+            name    "vex_updatenmls"
+            baseparm
+            label   "Update Normals If Displaced"
+            export  none
+        }
+        parm {
+            name    "vex_matchattrib"
+            baseparm
+            label   "Attribute to Match"
+            export  none
+        }
+        parm {
+            name    "vex_inplace"
+            baseparm
+            label   "Compute Results In Place"
+            export  none
+        }
+        parm {
+            name    "vex_selectiongroup"
+            baseparm
+            label   "Output Selection Group"
+            export  none
+        }
+        parm {
+            name    "vex_precision"
+            baseparm
+            label   "VEX Precision"
+            export  none
+        }
+    }
+
+    parm {
+        name    "seedAttrib"
+        label   "seedAttrib"
+        type    string
+        default { "" }
+        parmtag { "script_callback_language" "python" }
+    }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/randomize_clip_patterns1.chn"
+Content-Type: text/plain
+
+{
+    channel group {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = chs(\"../agentgroup\") }
+    }
+    channel seedAttrib {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      start = -2.125
+      segment { length = 0 expr = chs(\"../seedAttrib\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/randomize_clip_patterns1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+folder0	[ 0	locks=0	autoscope=0 ]	(	0	0	)
+group	[ 0	locks=0	autoscope=0 ]	(	[ group	"" ] 	)
+grouptype	[ 0	locks=0	autoscope=0 ]	(	"guess"	)
+class	[ 0	locks=0	autoscope=0 ]	(	"point"	)
+vex_numcount	[ 0	locks=0	autoscope=0 ]	(	10	)
+vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
+snippet	[ 0	locks=0	autoscope=0 ]	(	"if (s@clipName != \"random\" && s@clipName != \"\"){
+    return;
+}
+
+int num_patterns = chi(\"../numClipPatterns\");
+float seed = chf(\"../randomClipSeed\");
+
+string clips[];
+float weights[];
+
+string clip_catalog[] = agentclipcatalog(0, @primnum);
+
+for (int i = 1; i <= num_patterns; ++i)
+{
+    string pattern = chs(sprintf(\"../clipPattern_%d\", i));
+    float weight = chf(sprintf(\"../clipWeight_%d\", i));
+
+    string matching_clips[];
+
+    foreach (string clipname; clip_catalog)
+    {
+        //if (clipname == \"rest\" || clipname == \"Tpose\")
+        //    continue;
+            
+        if (match(pattern, clipname))
+            append(matching_clips, clipname);
+    }
+
+    int num_clips = len(matching_clips);
+    if (num_clips > 0)
+    {
+        append(clips, matching_clips);
+
+        weight /= num_clips;
+        for (int j = 0; j < num_clips; ++j)
+            append(weights, weight);
+    }
+    else{
+        warning(\"No valid clips were found for '%s'\", s@agentname);
+    }
+}
+
+int ptid = i@`chs(\"seedAttrib\")`;
+float u = rand(ptid + 231 * seed);
+s@clipName = clips[sample_discrete(weights, u)];
+//s[]@clips = clips;
+"	)
+exportlist	[ 0	locks=0	autoscope=0 ]	(	*	)
+vex_strict	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+autobind	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+bindings	[ 0	locks=0	autoscope=0 ]	(	0	)
+groupautobind	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+groupbindings	[ 0	locks=0	autoscope=0 ]	(	0	)
+vex_cwdpath	[ 0	locks=0	autoscope=0 ]	(	.	)
+vex_outputmask	[ 0	locks=0	autoscope=0 ]	(	*	)
+vex_updatenmls	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+vex_matchattrib	[ 0	locks=0	autoscope=0 ]	(	id	)
+vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
+vex_precision	[ 0	locks=0	autoscope=0 ]	(	auto	)
+folder1	[ 0	locks=0 ]	(	0	0	)
+seedAttrib	[ 0	locks=0	autoscope=0 ]	(	[ seedAttrib	agent_id ] 	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/randomize_clip_patterns1.netbox"
+Content-Type: text/plain
+
+__netbox2
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/randomize_clip_patterns1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/agentImport1.init"
+Content-Type: text/plain
+
+type = choreofx::agentImport::1
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/agentImport1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 5.11267 4.12918
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+2 "output1"
+}
+inputsNamed3
+{
+0 	"" "" 1 "input1"
+1 	has_seedAttrib 1 1 "input2"
+}
+inputs
+{
+0 	"" 0 1
+1 	has_seedAttrib 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author stephen@stephen-m2
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/agentImport1.chn"
+Content-Type: text/plain
+
+{
+    channel agentOppath {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"\"
+      flags = 0
+      segment { length = 0 expr = chsop(\"../agentPrims\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/agentImport1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+importMethod	[ 0	locks=0 ]	(	1	)
+agentOppath	[ 0	locks=0 ]	(	[ agentOppath	/obj/geo2/crowd_layout_brush/agent_prims ] 	)
+agentFile	[ 0	locks=0 ]	(	default.bgeo	)
+sepparm	[ 0	locks=0 ]	(	)
+agentfilter	[ 0	locks=0 ]	(	3	)
+singleAgentDef	[ 0	locks=0 ]	(	""	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/agentImport1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	},
+	"wirestyle":{
+		"type":"string",
+		"value":"rounded"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/set_clips1.init"
+Content-Type: text/plain
+
+type = attribwrangle
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/set_clips1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 1.87468 -11.0568
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+0 "output1"
+}
+inputsNamed3
+{
+1 	set_clip_manually 2 1 "input1"
+}
+inputs
+{
+0 	set_clip_manually 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author choreofx@choreofx.com
+  access 0777
+}
+color UT_Color RGB 0.89 0.412 0.761 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/set_clips1.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+folder0	[ 0	locks=0	autoscope=0 ]	(	0	0	)
+group	[ 0	locks=0	autoscope=0 ]	(	`chs(\"../set_clip_manually/group\")`	)
+grouptype	[ 0	locks=0	autoscope=0 ]	(	"guess"	)
+class	[ 0	locks=0	autoscope=0 ]	(	"point"	)
+vex_numcount	[ 0	locks=0	autoscope=0 ]	(	10	)
+vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
+snippet	[ 0	locks=0	autoscope=0 ]	(	"if (@primnum > -1){
+    setagentclipnames(0, @primnum, array(s@clipName));
+}
+"	)
+exportlist	[ 0	locks=0	autoscope=0 ]	(	*	)
+vex_strict	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+autobind	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+bindings	[ 0	locks=0	autoscope=0 ]	(	0	)
+groupautobind	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+groupbindings	[ 0	locks=0	autoscope=0 ]	(	0	)
+vex_cwdpath	[ 0	locks=0	autoscope=0 ]	(	.	)
+vex_outputmask	[ 0	locks=0	autoscope=0 ]	(	*	)
+vex_updatenmls	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+vex_matchattrib	[ 0	locks=0	autoscope=0 ]	(	id	)
+vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
+vex_precision	[ 0	locks=0	autoscope=0 ]	(	auto	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/set_clips1.netbox"
+Content-Type: text/plain
+
+__netbox25
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/set_clips1.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/OUT.init"
 Content-Type: text/plain
 
@@ -1637,19 +1933,19 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.929458 -14.3773
+position -0.929455 -16.4161
 connectornextid 1
-flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault off exposed on
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
 {
 }
 inputsNamed3
 {
-0 	set_clips 0 1 "input1"
+0 	switch_useManualClipEdits 2 1 "input1"
 }
 inputs
 {
-0 	set_clips 0 1
+0 	switch_useManualClipEdits 0 1
 }
 stat
 {
@@ -1745,7 +2041,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0	autoscope=0 ]	(	[ input	0 ] 	)
+input	[ 0	locks=0	autoscope=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1778,7 +2074,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 1.87738 -9.39637
+position 1.87738 -11.9933
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -1787,11 +2083,11 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	set_clip_manually 2 1 "input1"
+0 	set_clips1 0 1 "input1"
 }
 inputs
 {
-0 	set_clip_manually 0 1
+0 	set_clips1 0 1
 }
 stat
 {
@@ -1873,7 +2169,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0.435402 -6.47066
+position 0.435405 -8.50944
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -1882,11 +2178,11 @@ outputsNamed3
 }
 inputsNamed3
 {
-1 	switch_randomize_clips 2 1 "input1"
+1 	set_clips 0 1 "input1"
 }
 inputs
 {
-0 	switch_randomize_clips 0 1
+0 	set_clips 0 1
 }
 stat
 {
@@ -1943,7 +2239,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 3.32156 -6.47066
+position 3.32156 -8.50944
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -2011,7 +2307,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.929458 -11.0552
+position -0.929455 -13.094
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -2020,12 +2316,12 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	switch_randomize_clips 2 1 "input1"
+0 	set_clips 0 1 "input1"
 1 	repeat_end1 1 1 "input2"
 }
 inputs
 {
-0 	switch_randomize_clips 0 1
+0 	set_clips 0 1
 1 	repeat_end1 0 1
 }
 stat
@@ -2080,15 +2376,75 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/AgentPrims_read.init"
+Content-Type: text/plain
+
+type = null
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/AgentPrims_read.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 5.11267 2.35349
+connectornextid 2
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	agentImport1 2 1 "input1"
+}
+inputs
+{
+0 	agentImport1 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author stephen@stephen-m2
+  access 0777
+}
+color UT_Color RGB 0.8 0.016 0.016 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/AgentPrims_read.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+copyinput	[ 0	locks=0 ]	(	"on"	)
+cacheinput	[ 0	locks=0 ]	(	"off"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/AgentPrims_read.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.order"
 Content-Type: text/plain
 
-13
+16
 set_single_clips
 set_clips
 OUT
 has_seedAttrib
-randomize_clips
 set_clip_manually
 randomize_clip_patterns
 set_clip_manually1
@@ -2097,6 +2453,10 @@ repeat_end1
 repeat_begin1
 repeat_begin1_metadata1
 switch_useManualClipEdits
+randomize_clip_patterns1
+AgentPrims_read
+agentImport1
+set_clips1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.net"

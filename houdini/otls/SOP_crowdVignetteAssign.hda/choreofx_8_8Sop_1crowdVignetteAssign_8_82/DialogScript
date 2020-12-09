@@ -99,6 +99,28 @@
         default { "" }
     }
     parm {
+        name    "overrideExisting"
+        label   "Override Existing VignetteName"
+        type    toggle
+        default { "0" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "createVignettePrims"
+        label   "Create Vignette Prims"
+        type    toggle
+        default { "1" }
+        range   { 0! 1! }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "sepparm2"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
         name    "outgroupname"
         label   "Output Vig Group Name"
         type    string
@@ -111,6 +133,12 @@
     }
     parm {
         name    "sepparm15"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
+        name    "sepparm16"
         label   "Separator"
         type    separator
         default { "" }
@@ -162,6 +190,7 @@
         label   "Seed Attribute"
         type    string
         default { "agent_id" }
+        disablewhen "{ randomizeVignette == 0 }"
         range   { 0 1 }
         parmtag { "autoscope" "0000000000000000" }
     }
@@ -206,12 +235,6 @@
 
     }
 
-    parm {
-        name    "sepparm2"
-        label   "Separator"
-        type    separator
-        default { "" }
-    }
     multiparm {
         name    "manualVignetteEdits"
         label    "Manual Vignette Edits"

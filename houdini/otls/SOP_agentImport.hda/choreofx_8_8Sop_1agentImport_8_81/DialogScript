@@ -63,6 +63,7 @@
             "0" "Keep Unique"
             "1" "Single Definition"
             "2" "Unfiltered"
+            "3" "Used in Input2"
         }
         range   { 0! 10 }
         parmtag { "autoscope" "0000000000000000" }

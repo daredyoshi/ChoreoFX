@@ -31,18 +31,23 @@ Content-Disposition: attachment; filename="hdaroot.def"
 Content-Type: text/plain
 
 sopflags sopflags = 
-comment ""
-position 42.0695 -25.4098
-connectornextid 0
+comment "timeAnchor
+timeOffset
+"
+position 3.56704 -34.0318
+connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on displaycomment on
 outputsNamed3
 {
+1 "output1"
 }
 inputsNamed3
 {
+0 	crowdCostumeAssign3 1 1 "input1"
 }
 inputs
 {
+0 	crowdCostumeAssign3 0 1
 }
 stat
 {
@@ -243,7 +248,7 @@ Content-Type: text/plain
       righttype = extend
       flags = 0
       start = -2.125
-      segment { length = 0 expr = chs(\"../__clipplayergroup/groupname\") }
+      segment { length = 0 expr = chs(\"../affectedGroup\") }
     }
     channel minx {
       lefttype = extend
@@ -269,6 +274,13 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = chs(\"../seedAttrib\") }
     }
+    channel operation {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"set\"
+      flags = 0
+      segment { length = 0 expr = chs(\"../offsetOp\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -277,11 +289,11 @@ Content-Type: text/plain
 
 {
 version 0.8
-group	[ 0	locks=0	autoscope=0 ]	(	[ group	"" ] 	)
+group	[ 0	locks=0	autoscope=0 ]	(	[ group	test ] 	)
 grouptype	[ 0	locks=0	autoscope=0 ]	(	"points"	)
 class	[ 0	locks=0	autoscope=0 ]	(	"point"	)
 name	[ 0	locks=0	autoscope=0 ]	(	timeOffset	)
-operation	[ 0	locks=0	autoscope=0 ]	(	set	)
+operation	[ 0	locks=0	autoscope=0 ]	(	[ operation	add ] 	)
 scale	[ 0	locks=0	autoscope=0 ]	(	1	)
 folder0	[ 0	locks=0	autoscope=0 ]	(	0	0	)
 distribution	[ 0	locks=0	autoscope=0 ]	(	uniform	)
@@ -292,7 +304,7 @@ valuea	[ 0	locks=0	autoscope=0 ]	(	0	0	0	0	)
 valueb	[ 0	locks=0	autoscope=0 ]	(	1	1	1	1	)
 probvalueb	[ 0	locks=0	autoscope=0 ]	(	0.5	)
 min	[ 0	locks=0	autoscope=0 ]	(	[ minx	0 ] 	0	0	0	)
-max	[ 0	locks=0	autoscope=0 ]	(	[ maxx	1 ] 	1	1	1	)
+max	[ 0	locks=0	autoscope=0 ]	(	[ maxx	2.9100000000000001 ] 	1	1	1	)
 mindiscrete	[ 0	locks=0	autoscope=0 ]	(	0	0	0	0	)
 maxdiscrete	[ 0	locks=0	autoscope=0 ]	(	9	9	9	9	)
 stepsize	[ 0	locks=0	autoscope=0 ]	(	1	1	1	1	)
@@ -326,9 +338,9 @@ visualize	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 nvisualizepts	[ 0	locks=0	autoscope=0 ]	(	10000	)
 usefractionattrib	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 fractionattrib	[ 0	locks=0	autoscope=0 ]	(	fraction	)
-seed	[ 0	locks=0	autoscope=0 ]	(	[ seed	0 ] 	)
+seed	[ 0	locks=0	autoscope=0 ]	(	[ seed	100 ] 	)
 useseedattrib	[ 0	locks=0	autoscope=0 ]	(	"on"	)
-seedattrib	[ 0	locks=0	autoscope=0 ]	(	[ seedattrib	id ] 	)
+seedattrib	[ 0	locks=0	autoscope=0 ]	(	[ seedattrib	agent_id ] 	)
 ramp1pos	[ 0	locks=0	autoscope=0 ]	(	0	)
 ramp1value	[ 0	locks=0	autoscope=0 ]	(	0	)
 ramp1interp	[ 0	locks=0	autoscope=0 ]	(	"monotonecubic"	)
@@ -419,7 +431,7 @@ Content-Type: text/plain
       righttype = extend
       flags = 0
       start = -2.125
-      segment { length = 0 expr = chs(\"../__clipplayergroup/groupname\") }
+      segment { length = 0 expr = chs(\"../affectedGroup\") }
     }
     channel mindiscretex {
       lefttype = extend
@@ -441,6 +453,13 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = chs(\"../seedAttrib\") }
     }
+    channel operation {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"set\"
+      flags = 0
+      segment { length = 0 expr = chs(\"../timeAnchorOp\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -449,11 +468,11 @@ Content-Type: text/plain
 
 {
 version 0.8
-group	[ 0	locks=0	autoscope=0 ]	(	[ group	"" ] 	)
+group	[ 0	locks=0	autoscope=0 ]	(	[ group	test ] 	)
 grouptype	[ 0	locks=0	autoscope=0 ]	(	"points"	)
 class	[ 0	locks=0	autoscope=0 ]	(	"point"	)
 name	[ 0	locks=0	autoscope=0 ]	(	timeAnchor	)
-operation	[ 0	locks=0	autoscope=0 ]	(	set	)
+operation	[ 0	locks=0	autoscope=0 ]	(	[ operation	add ] 	)
 scale	[ 0	locks=0	autoscope=0 ]	(	1	)
 folder0	[ 0	locks=0	autoscope=0 ]	(	1	1	)
 distribution	[ 0	locks=0	autoscope=0 ]	(	uniformdiscrete	)
@@ -465,8 +484,8 @@ valueb	[ 0	locks=0	autoscope=0 ]	(	1	1	1	1	)
 probvalueb	[ 0	locks=0	autoscope=0 ]	(	0.5	)
 min	[ 0	locks=0	autoscope=0 ]	(	0	0	0	0	)
 max	[ 0	locks=0	autoscope=0 ]	(	1	1	1	1	)
-mindiscrete	[ 0	locks=0	autoscope=0 ]	(	[ mindiscretex	0 ] 	0	0	0	)
-maxdiscrete	[ 0	locks=0	autoscope=0 ]	(	[ maxdiscretex	9 ] 	9	9	9	)
+mindiscrete	[ 0	locks=0	autoscope=0 ]	(	[ mindiscretex	1 ] 	0	0	0	)
+maxdiscrete	[ 0	locks=0	autoscope=0 ]	(	[ maxdiscretex	1 ] 	9	9	9	)
 stepsize	[ 0	locks=0	autoscope=0 ]	(	1	1	1	1	)
 median	[ 0	locks=0	autoscope=0 ]	(	24	0	0	0	)
 onesidedmedian	[ 0	locks=0	autoscope=0 ]	(	1	1	1	1	)
@@ -500,7 +519,7 @@ usefractionattrib	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 fractionattrib	[ 0	locks=0	autoscope=0 ]	(	fraction	)
 seed	[ 0	locks=0	autoscope=0 ]	(	10	)
 useseedattrib	[ 0	locks=0	autoscope=0 ]	(	"on"	)
-seedattrib	[ 0	locks=0	autoscope=0 ]	(	[ seedattrib	id ] 	)
+seedattrib	[ 0	locks=0	autoscope=0 ]	(	[ seedattrib	agent_id ] 	)
 ramp1pos	[ 0	locks=0	autoscope=0 ]	(	0	)
 ramp1value	[ 0	locks=0	autoscope=0 ]	(	0	)
 ramp1interp	[ 0	locks=0	autoscope=0 ]	(	"monotonecubic"	)
@@ -563,11 +582,11 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	__clipplayergroup 0 1 "input1"
+0 	(0) "" 1 "input1"
 }
 inputs
 {
-0 	__clipplayergroup 0 1
+0 	(0) 0 1
 }
 stat
 {
@@ -678,7 +697,7 @@ Content-Type: text/plain
       righttype = extend
       flags = 0
       start = -2.125
-      segment { length = 0 expr = chs(\"../__clipplayergroup/groupname\") }
+      segment { length = 0 expr = chs(\"../affectedGroup\") }
     }
     channel minx {
       lefttype = extend
@@ -717,6 +736,13 @@ Content-Type: text/plain
       start = -2.125
       segment { length = 0 expr = chs(\"../seedAttrib\") }
     }
+    channel operation {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"set\"
+      flags = 0
+      segment { length = 0 expr = chs(\"../timeSpeedOp\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -725,11 +751,11 @@ Content-Type: text/plain
 
 {
 version 0.8
-group	[ 0	locks=0	autoscope=0 ]	(	[ group	"" ] 	)
-grouptype	[ 0	locks=0	autoscope=0 ]	(	"guess"	)
+group	[ 0	locks=0	autoscope=0 ]	(	[ group	test ] 	)
+grouptype	[ 0	locks=0	autoscope=0 ]	(	"points"	)
 class	[ 0	locks=0	autoscope=0 ]	(	"point"	)
 name	[ 0	locks=0	autoscope=0 ]	(	timeSpeed	)
-operation	[ 0	locks=0	autoscope=0 ]	(	set	)
+operation	[ 0	locks=0	autoscope=0 ]	(	[ operation	set ] 	)
 scale	[ 0	locks=0	autoscope=0 ]	(	1	)
 folder0	[ 0	locks=0	autoscope=0 ]	(	0	0	)
 distribution	[ 0	locks=0	autoscope=0 ]	(	uniform	)
@@ -739,7 +765,7 @@ constvalue	[ 0	locks=0	autoscope=0 ]	(	4.3099999999999996	0	0	0	)
 valuea	[ 0	locks=0	autoscope=0 ]	(	0	0	0	0	)
 valueb	[ 0	locks=0	autoscope=0 ]	(	1	1	1	1	)
 probvalueb	[ 0	locks=0	autoscope=0 ]	(	0.5	)
-min	[ 0	locks=0	autoscope=0 ]	(	[ minx	0 ] 	0	0	0	)
+min	[ 0	locks=0	autoscope=0 ]	(	[ minx	1 ] 	0	0	0	)
 max	[ 0	locks=0	autoscope=0 ]	(	[ maxx	1 ] 	1	1	1	)
 mindiscrete	[ 0	locks=0	autoscope=0 ]	(	0	0	0	0	)
 maxdiscrete	[ 0	locks=0	autoscope=0 ]	(	9	9	9	9	)
@@ -774,9 +800,9 @@ visualize	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 nvisualizepts	[ 0	locks=0	autoscope=0 ]	(	10000	)
 usefractionattrib	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 fractionattrib	[ 0	locks=0	autoscope=0 ]	(	fraction	)
-seed	[ 0	locks=0	autoscope=0 ]	(	[ seed	0 ] 	)
+seed	[ 0	locks=0	autoscope=0 ]	(	[ seed	100 ] 	)
 useseedattrib	[ 0	locks=0	autoscope=0 ]	(	"on"	)
-seedattrib	[ 0	locks=0	autoscope=0 ]	(	[ seedattrib	id ] 	)
+seedattrib	[ 0	locks=0	autoscope=0 ]	(	[ seedattrib	agent_id ] 	)
 ramp1pos	[ 0	locks=0	autoscope=0 ]	(	0	)
 ramp1value	[ 0	locks=0	autoscope=0 ]	(	0	)
 ramp1interp	[ 0	locks=0	autoscope=0 ]	(	"bspline"	)
@@ -965,7 +991,7 @@ Content-Type: text/plain
       righttype = extend
       flags = 0
       start = -2.125
-      segment { length = 0 expr = chs(\"../__clipplayergroup/groupname\") }
+      segment { length = 0 expr = chs(\"../affectedGroup\") }
     }
   }
 
@@ -976,7 +1002,7 @@ Content-Type: text/plain
 {
 version 0.8
 folder0	[ 0	locks=0	autoscope=0 ]	(	0	0	)
-group	[ 0	locks=0	autoscope=0 ]	(	[ group	"" ] 	)
+group	[ 0	locks=0	autoscope=0 ]	(	[ group	test ] 	)
 grouptype	[ 0	locks=0	autoscope=0 ]	(	"points"	)
 class	[ 0	locks=0	autoscope=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0	autoscope=0 ]	(	10	)
@@ -1190,131 +1216,6 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/__clipplayergroup.init"
-Content-Type: text/plain
-
-type = groupcreate
-matchesdef = 0
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/__clipplayergroup.def"
-Content-Type: text/plain
-
-sopflags sopflags = 
-comment ""
-position 1.93078 28.8924
-connectornextid 2
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight on unload off savedata off compress on colordefault on exposed on
-outputsNamed3
-{
-0 "output1"
-}
-inputsNamed3
-{
-1 	(0) "" 1 "input1"
-}
-inputs
-{
-0 	(0) 0 1
-}
-stat
-{
-  create -1
-  modify -1
-  author stephen.bester@cpv-ws018.za.sunrise.productions
-  access 0777
-}
-color UT_Color RGB 0.8 0.8 0.8 
-delscript ""
-exprlanguage hscript
-end
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/__clipplayergroup.chn"
-Content-Type: text/plain
-
-{
-    channel grouptype {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      start = -2.125
-      segment { length = 0 expr = ch(\"../grouptype\") }
-    }
-    channel basegroup {
-      lefttype = extend
-      righttype = extend
-      flags = 0
-      start = -2.125
-      segment { length = 0 expr = chs(\"../affectedGroup\") }
-    }
-  }
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/__clipplayergroup.parm"
-Content-Type: text/plain
-
-{
-version 0.8
-groupname	[ 0	locks=0	autoscope=0 ]	(	__affectedGroup	)
-grouptype	[ 0	locks=0	autoscope=0 ]	(	[ grouptype	1 ] 	)
-mergeop	[ 0	locks=0	autoscope=0 ]	(	"replace"	)
-folder0	[ 0	locks=0	autoscope=0 ]	(	0	)
-groupbase	[ 0	locks=0	autoscope=0 ]	(	"on"	)
-basegroup	[ 0	locks=0	autoscope=0 ]	(	[ basegroup	"" ] 	)
-ordered	[ 0	locks=0	autoscope=0 ]	(	"off"	)
-geotype	[ 0	locks=0	autoscope=0 ]	(	"all"	)
-switcher3	[ 0	locks=0	autoscope=0 ]	(	0	)
-groupbounding	[ 0	locks=0	autoscope=0 ]	(	"off"	)
-boundtype	[ 0	locks=0	autoscope=0 ]	(	"usebbox"	)
-size	[ 0	locks=0	autoscope=0 ]	(	1	1	1	)
-t	[ 0	locks=0	autoscope=0 ]	(	0	0	0	)
-includenotwhollycontained	[ 0	locks=0	autoscope=0 ]	(	"off"	)
-iso	[ 0	locks=0	autoscope=0 ]	(	0	)
-invertvolume	[ 0	locks=0	autoscope=0 ]	(	"off"	)
-switcher4	[ 0	locks=0	autoscope=0 ]	(	0	)
-groupnormal	[ 0	locks=0	autoscope=0 ]	(	"off"	)
-camerapath	[ 0	locks=0	autoscope=0 ]	(	""	)
-nonplanar	[ 0	locks=0	autoscope=0 ]	(	"off"	)
-nonplanartol	[ 0	locks=0	autoscope=0 ]	(	0.001	)
-dir	[ 0	locks=0	autoscope=0 ]	(	0	0	1	)
-angle	[ 0	locks=0	autoscope=0 ]	(	180	)
-switcher5	[ 0	locks=0	autoscope=0 ]	(	0	)
-groupedges	[ 0	locks=0	autoscope=0 ]	(	"off"	)
-dominedgeangle	[ 0	locks=0	autoscope=0 ]	(	"off"	)
-minedgeangle	[ 0	locks=0	autoscope=0 ]	(	20	)
-domaxedgeangle	[ 0	locks=0	autoscope=0 ]	(	"off"	)
-maxedgeangle	[ 0	locks=0	autoscope=0 ]	(	20	)
-edgeanglebetweenedges	[ 0	locks=0	autoscope=0 ]	(	"off"	)
-dominedgelen	[ 0	locks=0	autoscope=0 ]	(	"off"	)
-minedgelen	[ 0	locks=0	autoscope=0 ]	(	0	)
-domaxedgelen	[ 0	locks=0	autoscope=0 ]	(	"off"	)
-maxedgelen	[ 0	locks=0	autoscope=0 ]	(	0	)
-dodepth	[ 0	locks=0	autoscope=0 ]	(	"off"	)
-edgestep	[ 0	locks=0	autoscope=0 ]	(	0	)
-edgeptgrp	[ 0	locks=0	autoscope=0 ]	(	0	)
-unshared	[ 0	locks=0	autoscope=0 ]	(	"off"	)
-boundarygroups	[ 0	locks=0	autoscope=0 ]	(	"off"	)
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/__clipplayergroup.netbox"
-Content-Type: text/plain
-
-__netbox22
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/__clipplayergroup.userdata"
-Content-Type: text/plain
-
-{
-	"___Version___":{
-		"type":"string",
-		"value":"___EXTERNAL___"
-	}
-}
-
---HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/switch_timeAnchor.init"
 Content-Type: text/plain
 
@@ -1376,7 +1277,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0	autoscope=0 ]	(	[ input	0 ] 	)
+input	[ 0	locks=0	autoscope=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1458,7 +1359,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0	autoscope=0 ]	(	[ input	0 ] 	)
+input	[ 0	locks=0	autoscope=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1643,7 +1544,7 @@ Content-Type: text/plain
 Content-Disposition: attachment; filename="hdaroot.order"
 Content-Type: text/plain
 
-13
+12
 OUT
 timeOffset_randomize
 timeAnchor_Randomize
@@ -1651,7 +1552,6 @@ has_seedAttrib
 timeSpeed_random
 has_pscale
 switch_useManualClipEdits
-__clipplayergroup
 switch_timeAnchor
 switch_timeOffset
 switch_timeSpeed

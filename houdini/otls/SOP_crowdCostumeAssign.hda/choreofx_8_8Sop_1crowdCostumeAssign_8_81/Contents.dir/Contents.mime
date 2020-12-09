@@ -32,17 +32,20 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 42.0695 -24.3239
-connectornextid 0
+position 26.1125 -12.3564
+connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
+1 "output1"
 }
 inputsNamed3
 {
+0 	crowdClipAssign1 1 1 "input1"
 }
 inputs
 {
+0 	crowdClipAssign1 0 1
 }
 stat
 {
@@ -108,7 +111,7 @@ Content-Type: text/plain
 	minimized := 0;
 	width := 7.7413299999999996;
 	x_position := 0.693374245633394;
-	y_position := -13.262578618195487;
+	y_position := -15.289387481455677;
 }
 {
   create -1
@@ -154,7 +157,7 @@ Content-Type: text/plain
 	minimized := 0;
 	width := 5.6493000029802323;
 	x_position := -1.5850700029802323;
-	y_position := -19.648278618195487;
+	y_position := -21.675087481455677;
 }
 {
   create -1
@@ -183,7 +186,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 1.0983 -14.4534
+position 2.21973 -7.20152
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -192,11 +195,11 @@ outputsNamed3
 }
 inputsNamed3
 {
-1 	switch_useManualClipEdits 2 1 "input1"
+1 	switch_randomize_Actors 2 1 "input1"
 }
 inputs
 {
-0 	switch_useManualClipEdits 0 1
+0 	switch_randomize_Actors 0 1
 }
 stat
 {
@@ -211,18 +214,36 @@ exprlanguage hscript
 end
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/set_costume_layer.chn"
+Content-Type: text/plain
+
+{
+    channel group {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = chs(\"../set_single_costume/group\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/set_costume_layer.parm"
 Content-Type: text/plain
 
 {
 version 0.8
 folder0	[ 0	locks=0	autoscope=0 ]	(	0	0	)
-group	[ 0	locks=0	autoscope=0 ]	(	""	)
+group	[ 0	locks=0	autoscope=0 ]	(	[ group	"" ] 	)
 grouptype	[ 0	locks=0	autoscope=0 ]	(	"guess"	)
 class	[ 0	locks=0	autoscope=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0	autoscope=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
-snippet	[ 0	locks=0	autoscope=0 ]	(	"
+snippet	[ 0	locks=0	autoscope=0 ]	(	"if (@primnum > -1){
+    setagentcurrentlayer(0, @primnum, s@costumeName);
+}
+
+
+/*
 int found = find(agentlayers(0, @primnum), s@costumeName);
 if (found > -1){
     //setagentcurrentlayer(0, @primnum, costume);
@@ -231,7 +252,7 @@ if (found > -1){
 else{
     warning(\"Costume '%s' does not match any layers for '%s'\", s@costumeName, s@agentname);
     setagentcurrentlayer(0, @primnum, \"default\");    
-}
+}*/
 "	)
 exportlist	[ 0	locks=0	autoscope=0 ]	(	*	)
 vex_strict	[ 0	locks=0	autoscope=0 ]	(	"off"	)
@@ -359,7 +380,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 3.72065 -9.92398
+position 3.72065 -11.9508
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -464,7 +485,7 @@ Content-Type: text/plain
 sopflags sopflags = 
 comment ""
 position 0.535934 -3.34757
-connectornextid 2
+connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress off colordefault off exposed on
 outputsNamed3
 {
@@ -473,10 +494,12 @@ outputsNamed3
 inputsNamed3
 {
 1 	has_seedAttrib 0 1 "input1"
+2 	agent_prims 0 1 "input2"
 }
 inputs
 {
 0 	has_seedAttrib 0 1
+1 	agent_prims 0 1
 }
 stat
 {
@@ -489,6 +512,186 @@ color UT_Color RGB 0.8 0.8 0.8
 delscript ""
 exprlanguage hscript
 end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/set_single_costume.spareparmdef"
+Content-Type: text/plain
+
+    group {
+        name    "folder1"
+        label   "Code"
+
+        parm {
+            name    "group"
+            baseparm
+            label   "Group"
+            export  none
+            bindselector points "Modify Points"
+                "Select the points to affect and press Enter to complete."
+                0 1 0xffffffff 0 grouptype 0
+        }
+        parm {
+            name    "grouptype"
+            baseparm
+            label   "Group Type"
+            export  none
+        }
+        parm {
+            name    "class"
+            baseparm
+            label   "Run Over"
+            export  none
+        }
+        parm {
+            name    "vex_numcount"
+            baseparm
+            label   "Number Count"
+            export  none
+        }
+        parm {
+            name    "vex_threadjobsize"
+            baseparm
+            label   "Thread Job Size"
+            export  none
+        }
+        parm {
+            name    "snippet"
+            baseparm
+            label   "VEXpression"
+            export  all
+        }
+        parm {
+            name    "exportlist"
+            baseparm
+            label   "Attributes to Create"
+            export  none
+        }
+        parm {
+            name    "vex_strict"
+            baseparm
+            label   "Enforce Prototypes"
+            export  none
+        }
+    }
+
+    group {
+        name    "folder1_1"
+        label   "Bindings"
+
+        parm {
+            name    "autobind"
+            baseparm
+            label   "Autobind by Name"
+            export  none
+        }
+        multiparm {
+            name    "bindings"
+            label    "Number of Bindings"
+            baseparm
+            default 0
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "multistartoffset" "1" }
+
+            parm {
+                name    "bindname#"
+                baseparm
+                label   "Attribute Name"
+                export  none
+            }
+            parm {
+                name    "bindparm#"
+                baseparm
+                label   "VEX Parameter"
+                export  none
+            }
+        }
+
+        parm {
+            name    "groupautobind"
+            baseparm
+            label   "Autobind Groups by Name"
+            export  none
+        }
+        multiparm {
+            name    "groupbindings"
+            label    "Group Bindings"
+            baseparm
+            default 0
+            parmtag { "autoscope" "0000000000000000" }
+            parmtag { "multistartoffset" "1" }
+
+            parm {
+                name    "bindgroupname#"
+                baseparm
+                label   "Group Name"
+                export  none
+            }
+            parm {
+                name    "bindgroupparm#"
+                baseparm
+                label   "VEX Parameter"
+                export  none
+            }
+        }
+
+        parm {
+            name    "vex_cwdpath"
+            baseparm
+            label   "Evaluation Node Path"
+            export  none
+        }
+        parm {
+            name    "vex_outputmask"
+            baseparm
+            label   "Export Parameters"
+            export  none
+        }
+        parm {
+            name    "vex_updatenmls"
+            baseparm
+            label   "Update Normals If Displaced"
+            export  none
+        }
+        parm {
+            name    "vex_matchattrib"
+            baseparm
+            label   "Attribute to Match"
+            export  none
+        }
+        parm {
+            name    "vex_inplace"
+            baseparm
+            label   "Compute Results In Place"
+            export  none
+        }
+        parm {
+            name    "vex_selectiongroup"
+            baseparm
+            label   "Output Selection Group"
+            export  none
+        }
+        parm {
+            name    "vex_precision"
+            baseparm
+            label   "VEX Precision"
+            export  none
+        }
+    }
+
+    parm {
+        name    "useExternalAgents"
+        label   "Useexternalagents"
+        type    integer
+        default { "0" }
+        range   { 0 10 }
+    }
+    parm {
+        name    "verify"
+        label   "Verify"
+        type    integer
+        default { "0" }
+        range   { 0 10 }
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/set_single_costume.chn"
@@ -507,6 +710,12 @@ Content-Type: text/plain
       flags = 0
       segment { length = 0 expr = ch(\"../grouptype\") }
     }
+    channel useExternalAgents {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../lookupExternal\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -523,21 +732,41 @@ vex_numcount	[ 0	locks=0	autoscope=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
 snippet	[ 0	locks=0	autoscope=0 ]	(	"string costume = chs(\"../setSingleCostume\");
 
-if (s@costumeName != \"\"){
-    costume = @costumeName;
+if (chi(\"../overrideExisting\") == 0){
+    if (s@costumeName != \"\"){
+        costume = @costumeName;
+    }
 }
 
-int found = find(agentlayers(0, @primnum), costume);
-if (found > -1){
-    //setagentcurrentlayer(0, @primnum, costume);
-    s@costumeName = costume;
-}
-else
+if (chi(\"verify\") == 1)
 {
-    warning(\"Costume '%s' does not match any layers for '%s'\", costume, s@agentname);
+    int agentprim = @primnum;
+    int inputidx = 0;
+    
+    if (chi(\"useExternalAgents\"))
+    {
+        agentprim = findattribval(1, \"point\", \"agentname\", s@agentname, 0);
+        inputidx = 1;
+        
+        if (agentprim < 0){
+            warning(\"No agent prim found to lookup costumes from for '%s'\", s@agentname);
+            return;
+        }
+    }
+    
+    int found = find(agentlayers(inputidx, agentprim), costume);
+    if (found > -1){
+        //setagentcurrentlayer(0, @primnum, costume);
+        s@costumeName = costume;
+    }
+    else
+    {
+        warning(\"Costume '%s' does not match any layers for '%s'\", costume, s@agentname);
+    }
 }
-
-"	)
+else{
+    s@costumeName = costume;
+}"	)
 exportlist	[ 0	locks=0	autoscope=0 ]	(	*	)
 vex_strict	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 autobind	[ 0	locks=0	autoscope=0 ]	(	"on"	)
@@ -551,6 +780,9 @@ vex_matchattrib	[ 0	locks=0	autoscope=0 ]	(	id	)
 vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"on"	)
 vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
 vex_precision	[ 0	locks=0	autoscope=0 ]	(	auto	)
+folder1	[ 0	locks=0 ]	(	0	0	)
+useExternalAgents	[ 8	locks=0 ]	(	[ useExternalAgents	0 ] 	)
+verify	[ 0	locks=0 ]	(	1	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -571,32 +803,34 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/randomize_layer_patterns.init"
+Content-Disposition: attachment; filename="hdaroot/lookup_layer.init"
 Content-Type: text/plain
 
 type = attribwrangle
 matchesdef = 1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/randomize_layer_patterns.def"
+Content-Disposition: attachment; filename="hdaroot/lookup_layer.def"
 Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 4.45396 -3.34757
-connectornextid 2
+position -1.38507 -20.4026
+connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
-0 "output1"
+2 "output1"
 }
 inputsNamed3
 {
-1 	has_seedAttrib 0 1 "input1"
+0 	(0) "" 1 "input1"
+1 	freeze 0 1 "input2"
 }
 inputs
 {
-0 	has_seedAttrib 0 1
+0 	(0) 0 1
+1 	freeze 0 1
 }
 stat
 {
@@ -611,7 +845,97 @@ exprlanguage hscript
 end
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/randomize_layer_patterns.spareparmdef"
+Content-Disposition: attachment; filename="hdaroot/lookup_layer.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+folder0	[ 0	locks=0	autoscope=0 ]	(	0	0	)
+group	[ 0	locks=0	autoscope=0 ]	(	""	)
+grouptype	[ 0	locks=0	autoscope=0 ]	(	"guess"	)
+class	[ 0	locks=0	autoscope=0 ]	(	"point"	)
+vex_numcount	[ 0	locks=0	autoscope=0 ]	(	10	)
+vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
+snippet	[ 0	locks=0	autoscope=0 ]	(	"s@costumeName = point(1, \"costumeName\", @primnum);
+if (@primnum > -1){
+    setagentcurrentlayer(0, @primnum, s@costumeName);
+}"	)
+exportlist	[ 0	locks=0	autoscope=0 ]	(	*	)
+vex_strict	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+autobind	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+bindings	[ 0	locks=0	autoscope=0 ]	(	0	)
+groupautobind	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+groupbindings	[ 0	locks=0	autoscope=0 ]	(	0	)
+vex_cwdpath	[ 0	locks=0	autoscope=0 ]	(	.	)
+vex_outputmask	[ 0	locks=0	autoscope=0 ]	(	*	)
+vex_updatenmls	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+vex_matchattrib	[ 0	locks=0	autoscope=0 ]	(	id	)
+vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
+vex_precision	[ 0	locks=0	autoscope=0 ]	(	auto	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/lookup_layer.netbox"
+Content-Type: text/plain
+
+__netbox1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/lookup_layer.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/randomize_layer_patterns1.init"
+Content-Type: text/plain
+
+type = attribwrangle
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/randomize_layer_patterns1.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 4.68965 -2.8449
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+0 "output1"
+}
+inputsNamed3
+{
+1 	has_seedAttrib 0 1 "input1"
+2 	agent_prims 0 1 "input2"
+}
+inputs
+{
+0 	has_seedAttrib 0 1
+1 	agent_prims 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author stephen.bester@cpv-ws018.za.sunrise.productions
+  access 0777
+}
+color UT_Color RGB 0.89 0.412 0.761 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/randomize_layer_patterns1.spareparmdef"
 Content-Type: text/plain
 
     group {
@@ -781,9 +1105,16 @@ Content-Type: text/plain
         type    string
         default { "" }
     }
+    parm {
+        name    "useExternalAgents"
+        label   "Useexternalagents"
+        type    integer
+        default { "0" }
+        range   { 0 10 }
+    }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/randomize_layer_patterns.chn"
+Content-Disposition: attachment; filename="hdaroot/randomize_layer_patterns1.chn"
 Content-Type: text/plain
 
 {
@@ -806,10 +1137,16 @@ Content-Type: text/plain
       start = -2.125
       segment { length = 0 expr = chs(\"../seedAttrib\") }
     }
+    channel useExternalAgents {
+      lefttype = extend
+      righttype = extend
+      flags = 0
+      segment { length = 0 expr = ch(\"../set_single_costume/useExternalAgents\") }
+    }
   }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/randomize_layer_patterns.parm"
+Content-Disposition: attachment; filename="hdaroot/randomize_layer_patterns1.parm"
 Content-Type: text/plain
 
 {
@@ -820,15 +1157,33 @@ grouptype	[ 0	locks=0	autoscope=0 ]	(	[ grouptype	3 ] 	)
 class	[ 0	locks=0	autoscope=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0	autoscope=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
-snippet	[ 0	locks=0	autoscope=0 ]	(	"if (s@costumeName != \"random\" && s@costumeName != \"\"){
-    return;
+snippet	[ 0	locks=0	autoscope=0 ]	(	"if (chi(\"../overrideExisting\") == 0){
+    if (s@costumeName != \"random\" && s@costumeName != \"\"){
+        return;
+    }
 }
-
 float seed = chf(\"../randomCostumeSeed\");
 int num_patterns = chi(\"../numCostumePatterns\");        
 
 string layers[];
 float weights[];
+
+// If we did not copy agent prims to points, 
+// we can lookup costsumes by agentname from an external source
+int agentprim = @primnum;
+int inputidx = 0;
+
+if (chi(\"useExternalAgents\")){
+//if (agentprim < 0){
+    agentprim = findattribval(1, \"point\", \"agentname\", s@agentname, 0);
+    inputidx = 1;
+    
+    if (agentprim < 0){
+        warning(\"No agent prim found to lookup clostumes from for '%s'\", s@agentname);
+        return;
+    }
+}
+string layercatalog[] = agentlayers(inputidx, agentprim);
 
 for (int i = 1; i <= num_patterns; ++i)
 {
@@ -836,7 +1191,7 @@ for (int i = 1; i <= num_patterns; ++i)
     float weight = chf(sprintf(\"../costumeWeight_%d\", i));
     
     int num_matches = 0;
-    foreach (string layername; agentlayers(0, @primnum))
+    foreach (string layername; layercatalog)
     {
         if (match(pattern, layername))
         {
@@ -882,18 +1237,19 @@ vex_matchattrib	[ 0	locks=0	autoscope=0 ]	(	id	)
 vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
 vex_precision	[ 0	locks=0	autoscope=0 ]	(	auto	)
-folder1	[ 0	locks=0	autoscope=0 ]	(	0	0	)
+folder1	[ 0	locks=0 ]	(	0	0	)
 seedAttrib	[ 0	locks=0	autoscope=0 ]	(	[ seedAttrib	agent_id ] 	)
+useExternalAgents	[ 8	locks=0 ]	(	[ useExternalAgents	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/randomize_layer_patterns.netbox"
+Content-Disposition: attachment; filename="hdaroot/randomize_layer_patterns1.netbox"
 Content-Type: text/plain
 
 __netbox2
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/randomize_layer_patterns.userdata"
+Content-Disposition: attachment; filename="hdaroot/randomize_layer_patterns1.userdata"
 Content-Type: text/plain
 
 {
@@ -904,34 +1260,32 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/lookup_layer.init"
+Content-Disposition: attachment; filename="hdaroot/set_costume_layer1.init"
 Content-Type: text/plain
 
 type = attribwrangle
 matchesdef = 1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/lookup_layer.def"
+Content-Disposition: attachment; filename="hdaroot/set_costume_layer1.def"
 Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -1.38507 -18.3758
-connectornextid 3
+position 3.72065 -13.096
+connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
-2 "output1"
+0 "output1"
 }
 inputsNamed3
 {
-0 	(0) "" 1 "input1"
-1 	freeze 0 1 "input2"
+1 	set_Costume_manually 2 1 "input1"
 }
 inputs
 {
-0 	(0) 0 1
-1 	freeze 0 1
+0 	set_Costume_manually 0 1
 }
 stat
 {
@@ -946,19 +1300,20 @@ exprlanguage hscript
 end
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/lookup_layer.parm"
+Content-Disposition: attachment; filename="hdaroot/set_costume_layer1.parm"
 Content-Type: text/plain
 
 {
 version 0.8
 folder0	[ 0	locks=0	autoscope=0 ]	(	0	0	)
-group	[ 0	locks=0	autoscope=0 ]	(	""	)
+group	[ 0	locks=0	autoscope=0 ]	(	`chs(\"../set_Costume_manually/group\")`	)
 grouptype	[ 0	locks=0	autoscope=0 ]	(	"guess"	)
 class	[ 0	locks=0	autoscope=0 ]	(	"point"	)
 vex_numcount	[ 0	locks=0	autoscope=0 ]	(	10	)
 vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
-snippet	[ 0	locks=0	autoscope=0 ]	(	"string costumeName = agentcurrentlayer(1, @primnum);
-setagentcurrentlayer(0, @primnum, costumeName);"	)
+snippet	[ 0	locks=0	autoscope=0 ]	(	"if (@primnum > -1){
+    setagentcurrentlayer(0, @primnum, s@costumeName);
+}"	)
 exportlist	[ 0	locks=0	autoscope=0 ]	(	*	)
 vex_strict	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 autobind	[ 0	locks=0	autoscope=0 ]	(	"on"	)
@@ -975,13 +1330,13 @@ vex_precision	[ 0	locks=0	autoscope=0 ]	(	auto	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/lookup_layer.netbox"
+Content-Disposition: attachment; filename="hdaroot/set_costume_layer1.netbox"
 Content-Type: text/plain
 
-__netbox1
+__netbox25
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
-Content-Disposition: attachment; filename="hdaroot/lookup_layer.userdata"
+Content-Disposition: attachment; filename="hdaroot/set_costume_layer1.userdata"
 Content-Type: text/plain
 
 {
@@ -1004,7 +1359,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 1.13362 -20.9396
+position 1.13362 -22.9664
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -1073,12 +1428,12 @@ outputsNamed3
 inputsNamed3
 {
 0 	set_single_costume 0 1 "input1"
-1 	randomize_layer_patterns 0 1 "input2"
+1 	randomize_layer_patterns1 0 1 "input2"
 }
 inputs
 {
 0 	set_single_costume 0 1
-1 	randomize_layer_patterns 0 1
+1 	randomize_layer_patterns1 0 1
 }
 stat
 {
@@ -1112,7 +1467,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0	autoscope=0 ]	(	[ input	0 ] 	)
+input	[ 0	locks=0	autoscope=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1145,7 +1500,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 3.72335 -11.0143
+position 3.72335 -13.7849
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -1154,11 +1509,11 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	set_Costume_manually 2 1 "input1"
+0 	set_costume_layer1 0 1 "input1"
 }
 inputs
 {
-0 	set_Costume_manually 0 1
+0 	set_costume_layer1 0 1
 }
 stat
 {
@@ -1240,7 +1595,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 2.46426 -8.19848
+position 2.46426 -10.2253
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -1249,11 +1604,11 @@ outputsNamed3
 }
 inputsNamed3
 {
-1 	switch_randomize_Actors 2 1 "input1"
+1 	set_costume_layer 0 1 "input1"
 }
 inputs
 {
-0 	switch_randomize_Actors 0 1
+0 	set_costume_layer 0 1
 }
 stat
 {
@@ -1310,7 +1665,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 5.35042 -8.19848
+position 5.35042 -10.2253
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -1378,7 +1733,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 1.0994 -12.783
+position 1.0994 -14.8098
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -1387,12 +1742,12 @@ outputsNamed3
 }
 inputsNamed3
 {
-0 	switch_randomize_Actors 2 1 "input1"
+0 	set_costume_layer 0 1 "input1"
 1 	repeat_end1 1 1 "input2"
 }
 inputs
 {
-0 	switch_randomize_Actors 0 1
+0 	set_costume_layer 0 1
 1 	repeat_end1 0 1
 }
 stat
@@ -1459,7 +1814,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 1.13362 -19.277
+position 1.13362 -21.3038
 connectornextid 3
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -1468,12 +1823,12 @@ outputsNamed3
 }
 inputsNamed3
 {
-1 	set_costume_layer 0 1 "input1"
+1 	switch_useManualClipEdits 2 1 "input1"
 2 	lookup_layer 2 1 "input2"
 }
 inputs
 {
-0 	set_costume_layer 0 1
+0 	switch_useManualClipEdits 0 1
 1 	lookup_layer 0 1
 }
 stat
@@ -1540,7 +1895,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position -0.832346 -17.0736
+position -0.832346 -19.1004
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -1549,11 +1904,11 @@ outputsNamed3
 }
 inputsNamed3
 {
-1 	set_costume_layer 0 1 "input1"
+1 	switch_useManualClipEdits 2 1 "input1"
 }
 inputs
 {
-0 	set_costume_layer 0 1
+0 	switch_useManualClipEdits 0 1
 }
 stat
 {
@@ -1643,16 +1998,108 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/agent_prims.init"
+Content-Type: text/plain
+
+type = object_merge
+matchesdef = 0
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/agent_prims.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 8.96428 0.48151
+connectornextid 1
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+0 "output1"
+}
+inputsNamed3
+{
+}
+inputs
+{
+}
+stat
+{
+  create -1
+  modify -1
+  author stephen@stephen-m2
+  access 0777
+}
+color UT_Color RGB 0.8 0.8 0.8 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/agent_prims.chn"
+Content-Type: text/plain
+
+{
+    channel objpath1 {
+      lefttype = extend
+      righttype = extend
+      defaultString = \"chsop(\\\"../agentPrims\\\")\"
+      flags = 0
+      segment { length = 0 expr = chsop(\"../agentPrims\") }
+    }
+  }
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/agent_prims.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+numobj	[ 0	locks=0 ]	(	1	)
+_separator	[ 0	locks=0 ]	(	)
+xformtype	[ 0	locks=0 ]	(	"object"	)
+xformpath	[ 0	locks=0 ]	(	""	)
+invertxform	[ 0	locks=0 ]	(	"off"	)
+createptgroups	[ 0	locks=0 ]	(	"off"	)
+ptgroupprefix	[ 0	locks=0 ]	(	_ptgrp_	)
+createprimgroups	[ 0	locks=0 ]	(	"off"	)
+primgroupprefix	[ 0	locks=0 ]	(	_primgrp_	)
+verbosegroups	[ 0	locks=0 ]	(	"off"	)
+suffixfirstgroup	[ 0	locks=0 ]	(	"on"	)
+createptstring	[ 0	locks=0 ]	(	"off"	)
+createprimstring	[ 0	locks=0 ]	(	"off"	)
+pathattrib	[ 0	locks=0 ]	(	objname	)
+pack	[ 0	locks=0 ]	(	"off"	)
+pivot	[ 0	locks=0 ]	(	"centroid"	)
+viewportlod	[ 0	locks=0 ]	(	"full"	)
+addpath	[ 0	locks=0 ]	(	"on"	)
+enable1	[ 0	locks=0 ]	(	"on"	)
+objpath1	[ 8	locks=0 ]	(	[ objpath1	/obj/geo2/agent_prims ] 	)
+group1	[ 0	locks=0 ]	(	""	)
+expand1	[ 0	locks=0 ]	(	"off"	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/agent_prims.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":"___EXTERNAL___"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.order"
 Content-Type: text/plain
 
-14
+16
 set_costume_layer
 OUT
 has_seedAttrib
 set_Costume_manually
 set_single_costume
-randomize_layer_patterns
 lookup_layer
 switch_randomize_Actors
 repeat_end1
@@ -1661,6 +2108,9 @@ repeat_begin1_metadata1
 switch_useManualClipEdits
 switch_static_calc
 freeze
+agent_prims
+randomize_layer_patterns1
+set_costume_layer1
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.net"

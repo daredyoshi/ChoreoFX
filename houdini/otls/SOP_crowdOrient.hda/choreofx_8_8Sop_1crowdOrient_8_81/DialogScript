@@ -60,11 +60,12 @@
             type    integer
             default { "0" }
             menu {
-                "0" "Set Direction"
-                "1" "Look at Position"
-                "2" "Nearest Pos on Geo"
-                "3" "Attrib Transfer from Geo"
-                "4" "Lookup per agent on Geo"
+                "0" "unchanged"
+                "1" "Set Direction"
+                "2" "Look at Position"
+                "3" "Nearest Pos on Geo"
+                "4" "Attrib Transfer from Geo"
+                "5" "Lookup per agent on Geo"
             }
             range   { 0! 10 }
             parmtag { "autoscope" "0000000000000000" }
@@ -75,7 +76,7 @@
             label   "Set Direction"
             type    float
             default { "0" }
-            hidewhen "{ headingMethod != 0 }"
+            hidewhen "{ headingMethod != 1 }"
             range   { 0 1 }
             parmtag { "autoscope" "0000000000000000" }
             parmtag { "script_callback_language" "python" }
@@ -86,7 +87,7 @@
             type    vector
             size    3
             default { "0" "0" "0" }
-            hidewhen "{ headingMethod != 1 }"
+            hidewhen "{ headingMethod != 2 }"
             range   { 0 1 }
             parmtag { "autoscope" "0000000000000000" }
             parmtag { "script_callback_language" "python" }
@@ -96,7 +97,7 @@
             label   "Transfer Attrib"
             type    string
             default { "N" }
-            hidewhen "{ headingMethod != 3 }"
+            hidewhen "{ headingMethod != 4 }"
             parmtag { "autoscope" "0000000000000000" }
             parmtag { "script_callback_language" "python" }
         }
@@ -105,7 +106,7 @@
             label   "Attrib id to match"
             type    string
             default { "agent_id" }
-            hidewhen "{ headingMethod != 4 }"
+            hidewhen "{ headingMethod != 5 }"
             parmtag { "autoscope" "0000000000000000" }
             parmtag { "script_callback_language" "python" }
         }
@@ -114,7 +115,7 @@
             label   "Lookup Attrib"
             type    string
             default { "N" }
-            hidewhen "{ headingMethod != 4 }"
+            hidewhen "{ headingMethod != 5 }"
             parmtag { "autoscope" "0000000000000000" }
             parmtag { "script_callback_language" "python" }
         }

@@ -1,6 +1,9 @@
 {
+	"hdaroot/vignette_group1.def":1606982048,
+	"hdaroot/switch_createprims.def":1607082943,
 	"hdaroot/repeat_end1.def":1601993725,
 	"hdaroot/merge1.def":1601993725,
+	"hdaroot/INPUT_VIGNETTES.def":1601993725,
 	"hdaroot/OUT_VIGNETTES.def":1601993725,
 	"hdaroot/split_group.def":1601993725,
 	"hdaroot/has_vignette_id.def":1601993725,
@@ -8,7 +11,6 @@
 	"hdaroot/randomize_actor_patterns1.def":1601993725,
 	"hdaroot/set_single_vignette.def":1601993725,
 	"hdaroot/randomize_vignette_patterns.def":1601993725,
-	"hdaroot/INPUT_VIGNETTES.def":1601993725,
 	"hdaroot/set_actor_manually.def":1601993725,
 	"hdaroot/has_seedAttrib.def":1601993725,
 	"hdaroot/repeat_begin1.def":1601993725,
@@ -21,6 +23,7 @@
 	"hdaroot/split_vignettes.def":1601993725,
 	"hdaroot/__netbox2.netboxinit":1601993725,
 	"hdaroot/copy_VIGNETTES.def":1601993725,
+	"hdaroot/has_vignette_id1.def":1601993725,
 	"hdaroot/agentVignetteImport.def":1606231220,
-	"hdaroot.def":1606924844
+	"hdaroot.def":1607432930
 }

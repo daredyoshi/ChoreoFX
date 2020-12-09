@@ -7,8 +7,9 @@ License:
 Extra:        guide=OUT_GUIDE 
 User:         
 Inputs:       0 to 4
+Outputs:      2
 Subnet:       true
 Python:       false
 Empty:        false
-Modified:     Thu Dec  3 11:17:19 2020
+Modified:     Fri Dec  4 14:45:17 2020
 

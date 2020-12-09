@@ -32,17 +32,22 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 16.5406 -16.4631
-connectornextid 0
-flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+position 5.05269 4.64126
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
+2 "output1"
 }
 inputsNamed3
 {
+0 	"" "" 1 "input1"
+1 	has_seedAttrib 1 1 "input2"
 }
 inputs
 {
+0 	"" 0 1
+1 	has_seedAttrib 0 1
 }
 stat
 {
@@ -64,6 +69,10 @@ Content-Type: text/plain
 	"___Version___":{
 		"type":"string",
 		"value":""
+	},
+	"wirestyle":{
+		"type":"string",
+		"value":"rounded"
 	}
 }
 
@@ -71,8 +80,9 @@ Content-Type: text/plain
 Content-Disposition: attachment; filename="hdaroot.inp"
 Content-Type: text/plain
 
-1
+2
 0 0 6 2 0 __NO_OWNER_NETWORK_BOX__ "RGB 0.30199998617172241 0.52499997615814209 0.11400000005960464"
+1 6.1287901737612627 4.7897962626751704 2 0 __NO_OWNER_NETWORK_BOX__ "FROMOUTPUT"
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot/hasagents.init"
@@ -166,7 +176,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0.562704 -8.73856
+position 0.562704 -9.64762
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -247,7 +257,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 2.438 -3.09173
+position 1.93704 -3.2017
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -412,7 +422,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0.469345 -7.23393
+position 0.469345 -8.14299
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -478,6 +488,91 @@ Content-Type: text/plain
 	"___toolid___":{
 		"type":"string",
 		"value":"sop_agentedit"
+	}
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/find_used.init"
+Content-Type: text/plain
+
+type = attribwrangle
+matchesdef = 1
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/find_used.def"
+Content-Type: text/plain
+
+sopflags sopflags = 
+comment ""
+position 6.33038 -2.83837
+connectornextid 3
+flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
+outputsNamed3
+{
+1 "output1"
+}
+inputsNamed3
+{
+0 	freeze 0 1 "input1"
+2 	(1) "" 1 "input2"
+}
+inputs
+{
+0 	freeze 0 1
+1 	(1) 0 1
+}
+stat
+{
+  create -1
+  modify -1
+  author choreofx@choreofx.com
+  access 0777
+}
+color UT_Color RGB 0.89 0.412 0.761 
+delscript ""
+exprlanguage hscript
+end
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/find_used.parm"
+Content-Type: text/plain
+
+{
+version 0.8
+folder0	[ 0	locks=0	autoscope=0 ]	(	0	0	)
+group	[ 0	locks=0	autoscope=0 ]	(	""	)
+grouptype	[ 0	locks=0	autoscope=0 ]	(	"guess"	)
+class	[ 0	locks=0	autoscope=0 ]	(	"point"	)
+vex_numcount	[ 0	locks=0	autoscope=0 ]	(	10	)
+vex_threadjobsize	[ 0	locks=0	autoscope=0 ]	(	1024	)
+snippet	[ 0	locks=0	autoscope=0 ]	(	"int found = findattribval(1, \"point\", \"agentname\", s@agentname, 0);
+
+if (found < 0){
+    removepoint(0, @ptnum, 1);
+}"	)
+exportlist	[ 0	locks=0	autoscope=0 ]	(	*	)
+vex_strict	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+autobind	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+bindings	[ 0	locks=0	autoscope=0 ]	(	0	)
+groupautobind	[ 0	locks=0	autoscope=0 ]	(	"on"	)
+groupbindings	[ 0	locks=0	autoscope=0 ]	(	0	)
+vex_cwdpath	[ 0	locks=0	autoscope=0 ]	(	.	)
+vex_outputmask	[ 0	locks=0	autoscope=0 ]	(	*	)
+vex_updatenmls	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+vex_matchattrib	[ 0	locks=0	autoscope=0 ]	(	id	)
+vex_inplace	[ 0	locks=0	autoscope=0 ]	(	"off"	)
+vex_selectiongroup	[ 0	locks=0	autoscope=0 ]	(	""	)
+vex_precision	[ 0	locks=0	autoscope=0 ]	(	auto	)
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/find_used.userdata"
+Content-Type: text/plain
+
+{
+	"___Version___":{
+		"type":"string",
+		"value":""
 	}
 }
 
@@ -712,7 +807,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0	autoscope=0 ]	(	[ input	0 ] 	)
+input	[ 0	locks=0	autoscope=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -802,7 +897,7 @@ pivot	[ 0	locks=0	autoscope=0 ]	(	"centroid"	)
 viewportlod	[ 0	locks=0	autoscope=0 ]	(	"full"	)
 addpath	[ 0	locks=0	autoscope=0 ]	(	"on"	)
 enable1	[ 0	locks=0	autoscope=0 ]	(	"on"	)
-objpath1	[ 0	locks=0	autoscope=0 ]	(	[ objpath1	"" ] 	)
+objpath1	[ 0	locks=0	autoscope=0 ]	(	[ objpath1	/obj/geo2/crowd_layout_brush/agent_prims ] 	)
 group1	[ 0	locks=0	autoscope=0 ]	(	""	)
 expand1	[ 0	locks=0	autoscope=0 ]	(	"off"	)
 }
@@ -1096,7 +1191,7 @@ version 0.8
 numerror	[ 0	locks=0	autoscope=0 ]	(	1	)
 errormsg1	[ 0	locks=0	autoscope=0 ]	(	"No source agent prims found at source!"	)
 severity1	[ 0	locks=0	autoscope=0 ]	(	"warn"	)
-enable1	[ 0	locks=0	autoscope=0 ]	(	[ enable1	1 ] 	)
+enable1	[ 0	locks=0	autoscope=0 ]	(	[ enable1	0 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1123,8 +1218,8 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0.463795 -6.16003
-connectornextid 4
+position 0.463795 -7.06909
+connectornextid 5
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
 {
@@ -1135,12 +1230,14 @@ inputsNamed3
 0 	groupdelete1 0 1 "input1"
 1 	keep_single 1 1 "input2"
 2 	freeze 0 1 "input3"
+4 	(__dot1) "" 1 "input4"
 }
 inputs
 {
 0 	groupdelete1 0 1
 1 	keep_single 0 1
 2 	freeze 0 1
+3 	(__dot1) 0 1
 }
 stat
 {
@@ -1173,7 +1270,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0	autoscope=0 ]	(	[ input	0 ] 	)
+input	[ 0	locks=0	autoscope=0 ]	(	[ input	3 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1265,7 +1362,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0.563802 -10.9134
+position 0.563802 -11.8225
 connectornextid 1
 flags =  lock off model off template off footprint off xray off bypass off display on render on highlight off unload off savedata off compress on colordefault off exposed on
 outputsNamed3
@@ -1372,7 +1469,7 @@ Content-Type: text/plain
 
 {
 version 0.8
-input	[ 0	locks=0	autoscope=0 ]	(	[ input	0 ] 	)
+input	[ 0	locks=0	autoscope=0 ]	(	[ input	1 ] 	)
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
@@ -1463,7 +1560,7 @@ Content-Type: text/plain
 
 sopflags sopflags = 
 comment ""
-position 0.560352 -9.79916
+position 0.560352 -10.7082
 connectornextid 2
 flags =  lock off model off template off footprint off xray off bypass off display off render off highlight off unload off savedata off compress on colordefault on exposed on
 outputsNamed3
@@ -1521,10 +1618,23 @@ Content-Type: text/plain
 }
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
+Content-Disposition: attachment; filename="hdaroot/__dot1.networkdotinit"
+Content-Type: text/plain
+
+{
+	"version":1,
+	"posx":6.83148097589796421,
+	"posy":-5.66714095032773724,
+	"pinned":false,
+	"color":"FROMOUTPUT",
+	"input":"find_used 0 1"
+}
+
+--HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.order"
 Content-Type: text/plain
 
-19
+20
 hasagents
 reset_xform
 keep_refagent_def
@@ -1544,6 +1654,7 @@ output0
 switch1
 groupdelete1
 attribdelete1
+find_used
 
 --HOUDINIMIMEBOUNDARY0xD3ADD339-0x00000F49-0x56B122C9-0x00000001HOUDINIMIMEBOUNDARY
 Content-Disposition: attachment; filename="hdaroot.net"

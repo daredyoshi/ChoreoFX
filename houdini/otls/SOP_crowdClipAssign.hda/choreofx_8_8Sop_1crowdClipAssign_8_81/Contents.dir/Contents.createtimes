@@ -2,8 +2,10 @@
 	"hdaroot/repeat_begin1_metadata1.def":1601993724,
 	"hdaroot/repeat_end1.def":1601993724,
 	"hdaroot/switch_randomize_clips.def":1601993724,
+	"hdaroot/set_clips1.def":1601993724,
+	"hdaroot/agentImport1.def":1607419677,
+	"hdaroot/randomize_clip_patterns1.def":1601993724,
 	"hdaroot/set_clip_manually.def":1601993724,
-	"hdaroot/randomize_clips.def":1601993724,
 	"hdaroot/repeat_begin1.def":1601993724,
 	"hdaroot/has_seedAttrib.def":1601993724,
 	"hdaroot/set_clip_manually1.def":1601993724,
@@ -11,9 +13,10 @@
 	"hdaroot/set_single_clips.def":1601993724,
 	"hdaroot/switch_useManualClipEdits.def":1601993724,
 	"hdaroot/__netbox22.netboxinit":1601993724,
+	"hdaroot/AgentPrims_read.def":1607418795,
 	"hdaroot/set_clips.def":1601993724,
 	"hdaroot/__netbox25.netboxinit":1601993724,
 	"hdaroot/__netbox2.netboxinit":1601993724,
 	"hdaroot/randomize_clip_patterns.def":1601993724,
-	"hdaroot.def":1606921342
+	"hdaroot.def":1607078895
 }

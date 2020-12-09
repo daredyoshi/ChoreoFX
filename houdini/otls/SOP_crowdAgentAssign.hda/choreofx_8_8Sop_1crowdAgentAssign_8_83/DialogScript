@@ -91,6 +91,46 @@
         default { "" }
     }
     parm {
+        name    "overrideExisting"
+        label   "Override Existing AgentName"
+        type    toggle
+        default { "0" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "createAgentPrims"
+        label   "Create Agent Prims"
+        type    toggle
+        default { "1" }
+        range   { 0! 1! }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "tryRetainPointOrder"
+        label   "Try Retain Point Order"
+        type    toggle
+        default { "1" }
+        range   { 0! 1! }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "keepUnmatched"
+        label   "Keep Unmatched Agents"
+        type    toggle
+        default { "1" }
+        range   { 0! 1! }
+        parmtag { "autoscope" "0000000000000000" }
+        parmtag { "script_callback_language" "python" }
+    }
+    parm {
+        name    "sepparm16"
+        label   "Separator"
+        type    separator
+        default { "" }
+    }
+    parm {
         name    "setSingleAgent"
         label   "Set Agent"
         type    string
@@ -262,6 +302,15 @@
             type    toggle
             invisible
             default { "1" }
+            parmtag { "script_callback_language" "python" }
+        }
+        parm {
+            name    "unpackVignettes"
+            label   "Unpack Vignettes"
+            type    toggle
+            default { "1" }
+            range   { 0! 1! }
+            parmtag { "autoscope" "0000000000000000" }
             parmtag { "script_callback_language" "python" }
         }
         parm {
