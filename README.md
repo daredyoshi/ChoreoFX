@@ -1,6 +1,9 @@
-# Overview
+![Banner](https://i.imgur.com/XQ7lhIp.png)
 
-Community Driven tools for Houdini's Crowd System
+* For a quick start to create your first procedural crowd checkout [Creating a Procedural Crowd](https://github.com/SunriseProductions/ChoreoFX/wiki/Creating-a-Procedural-Crowd)
+* To dive into our philosophy check out the [Glossary](https://github.com/SunriseProductions/ChoreoFX/wiki/Glossary)
+* Before reporting an issue check if it's already on our [radar](https://github.com/SunriseProductions/ChoreoFX/wiki/Known-Issues)
+* We greatly welcome [contributions!](https://github.com/SunriseProductions/ChoreoFX/blob/develop/CONTRIBUTING.md)
 
 ## Latest Release 
 [![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/Z2sMXyhyOPQ/0.jpg)](https://youtu.be/Z2sMXyhyOPQ)
